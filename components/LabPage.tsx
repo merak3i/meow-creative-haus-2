@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { BarChart3, Bot, Clock3, Network } from "lucide-react";
 import { openSourceProjects } from "@/lib/data";
 import ClientWebsites from "@/components/ClientWebsites";
 import LoopEngineering from "@/components/LoopEngineering";
@@ -22,19 +23,24 @@ const stagger = {
 
 const FEATURES = [
   {
-    icon: "📊",
+    icon: BarChart3,
     title: "Token Analytics",
-    desc: "Cost by day, project, model, and session type. Ghost sessions flagged. Burn rate forecasted.",
+    desc: "Token spend by day, project, model, and session type. Ghost sessions flagged. Burn rate forecasted.",
   },
   {
-    icon: "⚡",
+    icon: Clock3,
     title: "Agent Ops",
-    desc: "Wall-clock Gantt for subagent runs. Which agents overlapped. Output tokens per dollar — the number that matters.",
+    desc: "Wall-clock timelines for subagent runs. See overlap, pacing, and output efficiency in one pass.",
   },
   {
-    icon: "🐱",
+    icon: Network,
+    title: "Loop Visualizer",
+    desc: "A loop-engineering map for multi-agent systems. Track control lanes, dependencies, and proof before anything claims green.",
+  },
+  {
+    icon: Bot,
     title: "3D Companion",
-    desc: "WebGL cat that physically evolves from your coding patterns. Tamagotchi mechanics. Permanent memory marks. Shareable card.",
+    desc: "A living desktop companion that evolves with your coding patterns, memory marks, and long-run habits.",
   },
 ];
 
@@ -73,7 +79,7 @@ export default function LabPage() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="border border-surface-border bg-surface-elevated p-8 md:p-12 mb-8"
+          className="border border-surface-border bg-surface-elevated p-8 md:p-12 mb-24"
         >
           {/* Header */}
           <div className="flex flex-wrap items-center gap-2 mb-2">
@@ -84,10 +90,12 @@ export default function LabPage() {
           <p className="text-sm text-text-muted mb-6">{project.tagline}</p>
 
           {/* Feature columns */}
-          <div className="grid md:grid-cols-3 gap-5 mb-6 pb-6 border-b border-surface-border">
+          <div className="grid gap-5 mb-6 pb-6 border-b border-surface-border md:grid-cols-2 lg:grid-cols-4">
             {FEATURES.map((f) => (
               <div key={f.title}>
-                <span className="text-base block mb-2">{f.icon}</span>
+                <span className="mb-3 inline-flex h-9 w-9 items-center justify-center border border-surface-border bg-surface text-accent-teal">
+                  <f.icon className="h-4 w-4" strokeWidth={1.8} />
+                </span>
                 <h3 className="text-xs font-semibold mb-1">{f.title}</h3>
                 <p className="text-xs text-text-muted leading-relaxed">{f.desc}</p>
               </div>
