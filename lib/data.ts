@@ -117,10 +117,10 @@ export const openSourceProjects = [
   {
     name: "Meow Operations",
     slug: "meow-ops",
-    tagline: "Know what your AI agents actually cost.",
+    tagline: "The control room for the agentic era — costs, sessions, and loops kept honest.",
     description:
-      "Local-first token analytics dashboard for Claude Code, Cursor, Aider and Codex. Wall-clock Gantt chart for agent runs, 30+ model pricing, and a 3D companion cat that evolves from your coding patterns.",
-    stats: ["30+ models", "4 AI tools", "MIT license", "3D companion"],
+      "Local-first command deck for Claude Code, Cursor, Aider and Codex: token analytics, wall-clock agent timelines, and The Loom — a read-only control room where multi-agent loops must show their evidence before anything claims green.",
+    stats: ["30+ models", "4 AI tools", "The Loom loop control room", "MIT license", "3D companion"],
     github: "https://github.com/merak3i/meow-ops",
     demo: process.env.NEXT_PUBLIC_DEMO_URL ?? "",
     status: "live",
