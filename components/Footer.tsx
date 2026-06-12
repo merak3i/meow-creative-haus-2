@@ -51,19 +51,19 @@ export default function Footer() {
             <p className="text-label-sm uppercase text-text-dim mb-6 tracking-widest">
               Start a Project
             </p>
+            <p className="text-accent-teal text-body-lg block mb-2">
+              Chat on WhatsApp
+            </p>
+            <p className="text-text-dim text-sm mb-4">
+              Or email {siteConfig.email}
+            </p>
             <a
-              href={`mailto:${siteConfig.email}`}
-              className="text-accent-teal hover:text-accent-gold transition-colors duration-300 text-body-lg block mb-4"
-            >
-              {siteConfig.email}
-            </a>
-            <a
-              href={siteConfig.calendly}
+              href={siteConfig.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block px-6 py-3 border border-text-dim text-text text-label-sm uppercase tracking-widest hover:bg-text hover:text-surface transition-all duration-300"
             >
-              Book a Call
+              Start on WhatsApp
             </a>
           </div>
         </div>

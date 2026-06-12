@@ -2,6 +2,7 @@ export const siteConfig = {
   name: "Meow Creative Haus",
   email: "mewdiaservice@gmail.com",
   calendly: "https://calendly.com/mewdiaservice/30min",
+  whatsapp: "https://wa.me/message/2A5FTZGCFJY6B1",
   social: {
     instagram: "https://www.instagram.com/m3ow.ai/",
     linkedinCompany:

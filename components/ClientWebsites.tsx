@@ -3,7 +3,7 @@
 import { useMemo } from "react";
 import { motion } from "framer-motion";
 import { FocusRail, type FocusRailItem } from "@/components/ui/focus-rail";
-import { clientWebsites } from "@/lib/data";
+import { clientWebsites, siteConfig } from "@/lib/data";
 
 // ─── Animation ──────────────────────────────────────────────────────────────
 
@@ -83,7 +83,9 @@ export default function ClientWebsites() {
             Need a site that works as hard as your team? We&apos;ll design, build, and ship it.
           </p>
           <a
-            href="mailto:mewdiaservice@gmail.com"
+            href={siteConfig.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
             className="shrink-0 inline-flex items-center gap-2 px-6 py-3 bg-accent-teal text-surface text-label-sm uppercase tracking-wider hover:bg-accent-teal/90 transition-colors duration-300"
           >
             Start a project →

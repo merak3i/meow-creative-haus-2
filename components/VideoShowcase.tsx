@@ -3,7 +3,7 @@
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FocusRail, type FocusRailItem } from "@/components/ui/focus-rail";
-import { clientVideos } from "@/lib/data";
+import { clientVideos, siteConfig } from "@/lib/data";
 
 // ─── Animation ──────────────────────────────────────────────────────────────
 
@@ -220,7 +220,9 @@ export default function VideoShowcase() {
             <span className="text-text">Let&apos;s build the campaign.</span>
           </p>
           <a
-            href="mailto:mewdiaservice@gmail.com"
+            href={siteConfig.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
             className="shrink-0 inline-flex items-center gap-2 px-6 py-3 bg-accent-teal text-surface text-label-sm uppercase tracking-wider hover:bg-accent-teal/90 transition-colors duration-300"
           >
             Get a production brief →

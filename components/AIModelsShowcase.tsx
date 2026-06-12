@@ -3,7 +3,7 @@
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import { FocusRail, type FocusRailItem } from "@/components/ui/focus-rail";
-import { aiCampaigns } from "@/lib/data";
+import { aiCampaigns, siteConfig } from "@/lib/data";
 
 // ─── Animation ──────────────────────────────────────────────────────────────
 
@@ -129,7 +129,9 @@ export default function AIModelsShowcase() {
             and ship the campaign.
           </p>
           <a
-            href="mailto:mewdiaservice@gmail.com"
+            href={siteConfig.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
             className="shrink-0 inline-flex items-center gap-2 px-6 py-3 bg-accent-teal text-surface text-label-sm uppercase tracking-wider hover:bg-accent-teal/90 transition-colors duration-300"
           >
             Start a campaign →

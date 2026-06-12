@@ -95,7 +95,7 @@ export default function Hero() {
               className="flex flex-wrap gap-4"
             >
               <a
-                href={siteConfig.calendly}
+                href={siteConfig.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
               >

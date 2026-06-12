@@ -13,7 +13,7 @@ function useNavLinks() {
     { label: "About",    href: `${prefix}#authority` },
     { label: "Lab",      href: "/lab"                },
     { label: "Playbook", href: `${prefix}#substack`  },
-    { label: "Contact",  href: `mailto:${siteConfig.email}` },
+    { label: "Contact",  href: siteConfig.whatsapp, external: true },
   ];
 }
 
@@ -34,18 +34,20 @@ export default function Navigation() {
             <a
               key={link.label}
               href={link.href}
+              target={link.external ? "_blank" : undefined}
+              rel={link.external ? "noopener noreferrer" : undefined}
               className="text-label-sm uppercase text-text-muted hover:text-text transition-colors duration-300"
             >
               {link.label}
             </a>
           ))}
           <a
-            href={siteConfig.calendly}
+            href={siteConfig.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
             className="text-label-sm uppercase px-5 py-2.5 border border-text-dim text-text hover:bg-text hover:text-surface transition-all duration-300"
           >
-            Book a Call
+            Chat on WhatsApp
           </a>
         </div>
 
@@ -84,6 +86,8 @@ export default function Navigation() {
               <motion.a
                 key={link.label}
                 href={link.href}
+                target={link.external ? "_blank" : undefined}
+                rel={link.external ? "noopener noreferrer" : undefined}
                 onClick={() => setMenuOpen(false)}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -94,7 +98,7 @@ export default function Navigation() {
               </motion.a>
             ))}
             <motion.a
-              href={siteConfig.calendly}
+              href={siteConfig.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
               initial={{ opacity: 0, y: 20 }}
@@ -102,7 +106,7 @@ export default function Navigation() {
               transition={{ delay: 0.4 }}
               className="mt-4 px-8 py-3 border border-accent-teal text-accent-teal text-label-sm uppercase tracking-widest"
             >
-              Book a Call
+              Chat on WhatsApp
             </motion.a>
 
             <motion.div
