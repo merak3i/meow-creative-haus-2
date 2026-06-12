@@ -2,6 +2,7 @@ import Hero from "@/components/Hero";
 import ClientMarquee from "@/components/ClientMarquee";
 import Offers from "@/components/Offers";
 import Lab from "@/components/Lab";
+import LoopEngineering from "@/components/LoopEngineering";
 import Authority from "@/components/Authority";
 import SubstackFeed from "@/components/SubstackFeed";
 
@@ -12,6 +13,7 @@ export default function Home() {
       <ClientMarquee />
       <Offers />
       <Lab />
+      <LoopEngineering />
       <Authority />
       <SubstackFeed />
     </>
