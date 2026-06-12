@@ -117,7 +117,7 @@ export const openSourceProjects = [
   {
     name: "Meow Operations",
     slug: "meow-ops",
-    tagline: "The control room for the agentic era — costs, sessions, and loops kept honest.",
+    tagline: "The command deck for the agentic era — token spend, agent timelines, and loop evidence in one place.",
     description:
       "Local-first command deck for Claude Code, Cursor, Aider and Codex: token analytics, wall-clock agent timelines, and The Loom — a read-only control room where multi-agent loops must show their evidence before anything claims green.",
     stats: ["30+ models", "4 AI tools", "The Loom loop control room", "MIT license", "3D companion"],
