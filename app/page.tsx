@@ -3,6 +3,7 @@ import ClientMarquee from "@/components/ClientMarquee";
 import Offers from "@/components/Offers";
 import Lab from "@/components/Lab";
 import LoopEngineering from "@/components/LoopEngineering";
+import PatherleTeaser from "@/components/PatherleTeaser";
 import Authority from "@/components/Authority";
 import SubstackFeed from "@/components/SubstackFeed";
 
@@ -14,6 +15,7 @@ export default function Home() {
       <Offers />
       <Lab />
       <LoopEngineering />
+      <PatherleTeaser />
       <Authority />
       <SubstackFeed />
     </>
