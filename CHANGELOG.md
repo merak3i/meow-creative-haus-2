@@ -9,6 +9,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.4.0] - 2026-06-12
+
+### Added
+- `components/LoopEngineering.tsx` — Loop Engineering homepage section: magnified five-frame tour of The Loom via `AnimatedTabs`, expandable README card
+- `components/AnimatedTabs.tsx` — tab viewer metamorphosed to site tokens (mono labels, teal spring-pill, blur-in transition)
+- `app/patherle/page.tsx` + `components/PatherleTease.tsx` — Patherle teaser page: vector-field backdrop, scroll-tilt reveal, five redacted stills, build-log roadmap
+- `components/PatherleTeaser.tsx` — homepage FILE // 003 band linking /patherle
+- `components/ShipLog.tsx` — homepage ship-log section (this list, in public)
+- `components/VectorField.tsx`, `components/ContainerScroll.tsx`, `components/PatherleRoadmap.tsx`
+- `public/screenshots/loom/*` (5) and `public/screenshots/patherle/*` (5) — annotated, sanitized captures
+
+### Changed
+- `lib/data.ts` — Meow Operations re-souled: "The control room for the agentic era"; The Loom added to stats
+
+### Removed
+- `components/InfiniteGallery.tsx` + three.js stack (superseded by AnimatedTabs; drops transitive fast-xml-parser advisories)
+
+
 ## [1.3.0] - 2026-04-15
 
 ### Added
