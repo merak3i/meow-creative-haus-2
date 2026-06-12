@@ -4,6 +4,9 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { openSourceProjects } from "@/lib/data";
 import ClientWebsites from "@/components/ClientWebsites";
+import LoopEngineering from "@/components/LoopEngineering";
+import PatherleTeaser from "@/components/PatherleTeaser";
+import ShipLog from "@/components/ShipLog";
 import VideoShowcase from "@/components/VideoShowcase";
 import ShortsShowcase from "@/components/ShortsShowcase";
 
@@ -147,15 +150,13 @@ export default function LabPage() {
           )}
         </motion.div>
 
-        {/* Footer attribution */}
-        <p className="text-label-sm text-text-dim text-center">
-          Powered by{" "}
-          <a href="/" className="text-text-muted hover:text-accent-teal transition-colors duration-300">
-            Meow Creative Haus
-          </a>{" "}
-          · MIT License · Free forever
-        </p>
       </div>
+
+      <PatherleTeaser />
+
+      <LoopEngineering />
+
+      <ShipLog />
 
       {/* Video Showcase Carousel — landscape, long-form */}
       <VideoShowcase />
@@ -165,6 +166,14 @@ export default function LabPage() {
 
       {/* Shorts Showcase — portrait, vertical short-form */}
       <ShortsShowcase />
+
+      <p className="px-6 md:px-12 pt-16 text-label-sm text-text-dim text-center">
+        Powered by{" "}
+        <a href="/" className="text-text-muted hover:text-accent-teal transition-colors duration-300">
+          Meow Creative Haus
+        </a>{" "}
+        · MIT License · Free forever
+      </p>
     </main>
   );
 }

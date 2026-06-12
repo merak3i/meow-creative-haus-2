@@ -4,11 +4,11 @@ import LabPage from "@/components/LabPage";
 export const metadata: Metadata = {
   title: "Lab — Meow Creative Haus",
   description:
-    "Open source tools for the agentic era. Meow Operations — free token analytics dashboard for Claude Code, Cursor, Aider and Codex.",
+    "Open tools, internal systems, and ship notes from the lab. Meow Operations, Patherle, Loop Engineering, and the build log.",
   openGraph: {
     title: "Lab — Meow Creative Haus",
     description:
-      "Open source tools for the agentic era. Free, MIT-licensed, local-first.",
+      "Open tools, internal systems, and ship notes from the lab floor.",
     type: "website",
   },
 };
