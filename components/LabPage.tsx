@@ -45,10 +45,10 @@ const FEATURES = [
 ];
 
 const COMING = [
-  "Run narratives — one plain English sentence per run: \"3 agents, 68% cache hit, clean run.\"",
-  "Health score (0–100): efficiency, cache rate, ghost ratio and parallelism in one grade.",
-  "Slug identities — consistent color and emoji per agent name across every run.",
-  "Constellation view — your runs as a star map. Efficiency on Y, time on X, cost as bubble size.",
+  "Run narratives: one plain English sentence per run, for example \"3 agents, 68% cache hit, clean run.\"",
+  "Health score (0-100): efficiency, cache rate, ghost ratio and parallelism in one grade.",
+  "Slug identities: consistent color and marker per agent name across every run.",
+  "Constellation view: your runs as a star map. Efficiency on Y, time on X, cost as bubble size.",
 ];
 
 export default function LabPage() {
@@ -104,7 +104,7 @@ export default function LabPage() {
 
           {/* Install block */}
           <p className="text-[10px] uppercase text-text-dim tracking-[0.15em] mb-2">
-            Install in 2 minutes — no account needed
+            Install in 2 minutes. No account needed
           </p>
           <div className="bg-surface border border-surface-border font-mono text-xs text-text-muted p-4 mb-5 overflow-x-auto">
             <p><span className="text-accent-teal">$</span> git clone https://github.com/merak3i/meow-ops.git</p>
@@ -113,7 +113,7 @@ export default function LabPage() {
           </div>
           <p className="text-[11px] text-text-dim mb-6">
             Open <span className="text-text-muted font-mono">http://localhost:5173</span>. Your sessions load immediately.
-            Install as a desktop app via Chrome → address bar → install icon.
+            Install as a desktop app from the Chrome address bar install icon.
           </p>
 
           {/* CTAs */}

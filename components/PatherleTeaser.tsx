@@ -42,13 +42,13 @@ export default function PatherleTeaser() {
             </div>
             <div className="flex-1">
               <h3 className="text-display-md mb-2 group-hover:text-accent-gold transition-colors duration-300">
-                Patherle — an AI business OS, assembling in our lab.
+                Patherle: an AI business OS assembling in our lab.
               </h3>
               <p className="text-body-md text-text-muted max-w-[620px]">
-                WhatsApp-first. 22 languages. Live for early Indian businesses — and
-                learning to run them on its own. Most of it is{" "}
+                WhatsApp-first. 22 languages. Live for early Indian businesses.
+                The private automation layer stays{" "}
                 <span className="font-mono text-accent-gold/90">[WITHHELD]</span>. Some
-                of it, we&apos;ll show you.
+                public surfaces, we&apos;ll show you.
               </p>
             </div>
             <span className="shrink-0 text-label-sm uppercase tracking-wider text-text-dim group-hover:text-accent-gold transition-colors duration-300">

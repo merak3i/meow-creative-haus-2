@@ -4,7 +4,7 @@ import LabPage from "@/components/LabPage";
 export const metadata: Metadata = {
   title: "Lab — Meow Creative Haus",
   description:
-    "Open tools, internal systems, and ship notes from the lab. Meow Operations, Patherle, Loop Engineering, and the build log.",
+    "Open tools, public systems, and ship notes from the lab. Meow Operations, Loop Ops, client work, and the build log.",
   openGraph: {
     title: "Lab — Meow Creative Haus",
     description:

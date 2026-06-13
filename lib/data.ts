@@ -118,10 +118,10 @@ export const openSourceProjects = [
   {
     name: "Meow Operations",
     slug: "meow-ops",
-    tagline: "The command deck for the agentic era — token spend, agent timelines, and loop evidence in one place.",
+    tagline: "Local-first command deck for agent work: token spend, timelines, and loop evidence in one place.",
     description:
-      "Local-first command deck for Claude Code, Cursor, Aider and Codex: token analytics, wall-clock agent timelines, and The Loom — a read-only control room where multi-agent loops must show their evidence before anything claims green.",
-    stats: ["30+ models", "4 AI tools", "The Loom loop control room", "MIT license", "3D companion"],
+      "Local-first command deck for Claude Code, Cursor, Aider and Codex: token analytics, wall-clock timelines, and Loop Ops, a read-only map where multi-agent loops show evidence before anything claims green.",
+    stats: ["30+ models", "4 AI tools", "Loop Ops control room", "MIT license", "3D companion"],
     github: "https://github.com/merak3i/meow-ops",
     demo: process.env.NEXT_PUBLIC_DEMO_URL ?? "",
     status: "live",

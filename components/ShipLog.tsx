@@ -1,6 +1,6 @@
 "use client";
 
-// Ship log — the changelog block metamorphosed into MCH's language: mono date
+// Ship log: the changelog block metamorphosed into MCH's language: mono date
 // rail, hairline separators, teal LATEST badge. Real entries, real dates;
 // shipping cadence is the marketing.
 import { motion } from "framer-motion";
@@ -15,14 +15,14 @@ interface ShipLogEntry {
 const entries: ShipLogEntry[] = [
   {
     date: "JUN 2026",
-    title: "Loop Engineering goes live",
+    title: "Loop Ops goes public",
     description:
-      "The Loom lands on this site: a magnified five-frame tour of our loop control room, under a new manifesto — we don't just run agents, we keep them honest.",
+      "Meow Ops opens up with a five-frame Loop Ops tour built from generic demo data and an evidence-first posture.",
     badge: "LATEST",
   },
   {
     date: "JUN 2026",
-    title: "FILE // 003 — Patherle, partially declassified",
+    title: "FILE // 003: Patherle, partially declassified",
     description:
       "The AI business OS we're building in the dark gets a teaser page: five stills, gold [WITHHELD] bars, and a build log that says just enough.",
   },
@@ -30,11 +30,11 @@ const entries: ShipLogEntry[] = [
     date: "JUN 2026",
     title: "Meow Ops becomes a control room",
     description:
-      "The Loom ships inside Meow Ops — 31 entities woven from one spreadsheet, a fail-loud importer, run timelines that join real session costs.",
+      "Loop Ops ships inside Meow Ops with a generic workbook importer, local run timelines, and evidence-first node states.",
   },
   {
     date: "APR 2026",
-    title: "v1.3 — The Lab fills up",
+    title: "v1.3: The Lab fills up",
     description:
       "Client showcases, video and shorts carousels, and a marquee of brands built to convert.",
   },

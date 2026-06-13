@@ -1,0 +1,78 @@
+<svg width="1440" height="900" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1440" height="900" fill="#080B0F"/>
+  <rect x="34" y="34" width="1372" height="832" fill="#0D1117" stroke="#24313A"/>
+  <text x="72" y="86" fill="#E9F1F1" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">Loop Ops lane board</text>
+  <text x="72" y="118" fill="#AAB5B8" font-family="Inter, Arial, sans-serif" font-size="15">Generic release-readiness workflow. No client systems or private credentials.</text>
+  <rect x="1136" y="66" width="196" height="32" fill="#12231F" stroke="#276F61"/>
+  <text x="1160" y="87" fill="#7ED7C1" font-family="JetBrains Mono, monospace" font-size="12">PUBLIC DEMO DATA</text>
+
+  <g font-family="Inter, Arial, sans-serif">
+    <rect x="72" y="166" width="294" height="618" fill="#0A0F15" stroke="#22303A"/>
+    <text x="98" y="204" fill="#7ED7C1" font-family="JetBrains Mono, monospace" font-size="12">01 RESEARCH</text>
+    <text x="98" y="235" fill="#F3F6F2" font-size="24" font-weight="700">Signal Lane</text>
+    <text x="98" y="262" fill="#AAB5B8" font-size="14">3 nodes, 0 blockers</text>
+    <rect x="98" y="308" width="242" height="88" fill="#121821" stroke="#2E4450"/>
+    <text x="120" y="342" fill="#F3F6F2" font-size="18" font-weight="700">Input scan</text>
+    <text x="120" y="369" fill="#AAB5B8" font-size="13">sources linked</text>
+    <circle cx="318" cy="338" r="8" fill="#7ED7C1"/>
+    <rect x="98" y="424" width="242" height="88" fill="#121821" stroke="#2E4450"/>
+    <text x="120" y="458" fill="#F3F6F2" font-size="18" font-weight="700">Risk notes</text>
+    <text x="120" y="485" fill="#AAB5B8" font-size="13">not verified field present</text>
+    <circle cx="318" cy="454" r="8" fill="#7ED7C1"/>
+    <rect x="98" y="540" width="242" height="88" fill="#121821" stroke="#2E4450"/>
+    <text x="120" y="574" fill="#F3F6F2" font-size="18" font-weight="700">Context handoff</text>
+    <text x="120" y="601" fill="#AAB5B8" font-size="13">ready for build</text>
+    <circle cx="318" cy="570" r="8" fill="#7ED7C1"/>
+
+    <rect x="402" y="166" width="294" height="618" fill="#0A0F15" stroke="#22303A"/>
+    <text x="428" y="204" fill="#7ED7C1" font-family="JetBrains Mono, monospace" font-size="12">02 BUILD</text>
+    <text x="428" y="235" fill="#F3F6F2" font-size="24" font-weight="700">Change Lane</text>
+    <text x="428" y="262" fill="#AAB5B8" font-size="14">5 nodes, 2 checks due</text>
+    <rect x="428" y="308" width="242" height="88" fill="#121821" stroke="#2E4450"/>
+    <text x="450" y="342" fill="#F3F6F2" font-size="18" font-weight="700">Patch draft</text>
+    <text x="450" y="369" fill="#AAB5B8" font-size="13">diff attached</text>
+    <circle cx="648" cy="338" r="8" fill="#7ED7C1"/>
+    <rect x="428" y="424" width="242" height="88" fill="#121821" stroke="#2E4450"/>
+    <text x="450" y="458" fill="#F3F6F2" font-size="18" font-weight="700">Integration run</text>
+    <text x="450" y="485" fill="#AAB5B8" font-size="13">awaiting test output</text>
+    <circle cx="648" cy="454" r="8" fill="#E6B860"/>
+    <rect x="428" y="540" width="242" height="88" fill="#121821" stroke="#2E4450"/>
+    <text x="450" y="574" fill="#F3F6F2" font-size="18" font-weight="700">Cleanup pass</text>
+    <text x="450" y="601" fill="#AAB5B8" font-size="13">debug logs blocked</text>
+    <circle cx="648" cy="570" r="8" fill="#E6B860"/>
+
+    <rect x="732" y="166" width="294" height="618" fill="#0A0F15" stroke="#22303A"/>
+    <text x="758" y="204" fill="#7ED7C1" font-family="JetBrains Mono, monospace" font-size="12">03 REVIEW</text>
+    <text x="758" y="235" fill="#F3F6F2" font-size="24" font-weight="700">Proof Lane</text>
+    <text x="758" y="262" fill="#AAB5B8" font-size="14">4 nodes, 1 blocker</text>
+    <rect x="758" y="308" width="242" height="88" fill="#121821" stroke="#2E4450"/>
+    <text x="780" y="342" fill="#F3F6F2" font-size="18" font-weight="700">Secret scan</text>
+    <text x="780" y="369" fill="#AAB5B8" font-size="13">false positives named</text>
+    <circle cx="978" cy="338" r="8" fill="#7ED7C1"/>
+    <rect x="758" y="424" width="242" height="88" fill="#121821" stroke="#2E4450"/>
+    <text x="780" y="458" fill="#F3F6F2" font-size="18" font-weight="700">Claim review</text>
+    <text x="780" y="485" fill="#AAB5B8" font-size="13">copy under review</text>
+    <circle cx="978" cy="454" r="8" fill="#E6B860"/>
+    <rect x="758" y="540" width="242" height="88" fill="#121821" stroke="#2E4450"/>
+    <text x="780" y="574" fill="#F3F6F2" font-size="18" font-weight="700">Evidence gate</text>
+    <text x="780" y="601" fill="#AAB5B8" font-size="13">missing screenshot</text>
+    <circle cx="978" cy="570" r="8" fill="#EC7D6C"/>
+
+    <rect x="1062" y="166" width="294" height="618" fill="#0A0F15" stroke="#22303A"/>
+    <text x="1088" y="204" fill="#7ED7C1" font-family="JetBrains Mono, monospace" font-size="12">04 OPS</text>
+    <text x="1088" y="235" fill="#F3F6F2" font-size="24" font-weight="700">Release Lane</text>
+    <text x="1088" y="262" fill="#AAB5B8" font-size="14">6 nodes, deploy held</text>
+    <rect x="1088" y="308" width="242" height="88" fill="#121821" stroke="#2E4450"/>
+    <text x="1110" y="342" fill="#F3F6F2" font-size="18" font-weight="700">Preview deploy</text>
+    <text x="1110" y="369" fill="#AAB5B8" font-size="13">link captured</text>
+    <circle cx="1308" cy="338" r="8" fill="#7ED7C1"/>
+    <rect x="1088" y="424" width="242" height="88" fill="#121821" stroke="#2E4450"/>
+    <text x="1110" y="458" fill="#F3F6F2" font-size="18" font-weight="700">Owner approval</text>
+    <text x="1110" y="485" fill="#AAB5B8" font-size="13">manual step</text>
+    <circle cx="1308" cy="454" r="8" fill="#E6B860"/>
+    <rect x="1088" y="540" width="242" height="88" fill="#121821" stroke="#2E4450"/>
+    <text x="1110" y="574" fill="#F3F6F2" font-size="18" font-weight="700">Prod publish</text>
+    <text x="1110" y="601" fill="#AAB5B8" font-size="13">write disabled</text>
+    <circle cx="1308" cy="570" r="8" fill="#EC7D6C"/>
+  </g>
+</svg>

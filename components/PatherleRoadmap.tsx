@@ -18,31 +18,31 @@ const entries: RoadmapEntry[] = [
     date: "TODAY",
     title: "Live for early businesses",
     description:
-      "Multilingual WhatsApp + voice commerce, catalogue, leads, campaigns, payments — already serving Indian MSMEs in production.",
+      "Multilingual WhatsApp + voice commerce, catalogue, leads, campaigns, and payments for Indian MSMEs in production.",
     badge: "LIVE",
     badgeTone: "live",
   },
   {
     date: "IN THE LAB",
-    title: "An agentic harness with trust gates",
+    title: "A controlled assistant layer",
     description:
-      "Dozens of AI surfaces, each behind eval gates that remember every mistake. An assistant earns autonomy here — it is never given it.",
+      "Private automation work stays behind approval, audit, and rollback paths. The public page stays high-level until the system is ready.",
     badge: "WIP",
     badgeTone: "wip",
   },
   {
     date: "NEXT",
-    title: "Genie stops suggesting and starts doing",
+    title: "Genie gets safer before it gets louder",
     description:
-      "Catalogue fixes, campaign drafts, integration repair — executed end-to-end, human-approved, always reversible. The interesting part is [WITHHELD].",
+      "Drafts, checks, and fixes move through human review before any production change. The interesting implementation details stay [WITHHELD].",
     badge: "WIP",
     badgeTone: "wip",
   },
   {
     date: "SOON",
-    title: "Loops watching loops",
+    title: "Evidence before autonomy",
     description:
-      "The same machinery we showcase in Loop Engineering keeps Patherle's agents honest — a control room where every loop must show its evidence.",
+      "The public story is simple: no green state without proof. The private operating model stays inside the build.",
     badge: "WIP",
     badgeTone: "wip",
   },

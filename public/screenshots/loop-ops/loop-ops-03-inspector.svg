@@ -1,0 +1,50 @@
+<svg width="1440" height="900" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1440" height="900" fill="#080B0F"/>
+  <rect x="36" y="36" width="1368" height="828" fill="#0D1117" stroke="#24313A"/>
+  <rect x="74" y="90" width="850" height="712" fill="#0A0F15" stroke="#22303A"/>
+  <text x="106" y="136" fill="#E9F1F1" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">Inspector mode</text>
+  <text x="106" y="168" fill="#AAB5B8" font-family="Inter, Arial, sans-serif" font-size="15">Click any node. The public demo shows the same questions every serious loop should answer.</text>
+
+  <g stroke="#31404A" stroke-width="2">
+    <path d="M474 260 C428 330 426 438 474 518"/>
+    <path d="M474 260 C560 330 586 438 552 518"/>
+    <path d="M474 260 C618 314 690 404 738 518"/>
+  </g>
+  <rect x="358" y="214" width="232" height="92" fill="#13251F" stroke="#3AA98F"/>
+  <text x="388" y="250" fill="#7ED7C1" font-family="JetBrains Mono, monospace" font-size="12">SELECTED NODE</text>
+  <text x="388" y="280" fill="#F3F6F2" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700">Integration run</text>
+  <rect x="218" y="500" width="198" height="78" fill="#121821" stroke="#2E4450"/>
+  <text x="244" y="547" fill="#AAB5B8" font-family="Inter, Arial, sans-serif" font-size="16">Patch draft</text>
+  <rect x="462" y="500" width="198" height="78" fill="#121821" stroke="#2E4450"/>
+  <text x="488" y="547" fill="#AAB5B8" font-family="Inter, Arial, sans-serif" font-size="16">Test runner</text>
+  <rect x="706" y="500" width="198" height="78" fill="#121821" stroke="#2E4450"/>
+  <text x="732" y="547" fill="#AAB5B8" font-family="Inter, Arial, sans-serif" font-size="16">Evidence gate</text>
+
+  <rect x="962" y="90" width="344" height="712" fill="#111821" stroke="#2E4450"/>
+  <text x="996" y="136" fill="#7ED7C1" font-family="JetBrains Mono, monospace" font-size="12">NODE INSPECTOR</text>
+  <text x="996" y="172" fill="#F3F6F2" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="700">Integration run</text>
+  <rect x="996" y="196" width="128" height="28" fill="#2A2518" stroke="#7D6730"/>
+  <text x="1014" y="215" fill="#E6B860" font-family="JetBrains Mono, monospace" font-size="12">CHECKS DUE</text>
+
+  <g font-family="Inter, Arial, sans-serif">
+    <text x="996" y="270" fill="#AAB5B8" font-family="JetBrains Mono, monospace" font-size="12">OWNS</text>
+    <text x="996" y="301" fill="#F3F6F2" font-size="18" font-weight="700">Runs the build validation pass and attaches output.</text>
+    <line x1="996" y1="332" x2="1268" y2="332" stroke="#26343F"/>
+
+    <text x="996" y="376" fill="#AAB5B8" font-family="JetBrains Mono, monospace" font-size="12">CAN TOUCH</text>
+    <text x="996" y="407" fill="#F3F6F2" font-size="18" font-weight="700">Local source tree, package scripts, preview deploy metadata.</text>
+    <line x1="996" y1="438" x2="1268" y2="438" stroke="#26343F"/>
+
+    <text x="996" y="482" fill="#AAB5B8" font-family="JetBrains Mono, monospace" font-size="12">LAST VERIFIED</text>
+    <text x="996" y="513" fill="#F3F6F2" font-size="18" font-weight="700">2026-06-13 18:40 IST</text>
+    <line x1="996" y1="544" x2="1268" y2="544" stroke="#26343F"/>
+
+    <text x="996" y="588" fill="#AAB5B8" font-family="JetBrains Mono, monospace" font-size="12">NOT VERIFIED</text>
+    <text x="996" y="619" fill="#F3F6F2" font-size="18" font-weight="700">Live credentials, final copy claims, production writes.</text>
+    <line x1="996" y1="650" x2="1268" y2="650" stroke="#26343F"/>
+
+    <text x="996" y="694" fill="#AAB5B8" font-family="JetBrains Mono, monospace" font-size="12">EVIDENCE</text>
+    <rect x="996" y="716" width="272" height="42" fill="#0A0F15" stroke="#26343F"/>
+    <text x="1016" y="743" fill="#7ED7C1" font-size="15">build-output.txt</text>
+  </g>
+</svg>

@@ -1,0 +1,60 @@
+<svg width="1440" height="900" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1440" height="900" fill="#080B0F"/>
+  <rect x="36" y="36" width="1368" height="828" fill="#0D1117" stroke="#24313A"/>
+  <text x="76" y="92" fill="#E9F1F1" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="700">Run history</text>
+  <text x="76" y="126" fill="#AAB5B8" font-family="Inter, Arial, sans-serif" font-size="15">Local timeline joined with token spend, duration, status, and evidence artifacts.</text>
+
+  <rect x="76" y="172" width="268" height="122" fill="#121821" stroke="#2E4450"/>
+  <text x="102" y="209" fill="#AAB5B8" font-family="JetBrains Mono, monospace" font-size="12">TODAY</text>
+  <text x="102" y="249" fill="#F3F6F2" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="700">8 runs</text>
+  <text x="102" y="274" fill="#7ED7C1" font-family="Inter, Arial, sans-serif" font-size="14">6 clean, 2 need proof</text>
+
+  <rect x="374" y="172" width="268" height="122" fill="#121821" stroke="#2E4450"/>
+  <text x="400" y="209" fill="#AAB5B8" font-family="JetBrains Mono, monospace" font-size="12">TOKEN SPEND</text>
+  <text x="400" y="249" fill="#F3F6F2" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="700">1.42M</text>
+  <text x="400" y="274" fill="#AAB5B8" font-family="Inter, Arial, sans-serif" font-size="14">sample workspace</text>
+
+  <rect x="672" y="172" width="268" height="122" fill="#121821" stroke="#2E4450"/>
+  <text x="698" y="209" fill="#AAB5B8" font-family="JetBrains Mono, monospace" font-size="12">WALL CLOCK</text>
+  <text x="698" y="249" fill="#F3F6F2" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="700">47m</text>
+  <text x="698" y="274" fill="#AAB5B8" font-family="Inter, Arial, sans-serif" font-size="14">parallel lanes visible</text>
+
+  <rect x="970" y="172" width="334" height="122" fill="#2A2518" stroke="#7D6730"/>
+  <text x="996" y="209" fill="#E6B860" font-family="JetBrains Mono, monospace" font-size="12">HELD BY GATE</text>
+  <text x="996" y="249" fill="#F3F6F2" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="700">2 nodes</text>
+  <text x="996" y="274" fill="#AAB5B8" font-family="Inter, Arial, sans-serif" font-size="14">missing screenshots</text>
+
+  <rect x="76" y="346" width="1228" height="396" fill="#0A0F15" stroke="#22303A"/>
+  <line x1="176" y1="424" x2="1210" y2="424" stroke="#26343F"/>
+  <line x1="176" y1="516" x2="1210" y2="516" stroke="#26343F"/>
+  <line x1="176" y1="608" x2="1210" y2="608" stroke="#26343F"/>
+  <line x1="176" y1="700" x2="1210" y2="700" stroke="#26343F"/>
+  <text x="102" y="392" fill="#AAB5B8" font-family="JetBrains Mono, monospace" font-size="12">TIME</text>
+  <text x="252" y="392" fill="#AAB5B8" font-family="JetBrains Mono, monospace" font-size="12">RUN</text>
+  <text x="654" y="392" fill="#AAB5B8" font-family="JetBrains Mono, monospace" font-size="12">TOKENS</text>
+  <text x="800" y="392" fill="#AAB5B8" font-family="JetBrains Mono, monospace" font-size="12">STATUS</text>
+  <text x="980" y="392" fill="#AAB5B8" font-family="JetBrains Mono, monospace" font-size="12">EVIDENCE</text>
+
+  <g font-family="Inter, Arial, sans-serif" font-size="16">
+    <text x="102" y="468" fill="#AAB5B8">18:05</text>
+    <text x="252" y="468" fill="#F3F6F2" font-weight="700">Research lane refresh</text>
+    <text x="654" y="468" fill="#AAB5B8">212k</text>
+    <rect x="800" y="446" width="96" height="30" fill="#12231F" stroke="#276F61"/>
+    <text x="822" y="467" fill="#7ED7C1" font-family="JetBrains Mono, monospace" font-size="12">CLEAN</text>
+    <text x="980" y="468" fill="#7ED7C1">sources.md</text>
+
+    <text x="102" y="560" fill="#AAB5B8">18:17</text>
+    <text x="252" y="560" fill="#F3F6F2" font-weight="700">Integration run</text>
+    <text x="654" y="560" fill="#AAB5B8">488k</text>
+    <rect x="800" y="538" width="116" height="30" fill="#2A2518" stroke="#7D6730"/>
+    <text x="820" y="559" fill="#E6B860" font-family="JetBrains Mono, monospace" font-size="12">CHECK DUE</text>
+    <text x="980" y="560" fill="#E6B860">build-output.txt</text>
+
+    <text x="102" y="652" fill="#AAB5B8">18:33</text>
+    <text x="252" y="652" fill="#F3F6F2" font-weight="700">Proof lane pass</text>
+    <text x="654" y="652" fill="#AAB5B8">361k</text>
+    <rect x="800" y="630" width="96" height="30" fill="#12231F" stroke="#276F61"/>
+    <text x="822" y="651" fill="#7ED7C1" font-family="JetBrains Mono, monospace" font-size="12">CLEAN</text>
+    <text x="980" y="652" fill="#7ED7C1">review-notes.md</text>
+  </g>
+</svg>

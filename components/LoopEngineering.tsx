@@ -24,43 +24,43 @@ const readmePop = {
   },
 };
 
-// Each frame is an annotated capture from the real product; the caption band
-// is baked into the image. Tabs give every frame the full stage width.
+// Each frame is a public-safe demo screen that keeps the product posture
+// visible without exposing a client workflow or private operating model.
 const FRAMES = [
   {
-    id: "organism",
-    label: "01 · Organism",
-    src: "/screenshots/loom/loom-01-hierarchy.png",
-    alt: "The Loom — full 31-entity hierarchy on the canvas",
-    note: "One spreadsheet in, a living hierarchy out — 31 entities, zero ambiguity about who owns what.",
+    id: "map",
+    label: "01 / Map",
+    src: "/screenshots/loop-ops/loop-ops-01-overview.svg",
+    alt: "Loop Ops overview screen with a coordinator and four public demo lanes",
+    note: "A bring-your-own registry becomes a readable loop map: coordinator, lanes, workers, gates, and current confidence.",
   },
   {
-    id: "waves",
-    label: "02 · Waves",
-    src: "/screenshots/loom/loom-02-waves.png",
-    alt: "The Loom — collapsible wave clusters keep a 22-node lane readable",
-    note: "Wave clusters fold a 22-node lane down to what matters now; the worst status inside never hides.",
+    id: "lanes",
+    label: "02 / Lanes",
+    src: "/screenshots/loop-ops/loop-ops-02-lanes.svg",
+    alt: "Loop Ops lane board showing research, build, review, and ops tracks",
+    note: "Lanes stay scannable when the loop grows. The worst state in a group remains visible until the evidence improves.",
   },
   {
     id: "inspector",
-    label: "03 · Inspector",
-    src: "/screenshots/loom/loom-03-inspector.png",
-    alt: "The Loom — inspector answering the four ownership and verification questions",
-    note: "Four questions per node: owns what, touches what, verified when — and what was NOT verified.",
+    label: "03 / Inspector",
+    src: "/screenshots/loop-ops/loop-ops-03-inspector.svg",
+    alt: "Loop Ops inspector with ownership, access, evidence, and not-verified fields",
+    note: "Every node answers the same questions: owns what, touches what, verified when, and what was not verified.",
   },
   {
     id: "runs",
-    label: "04 · Runs",
-    src: "/screenshots/loom/loom-04-timeline.png",
-    alt: "The Loom — run timeline with real session cost joined",
-    note: "Every recorded run joins its true session spend. Evidence lists are mandatory; green is earned.",
+    label: "04 / Runs",
+    src: "/screenshots/loop-ops/loop-ops-04-runs.svg",
+    alt: "Loop Ops run timeline with token spend, wall-clock time, and evidence links",
+    note: "Runs join time, cost, status, and evidence. Green is earned by artifacts, not optimism.",
   },
   {
-    id: "pocket",
-    label: "05 · Pocket",
-    src: "/screenshots/loom/loom-05-mobile.png",
-    alt: "The Loom — mobile fallback with director cards and search",
-    note: "Below 768px the canvas folds into director cards and search — same truth, zero compromise.",
+    id: "mobile",
+    label: "05 / Mobile",
+    src: "/screenshots/loop-ops/loop-ops-05-mobile.svg",
+    alt: "Loop Ops mobile screen with searchable lane cards and evidence states",
+    note: "On small screens the canvas becomes searchable lane cards. Same model, less chrome.",
   },
 ];
 
@@ -68,7 +68,11 @@ function FrameContent({ frame }: { frame: (typeof FRAMES)[number] }) {
   return (
     <div className="flex flex-col">
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={frame.src} alt={frame.alt} className="w-full h-auto" />
+      <img
+        src={frame.src}
+        alt={frame.alt}
+        className="mx-auto block h-auto max-h-[760px] w-auto max-w-full object-contain"
+      />
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 px-5 py-4 border-t border-surface-border">
         <p className="text-body-md text-text-muted max-w-[760px]">{frame.note}</p>
         <a
@@ -100,20 +104,20 @@ export default function LoopEngineering() {
           variants={headerVariants}
           className="text-label-sm uppercase text-accent-teal tracking-[0.2em] mb-3"
         >
-          Loop Engineering
+          Meow Ops / Loop Ops
         </motion.p>
         <motion.h2 variants={headerVariants} className="text-display-lg max-w-[820px] mb-4">
-          We don&apos;t just run agents.{" "}
-          <span className="text-gradient-accent">We keep them honest.</span>
+          Public loop operations for{" "}
+          <span className="text-gradient-accent">agents that need receipts.</span>
         </motion.h2>
         <motion.p
           variants={headerVariants}
           className="text-body-md text-text-muted mb-12 max-w-[600px]"
         >
-          Loop engineering is our discipline for multi-agent systems: every loop
-          must show its evidence, every status is earned, and nothing claims green
-          without proof. The Loom is its control room — born inside Meow Ops, now
-          the heart of it. Five frames, full size.
+          Loop Ops is the Meow Ops surface for local agent work: map the lanes,
+          inspect the handoffs, and make every status carry evidence. These
+          screens use generic demo data from the same product posture, without
+          exposing private client systems.
         </motion.p>
 
         {/* Magnified frame viewer */}
@@ -147,9 +151,9 @@ export default function LoopEngineering() {
 
           <div className="px-6 pb-2 font-mono text-[13px] leading-relaxed text-text-muted">
             <p>
-              <span className="text-accent-teal"># The Loom</span> — n8n-style loop
-              visualizer inside Meow Ops. 1 coordinator · 4 director lanes · 26 worker
-              surfaces, imported from a spreadsheet that is treated as law.
+              <span className="text-accent-teal"># Loop Ops</span> inside Meow Ops:
+              a read-only loop visualizer for workbook-backed agent systems,
+              local run history, and evidence-first review.
             </p>
           </div>
 
@@ -158,18 +162,17 @@ export default function LoopEngineering() {
               <p>
                 <span className="text-text">## Why</span>
                 <br />
-                Multi-agent systems fail quietly. The Loom makes the whole organism
-                visible — statuses are operational, not decorative, and an empty
-                evidence list renders &quot;treat with suspicion&quot;.
+                Agent loops fail quietly when ownership is vague. Loop Ops keeps
+                lane, owner, dependency, status, and evidence visible in the same
+                place, so confidence has to be earned.
               </p>
               <p>
                 <span className="text-text">## How it works</span>
                 <br />
-                A fail-loud importer converts the Excel master spec into local JSON
-                (wrong surface count, duplicate keys, or missing columns abort with
-                every violation named). React Flow renders the hierarchy; a local
-                API serves spec, status, and run history; recorded runs join their
-                real session costs.
+                Bring your own workflow registry workbook or JSON export. The
+                importer validates required columns, duplicate ids, and stale
+                evidence before the canvas renders. Local APIs serve spec,
+                status, and run history.
               </p>
               <p>
                 <span className="text-text">## Run it</span>
@@ -177,24 +180,25 @@ export default function LoopEngineering() {
               <pre className="bg-surface border border-surface-border p-4 overflow-x-auto text-[12px]">
 {`git clone https://github.com/merak3i/meow-ops
 cd meow-ops && npm install
-node sync/loop-ops-import.mjs   # spreadsheet → canvas data
-npm run dev                     # open /#/loop-ops`}
+node sync/loop-ops-import.mjs --spec <YOUR_WORKBOOK.xlsx>
+npm run dev`}
               </pre>
               <p>
                 <span className="text-text">## Posture</span>
                 <br />
-                Read-only toward every production system. Loop data is local-only;
-                the hosted demo deliberately ships an instructional empty state.
+                Public demo data only. Production writes stay disabled, local
+                artifacts stay local, and private client loops stay out of the
+                repository.
               </p>
               <div className="flex flex-wrap gap-2 pt-2">
-                {["React Flow", "Vite 8", "React 19", "exceljs", "Playwright 32/32", "MIT"].map((t) => (
+                {["React Flow", "Vite", "React", "exceljs", "Playwright", "MIT"].map((t) => (
                   <span key={t} className="text-label-sm text-text-dim border border-surface-border px-3 py-1">
                     {t}
                   </span>
                 ))}
               </div>
               <a
-                href="https://github.com/merak3i/meow-ops#the-loom"
+                href="https://github.com/merak3i/meow-ops"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 mt-2 text-label-sm uppercase tracking-wider text-accent-gold border border-accent-gold/50 px-5 py-2.5 hover:border-accent-gold hover:bg-accent-gold/5 transition-all duration-300"

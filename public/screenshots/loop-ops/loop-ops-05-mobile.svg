@@ -1,0 +1,38 @@
+<svg width="900" height="1200" viewBox="0 0 900 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="1200" fill="#080B0F"/>
+  <rect x="146" y="52" width="608" height="1096" rx="42" fill="#05080C" stroke="#24313A" stroke-width="4"/>
+  <rect x="176" y="100" width="548" height="1000" fill="#0D1117" stroke="#24313A"/>
+  <text x="214" y="164" fill="#7ED7C1" font-family="JetBrains Mono, monospace" font-size="16">MEOW OPS</text>
+  <text x="214" y="206" fill="#F3F6F2" font-family="Inter, Arial, sans-serif" font-size="36" font-weight="700">Loop Ops</text>
+  <rect x="214" y="238" width="448" height="56" fill="#0A0F15" stroke="#26343F"/>
+  <text x="238" y="274" fill="#AAB5B8" font-family="Inter, Arial, sans-serif" font-size="20">Search lane, owner, blocker...</text>
+  <rect x="214" y="324" width="448" height="92" fill="#13251F" stroke="#3AA98F"/>
+  <text x="240" y="360" fill="#7ED7C1" font-family="JetBrains Mono, monospace" font-size="15">DEMO WORKSPACE</text>
+  <text x="240" y="392" fill="#F3F6F2" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">Release Readiness</text>
+
+  <g font-family="Inter, Arial, sans-serif">
+    <rect x="214" y="450" width="448" height="132" fill="#121821" stroke="#2E4450"/>
+    <text x="240" y="488" fill="#7ED7C1" font-family="JetBrains Mono, monospace" font-size="15">RESEARCH</text>
+    <text x="240" y="526" fill="#F3F6F2" font-size="28" font-weight="700">Signal Lane</text>
+    <text x="240" y="558" fill="#AAB5B8" font-size="19">3 nodes clean</text>
+    <circle cx="620" cy="506" r="13" fill="#7ED7C1"/>
+
+    <rect x="214" y="610" width="448" height="132" fill="#121821" stroke="#2E4450"/>
+    <text x="240" y="648" fill="#7ED7C1" font-family="JetBrains Mono, monospace" font-size="15">BUILD</text>
+    <text x="240" y="686" fill="#F3F6F2" font-size="28" font-weight="700">Change Lane</text>
+    <text x="240" y="718" fill="#AAB5B8" font-size="19">2 checks due</text>
+    <circle cx="620" cy="666" r="13" fill="#E6B860"/>
+
+    <rect x="214" y="770" width="448" height="132" fill="#121821" stroke="#2E4450"/>
+    <text x="240" y="808" fill="#7ED7C1" font-family="JetBrains Mono, monospace" font-size="15">REVIEW</text>
+    <text x="240" y="846" fill="#F3F6F2" font-size="28" font-weight="700">Proof Lane</text>
+    <text x="240" y="878" fill="#AAB5B8" font-size="19">1 blocker, evidence missing</text>
+    <circle cx="620" cy="826" r="13" fill="#EC7D6C"/>
+
+    <rect x="214" y="930" width="448" height="132" fill="#121821" stroke="#2E4450"/>
+    <text x="240" y="968" fill="#7ED7C1" font-family="JetBrains Mono, monospace" font-size="15">OPS</text>
+    <text x="240" y="1006" fill="#F3F6F2" font-size="28" font-weight="700">Release Lane</text>
+    <text x="240" y="1038" fill="#AAB5B8" font-size="19">production writes disabled</text>
+    <circle cx="620" cy="986" r="13" fill="#E6B860"/>
+  </g>
+</svg>
