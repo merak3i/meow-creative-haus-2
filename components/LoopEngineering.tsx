@@ -1,17 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import {
-  motion,
-  AnimatePresence,
-  useTransform,
-  useMotionValueEvent,
-  useReducedMotion,
-  type MotionValue,
-} from "framer-motion";
-import { AnimatedTabs } from "@/components/AnimatedTabs";
-import ScrollStage from "@/components/ScrollStage";
-import PinnedPanels from "@/components/PinnedPanels";
+import { useEffect, useRef, useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 // Each frame is a public-safe demo screen that keeps the product posture
 // visible without exposing a client workflow or private operating model.
@@ -60,7 +51,8 @@ function FrameContent({ frame }: { frame: (typeof FRAMES)[number] }) {
       <img
         src={frame.src}
         alt={frame.alt}
-        className="mx-auto block h-auto max-h-[760px] w-auto max-w-full object-contain"
+        loading="lazy"
+        className="mx-auto block h-auto max-h-[620px] w-auto max-w-full object-contain"
       />
       <div className="flex flex-col justify-between gap-3 border-t border-surface-border px-5 py-4 sm:flex-row sm:items-center">
         <p className="text-body-md max-w-[760px] text-text-muted">{frame.note}</p>
@@ -77,191 +69,188 @@ function FrameContent({ frame }: { frame: (typeof FRAMES)[number] }) {
   );
 }
 
-const HEADER = (
-  <div className="mb-10">
-    <p className="text-label-sm uppercase tracking-[0.2em] text-accent-teal mb-3">
-      Meow Ops / Loop Ops
-    </p>
-    <h2 className="text-display-lg max-w-[820px] mb-4">
-      Operations for agents that{" "}
-      <span className="text-gradient-accent">stay in the loop.</span>
-    </h2>
-    <p className="text-body-md max-w-[620px] text-text-muted">
-      Map the lanes, inspect the handoffs, and make every status carry evidence.
-      Scroll to walk the loop — these screens use generic demo data from the same
-      product posture, without exposing private client systems.
-    </p>
-  </div>
-);
-
-// ── Pinned, scroll-scrubbed sequence (default) ──────────────────────────────
-function LoopScene({
-  progress,
-  reduced,
-}: {
-  progress: MotionValue<number>;
-  reduced: boolean;
-}) {
-  const [active, setActive] = useState(0);
-
-  // Panel settles flat in the first 18% of scroll; frames cycle across the rest.
-  const panelProgress = useTransform(progress, [0, 0.18], [0, 1]);
-
-  useMotionValueEvent(progress, "change", (v) => {
-    const raw = (v - 0.12) / 0.86;
-    const idx = Math.min(FRAMES.length - 1, Math.max(0, Math.floor(raw * FRAMES.length)));
-    setActive(idx);
-  });
-
-  const frame = FRAMES[active];
-
-  return (
-    <div className="mx-auto flex h-full w-full max-w-[1400px] flex-col justify-center px-6 md:px-12">
-      {HEADER}
-
-      {/* Frame stepper */}
-      <div className="mb-5 flex flex-wrap gap-2">
-        {FRAMES.map((f, i) => (
-          <span
-            key={f.id}
-            className={`font-mono text-label-sm uppercase tracking-wider transition-colors duration-300 ${
-              i === active ? "text-accent-teal" : "text-text-dim"
-            }`}
-          >
-            {f.label}
-            {i < FRAMES.length - 1 && <span className="ml-2 text-surface-border">/</span>}
-          </span>
-        ))}
-      </div>
-
-      <div className="w-full max-w-5xl">
-        <PinnedPanels progress={panelProgress} reduced={reduced}>
-          <div className="min-h-[300px] md:min-h-[460px]">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={frame.id}
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -12 }}
-                transition={{ duration: 0.35, ease: "easeOut" }}
-              >
-                <FrameContent frame={frame} />
-              </motion.div>
-            </AnimatePresence>
-          </div>
-        </PinnedPanels>
-      </div>
-    </div>
-  );
-}
-
-// ── Collapsible README (rendered after the scene, normal flow) ──────────────
 function LoopReadme() {
   const [open, setOpen] = useState(false);
   return (
-    <section className="px-6 md:px-12 pb-24 md:pb-32">
-      <div className="mx-auto max-w-[1400px]">
-        <div className="border border-surface-border bg-surface-elevated">
-          <button
-            onClick={() => setOpen(!open)}
-            aria-expanded={open}
-            className="group flex w-full items-center justify-between px-6 py-4 text-left"
-          >
-            <span className="font-mono text-label-sm text-text-muted transition-colors duration-300 group-hover:text-accent-teal">
-              README.md
-            </span>
-            <span className="text-label-sm uppercase tracking-wider text-text-dim">
-              {open ? "− collapse" : "+ expand"}
-            </span>
-          </button>
+    <div className="mt-6 border border-surface-border bg-surface-elevated">
+      <button
+        onClick={() => setOpen(!open)}
+        aria-expanded={open}
+        className="group flex w-full items-center justify-between px-6 py-4 text-left"
+      >
+        <span className="font-mono text-label-sm text-text-muted transition-colors duration-300 group-hover:text-accent-teal">
+          README.md
+        </span>
+        <span className="text-label-sm uppercase tracking-wider text-text-dim">
+          {open ? "− collapse" : "+ expand"}
+        </span>
+      </button>
 
-          <div className="px-6 pb-2 font-mono text-[13px] leading-relaxed text-text-muted">
-            <p>
-              <span className="text-accent-teal"># Loop Ops</span> inside Meow Ops:
-              a read-only loop visualizer for workbook-backed agent systems, local
-              run history, and evidence-first review.
-            </p>
-          </div>
+      <div className="px-6 pb-2 font-mono text-[13px] leading-relaxed text-text-muted">
+        <p>
+          <span className="text-accent-teal"># Loop Ops</span> inside Meow Ops: a
+          read-only loop visualizer for workbook-backed agent systems, local run
+          history, and evidence-first review.
+        </p>
+      </div>
 
-          {open && (
-            <div className="space-y-4 border-t border-surface-border px-6 pb-6 pt-4 font-mono text-[13px] leading-relaxed text-text-muted">
-              <p>
-                <span className="text-text">## Why</span>
-                <br />
-                Agent loops fail quietly when ownership is vague. Loop Ops keeps
-                lane, owner, dependency, status, and evidence visible in the same
-                place, so confidence has to be earned.
-              </p>
-              <p>
-                <span className="text-text">## How it works</span>
-                <br />
-                Bring your own workflow registry workbook or JSON export. The
-                importer validates required columns, duplicate ids, and stale
-                evidence before the canvas renders. Local APIs serve spec, status,
-                and run history.
-              </p>
-              <p>
-                <span className="text-text">## Run it</span>
-              </p>
-              <pre className="overflow-x-auto border border-surface-border bg-surface p-4 text-[12px]">
+      {open && (
+        <div className="space-y-4 border-t border-surface-border px-6 pb-6 pt-4 font-mono text-[13px] leading-relaxed text-text-muted">
+          <p>
+            <span className="text-text">## Why</span>
+            <br />
+            Agent loops fail quietly when ownership is vague. Loop Ops keeps lane,
+            owner, dependency, status, and evidence visible in the same place, so
+            confidence has to be earned.
+          </p>
+          <p>
+            <span className="text-text">## Run it</span>
+          </p>
+          <pre className="overflow-x-auto border border-surface-border bg-surface p-4 text-[12px]">
 {`git clone https://github.com/merak3i/meow-ops
 cd meow-ops && npm install
 node sync/loop-ops-import.mjs --spec <YOUR_WORKBOOK.xlsx>
 npm run dev`}
-              </pre>
-              <div className="flex flex-wrap gap-2 pt-2">
-                {["React Flow", "Vite", "React", "exceljs", "Playwright", "MIT"].map((t) => (
-                  <span key={t} className="text-label-sm text-text-dim border border-surface-border px-3 py-1">
-                    {t}
-                  </span>
-                ))}
-              </div>
-              <a
-                href="https://github.com/merak3i/meow-ops"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-2 inline-flex items-center gap-2 border border-accent-gold/50 px-5 py-2.5 text-label-sm uppercase tracking-wider text-accent-gold transition-all duration-300 hover:border-accent-gold hover:bg-accent-gold/5"
-              >
-                ★ Read the full README on GitHub
-              </a>
-            </div>
-          )}
+          </pre>
+          <a
+            href="https://github.com/merak3i/meow-ops"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-2 inline-flex items-center gap-2 border border-accent-gold/50 px-5 py-2.5 text-label-sm uppercase tracking-wider text-accent-gold transition-all duration-300 hover:border-accent-gold hover:bg-accent-gold/5"
+          >
+            ★ Read the full README on GitHub
+          </a>
         </div>
-      </div>
-    </section>
+      )}
+    </div>
   );
 }
 
 export default function LoopEngineering() {
   const reduced = useReducedMotion();
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [active, setActive] = useState(0);
 
-  // Reduced motion → keep the original interactive tabs, no scrubbing.
-  if (reduced) {
-    return (
-      <>
-        <section id="loop-engineering" className="px-6 md:px-12 py-24 md:py-32">
-          <div className="mx-auto max-w-[1400px]">
-            {HEADER}
-            <AnimatedTabs
-              tabs={FRAMES.map((f) => ({
-                id: f.id,
-                label: f.label,
-                content: <FrameContent frame={f} />,
-              }))}
-            />
-          </div>
-        </section>
-        <LoopReadme />
-      </>
+  // Active frame = whichever card is most visible inside the horizontal track.
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting && e.intersectionRatio >= 0.55) {
+            const idx = Number((e.target as HTMLElement).dataset.index);
+            if (!Number.isNaN(idx)) setActive(idx);
+          }
+        });
+      },
+      { root: track, threshold: [0.55] },
     );
-  }
+    Array.from(track.children).forEach((c) => io.observe(c));
+    return () => io.disconnect();
+  }, []);
+
+  const scrollToFrame = (i: number) => {
+    const track = trackRef.current;
+    const clamped = Math.max(0, Math.min(FRAMES.length - 1, i));
+    const child = track?.children[clamped] as HTMLElement | undefined;
+    if (track && child) track.scrollTo({ left: child.offsetLeft, behavior: "smooth" });
+  };
 
   return (
-    <>
-      <ScrollStage id="loop-engineering" heightVh={360}>
-        {(progress) => <LoopScene progress={progress} reduced={false} />}
-      </ScrollStage>
-      <LoopReadme />
-    </>
+    <section id="loop-engineering" className="px-6 py-24 md:px-12 md:py-32">
+      <div className="mx-auto max-w-[1400px]">
+        <motion.div
+          initial={reduced ? undefined : { opacity: 0, y: 40 }}
+          whileInView={reduced ? undefined : { opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-10"
+        >
+          <p className="text-label-sm uppercase tracking-[0.2em] text-accent-teal mb-3">
+            Meow Ops / Loop Ops
+          </p>
+          <h2 className="text-display-lg max-w-[820px] mb-4">
+            Operations for agents that{" "}
+            <span className="text-gradient-accent">stay in the loop.</span>
+          </h2>
+          <p className="text-body-md max-w-[620px] text-text-muted">
+            Map the lanes, inspect the handoffs, and make every status carry
+            evidence. Swipe through the loop — these screens use generic demo data
+            from the same product posture, without exposing private client systems.
+          </p>
+        </motion.div>
+
+        {/* Stepper + arrows */}
+        <div className="mb-5 flex items-center justify-between gap-4">
+          <div className="flex flex-wrap gap-1.5" role="tablist" aria-label="Loop Ops frames">
+            {FRAMES.map((f, i) => (
+              <button
+                key={f.id}
+                role="tab"
+                aria-selected={i === active}
+                onClick={() => scrollToFrame(i)}
+                className={`border px-3 py-1.5 font-mono text-label-sm uppercase tracking-wider transition-colors duration-300 ${
+                  i === active
+                    ? "border-accent-teal/50 bg-accent-teal/10 text-accent-teal"
+                    : "border-surface-border text-text-dim hover:text-text"
+                }`}
+              >
+                {f.label}
+              </button>
+            ))}
+          </div>
+          <div className="hidden shrink-0 items-center gap-1 md:flex">
+            <button
+              onClick={() => scrollToFrame(active - 1)}
+              disabled={active === 0}
+              aria-label="Previous frame"
+              className="grid h-9 w-9 place-items-center rounded-full border border-surface-border text-text-muted transition-colors hover:text-text disabled:opacity-30"
+            >
+              <ChevronLeft className="h-4 w-4" />
+            </button>
+            <button
+              onClick={() => scrollToFrame(active + 1)}
+              disabled={active === FRAMES.length - 1}
+              aria-label="Next frame"
+              className="grid h-9 w-9 place-items-center rounded-full border border-surface-border text-text-muted transition-colors hover:text-text disabled:opacity-30"
+            >
+              <ChevronRight className="h-4 w-4" />
+            </button>
+          </div>
+        </div>
+
+        {/* Horizontal scroll-snap carousel */}
+        <div
+          ref={trackRef}
+          tabIndex={0}
+          className="flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth pb-2 outline-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        >
+          {FRAMES.map((f, i) => (
+            <div key={f.id} data-index={i} className="w-full shrink-0 snap-start">
+              <div className="overflow-hidden rounded-2xl border border-surface-border bg-surface-elevated">
+                <FrameContent frame={f} />
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Progress dots */}
+        <div className="mt-4 flex items-center justify-center gap-2">
+          {FRAMES.map((f, i) => (
+            <button
+              key={f.id}
+              onClick={() => scrollToFrame(i)}
+              aria-label={`Go to ${f.label}`}
+              className={`h-1.5 rounded-full transition-all duration-300 ${
+                i === active ? "w-6 bg-accent-teal" : "w-1.5 bg-surface-border hover:bg-text-dim"
+              }`}
+            />
+          ))}
+        </div>
+
+        <LoopReadme />
+      </div>
+    </section>
   );
 }
