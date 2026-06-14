@@ -14,6 +14,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `lib/data.ts` — `siteConfig.meowWild` link.
 - Cross-repo auto-redeploy hook: a workflow in the `meow-wild` repo triggers an MCH production redeploy when meow.wild updates (keeps the attachment fresh).
 
+### Changed
+- `components/LoopEngineering.tsx` — replaced the pinned vertical scroll-scrub (which jump-cut between frames) with a native horizontal scroll-snap carousel: swipe / arrows / clickable steps + dots, active frame tracked via IntersectionObserver. Smoother and more intuitive; no scroll-hijacking.
+
+### Removed
+- `components/AnimatedTabs.tsx` — dead code after the Loop Ops carousel rewrite (was the old frame switcher / reduced-motion fallback).
+
 ## [1.5.0] - 2026-06-14
 
 ### Added
