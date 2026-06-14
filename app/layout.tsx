@@ -3,6 +3,7 @@ import Script from "next/script";
 import "./globals.css";
 import LenisProvider from "@/components/LenisProvider";
 import Navigation from "@/components/Navigation";
+import ScrollProgress from "@/components/ScrollProgress";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
@@ -32,6 +33,7 @@ export default function RootLayout({
         />
         <LenisProvider>
           <div className="grain-overlay" />
+          <ScrollProgress />
           <Navigation />
           <main>{children}</main>
           <Footer />

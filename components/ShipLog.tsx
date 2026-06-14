@@ -14,26 +14,32 @@ interface ShipLogEntry {
 
 const entries: ShipLogEntry[] = [
   {
-    date: "JUN 2026",
-    title: "Loop Ops goes public",
+    date: "JUN 14 2026",
+    title: "v1.5: The site learns to scroll",
     description:
-      "Meow Ops opens up with a five-frame Loop Ops tour built from generic demo data and an evidence-first posture.",
+      "A Scale-style rebuild — the hero assembles a live revenue dashboard as you descend, Loop Ops becomes a scroll-scrubbed walkthrough, and a smooth-scroll engine with a progress rail ties the page together. Space Grotesk lands in the product frames.",
     badge: "LATEST",
   },
   {
-    date: "JUN 2026",
+    date: "JUN 13 2026",
+    title: "v1.4: Loop Ops goes public",
+    description:
+      "Meow Ops opens up with a five-frame Loop Ops tour built from generic demo data and an evidence-first posture.",
+  },
+  {
+    date: "JUN 13 2026",
     title: "FILE // 003: Patherle, partially declassified",
     description:
       "The AI business OS we're building in the dark gets a teaser page: five stills, gold [WITHHELD] bars, and a build log that says just enough.",
   },
   {
-    date: "JUN 2026",
+    date: "JUN 13 2026",
     title: "Meow Ops becomes a control room",
     description:
       "Loop Ops ships inside Meow Ops with a generic workbook importer, local run timelines, and evidence-first node states.",
   },
   {
-    date: "APR 2026",
+    date: "APR 15 2026",
     title: "v1.3: The Lab fills up",
     description:
       "Client showcases, video and shorts carousels, and a marquee of brands built to convert.",
