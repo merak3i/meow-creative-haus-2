@@ -394,7 +394,7 @@ export const clientWebsites = [
   {
     name: "Manipal Aerosports",
     tagline: "Aviation training & airshow brand",
-    url: "https://manipalaerosports.lovable.app/",
+    url: "https://manipal-aerosports-hyer-rebuild.vercel.app",
     screenshot: "/screenshots/manipal-aerosports.png",
     industry: "Aviation",
     logo: LOGOS.manipalAerosports,
