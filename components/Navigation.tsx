@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { siteConfig } from "@/lib/data";
@@ -19,12 +19,30 @@ function useNavLinks() {
 
 export default function Navigation() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const navLinks = useNavLinks();
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 mix-blend-difference">
-      <div className="flex items-center justify-between px-6 md:px-12 py-6">
-        <a href="#" className="text-text font-bold text-lg tracking-tight">
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,backdrop-filter,border-color] duration-300 ${
+        scrolled || menuOpen
+          ? "border-b border-surface-border bg-surface/80 backdrop-blur-md"
+          : "border-b border-transparent bg-transparent"
+      }`}
+    >
+      <div
+        className={`flex items-center justify-between px-6 md:px-12 transition-[padding] duration-300 ${
+          scrolled ? "py-3.5" : "py-6"
+        }`}
+      >
+        <a href="#hero" className="text-text font-bold text-lg tracking-tight">
           MCH<span className="text-accent-teal">.</span>
         </a>
 

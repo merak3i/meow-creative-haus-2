@@ -9,6 +9,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.5.0] - 2026-06-14
+
+### Added
+- `components/ScrollStage.tsx` — reusable pinned scroll-track primitive; exposes a 0→1 progress MotionValue (computed from `getBoundingClientRect` on a rAF tick, not framer `useScroll`, to avoid measurement races) plus a reduced-motion flag
+- `components/PinnedPanels.tsx` — Scale-style layered 3D glass-panel stack that rotates flat and scales as scroll progresses (transform/opacity only)
+- `components/RevenueDashboard.tsx` — self-contained "revenue engine" dashboard mock used as the hero's front panel (inline SVG/markup, no external images)
+- `components/ScrollProgress.tsx` — fixed top progress rail bound to whole-page scroll (teal→gold)
+- `components/ScrollReveal.tsx` — single tuned entrance reveal; content always in the DOM, skipped under reduced motion
+- Embedded subsetted **Space Grotesk** (weights 400/700) into the five `public/screenshots/loop-ops/*.svg` frames so the product mockups render in Space Grotesk even as `<img>`
+
+### Changed
+- `components/Hero.tsx` — rebuilt into a pinned 3D stage: headline recedes as the layered dashboard panels rotate flat and rise
+- `components/LoopEngineering.tsx` — Loop Ops becomes a scroll-scrubbed five-frame walkthrough (Map→Lanes→Inspector→Runs→Mobile); `AnimatedTabs` retained as the reduced-motion fallback
+- `components/Offers.tsx` — higher-contrast cards with a tuned staggered reveal (not pinned — avoids a blank lead-in)
+- `components/LenisProvider.tsx` — smoothing `lerp`, in-page anchor glide, shared `useLenis` context, hard `prefers-reduced-motion` opt-out
+- `components/Navigation.tsx` — scroll-aware nav (blur/border/shrink past 40px); removed `mix-blend-difference` overlap; logo anchors to `#hero`
+- `components/ShipLog.tsx` — accurate Vercel-sourced dates; added v1.5 entry, versioned the v1.4 entry
+- `app/globals.css` — `prefers-reduced-motion` CSS guard + `.cv-auto` content-visibility utility
+
+### Fixed
+- `public/screenshots/loop-ops/loop-ops-03-inspector.svg` — right-panel description lines clipped past the viewBox after the Space Grotesk swap (wider metrics); shortened copy + reduced font-size
+
 ## [1.4.0] - 2026-06-12
 
 ### Added
