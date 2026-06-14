@@ -7,6 +7,7 @@ import PatherleTeaser from "@/components/PatherleTeaser";
 import ShipLog from "@/components/ShipLog";
 import Authority from "@/components/Authority";
 import SubstackFeed from "@/components/SubstackFeed";
+import WildPopup from "@/components/WildPopup";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <ShipLog />
       <Authority />
       <SubstackFeed />
+      <WildPopup />
     </>
   );
 }

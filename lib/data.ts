@@ -3,6 +3,7 @@ export const siteConfig = {
   email: "mewdiaservice@gmail.com",
   calendly: "https://calendly.com/mewdiaservice/30min",
   whatsapp: "https://wa.me/message/2A5FTZGCFJY6B1",
+  meowWild: "https://meow-wild.vercel.app",
   social: {
     instagram: "https://www.instagram.com/m3ow.ai/",
     linkedinCompany:
