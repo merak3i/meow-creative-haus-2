@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- `components/WildPopup.tsx` — homepage popup linking out to the **meow.wild** scroll story (opens in its own window). Attention is guided by two reduced-motion-safe visual-illusion mechanisms: gaze-cueing cat eyes that blink and dart toward the CTA, and a rotating conic halo (peripheral-motion pop-out).
+- `lib/data.ts` — `siteConfig.meowWild` link.
+- Cross-repo auto-redeploy hook: a workflow in the `meow-wild` repo triggers an MCH production redeploy when meow.wild updates (keeps the attachment fresh).
+
 ## [1.5.0] - 2026-06-14
 
 ### Added
