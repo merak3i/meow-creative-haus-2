@@ -1,3 +1,5 @@
+import tenderMomentsLogo from "@/assets/client-logos/tender-moments-logo.png";
+
 export const siteConfig = {
   name: "Meow Creative Haus",
   email: "mewdiaservice@gmail.com",
@@ -68,6 +70,12 @@ export const clientLogos = [
   {
     name: "Rhyth Jain",
     src: "https://meowcreativehaus.lovable.app/lovable-uploads/rhyth-jain-logo.png",
+  },
+  {
+    name: "Tender Moments",
+    src: tenderMomentsLogo,
+    scale: 1.4,
+    preserveColor: true,
   },
   {
     name: "BergLabs.ai",
