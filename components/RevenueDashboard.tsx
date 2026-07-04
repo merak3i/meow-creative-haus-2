@@ -1,8 +1,8 @@
 "use client";
 
-// Self-contained "revenue engine" dashboard mock used as the hero's front
-// panel. No external images — pure markup + inline SVG so it never breaks and
-// stays crisp at any scale. Mirrors the studio's pitch: pipeline → booked → ARR.
+// Self-contained "selected work" panel used as the hero's front panel. No
+// external images — pure markup + inline SVG so it never breaks and stays crisp
+// at any scale. Mirrors the studio's pitch: real, shipped, live projects.
 
 const BARS = [38, 52, 47, 63, 71, 66, 84, 92];
 const MAX = 100;
@@ -16,20 +16,20 @@ export default function RevenueDashboard() {
         <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
         <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
         <span className="ml-3 font-mono text-[11px] tracking-wide text-text-dim">
-          acquisition-engine / live
+          selected-work / live
         </span>
         <span className="ml-auto flex items-center gap-1.5 font-mono text-[11px] text-accent-teal">
           <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent-teal" />
-          syncing
+          shipping
         </span>
       </div>
 
       {/* Metric row */}
       <div className="grid grid-cols-3 gap-px bg-surface-border">
         {[
-          { k: "Pipeline", v: "$2.4M", d: "+18%" },
-          { k: "Booked Calls", v: "146", d: "+32%" },
-          { k: "Locked ARR", v: "$880K", d: "+24%" },
+          { k: "meow.wild", v: "18 species", d: "live" },
+          { k: "Patherle", v: "24 languages", d: "live" },
+          { k: "Brands shipped", v: "16", d: "portfolio" },
         ].map((m) => (
           <div key={m.k} className="bg-surface-elevated px-4 py-4 md:px-6 md:py-5">
             <div className="text-[10px] uppercase tracking-[0.16em] text-text-dim">
@@ -51,7 +51,7 @@ export default function RevenueDashboard() {
         <div className="bg-surface-elevated p-4 md:col-span-3 md:p-6">
           <div className="mb-4 flex items-center justify-between">
             <span className="text-[11px] uppercase tracking-[0.16em] text-text-muted">
-              Monthly Revenue
+              Ships / month
             </span>
             <span className="font-mono text-[11px] text-text-dim">FY26</span>
           </div>
@@ -82,14 +82,14 @@ export default function RevenueDashboard() {
         {/* Pipeline list */}
         <div className="bg-surface-elevated p-4 md:col-span-2 md:p-6">
           <span className="text-[11px] uppercase tracking-[0.16em] text-text-muted">
-            Live Pipeline
+            Selected Work
           </span>
           <ul className="mt-4 space-y-3">
             {[
-              { n: "Enterprise SaaS", s: "Proposal", c: "text-accent-gold" },
-              { n: "Series-B Fintech", s: "Booked", c: "text-accent-teal" },
-              { n: "DTC Brand", s: "Nurture", c: "text-text-dim" },
-              { n: "B2B Robotics", s: "Closed", c: "text-accent-teal" },
+              { n: "meow.wild", s: "Live", c: "text-accent-teal" },
+              { n: "Patherle", s: "Live", c: "text-accent-teal" },
+              { n: "EAASH Homestay", s: "Live", c: "text-accent-teal" },
+              { n: "Coastal Edge AI", s: "Live", c: "text-accent-teal" },
             ].map((r) => (
               <li key={r.n} className="flex items-center justify-between">
                 <span className="flex items-center gap-2 text-[13px] text-text-muted">

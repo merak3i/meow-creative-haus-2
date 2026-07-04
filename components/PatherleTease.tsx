@@ -48,8 +48,9 @@ export default function PatherleTease() {
             <span className="text-gradient-accent">in the dark.</span>
           </motion.h1>
           <motion.p variants={rise} className="text-body-md text-text-muted max-w-[560px]">
-            Patherle runs real Indian businesses over WhatsApp today: 22 languages,
-            voice, catalogue, payments. That part is public. The deeper automation
+            Patherle runs real businesses over WhatsApp today: 24 languages
+            (22 Indic, plus Mandarin and Spanish), voice, catalogue, payments.
+            That part is public. The deeper automation
             layer stays behind the gold bars.
           </motion.p>
         </motion.div>

@@ -7,13 +7,13 @@ import ScrollProgress from "@/components/ScrollProgress";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Meow Creative Haus | AI-Driven Revenue Engineering",
+  title: "Meow Creative Haus | Product & Experience Studio",
   description:
-    "We engineer AI-driven B2B & B2C acquisition systems that turn strangers into booked calls and locked Annual Recurring Revenue.",
+    "A product and experience studio. We design and build software worth feeling — interactive experiences, AI systems, and websites. Every project is live.",
   openGraph: {
-    title: "Meow Creative Haus | AI-Driven Revenue Engineering",
+    title: "Meow Creative Haus | Product & Experience Studio",
     description:
-      "We engineer AI-driven acquisition systems. Predictable growth. Zero BS.",
+      "We design and build software worth feeling — experiences, AI systems, and websites. Every project is live.",
     type: "website",
   },
 };
