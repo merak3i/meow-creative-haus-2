@@ -14,11 +14,17 @@ interface ShipLogEntry {
 
 const entries: ShipLogEntry[] = [
   {
+    date: "JUL 05 2026",
+    title: "v1.6: The homepage stops bragging, starts proving",
+    description:
+      "The revenue-engineering pitch and its unverifiable stats retire. The hero leads with one honest line — we design and build software worth feeling — a Selected Work panel puts live projects up front (meow.wild, Patherle, EAASH, Coastal Edge), and the four offers become Experiences, Product & Web, AI Systems, and Growth. Every claim on the page is a link you can click.",
+    badge: "LATEST",
+  },
+  {
     date: "JUN 14 2026",
     title: "v1.5: The site learns to scroll",
     description:
       "A Scale-style rebuild — the hero assembles a live revenue dashboard as you descend, Loop Ops becomes a scroll-scrubbed walkthrough, and a smooth-scroll engine with a progress rail ties the page together. Space Grotesk lands in the product frames.",
-    badge: "LATEST",
   },
   {
     date: "JUN 13 2026",
