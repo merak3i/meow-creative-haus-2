@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { BarChart3, Bot, Clock3, Network } from "lucide-react";
+import { BarChart3, Bot, BrainCircuit, GitBranch, Network, ShieldCheck } from "lucide-react";
 import { openSourceProjects } from "@/lib/data";
 import ClientWebsites from "@/components/ClientWebsites";
 import LoopEngineering from "@/components/LoopEngineering";
@@ -24,24 +24,43 @@ const stagger = {
 const FEATURES = [
   {
     icon: BarChart3,
-    title: "Token Analytics",
-    desc: "Token spend by day, project, model, and session type. Ghost sessions flagged. Burn rate forecasted.",
-  },
-  {
-    icon: Clock3,
-    title: "Agent Ops",
-    desc: "Wall-clock timelines for subagent runs. See overlap, pacing, and output efficiency in one pass.",
+    title: "Operations Analytics",
+    desc: "Token spend, wall-clock time, session history, run evidence, and agent activity in one local control room.",
   },
   {
     icon: Network,
-    title: "Loop Visualizer",
-    desc: "A loop-engineering map for multi-agent systems. Track control lanes, dependencies, and proof before anything claims green.",
+    title: "Project Learning Control Plane",
+    desc: "Five agent sources feed a private evidence plane. Meow Ops proposes learning; only the owner can approve and publish it.",
+  },
+  {
+    icon: BrainCircuit,
+    title: "Builder's Journey",
+    desc: "A calm learning track from vibe-led exploration to first principles, with resumable workshops and evidence-derived mastery.",
   },
   {
     icon: Bot,
-    title: "3D Companion",
-    desc: "A living desktop companion that evolves with your coding patterns, memory marks, and long-run habits.",
+    title: "Companion Project Intelligence",
+    desc: "A persistent local partner that separates verified knowledge, known gaps, hypotheses, and blind spots before answering.",
   },
+  {
+    icon: GitBranch,
+    title: "Native-Agent Context",
+    desc: "Owner-approved learning reaches Codex, Claude Code, Hermes, Antigravity, and Cursor through guarded, rollback-ready adapters.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Local-First Privacy",
+    desc: "Raw sessions, answers, paths, proof records, and project details stay private. The learning surface receives only approved concepts and aggregates.",
+  },
+];
+
+const SPECS = [
+  { label: "Evidence sources", value: "Codex · Claude Code · Hermes · Antigravity · Cursor" },
+  { label: "Learning states", value: "Discovered → Practiced → Proven → Shipped" },
+  { label: "Recall horizon", value: "1 to 360 days" },
+  { label: "Governance", value: "Owner approval · one-use authorization · rollback" },
+  { label: "Browser boundary", value: "Approved concepts + aggregate progress only" },
+  { label: "Access", value: "MIT licensed · local-first · no account required" },
 ];
 
 const COMING = [
@@ -84,13 +103,13 @@ export default function LabPage() {
           {/* Header */}
           <div className="flex flex-wrap items-center gap-2 mb-2">
             <h2 className="text-lg font-semibold text-accent-teal">{project.name}</h2>
-            <span className="text-[10px] text-text-dim border border-surface-border px-1.5 py-0.5">v1.3.0</span>
+            <span className="text-[10px] text-text-dim border border-surface-border px-1.5 py-0.5">JUL 2026</span>
             <span className="text-[10px] text-accent-teal border border-accent-teal/30 px-1.5 py-0.5">LIVE · MIT</span>
           </div>
           <p className="text-sm text-text-muted mb-6">{project.tagline}</p>
 
           {/* Feature columns */}
-          <div className="grid gap-5 mb-6 pb-6 border-b border-surface-border md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-5 mb-8 md:grid-cols-2 lg:grid-cols-3">
             {FEATURES.map((f) => (
               <div key={f.title}>
                 <span className="mb-3 inline-flex h-9 w-9 items-center justify-center border border-surface-border bg-surface text-accent-teal">
@@ -100,6 +119,20 @@ export default function LabPage() {
                 <p className="text-xs text-text-muted leading-relaxed">{f.desc}</p>
               </div>
             ))}
+          </div>
+
+          <div className="mb-8 border-y border-surface-border py-6">
+            <p className="mb-4 text-[10px] uppercase tracking-[0.15em] text-text-dim">
+              Features &amp; specs
+            </p>
+            <dl className="grid gap-x-8 gap-y-4 md:grid-cols-2">
+              {SPECS.map((spec) => (
+                <div key={spec.label} className="grid gap-1 sm:grid-cols-[130px_1fr]">
+                  <dt className="font-mono text-[10px] uppercase tracking-wider text-text-dim">{spec.label}</dt>
+                  <dd className="text-xs leading-relaxed text-text-muted">{spec.value}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
 
           {/* Install block */}
