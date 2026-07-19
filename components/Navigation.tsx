@@ -9,7 +9,7 @@ function useNavLinks() {
   const pathname = usePathname();
   const prefix   = pathname === "/" ? "" : "/";
   return [
-    { label: "Systems",  href: `${prefix}#offers`    },
+    { label: "Work",     href: `${prefix}#offers`    },
     { label: "About",    href: `${prefix}#authority` },
     { label: "Lab",      href: "/lab"                },
     { label: "Playbook", href: `${prefix}#substack`  },

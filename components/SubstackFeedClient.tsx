@@ -67,7 +67,7 @@ export default function SubstackFeedClient({
           variants={headerVariants}
           className="text-display-lg mb-16"
         >
-          Era of Digital:{" "}
+          Meow Creative Haus:{" "}
           <span className="text-gradient-accent">The Playbook.</span>
         </motion.h2>
 

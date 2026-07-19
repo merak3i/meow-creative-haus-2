@@ -39,8 +39,8 @@ export default function Offers() {
             What We Build
           </p>
           <h2 className="text-display-lg max-w-[820px]">
-            Acquisition engines that{" "}
-            <span className="text-gradient-accent">compound.</span>
+            Work you can{" "}
+            <span className="text-gradient-accent">click.</span>
           </h2>
         </motion.div>
 

@@ -88,7 +88,7 @@ export default function ClientMarquee() {
           variants={headerVariants}
           className="text-display-md text-gradient"
         >
-          Brands scaling with our systems.
+          Brands we&apos;ve built for.
         </motion.h2>
       </motion.div>
 

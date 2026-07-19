@@ -9,7 +9,7 @@ import PinnedPanels from "@/components/PinnedPanels";
 import RevenueDashboard from "@/components/RevenueDashboard";
 
 const headlineWords =
-  "Stop Burning Cash on Marketing That Doesn't Convert.".split(" ");
+  "We design and build software worth feeling.".split(" ");
 
 // The pinned hero scene. Text owns the first beat, then recedes as the layered
 // dashboard panels rotate flat and rise to centre — the Scale signature.
@@ -49,7 +49,7 @@ function HeroScene({
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-label-sm uppercase text-accent-teal tracking-[0.2em] mb-6"
           >
-            Revenue Engineering Studio
+            Product &amp; Experience Studio
           </motion.p>
 
           <motion.h1
@@ -86,9 +86,9 @@ function HeroScene({
             transition={{ duration: 0.8, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
             className="text-body-lg text-text-muted max-w-[600px] mb-10"
           >
-            We engineer AI-driven B2B &amp; B2C acquisition systems that turn
-            strangers into booked calls and locked Annual Recurring Revenue.
-            Predictable growth. Zero BS.
+            Meow Creative Haus is a product and experience studio. We ship
+            interfaces, AI systems, and websites for founders and businesses in
+            India and beyond. Every project below is live — click any of them.
           </motion.p>
 
           <motion.div
@@ -99,7 +99,7 @@ function HeroScene({
           >
             <a href={siteConfig.whatsapp} target="_blank" rel="noopener noreferrer">
               <GradientButton className="text-sm uppercase tracking-widest">
-                Scale Your Revenue Today
+                Start a Project
                 <span className="ml-3 opacity-70 transition-all duration-300 group-hover:translate-x-1.5 group-hover:opacity-100">
                   &rarr;
                 </span>
@@ -107,7 +107,7 @@ function HeroScene({
             </a>
             <a href="#offers">
               <GradientButton variant="variant" className="text-sm uppercase tracking-widest">
-                See Our Systems
+                See the Work
               </GradientButton>
             </a>
           </motion.div>
@@ -130,7 +130,7 @@ function HeroScene({
           style={reduced ? { opacity: 1 } : { opacity: captionOpacity }}
           className="mt-8 text-center text-label-sm uppercase tracking-[0.2em] text-text-dim"
         >
-          One system. Pipeline to locked ARR.
+          Every project is live. Click any of them.
         </motion.p>
       </motion.div>
 
