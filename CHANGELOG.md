@@ -11,7 +11,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - `components/LabPage.tsx` — expanded the public Meow Ops feature and specs block to cover the owner-governed project learning control plane, Builder's Journey, Companion Project Intelligence, native-agent context adapters, and the local-only privacy boundary.
-- `components/ShipLog.tsx` — added the July 2026 Companion, project-learning control plane, and Builder's Journey releases from the latest merged Meow Ops work.
 - `components/WildPopup.tsx` — homepage popup linking out to the **meow.wild** scroll story (opens in its own window). Attention is guided by two reduced-motion-safe visual-illusion mechanisms: gaze-cueing cat eyes that blink and dart toward the CTA, and a rotating conic halo (peripheral-motion pop-out).
 - `lib/data.ts` — `siteConfig.meowWild` link.
 - Cross-repo auto-redeploy hook: a workflow in the `meow-wild` repo triggers an MCH production redeploy when meow.wild updates (keeps the attachment fresh).
@@ -21,6 +20,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 - `components/AnimatedTabs.tsx` — dead code after the Loop Ops carousel rewrite (was the old frame switcher / reduced-motion fallback).
+
+## [1.6.2] - 2026-07-26
+
+### Added
+- `components/ShipLog.tsx` — added complete SemVer labels to public ship notes and a visible version key: major for architecture, minor for capability, patch for refinement.
+- `components/ShipLog.tsx` — replaced the incomplete Companion release claim with a source-backed record of the Scrying Sanctum build and refinement from 12 April through 4 May 2026.
+
+### Changed
+- July Builder's Journey and owner-governed project-learning entries are now identified as `v1.6.2` and `v1.6.1`.
+- June and April ship notes now use complete `major.minor.patch` labels.
 
 ## [1.5.0] - 2026-06-14
 

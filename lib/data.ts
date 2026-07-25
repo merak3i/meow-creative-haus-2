@@ -184,6 +184,18 @@ const LOGOS = {
 export const featuredArticles = [
   // ── Merak3i (Personal Substack) ───────────────────────────────────────────
   {
+    id: "merak3i-2",
+    title: "BergLabs Identity & Website Build",
+    excerpt: "The April-to-July field record of turning a company story, identity system, AI-assisted build process, and WordPress release discipline into berglabs.ai.",
+    client: "BergLabs",
+    clientLogo: "/berg-logo.svg",
+    niche: "industrial-ai",
+    nicheLabel: "Industrial AI",
+    platform: "blog" as const,
+    href: "https://merak3i.substack.com/p/berglabs-identity-and-website-build",
+    coverImage: "/berglabs-identity-website-build.jpg",
+  },
+  {
     id: "merak3i-1",
     title: "The Cost of Compute, the Compute of Cost",
     excerpt: "A field report from the last summer of free compute. Four labs — Gemini, ChatGPT, Claude, Grok — and one orbital problem. They want you hooked before the rate card lands.",
