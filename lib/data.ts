@@ -609,6 +609,12 @@ export interface SubstackPost {
 
 const CURATED_EXTRA_POSTS: SubstackPost[] = [
   {
+    title: "BergLabs Identity & Website Build",
+    link: "https://merak3i.substack.com/p/berglabs-identity-and-website-build",
+    pubDate: "Sat, 25 Jul 2026 20:42:00 GMT",
+    excerpt: "The April-to-July field record of turning a company story, identity system, AI-assisted build process, and WordPress release discipline into berglabs.ai.",
+  },
+  {
     title: "The Cost of Compute, the Compute of Cost",
     link: "https://merak3i.substack.com/p/the-cost-of-compute-the-compute-of",
     pubDate: "Sun, 26 Apr 2026 14:10:53 GMT",
