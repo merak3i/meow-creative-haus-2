@@ -33,6 +33,12 @@ const entries: ShipLogEntry[] = [
       "A retrospective release record follows the Apr 12–May 4 build from the first source-stat Sanctum through its WoW overhaul, Dalaran phases, citadel and floor refinements, Lich King pass, design-system freeze, modular extraction, and final visual and session-label polish.",
   },
   {
+    date: "JUL 05 2026",
+    title: "v1.6: The homepage stops bragging, starts proving",
+    description:
+      "The revenue-engineering pitch and its unverifiable stats retire. The hero leads with one honest line — we design and build software worth feeling — a Selected Work panel puts live projects up front (meow.wild, Patherle, EAASH, Coastal Edge), and the four offers become Experiences, Product & Web, AI Systems, and Growth. Every claim on the page is a link you can click.",
+  },
+  {
     date: "JUN 14 2026",
     title: "v1.5.0: The site learns to scroll",
     description:

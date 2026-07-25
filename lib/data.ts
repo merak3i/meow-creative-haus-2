@@ -98,27 +98,27 @@ export const clientLogos = [
 
 export const offers = [
   {
-    title: "Strategic GTM",
+    title: "Experiences",
     description:
-      "We map the exact path from zero to market dominance.",
+      "Scroll stories, interactive web, and motion people remember and share.",
     index: "01",
   },
   {
-    title: "Performance Marketing",
+    title: "Product & Web",
     description:
-      "Precision campaigns optimized for lowest CAC and highest LTV.",
+      "Websites and apps that look sharp and convert — designed and built to ship.",
     index: "02",
   },
   {
-    title: "AI Workflow Automation",
+    title: "AI Systems",
     description:
-      "Scaling your output while slashing operational overhead.",
+      "Multilingual bots, agents, and automation wired into real workflows.",
     index: "03",
   },
   {
-    title: "Account-Based Marketing",
+    title: "Growth",
     description:
-      "Sniper-targeted outreach to close enterprise whales.",
+      "Go-to-market and outreach for clients who need pipeline, not just a site.",
     index: "04",
   },
 ] as const;
