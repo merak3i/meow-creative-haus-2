@@ -412,6 +412,14 @@ export type FeaturedArticle = (typeof featuredArticles)[number];
 
 export const clientWebsites = [
   {
+    name: "BergLabs",
+    tagline: "Enterprise AI operations — production systems",
+    url: "https://berglabs.ai/",
+    screenshot: "/screenshots/berglabs.png",
+    industry: "Enterprise AI",
+    logo: "/berg-logo.svg",
+  },
+  {
     name: "Manipal Aerosports",
     tagline: "Aviation training & airshow brand",
     url: "https://manipal-aerosports-hyer-rebuild.vercel.app",
