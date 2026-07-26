@@ -5,17 +5,102 @@ import LenisProvider from "@/components/LenisProvider";
 import Navigation from "@/components/Navigation";
 import ScrollProgress from "@/components/ScrollProgress";
 import Footer from "@/components/Footer";
+import { siteConfig } from "@/lib/data";
+
+const siteDescription =
+  "Meow Creative Haus is an India-based product, web, and experience studio building interactive websites, AI systems, and digital products for founders and businesses.";
 
 export const metadata: Metadata = {
-  title: "Meow Creative Haus | Product & Experience Studio",
-  description:
-    "A product and experience studio. We design and build software worth feeling — interactive experiences, AI systems, and websites. Every project is live.",
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: "AI Product & Web Studio India | Meow Creative Haus",
+    template: "%s | Meow Creative Haus",
+  },
+  description: siteDescription,
+  applicationName: siteConfig.name,
+  authors: [{ name: "Vismay Hegde", url: siteConfig.social.linkedinPersonal }],
+  creator: "Meow Creative Haus",
+  publisher: "Meow Creative Haus",
+  category: "technology",
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
-    title: "Meow Creative Haus | Product & Experience Studio",
-    description:
-      "We design and build software worth feeling — experiences, AI systems, and websites. Every project is live.",
+    title: "AI Product & Web Studio India | Meow Creative Haus",
+    description: siteDescription,
+    url: "/",
+    siteName: "Meow Creative Haus",
+    locale: "en_IN",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "AI Product & Web Studio India | Meow Creative Haus",
+    description: siteDescription,
+  },
+};
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${siteConfig.url}/#organization`,
+      name: siteConfig.name,
+      url: siteConfig.url,
+      email: siteConfig.email,
+      founder: {
+        "@type": "Person",
+        name: "Vismay Hegde",
+        url: siteConfig.social.linkedinPersonal,
+      },
+      sameAs: [
+        siteConfig.social.instagram,
+        siteConfig.social.linkedinPersonal,
+        siteConfig.social.twitter,
+        siteConfig.social.github,
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteConfig.url}/#website`,
+      url: siteConfig.url,
+      name: siteConfig.name,
+      description: siteDescription,
+      publisher: { "@id": `${siteConfig.url}/#organization` },
+      inLanguage: "en-IN",
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": `${siteConfig.url}/#studio`,
+      name: siteConfig.name,
+      url: siteConfig.url,
+      description: siteDescription,
+      areaServed: {
+        "@type": "Country",
+        name: "India",
+      },
+      provider: { "@id": `${siteConfig.url}/#organization` },
+      serviceType: [
+        "Product design and development",
+        "Web design and development",
+        "Interactive digital experiences",
+        "AI systems and automation",
+        "Go-to-market systems",
+      ],
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -26,6 +111,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-surface text-text">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
+          }}
+        />
         <Script
           src="https://www.patherle.com/patherle-pixel.js"
           data-tenant-id="9318a323-8e3f-4d5b-b664-050564c8bf42"

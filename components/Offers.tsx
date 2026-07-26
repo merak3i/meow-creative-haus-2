@@ -46,8 +46,9 @@ export default function Offers() {
 
         <div className="grid gap-4 md:grid-cols-2 md:gap-6">
           {offers.map((offer) => (
-            <motion.div
+            <motion.a
               key={offer.index}
+              href={`/services#${offer.slug}`}
               variants={reduced ? undefined : cardV}
               className="group relative flex flex-col justify-between overflow-hidden rounded-xl border border-white/10 bg-white/[0.035] p-8 transition-colors duration-500 hover:border-accent-teal/40 hover:bg-white/[0.06] md:p-10"
             >
@@ -75,7 +76,7 @@ export default function Offers() {
                   />
                 </svg>
               </div>
-            </motion.div>
+            </motion.a>
           ))}
         </div>
       </motion.div>

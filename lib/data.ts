@@ -2,6 +2,7 @@ import tenderMomentsLogo from "@/assets/client-logos/tender-moments-logo.png";
 
 export const siteConfig = {
   name: "Meow Creative Haus",
+  url: "https://meowcreativehaus.vercel.app",
   email: "mewdiaservice@gmail.com",
   calendly: "https://calendly.com/mewdiaservice/30min",
   whatsapp: "https://wa.me/message/2A5FTZGCFJY6B1",
@@ -98,24 +99,28 @@ export const clientLogos = [
 
 export const offers = [
   {
+    slug: "interactive-experiences",
     title: "Experiences",
     description:
       "Scroll stories, interactive web, and motion people remember and share.",
     index: "01",
   },
   {
+    slug: "product-web",
     title: "Product & Web",
     description:
       "Websites and apps that look sharp and convert — designed and built to ship.",
     index: "02",
   },
   {
+    slug: "ai-systems",
     title: "AI Systems",
     description:
       "Multilingual bots, agents, and automation wired into real workflows.",
     index: "03",
   },
   {
+    slug: "growth-systems",
     title: "Growth",
     description:
       "Go-to-market and outreach for clients who need pipeline, not just a site.",

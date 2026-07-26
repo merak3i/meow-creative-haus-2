@@ -18,6 +18,7 @@ function useNavLinks() {
 }
 
 export default function Navigation() {
+  const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const navLinks = useNavLinks();
@@ -42,7 +43,11 @@ export default function Navigation() {
           scrolled ? "py-3.5" : "py-6"
         }`}
       >
-        <a href="#hero" className="text-text font-bold text-lg tracking-tight">
+        <a
+          href={pathname === "/" ? "#hero" : "/"}
+          aria-label="Meow Creative Haus home"
+          className="text-text font-bold text-lg tracking-tight"
+        >
           MCH<span className="text-accent-teal">.</span>
         </a>
 
