@@ -415,7 +415,7 @@ export const clientWebsites = [
     name: "BergLabs",
     tagline: "Enterprise AI operations — production systems",
     url: "https://berglabs.ai/",
-    screenshot: "/screenshots/berglabs.png",
+    screenshot: "/screenshots/berglabs-homepage-2026-07-26.png",
     industry: "Enterprise AI",
     logo: "/berg-logo.svg",
   },
