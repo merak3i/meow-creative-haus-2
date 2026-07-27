@@ -1,13 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const LEGACY_HOSTS = new Set([
+const REDIRECT_HOSTS = new Set([
   "meowcreativehaus.vercel.app",
+  "www.meowcreativehaus.xyz",
 ]);
 
 export function middleware(request: NextRequest) {
   const host = request.headers.get("host")?.split(":")[0]?.toLowerCase();
 
-  if (!host || !LEGACY_HOSTS.has(host)) {
+  if (!host || !REDIRECT_HOSTS.has(host)) {
     return NextResponse.next();
   }
 
