@@ -428,7 +428,7 @@ export const clientWebsites = [
     name: "Tender Moments",
     tagline: "Preschool & early learning",
     url: "https://tendermomentshebbal.in/",
-    screenshot: "/screenshots/tender-moments-hebbal-2026-07-28.png",
+    screenshot: "/screenshots/tender-moments-live-hero-2026-07-28.png",
     industry: "Early Education",
     logo: tenderMomentsLogo.src,
   },
