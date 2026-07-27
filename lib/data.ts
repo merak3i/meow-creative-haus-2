@@ -425,9 +425,17 @@ export const clientWebsites = [
     logo: "/berg-logo.svg",
   },
   {
+    name: "Tender Moments",
+    tagline: "Preschool & early learning",
+    url: "https://tendermomentshebbal.in/",
+    screenshot: "/screenshots/tender-moments-hebbal-2026-07-28.png",
+    industry: "Early Education",
+    logo: tenderMomentsLogo.src,
+  },
+  {
     name: "Manipal Aerosports",
     tagline: "Aviation training & airshow brand",
-    url: "https://manipal-aerosports-hyer-rebuild.vercel.app",
+    url: "https://manipalaerosports.vercel.app",
     screenshot: "/screenshots/manipal-aerosports.png",
     industry: "Aviation",
     logo: LOGOS.manipalAerosports,
