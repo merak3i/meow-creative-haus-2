@@ -4,10 +4,10 @@
 
 ## Canonical pages
 
-- Home: https://meowcreativehaus.vercel.app/
-- Services: https://meowcreativehaus.vercel.app/services
-- Lab: https://meowcreativehaus.vercel.app/lab
-- Patherle: https://meowcreativehaus.vercel.app/patherle
+- Home: https://meowcreativehaus.xyz/
+- Services: https://meowcreativehaus.xyz/services
+- Lab: https://meowcreativehaus.xyz/lab
+- Patherle: https://meowcreativehaus.xyz/patherle
 
 ## Services
 

@@ -2,7 +2,7 @@
 
 Meow Creative Haus is the public marketing site for the studio. It is built with Next.js App Router and now includes the homepage Loop Engineering section, the Patherle teaser route, a public ship log, and the `/lab` showcase page.
 
-- Live site: [meow-creative-haus-2.vercel.app](https://meow-creative-haus-2.vercel.app)
+- Live site: [meowcreativehaus.xyz](https://meowcreativehaus.xyz)
 - Repo: [merak3i/meow-creative-haus-2](https://github.com/merak3i/meow-creative-haus-2)
 - Current release: `v1.5.0` from `2026-06-14`
 

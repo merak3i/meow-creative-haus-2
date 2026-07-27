@@ -2,7 +2,7 @@ import tenderMomentsLogo from "@/assets/client-logos/tender-moments-logo.png";
 
 export const siteConfig = {
   name: "Meow Creative Haus",
-  url: "https://meowcreativehaus.vercel.app",
+  url: "https://meowcreativehaus.xyz",
   email: "mewdiaservice@gmail.com",
   calendly: "https://calendly.com/mewdiaservice/30min",
   whatsapp: "https://wa.me/message/2A5FTZGCFJY6B1",
