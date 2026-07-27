@@ -4,6 +4,11 @@ import { motion } from "framer-motion";
 import { siteConfig } from "@/lib/data";
 
 const footerLinks = [
+  { label: "Services", href: "/services" },
+  {
+    label: "AI + Growth",
+    href: "/ai-automation-digital-marketing-udupi",
+  },
   { label: "Instagram", href: siteConfig.social.instagram },
   { label: "LinkedIn", href: siteConfig.social.linkedinPersonal },
   { label: "Twitter", href: siteConfig.social.twitter },
@@ -25,6 +30,11 @@ export default function Footer() {
             <p className="text-text-muted text-body-md max-w-xs">
               Product, web, and experience systems built in Udupi for teams
               anywhere.
+            </p>
+            <p className="mt-4 max-w-xs text-sm text-text-dim">
+              Surbhi 202, Doddanagudde, Udupi, Karnataka 575101
+              <br />
+              Open every day, 11:00 AM-9:00 PM
             </p>
           </div>
 

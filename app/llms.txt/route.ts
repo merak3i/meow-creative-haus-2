@@ -11,6 +11,7 @@ export function GET() {
 
 - Home: ${siteConfig.url}/
 - Services: ${siteConfig.url}/services
+- AI automation and AI-backed digital marketing: ${siteConfig.url}/ai-automation-digital-marketing-udupi
 - Lab: ${siteConfig.url}/lab
 - Patherle: ${siteConfig.url}/patherle
 - Privacy: ${siteConfig.url}/privacy
@@ -25,6 +26,8 @@ export function GET() {
 ## Location
 
 - Based in Udupi, Karnataka, India
+- Studio: ${siteConfig.location.streetAddress}, ${siteConfig.location.locality}, ${siteConfig.location.region} ${siteConfig.location.postalCode}
+- Hours: ${siteConfig.location.hours}
 - Works with clients in India and beyond
 
 ## Public work

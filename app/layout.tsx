@@ -11,6 +11,30 @@ import { siteConfig } from "@/lib/data";
 const siteDescription =
   "Meow Creative Haus is an India-based product, web, and experience studio building interactive websites, AI systems, and digital products for founders and businesses.";
 
+const postalAddress = {
+  "@type": "PostalAddress",
+  streetAddress: siteConfig.location.streetAddress,
+  addressLocality: siteConfig.location.locality,
+  addressRegion: siteConfig.location.region,
+  postalCode: siteConfig.location.postalCode,
+  addressCountry: siteConfig.location.country,
+};
+
+const openingHours = {
+  "@type": "OpeningHoursSpecification",
+  dayOfWeek: [
+    "https://schema.org/Monday",
+    "https://schema.org/Tuesday",
+    "https://schema.org/Wednesday",
+    "https://schema.org/Thursday",
+    "https://schema.org/Friday",
+    "https://schema.org/Saturday",
+    "https://schema.org/Sunday",
+  ],
+  opens: "11:00",
+  closes: "21:00",
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
@@ -73,6 +97,7 @@ const structuredData = {
       name: siteConfig.name,
       url: siteConfig.url,
       email: siteConfig.email,
+      address: postalAddress,
       founder: {
         "@type": "Person",
         name: "Vismay Hegde",
@@ -92,6 +117,8 @@ const structuredData = {
       url: siteConfig.url,
       name: siteConfig.name,
       description: siteDescription,
+      address: postalAddress,
+      openingHoursSpecification: openingHours,
       publisher: { "@id": `${siteConfig.url}/#organization` },
       inLanguage: "en-IN",
     },

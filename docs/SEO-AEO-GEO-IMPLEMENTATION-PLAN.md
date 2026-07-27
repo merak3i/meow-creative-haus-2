@@ -1,24 +1,17 @@
 # Meow Creative Haus Visibility Plan
 
 Status date: 2026-07-28  
-Target website supplied by owner: `https://meowcreativehouse.xyz`  
+Target website supplied by owner: `https://meowcreativehaus.xyz`
 Current live website: `https://meowcreativehaus.vercel.app`
 
-## Current decision gates
+## Confirmed owner decisions
 
-Three items must be settled before platform setup or production deployment:
-
-1. **Domain:** `meowcreativehouse.xyz` does not currently return public DNS.
-   Connect it to the production Vercel project before switching canonical URLs.
-2. **Business name:** the established website and social identity use **Meow
-   Creative Haus**. The requested Google profile name was **Meow Creative
-   House**. Use the real-world name shown on the website, invoices, signage, and
-   customer-facing material. Do not create a second spelling only for keywords.
-3. **Location type:** the proposed address is **Surbhi 202, Doddanagudde, Udupi
-   575101**. Show this as a storefront only if Meow Creative Haus has permanent
-   signage, staff are present during listed hours, and customers can visit
-   there. Otherwise create a service-area profile, verify using the real
-   address, and hide the street address from the public listing.
+1. **Canonical domain:** `meowcreativehaus.xyz`.
+2. **Public business name:** **Meow Creative Haus**.
+3. **Storefront:** **Surbhi 202, Doddanagudde, Udupi 575101** has permanent
+   signage, staff, and customer access.
+4. **Opening hours:** every day, 11:00 AM-9:00 PM.
+5. **Google and Bing setup account:** `vismayhegde@gmail.com`.
 
 ## `/visibility-foundation`
 
@@ -33,8 +26,7 @@ Status: prepared on `feat/seo-aeo-geo`
 - [x] Make the canonical site URL deployment-configurable.
 - [x] Keep page titles, descriptions, canonical tags, Open Graph, and X cards.
 - [x] Add Organization, WebSite, ProfessionalService, Service, and FAQ schema.
-- [x] Add Udupi and India as truthful service areas without claiming a public
-  storefront.
+- [x] Add Udupi and India as truthful service areas.
 - [x] Add answer-first service FAQs for AEO/GEO.
 - [x] Add a privacy page before enabling Google Analytics.
 - [x] Add Google Search Console and Bing verification hooks.
@@ -42,10 +34,10 @@ Status: prepared on `feat/seo-aeo-geo`
   email clicks.
 - [x] Replace the private LinkedIn admin URL in entity markup with the public
   company URL.
-- [ ] Add the exact street address and `PostalAddress` schema only after the
-  storefront/service-area decision is confirmed.
-- [ ] Add a public phone number and opening hours only after the owner supplies
-  the exact values used for the Google profile.
+- [x] Add the exact street address and `PostalAddress` schema.
+- [x] Add opening hours to the site and structured data.
+- [ ] Add a public phone number after the owner supplies the exact number used
+  for the Google profile.
 
 ## `/connect-domain`
 
@@ -53,15 +45,16 @@ Owner: user + Codex
 Cost: domain already purchased; no additional paid tool required  
 Gate: registrar/Vercel access
 
-- [ ] Confirm whether `meowcreativehouse.xyz` is the intended spelling.
+- [x] Confirm `meowcreativehaus.xyz` as the intended spelling.
 - [ ] Add the domain to the production Vercel project.
 - [ ] Add the DNS records Vercel supplies at the domain registrar.
 - [ ] Add a `www` record and redirect one hostname to the chosen canonical
   hostname.
 - [ ] Confirm HTTPS, apex-to-canonical redirect, and no redirect loop.
-- [ ] Set `NEXT_PUBLIC_SITE_URL=https://meowcreativehouse.xyz`.
+- [ ] Set `NEXT_PUBLIC_SITE_URL=https://meowcreativehaus.xyz`.
 - [ ] Deploy, then recheck `/`, `/services`, `/lab`, `/patherle`, `/privacy`,
-  `/robots.txt`, `/sitemap.xml`, `/llms.txt`, and `/llms-full.txt`.
+  `/ai-automation-digital-marketing-udupi`, `/robots.txt`, `/sitemap.xml`,
+  `/llms.txt`, and `/llms-full.txt`.
 - [ ] Keep the old Vercel hostname reachable but canonicalized to the `.xyz`
   domain; redirect it if the hosting setup permits.
 
@@ -72,10 +65,10 @@ Cost: free
 Gate: live domain and Google account
 
 - [ ] Open Google Search Console.
-- [ ] Add a **Domain property** for `meowcreativehouse.xyz`.
+- [ ] Add a **Domain property** for `meowcreativehaus.xyz`.
 - [ ] Copy Google’s TXT verification record into DNS.
 - [ ] Complete ownership verification.
-- [ ] Submit `https://meowcreativehouse.xyz/sitemap.xml`.
+- [ ] Submit `https://meowcreativehaus.xyz/sitemap.xml`.
 - [ ] Inspect the homepage and request indexing once.
 - [ ] Inspect `/services`, `/lab`, and `/patherle`; request indexing only when
   they are live and canonical.
@@ -133,14 +126,11 @@ prepare copy and guide each screen
 Cost: free  
 Gate: business eligibility and name/location decision
 
-- [ ] Confirm the public name: default recommendation is **Meow Creative Haus**
-  because that matches the established site.
-- [ ] Confirm whether customers can visit the Doddanagudde address during
-  staffed hours and see permanent Meow Creative Haus signage.
-- [ ] If yes, use the exact storefront address and accurate opening hours.
-- [ ] If no, create a service-area business, verify with the real address, hide
-  the address, and list honest service areas such as Udupi and the cities
-  actually served.
+- [x] Confirm the public name as **Meow Creative Haus**.
+- [x] Confirm the Doddanagudde storefront has customer access, staff, and
+  permanent signage.
+- [x] Confirm public hours as every day, 11:00 AM-9:00 PM.
+- [ ] Enter the exact storefront address and hours in the profile.
 - [ ] Choose the closest available primary category. Likely starting point:
   `Website designer`; consider `Marketing agency` and `Software company` only
   when each accurately reflects active services.

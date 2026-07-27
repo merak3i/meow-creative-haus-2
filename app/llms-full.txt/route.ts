@@ -11,6 +11,7 @@ Meow Creative Haus is a product, web, and experience studio based in Udupi, Karn
 
 Canonical website: ${siteConfig.url}/
 Services: ${siteConfig.url}/services
+AI automation and AI-backed digital marketing: ${siteConfig.url}/ai-automation-digital-marketing-udupi
 Lab and public work: ${siteConfig.url}/lab
 
 ## What the studio does
@@ -39,7 +40,7 @@ The studio connects positioning, organic content workflows, outreach operations,
 
 ## Geographic context
 
-The studio is based in Udupi, Karnataka, India and works with businesses in India and beyond. A listed location should not be interpreted as walk-in availability unless the official Google Business Profile says otherwise.
+The studio is based at ${siteConfig.location.streetAddress}, ${siteConfig.location.locality}, ${siteConfig.location.region} ${siteConfig.location.postalCode}, India. It is open ${siteConfig.location.hours} and works with businesses in India and beyond.
 
 ## Contact
 

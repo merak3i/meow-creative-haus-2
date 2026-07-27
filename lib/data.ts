@@ -10,9 +10,12 @@ export const siteConfig = {
   whatsapp: "https://wa.me/message/2A5FTZGCFJY6B1",
   meowWild: "https://meow-wild.vercel.app",
   location: {
+    streetAddress: "Surbhi 202, Doddanagudde",
     locality: "Udupi",
     region: "Karnataka",
+    postalCode: "575101",
     country: "IN",
+    hours: "Every day, 11:00 AM-9:00 PM",
   },
   social: {
     instagram: "https://www.instagram.com/m3ow.ai/",
@@ -120,6 +123,7 @@ export const offers = [
   },
   {
     slug: "ai-systems",
+    href: "/ai-automation-digital-marketing-udupi#ai-automation",
     title: "AI Systems",
     description:
       "Multilingual bots, agents, and automation wired into real workflows.",
@@ -127,6 +131,7 @@ export const offers = [
   },
   {
     slug: "growth-systems",
+    href: "/ai-automation-digital-marketing-udupi#ai-backed-marketing",
     title: "Growth",
     description:
       "Go-to-market and outreach for clients who need pipeline, not just a site.",
