@@ -4,7 +4,7 @@ export const siteConfig = {
   name: "Meow Creative Haus",
   url:
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "") ??
-    "https://meowcreativehaus.vercel.app",
+    "https://meowcreativehaus.xyz",
   email: "mewdiaservice@gmail.com",
   calendly: "https://calendly.com/mewdiaservice/30min",
   whatsapp: "https://wa.me/message/2A5FTZGCFJY6B1",
