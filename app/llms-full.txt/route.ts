@@ -44,6 +44,7 @@ The studio is based at ${siteConfig.location.streetAddress}, ${siteConfig.locati
 
 ## Contact
 
+- Phone: ${siteConfig.phoneDisplay}
 - Email: ${siteConfig.email}
 - Instagram: ${siteConfig.social.instagram}
 - LinkedIn: ${siteConfig.social.linkedinPersonal}

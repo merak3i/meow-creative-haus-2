@@ -496,6 +496,12 @@ export default function AiAutomationDigitalMarketingPage() {
             <p className="mt-3 text-body-md text-text-muted">
               {siteConfig.location.hours}
             </p>
+            <a
+              href={`tel:${siteConfig.phone}`}
+              className="mt-2 inline-block text-body-md text-text-muted transition-colors hover:text-accent-teal"
+            >
+              {siteConfig.phoneDisplay}
+            </a>
             <div className="mt-7 flex flex-wrap gap-4">
               <a
                 href={siteConfig.whatsapp}

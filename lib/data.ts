@@ -6,6 +6,8 @@ export const siteConfig = {
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "") ??
     "https://meowcreativehaus.xyz",
   email: "mewdiaservice@gmail.com",
+  phone: "+919448546254",
+  phoneDisplay: "+91 94485 46254",
   calendly: "https://calendly.com/mewdiaservice/30min",
   whatsapp: "https://wa.me/message/2A5FTZGCFJY6B1",
   meowWild: "https://meow-wild.vercel.app",

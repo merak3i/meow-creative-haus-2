@@ -97,6 +97,7 @@ const structuredData = {
       name: siteConfig.name,
       url: siteConfig.url,
       email: siteConfig.email,
+      telephone: siteConfig.phone,
       address: postalAddress,
       founder: {
         "@type": "Person",
@@ -117,8 +118,6 @@ const structuredData = {
       url: siteConfig.url,
       name: siteConfig.name,
       description: siteDescription,
-      address: postalAddress,
-      openingHoursSpecification: openingHours,
       publisher: { "@id": `${siteConfig.url}/#organization` },
       inLanguage: "en-IN",
     },
@@ -128,6 +127,9 @@ const structuredData = {
       name: siteConfig.name,
       url: siteConfig.url,
       description: siteDescription,
+      telephone: siteConfig.phone,
+      address: postalAddress,
+      openingHoursSpecification: openingHours,
       areaServed: [
         {
           "@type": "City",

@@ -38,6 +38,7 @@ export function GET() {
 
 ## Contact and profiles
 
+- Phone: ${siteConfig.phoneDisplay}
 - Email: ${siteConfig.email}
 - Instagram: ${siteConfig.social.instagram}
 - LinkedIn: ${siteConfig.social.linkedinPersonal}

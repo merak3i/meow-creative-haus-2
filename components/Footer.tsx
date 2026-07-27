@@ -68,7 +68,12 @@ export default function Footer() {
               Chat on WhatsApp
             </p>
             <p className="text-text-dim text-sm mb-4">
-              Or email {siteConfig.email}
+              Or call{" "}
+              <a href={`tel:${siteConfig.phone}`} className="hover:text-text">
+                {siteConfig.phoneDisplay}
+              </a>
+              <br />
+              Email {siteConfig.email}
             </p>
             <a
               href={siteConfig.whatsapp}
