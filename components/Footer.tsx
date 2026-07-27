@@ -9,6 +9,7 @@ const footerLinks = [
   { label: "Twitter", href: siteConfig.social.twitter },
   { label: "Linktree", href: siteConfig.social.linktree },
   { label: "GitHub", href: siteConfig.social.github },
+  { label: "Privacy", href: "/privacy" },
 ];
 
 export default function Footer() {
@@ -22,7 +23,8 @@ export default function Footer() {
               MCH<span className="text-accent-teal">.</span>
             </p>
             <p className="text-text-muted text-body-md max-w-xs">
-              AI-driven acquisition systems that turn strangers into revenue.
+              Product, web, and experience systems built in Udupi for teams
+              anywhere.
             </p>
           </div>
 
@@ -36,8 +38,9 @@ export default function Footer() {
                 <a
                   key={link.label}
                   href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  {...(link.href.startsWith("http")
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
                   className="text-text-muted hover:text-text transition-colors duration-300 text-body-md w-fit"
                 >
                   {link.label}

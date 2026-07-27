@@ -2,15 +2,21 @@ import tenderMomentsLogo from "@/assets/client-logos/tender-moments-logo.png";
 
 export const siteConfig = {
   name: "Meow Creative Haus",
-  url: "https://meowcreativehaus.vercel.app",
+  url:
+    process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "") ??
+    "https://meowcreativehaus.vercel.app",
   email: "mewdiaservice@gmail.com",
   calendly: "https://calendly.com/mewdiaservice/30min",
   whatsapp: "https://wa.me/message/2A5FTZGCFJY6B1",
   meowWild: "https://meow-wild.vercel.app",
+  location: {
+    locality: "Udupi",
+    region: "Karnataka",
+    country: "IN",
+  },
   social: {
     instagram: "https://www.instagram.com/m3ow.ai/",
-    linkedinCompany:
-      "https://www.linkedin.com/company/105362259/admin/dashboard/",
+    linkedinCompany: "https://www.linkedin.com/company/105362259/",
     linkedinPersonal: "https://www.linkedin.com/in/vismay-h-b9a89a81gde/",
     linktree: "https://linktr.ee/vismay9",
     twitter: "https://x.com/m3ow_ai",

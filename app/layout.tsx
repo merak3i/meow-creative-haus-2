@@ -5,6 +5,7 @@ import LenisProvider from "@/components/LenisProvider";
 import Navigation from "@/components/Navigation";
 import ScrollProgress from "@/components/ScrollProgress";
 import Footer from "@/components/Footer";
+import Analytics from "@/components/Analytics";
 import { siteConfig } from "@/lib/data";
 
 const siteDescription =
@@ -22,6 +23,18 @@ export const metadata: Metadata = {
   creator: "Meow Creative Haus",
   publisher: "Meow Creative Haus",
   category: "technology",
+  verification: {
+    ...(process.env.GOOGLE_SITE_VERIFICATION
+      ? { google: process.env.GOOGLE_SITE_VERIFICATION }
+      : {}),
+    ...(process.env.BING_SITE_VERIFICATION
+      ? {
+          other: {
+            "msvalidate.01": process.env.BING_SITE_VERIFICATION,
+          },
+        }
+      : {}),
+  },
   alternates: {
     canonical: "/",
   },
@@ -67,6 +80,7 @@ const structuredData = {
       },
       sameAs: [
         siteConfig.social.instagram,
+        siteConfig.social.linkedinCompany,
         siteConfig.social.linkedinPersonal,
         siteConfig.social.twitter,
         siteConfig.social.github,
@@ -87,10 +101,20 @@ const structuredData = {
       name: siteConfig.name,
       url: siteConfig.url,
       description: siteDescription,
-      areaServed: {
-        "@type": "Country",
-        name: "India",
-      },
+      areaServed: [
+        {
+          "@type": "City",
+          name: siteConfig.location.locality,
+          containedInPlace: {
+            "@type": "State",
+            name: siteConfig.location.region,
+          },
+        },
+        {
+          "@type": "Country",
+          name: "India",
+        },
+      ],
       provider: { "@id": `${siteConfig.url}/#organization` },
       serviceType: [
         "Product design and development",
@@ -122,6 +146,7 @@ export default function RootLayout({
           data-tenant-id="9318a323-8e3f-4d5b-b664-050564c8bf42"
           strategy="afterInteractive"
         />
+        <Analytics />
         <LenisProvider>
           <div className="grain-overlay" />
           <ScrollProgress />
