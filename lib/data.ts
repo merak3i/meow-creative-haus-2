@@ -457,14 +457,6 @@ export const clientWebsites = [
     logo: "",
   },
   {
-    name: "JB & Co Law",
-    tagline: "Legal services — modern practice site",
-    url: "https://jbandcolaw.vercel.app/",
-    screenshot: "/screenshots/jb-co-law.png",
-    industry: "Legal",
-    logo: "",
-  },
-  {
     name: "EAASH",
     tagline: "Boutique coastal stay brand",
     url: "https://eaash.vercel.app/",
