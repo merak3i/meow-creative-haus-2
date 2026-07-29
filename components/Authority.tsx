@@ -22,7 +22,7 @@ export default function Authority() {
   return (
     <section
       id="authority"
-      className="py-24 md:py-40 px-6 md:px-12 border-t border-surface-border"
+      className="perforated-section overflow-hidden py-24 md:py-40 px-6 md:px-12 border-t border-surface-border"
     >
       <motion.div
         variants={sectionVariants}

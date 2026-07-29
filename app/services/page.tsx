@@ -161,7 +161,7 @@ export default function ServicesPage() {
           __html: JSON.stringify(faqSchema).replace(/</g, "\\u003c"),
         }}
       />
-      <section className="px-6 pb-20 pt-36 md:px-12 md:pb-28 md:pt-44">
+      <section className="perforated-section overflow-hidden px-6 pb-20 pt-36 md:px-12 md:pb-28 md:pt-44">
         <div className="mx-auto max-w-[1200px]">
           <p className="mb-5 text-label-sm uppercase tracking-[0.2em] text-accent-teal">
             Services
