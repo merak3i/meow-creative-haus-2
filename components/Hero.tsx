@@ -55,19 +55,27 @@ function HeroScene({
           </p>
 
           <div className="flex flex-wrap gap-4">
-            <a href={siteConfig.whatsapp} target="_blank" rel="noopener noreferrer">
-              <GradientButton className="text-sm uppercase tracking-widest">
+            <GradientButton asChild className="text-sm uppercase tracking-widest">
+              <a
+                href={siteConfig.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Start a Project
                 <span className="ml-3 opacity-70 transition-all duration-300 group-hover:translate-x-1.5 group-hover:opacity-100">
                   &rarr;
                 </span>
-              </GradientButton>
-            </a>
-            <a href="#offers">
-              <GradientButton variant="variant" className="text-sm uppercase tracking-widest">
+              </a>
+            </GradientButton>
+            <GradientButton
+              asChild
+              variant="variant"
+              className="text-sm uppercase tracking-widest"
+            >
+              <a href="#offers">
                 See the Work
-              </GradientButton>
-            </a>
+              </a>
+            </GradientButton>
           </div>
         </div>
       </motion.div>
