@@ -7,7 +7,7 @@ const footerLinks = [
   { label: "Services", href: "/services" },
   {
     label: "AI + Growth",
-    href: "/ai-automation-digital-marketing-udupi",
+    href: "/ai-automation-digital-marketing-mangalore",
   },
   { label: "Instagram", href: siteConfig.social.instagram },
   { label: "LinkedIn", href: siteConfig.social.linkedinPersonal },
@@ -28,11 +28,11 @@ export default function Footer() {
               MCH<span className="text-accent-teal">.</span>
             </p>
             <p className="text-text-muted text-body-md max-w-xs">
-              Product, web, and experience systems built in Udupi for teams
+              Product, web, and experience systems built in Mangalore for teams
               anywhere.
             </p>
             <p className="mt-4 max-w-xs text-sm text-text-dim">
-              Surbhi 202, Doddanagudde, Udupi, Karnataka 575101
+              1001, Provident Skyworth, Konchady, Mangalore, 575008
               <br />
               Open every day, 11:00 AM-9:00 PM
             </p>

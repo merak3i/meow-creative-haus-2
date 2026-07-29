@@ -92,7 +92,7 @@ const faqs = [
   {
     question: "Where is Meow Creative Haus based?",
     answer:
-      "Meow Creative Haus is based in Udupi, Karnataka, India. The studio works with local businesses as well as distributed teams elsewhere in India and internationally. Projects can be run remotely, with the working format and communication rhythm agreed during the initial scoping conversation.",
+      "Meow Creative Haus is based in Mangalore, Karnataka, India. The studio works with local businesses as well as distributed teams elsewhere in India and internationally. Projects can be run remotely, with the working format and communication rhythm agreed during the initial scoping conversation.",
   },
   {
     question: "Can one engagement include strategy, design, and development?",

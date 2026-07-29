@@ -8,7 +8,7 @@ Current live website: `https://meowcreativehaus.vercel.app`
 
 1. **Canonical domain:** `meowcreativehaus.xyz`.
 2. **Public business name:** **Meow Creative Haus**.
-3. **Storefront:** **Surbhi 202, Doddanagudde, Udupi 575101** has permanent
+3. **Storefront:** **1001, Provident Skyworth, Konchady, Mangalore 575008** has permanent
    signage, staff, and customer access.
 4. **Opening hours:** every day, 11:00 AM-9:00 PM.
 5. **Google and Bing setup account:** `vismayhegde@gmail.com`.
@@ -26,7 +26,7 @@ Status: prepared on `feat/seo-aeo-geo`
 - [x] Make the canonical site URL deployment-configurable.
 - [x] Keep page titles, descriptions, canonical tags, Open Graph, and X cards.
 - [x] Add Organization, WebSite, ProfessionalService, Service, and FAQ schema.
-- [x] Add Udupi and India as truthful service areas.
+- [x] Add Mangalore and India as truthful service areas.
 - [x] Add answer-first service FAQs for AEO/GEO.
 - [x] Add a privacy page before enabling Google Analytics.
 - [x] Add Google Search Console and Bing verification hooks.
@@ -53,7 +53,7 @@ Gate: registrar/Vercel access
 - [ ] Confirm HTTPS, apex-to-canonical redirect, and no redirect loop.
 - [ ] Set `NEXT_PUBLIC_SITE_URL=https://meowcreativehaus.xyz`.
 - [ ] Deploy, then recheck `/`, `/services`, `/lab`, `/patherle`, `/privacy`,
-  `/ai-automation-digital-marketing-udupi`, `/robots.txt`, `/sitemap.xml`,
+  `/ai-automation-digital-marketing-mangalore`, `/robots.txt`, `/sitemap.xml`,
   `/llms.txt`, and `/llms-full.txt`.
 - [ ] Keep the old Vercel hostname reachable but canonicalized to the `.xyz`
   domain; redirect it if the hosting setup permits.
@@ -127,7 +127,7 @@ Cost: free
 Gate: business eligibility and name/location decision
 
 - [x] Confirm the public name as **Meow Creative Haus**.
-- [x] Confirm the Doddanagudde storefront has customer access, staff, and
+- [x] Confirm the Konchady storefront has customer access, staff, and
   permanent signage.
 - [x] Confirm public hours as every day, 11:00 AM-9:00 PM.
 - [ ] Enter the exact storefront address and hours in the profile.
@@ -170,7 +170,7 @@ Use this page formula:
 
 Priority zero-paid topics:
 
-- [ ] Website design and product studio services in Udupi.
+- [ ] Website design and product studio services in Mangalore.
 - [ ] What an AI product studio does for an Indian small business.
 - [ ] When workflow automation is useful and when it is not.
 - [ ] How multilingual assistants can support Indian customer journeys.

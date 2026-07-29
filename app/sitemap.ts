@@ -18,7 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${siteConfig.url}/ai-automation-digital-marketing-udupi`,
+      url: `${siteConfig.url}/ai-automation-digital-marketing-mangalore`,
       lastModified,
       changeFrequency: "monthly",
       priority: 0.9,

@@ -7,11 +7,11 @@ export function GET() {
 
 ## Identity
 
-Meow Creative Haus is a product, web, and experience studio based in Udupi, Karnataka, India. The studio builds websites, digital products, practical AI systems, interactive experiences, and go-to-market infrastructure.
+Meow Creative Haus is a product, web, and experience studio based in Mangalore, Karnataka, India. The studio builds websites, digital products, practical AI systems, interactive experiences, and go-to-market infrastructure.
 
 Canonical website: ${siteConfig.url}/
 Services: ${siteConfig.url}/services
-AI automation and AI-backed digital marketing: ${siteConfig.url}/ai-automation-digital-marketing-udupi
+AI automation and AI-backed digital marketing: ${siteConfig.url}/ai-automation-digital-marketing-mangalore
 Lab and public work: ${siteConfig.url}/lab
 
 ## What the studio does

@@ -12,10 +12,10 @@ export const siteConfig = {
   whatsapp: "https://wa.me/message/2A5FTZGCFJY6B1",
   meowWild: "https://meow-wild.vercel.app",
   location: {
-    streetAddress: "Surbhi 202, Doddanagudde",
-    locality: "Udupi",
+    streetAddress: "1001, Provident Skyworth, Konchady",
+    locality: "Mangalore",
     region: "Karnataka",
-    postalCode: "575101",
+    postalCode: "575008",
     country: "IN",
     hours: "Every day, 11:00 AM-9:00 PM",
   },
@@ -125,7 +125,7 @@ export const offers = [
   },
   {
     slug: "ai-systems",
-    href: "/ai-automation-digital-marketing-udupi#ai-automation",
+    href: "/ai-automation-digital-marketing-mangalore#ai-automation",
     title: "AI Systems",
     description:
       "Multilingual bots, agents, and automation wired into real workflows.",
@@ -133,7 +133,7 @@ export const offers = [
   },
   {
     slug: "growth-systems",
-    href: "/ai-automation-digital-marketing-udupi#ai-backed-marketing",
+    href: "/ai-automation-digital-marketing-mangalore#ai-backed-marketing",
     title: "Growth",
     description:
       "Go-to-market and outreach for clients who need pipeline, not just a site.",
