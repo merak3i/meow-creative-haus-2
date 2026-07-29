@@ -265,6 +265,8 @@ export function FocusRail({
                       <img
                         src={item.imageSrc}
                         alt={item.title}
+                        loading="lazy"
+                        decoding="async"
                         className="h-full w-full object-cover pointer-events-none"
                         onError={(e) => {
                           if (item.videoId && !item.videoId.startsWith("PLACEHOLDER")) {

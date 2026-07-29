@@ -95,6 +95,8 @@ function MobileCompanyCard({ group }: { group: ShortsGroup }) {
                 <img
                   src={`https://i.ytimg.com/vi/${s.videoId}/hqdefault.jpg`}
                   alt={group.client}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                   onError={(e) => {
                     (e.currentTarget as HTMLImageElement).src =

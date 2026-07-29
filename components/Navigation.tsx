@@ -53,7 +53,7 @@ export default function Navigation() {
       >
         <a
           href={pathname === "/" ? "#hero" : "/"}
-          aria-label="Meow Creative Haus home"
+          aria-label="MCH. Meow Creative Haus home"
           className="text-text font-bold text-lg tracking-tight"
         >
           MCH<span className="text-accent-teal">.</span>

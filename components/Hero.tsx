@@ -8,9 +8,6 @@ import ScrollStage from "@/components/ScrollStage";
 import PinnedPanels from "@/components/PinnedPanels";
 import RevenueDashboard from "@/components/RevenueDashboard";
 
-const headlineWords =
-  "We design and build software worth feeling.".split(" ");
-
 // The pinned hero scene. Text owns the first beat, then recedes as the layered
 // dashboard panels rotate flat and rise to centre — the Scale signature.
 function HeroScene({
@@ -43,60 +40,21 @@ function HeroScene({
         className="absolute inset-0 flex flex-col justify-center px-6 md:px-12"
       >
         <div className="mx-auto w-full max-w-[1400px]">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-label-sm uppercase text-accent-teal tracking-[0.2em] mb-6"
-          >
+          <p className="text-label-sm uppercase text-accent-teal tracking-[0.2em] mb-6">
             Product &amp; Experience Studio
-          </motion.p>
+          </p>
 
-          <motion.h1
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1.4 }}
-            className="text-display-xl mb-7 max-w-[15ch] [perspective:1000px]"
-          >
-            {headlineWords.map((word, wordIndex) => (
-              <span key={wordIndex} className="inline-block mr-[0.3em] last:mr-0">
-                {word.split("").map((letter, letterIndex) => (
-                  <motion.span
-                    key={`${wordIndex}-${letterIndex}`}
-                    initial={{ y: 100, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{
-                      delay: wordIndex * 0.08 + letterIndex * 0.025,
-                      type: "spring",
-                      stiffness: 150,
-                      damping: 25,
-                    }}
-                    className="inline-block bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent"
-                  >
-                    {letter}
-                  </motion.span>
-                ))}
-              </span>
-            ))}
-          </motion.h1>
+          <h1 className="text-display-xl mb-7 max-w-[15ch] bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
+            We design and build software worth feeling.
+          </h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            className="text-body-lg text-text-muted max-w-[600px] mb-10"
-          >
+          <p className="text-body-lg text-text-muted max-w-[600px] mb-10">
             Meow Creative Haus is a product and experience studio. We ship
             interfaces, AI systems, and websites for founders and businesses in
             India and beyond. Every project below is live — click any of them.
-          </motion.p>
+          </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.1, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-wrap gap-4"
-          >
+          <div className="flex flex-wrap gap-4">
             <a href={siteConfig.whatsapp} target="_blank" rel="noopener noreferrer">
               <GradientButton className="text-sm uppercase tracking-widest">
                 Start a Project
@@ -110,7 +68,7 @@ function HeroScene({
                 See the Work
               </GradientButton>
             </a>
-          </motion.div>
+          </div>
         </div>
       </motion.div>
 

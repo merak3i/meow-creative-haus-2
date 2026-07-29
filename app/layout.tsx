@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Script from "next/script";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import LenisProvider from "@/components/LenisProvider";
 import Navigation from "@/components/Navigation";
@@ -7,6 +7,14 @@ import ScrollProgress from "@/components/ScrollProgress";
 import Footer from "@/components/Footer";
 import Analytics from "@/components/Analytics";
 import { siteConfig } from "@/lib/data";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+  preload: true,
+  fallback: ["system-ui", "Arial", "sans-serif"],
+});
 
 const siteDescription =
   "Meow Creative Haus is an India-based product, web, and experience studio building interactive websites, AI systems, and digital products for founders and businesses.";
@@ -163,17 +171,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-surface text-text">
+      <body className={`${poppins.className} bg-surface text-text`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
           }}
-        />
-        <Script
-          src="https://www.patherle.com/patherle-pixel.js"
-          data-tenant-id="9318a323-8e3f-4d5b-b664-050564c8bf42"
-          strategy="afterInteractive"
         />
         <Analytics />
         <LenisProvider>

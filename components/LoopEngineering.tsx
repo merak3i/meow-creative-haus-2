@@ -236,14 +236,16 @@ export default function LoopEngineering() {
         </div>
 
         {/* Progress dots */}
-        <div className="mt-4 flex items-center justify-center gap-2">
+        <div className="mt-4 flex items-center justify-center gap-1">
           {FRAMES.map((f, i) => (
             <button
               key={f.id}
               onClick={() => scrollToFrame(i)}
               aria-label={`Go to ${f.label}`}
-              className={`h-1.5 rounded-full transition-all duration-300 ${
-                i === active ? "w-6 bg-accent-teal" : "w-1.5 bg-surface-border hover:bg-text-dim"
+              className={`grid h-11 w-11 place-items-center rounded-full transition-all duration-300 after:block after:h-1.5 after:rounded-full ${
+                i === active
+                  ? "after:w-6 after:bg-accent-teal"
+                  : "after:w-1.5 after:bg-text-dim hover:after:bg-text-muted"
               }`}
             />
           ))}

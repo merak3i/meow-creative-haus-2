@@ -11,16 +11,6 @@ import ShipLog from "@/components/ShipLog";
 import VideoShowcase from "@/components/VideoShowcase";
 import ShortsShowcase from "@/components/ShortsShowcase";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
-};
-
-const stagger = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.15 } },
-};
-
 const FEATURES = [
   {
     icon: BarChart3,
@@ -79,19 +69,19 @@ export default function LabPage() {
       <div className="max-w-[1000px] mx-auto">
 
         {/* Hero */}
-        <motion.div variants={stagger} initial="hidden" animate="visible" className="mb-24">
-          <motion.p variants={fadeUp} className="text-label-sm uppercase text-accent-teal tracking-[0.2em] mb-4">
+        <div className="mb-24">
+          <p className="text-label-sm uppercase text-accent-teal tracking-[0.2em] mb-4">
             From the Lab
-          </motion.p>
-          <motion.h1 variants={fadeUp} className="text-display-lg mb-6">
+          </p>
+          <h1 className="text-display-lg mb-6">
             Open tools for{" "}
             <span className="text-gradient-accent">the agentic age.</span>
-          </motion.h1>
-          <motion.p variants={fadeUp} className="text-body-lg text-text-muted max-w-[580px]">
+          </h1>
+          <p className="text-body-lg text-text-muted max-w-[580px]">
             Free, MIT-licensed, and designed for developers who want to understand
             what their AI is actually doing.
-          </motion.p>
-        </motion.div>
+          </p>
+        </div>
 
         {/* Meow Ops project block */}
         <motion.div
@@ -210,7 +200,7 @@ export default function LabPage() {
 
       <p className="px-6 md:px-12 pt-16 text-label-sm text-text-dim text-center">
         Powered by{" "}
-        <a href="/" className="text-text-muted hover:text-accent-teal transition-colors duration-300">
+        <a href="/" className="text-text underline underline-offset-4 hover:text-accent-teal transition-colors duration-300">
           Meow Creative Haus
         </a>{" "}
         · MIT License · Free forever
