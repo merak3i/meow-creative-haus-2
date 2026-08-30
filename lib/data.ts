@@ -145,10 +145,10 @@ export const openSourceProjects = [
   {
     name: "Meow Operations",
     slug: "meow-ops",
-    tagline: "Local-first command deck for agent work: token spend, timelines, and loop evidence in one place.",
+    tagline: "Local inbox for AI coding work. What happened, what it cost, what you should decide next.",
     description:
-      "Local-first command deck for Claude Code, Cursor, Aider and Codex: token analytics, wall-clock timelines, and Loop Ops, a read-only map where multi-agent loops show evidence before anything claims green.",
-    stats: ["30+ models", "4 AI tools", "Loop Ops control room", "MIT license", "3D companion"],
+      "Local inbox for Claude Code, Cursor, Aider, Codex, Hermes, and Antigravity. Five surfaces: Today, Review, Ledger, Sanctum, Learn. The focus timer is a chip. Companion is gone.",
+    stats: ["Today · Review · Ledger", "Sanctum · Learn", "Focus timer chip", "MIT license", "Local-first"],
     github: "https://github.com/merak3i/meow-ops",
     demo: process.env.NEXT_PUBLIC_DEMO_URL ?? "",
     status: "live",
