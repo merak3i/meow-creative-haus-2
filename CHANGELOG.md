@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Cross-repo auto-redeploy hook: a workflow in the `meow-wild` repo triggers an MCH production redeploy when meow.wild updates (keeps the attachment fresh).
 
 ### Changed
+- `components/LabPage.tsx` — field note rewritten from the July-August sales motion: how signals are found, qualified, receipted, drafted, queued, human-approved, and scored weekly.
 - `components/LoopEngineering.tsx` — replaced the pinned vertical scroll-scrub (which jump-cut between frames) with a native horizontal scroll-snap carousel: swipe / arrows / clickable steps + dots, active frame tracked via IntersectionObserver. Smoother and more intuitive; no scroll-hijacking.
 
 ### Removed

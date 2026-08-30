@@ -223,17 +223,67 @@ export default function LabPage() {
           <h2 className="text-lg font-semibold mb-6">Sales loops that wait for a human</h2>
           <div className="space-y-4 text-sm text-text-muted leading-relaxed max-w-[640px]">
             <p>
-              Marketing from this lab is a recurring loop. A signal comes in. Someone qualifies it.
-              Proof is gathered from work that already exists locally. Outreach is drafted. Follow-up
-              is queued. Nothing sends until a human approves the message.
+              Since early July this lab has run two sales loops side by side. One sources accounts
+              from a licensed people database and from public job posts. The other works
+              connection requests, DMs, and posts: twenty unpersonalized connects a day to people
+              already commenting on category threads, a four-step DM, a daily proof post, and two
+              lead magnets a week. Both loops stop at a queue. A human sends every message.
             </p>
             <p>
-              The same motion runs again next week. It is scored against the last run, then trimmed.
-              One-off blasts skip that check, so they stay out.
+              Signals start cheap. Company size, geography, role, and hiring news are enough for a
+              first pass. A full dossier only happens after the account clears a written
+              fit, timing, and intent threshold. On the network side, a comment on a category post
+              is the warm signal. A one-word reply to a filter CTA is a hand raise. A comment on a
+              magnet means send the resource and wait.
             </p>
             <p>
-              What gets measured is a reply, a meeting, or a close. Impression counts and list size
-              are vanity unless they turn into one of those three.
+              Qualification is three numbers written down. Fit, timing, and intent each get a
+              score. The message type follows the public surface. Teardown if the site is weak,
+              audit if there is something specific to inspect, direct if the problem is already
+              obvious. Connection lists get marked keep or skip before anyone is added. Magnets
+              use disqualifying language so the wrong company size and role stay out.
+            </p>
+            <p>
+              Proof comes from work that already shipped. A post needs a live URL, a screenshot,
+              or a commit. Client numbers stay out unless that client signed off. Friday proof
+              reloads every link the morning it goes out. If a URL is down, that line is cut.
+              Teardown and opinion posts follow the same receipt rule. No receipt, no draft.
+            </p>
+            <p>
+              Drafts follow a fixed week. Monday teardown, Wednesday build-in-public, Friday proof.
+              Each slot gets three platform variants. Daily posts weave one proof point and end
+              with a filter CTA: who this is for, what they are stuck on, and one word to reply.
+              DMs stay four separate messages. First a greeting. Then one compliment tied to a
+              checkable fact. Then one pain question that hangs. Then one observation a peer would
+              nod at. They do not collapse into a single pitch. The next message waits for a reply
+              unless a full kit was asked for.
+            </p>
+            <p>
+              Follow-up sits in the same queue. After a connect is accepted, only the next message
+              is written. After a magnet comment, the resource goes out with no pitch, then the
+              same four-step sequence later. When impressions on a magnet slow, the same asset is
+              reposted. Replies get a label and a next action. The labels are interested, objection,
+              not now, unsubscribe, or auto. Nothing auto-replies. Unsubscribe never gets
+              sequenced again.
+            </p>
+            <p>
+              Nothing sends until a person approves it. The agent does not post, schedule, mail,
+              or click connect. Remaining credits are checked before a batch so a run cannot blow
+              a cap. Calendar swaps are proposed with one line of rationale. The calendar does not
+              move until the operator says so.
+            </p>
+            <p>
+              Each week the loop is scored against the last run. Correctness, craft, safety,
+              whether it actually shipped, and whether anything was learned. A pass needs every
+              dimension at least three, and at least one dimension better than last week, or a new
+              failure class written down. A failed pass blocks the closeout. Thin motions get
+              trimmed. One-off blasts skip that check, so they stay out.
+            </p>
+            <p>
+              What gets counted is a reply, a meeting, or a close. The monthly bar is twenty
+              qualified meetings. Accepts, impressions, and list size only matter as ratios into
+              those three. If they do not turn into a reply, a meeting, or a close, they are vanity
+              and they get cut.
             </p>
             <p>
               The useful output is a queue a person can empty, not a campaign that fires itself.
