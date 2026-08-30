@@ -60,7 +60,7 @@ export default function WildPopup() {
     } catch {
       /* ignore */
     }
-    const t = setTimeout(() => setShow(true), 3800);
+    const t = setTimeout(() => setShow(true), 12000);
     return () => clearTimeout(t);
   }, []);
 

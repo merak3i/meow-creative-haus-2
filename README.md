@@ -84,6 +84,26 @@ Meow Creative Haus is the public marketing site for the studio. It is built with
 
 `fetchSubstackFeed()` runs server-side. It revalidates hourly and falls back to curated posts when the feed is unavailable.
 
+## Search visibility configuration
+
+Copy `.env.example` into the deployment environment and fill only the values
+issued by the relevant platform:
+
+- `NEXT_PUBLIC_SITE_URL` controls canonical URLs, structured data, robots,
+  sitemap, and the LLM reference files. Switch it only after the custom domain
+  resolves and is attached to production.
+- `NEXT_PUBLIC_GOOGLE_ANALYTICS_ID` enables GA4 and records WhatsApp, Calendly,
+  and email clicks as `generate_lead` events.
+- `GOOGLE_SITE_VERIFICATION` and `BING_SITE_VERIFICATION` add ownership
+  verification meta tags without hard-coding account tokens.
+
+Public discovery endpoints:
+
+- `/robots.txt`
+- `/sitemap.xml`
+- `/llms.txt`
+- `/llms-full.txt`
+
 ## Local setup
 
 ```bash

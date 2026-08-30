@@ -29,31 +29,26 @@ export default function PatherleTease() {
 
       {/* Hero */}
       <section className="relative pt-36 md:pt-48 px-6 md:px-12">
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          transition={{ staggerChildren: 0.12 }}
-          className="max-w-[1400px] mx-auto"
-        >
-          <motion.div variants={rise} className="flex items-center gap-3 mb-4">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="flex items-center gap-3 mb-4">
             <span className="font-mono text-label-sm tracking-[0.25em] text-text-dim">
               INTERNAL BUILD // 003
             </span>
             <span className="text-label-sm tracking-wider text-accent-gold border border-accent-gold/40 px-2 py-0.5 animate-pulse">
               WIP
             </span>
-          </motion.div>
-          <motion.h1 variants={rise} className="text-display-xl max-w-[900px] mb-6">
+          </div>
+          <h1 className="text-display-xl max-w-[900px] mb-6">
             The AI business OS we&apos;re building{" "}
             <span className="text-gradient-accent">in the dark.</span>
-          </motion.h1>
-          <motion.p variants={rise} className="text-body-md text-text-muted max-w-[560px]">
+          </h1>
+          <p className="text-body-md text-text-muted max-w-[560px]">
             Patherle runs real businesses over WhatsApp today: 24 languages
             (22 Indic, plus Mandarin and Spanish), voice, catalogue, payments.
             That part is public. The deeper automation
             layer stays behind the gold bars.
-          </motion.p>
-        </motion.div>
+          </p>
+        </div>
       </section>
 
       {/* Scroll-tilt reveal: the public face */}

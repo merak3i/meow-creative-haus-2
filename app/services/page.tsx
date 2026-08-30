@@ -83,6 +83,34 @@ const serviceDetails = [
   },
 ] as const;
 
+const faqs = [
+  {
+    question: "What does Meow Creative Haus build?",
+    answer:
+      "Meow Creative Haus designs and develops marketing websites, product interfaces, interactive web experiences, practical AI systems, workflow automation, and go-to-market infrastructure. The scope is shaped around the operating problem, with an emphasis on shipping a usable system rather than stopping at a strategy document or visual concept.",
+  },
+  {
+    question: "Where is Meow Creative Haus based?",
+    answer:
+      "Meow Creative Haus is based in Mangalore, Karnataka, India. The studio works with local businesses as well as distributed teams elsewhere in India and internationally. Projects can be run remotely, with the working format and communication rhythm agreed during the initial scoping conversation.",
+  },
+  {
+    question: "Can one engagement include strategy, design, and development?",
+    answer:
+      "Yes. A project can combine positioning, information architecture, interface design, implementation, integrations, launch preparation, and iteration. The exact mix depends on what already exists and what is blocking progress. Smaller engagements can focus on one layer when a complete end-to-end build is unnecessary.",
+  },
+  {
+    question: "Does the studio build AI agents and automation?",
+    answer:
+      "Yes. The studio builds multilingual assistants, agent-operated tools, workflow automation, and internal control surfaces. The approach starts with the real workflow and its failure cases, then adds AI where it creates useful leverage. Human review and inspectable evidence remain part of the system when the work is consequential.",
+  },
+  {
+    question: "How does a new project begin?",
+    answer:
+      "A project begins with the problem, the people affected, the current system, and the smallest useful outcome. After a short scoping conversation, Meow Creative Haus maps the recommended deliverable, boundaries, proof needed, and next step. You can start that conversation through WhatsApp or the contact details on this website.",
+  },
+] as const;
+
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
@@ -105,6 +133,19 @@ const serviceSchema = {
   })),
 };
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
+};
+
 export default function ServicesPage() {
   return (
     <>
@@ -114,7 +155,13 @@ export default function ServicesPage() {
           __html: JSON.stringify(serviceSchema).replace(/</g, "\\u003c"),
         }}
       />
-      <section className="px-6 pb-20 pt-36 md:px-12 md:pb-28 md:pt-44">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqSchema).replace(/</g, "\\u003c"),
+        }}
+      />
+      <section className="perforated-section overflow-hidden px-6 pb-20 pt-36 md:px-12 md:pb-28 md:pt-44">
         <div className="mx-auto max-w-[1200px]">
           <p className="mb-5 text-label-sm uppercase tracking-[0.2em] text-accent-teal">
             Services
@@ -129,6 +176,27 @@ export default function ServicesPage() {
             with the operating problem and ends with something the team can use,
             inspect, and improve.
           </p>
+        </div>
+      </section>
+
+      <section className="border-t border-surface-border px-6 py-20 md:px-12 md:py-28">
+        <div className="mx-auto max-w-[1200px]">
+          <p className="mb-5 text-label-sm uppercase tracking-[0.2em] text-accent-teal">
+            Frequently asked
+          </p>
+          <h2 className="max-w-[760px] text-display-lg">
+            Direct answers before the first call.
+          </h2>
+          <div className="mt-14 grid gap-x-16 gap-y-12 md:grid-cols-2">
+            {faqs.map((faq) => (
+              <article key={faq.question}>
+                <h3 className="text-display-sm text-text">{faq.question}</h3>
+                <p className="mt-4 text-body-md text-text-muted">
+                  {faq.answer}
+                </p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 

@@ -48,7 +48,7 @@ export default function Offers() {
           {offers.map((offer) => (
             <motion.a
               key={offer.index}
-              href={`/services#${offer.slug}`}
+              href={"href" in offer ? offer.href : `/services#${offer.slug}`}
               variants={reduced ? undefined : cardV}
               className="group relative flex flex-col justify-between overflow-hidden rounded-xl border border-white/10 bg-white/[0.035] p-8 transition-colors duration-500 hover:border-accent-teal/40 hover:bg-white/[0.06] md:p-10"
             >

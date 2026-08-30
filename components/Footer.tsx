@@ -4,11 +4,17 @@ import { motion } from "framer-motion";
 import { siteConfig } from "@/lib/data";
 
 const footerLinks = [
+  { label: "Services", href: "/services" },
+  {
+    label: "AI + Growth",
+    href: "/ai-automation-digital-marketing-mangalore",
+  },
   { label: "Instagram", href: siteConfig.social.instagram },
   { label: "LinkedIn", href: siteConfig.social.linkedinPersonal },
   { label: "Twitter", href: siteConfig.social.twitter },
   { label: "Linktree", href: siteConfig.social.linktree },
   { label: "GitHub", href: siteConfig.social.github },
+  { label: "Privacy", href: "/privacy" },
 ];
 
 export default function Footer() {
@@ -22,7 +28,13 @@ export default function Footer() {
               MCH<span className="text-accent-teal">.</span>
             </p>
             <p className="text-text-muted text-body-md max-w-xs">
-              AI-driven acquisition systems that turn strangers into revenue.
+              Product, web, and experience systems built in Mangalore for teams
+              anywhere.
+            </p>
+            <p className="mt-4 max-w-xs text-sm text-text-dim">
+              1001, Provident Skyworth, Konchady, Mangalore, 575008
+              <br />
+              Open every day, 11:00 AM-9:00 PM
             </p>
           </div>
 
@@ -36,8 +48,9 @@ export default function Footer() {
                 <a
                   key={link.label}
                   href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  {...(link.href.startsWith("http")
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
                   className="text-text-muted hover:text-text transition-colors duration-300 text-body-md w-fit"
                 >
                   {link.label}
@@ -55,7 +68,12 @@ export default function Footer() {
               Chat on WhatsApp
             </p>
             <p className="text-text-dim text-sm mb-4">
-              Or email {siteConfig.email}
+              Or call{" "}
+              <a href={`tel:${siteConfig.phone}`} className="hover:text-text">
+                {siteConfig.phoneDisplay}
+              </a>
+              <br />
+              Email {siteConfig.email}
             </p>
             <a
               href={siteConfig.whatsapp}

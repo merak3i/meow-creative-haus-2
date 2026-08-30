@@ -2,15 +2,26 @@ import tenderMomentsLogo from "@/assets/client-logos/tender-moments-logo.png";
 
 export const siteConfig = {
   name: "Meow Creative Haus",
-  url: "https://meowcreativehaus.vercel.app",
+  url:
+    process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "") ??
+    "https://meowcreativehaus.xyz",
   email: "mewdiaservice@gmail.com",
+  phone: "+919448546254",
+  phoneDisplay: "+91 94485 46254",
   calendly: "https://calendly.com/mewdiaservice/30min",
   whatsapp: "https://wa.me/message/2A5FTZGCFJY6B1",
   meowWild: "https://meow-wild.vercel.app",
+  location: {
+    streetAddress: "1001, Provident Skyworth, Konchady",
+    locality: "Mangalore",
+    region: "Karnataka",
+    postalCode: "575008",
+    country: "IN",
+    hours: "Every day, 11:00 AM-9:00 PM",
+  },
   social: {
     instagram: "https://www.instagram.com/m3ow.ai/",
-    linkedinCompany:
-      "https://www.linkedin.com/company/105362259/admin/dashboard/",
+    linkedinCompany: "https://www.linkedin.com/company/105362259/",
     linkedinPersonal: "https://www.linkedin.com/in/vismay-h-b9a89a81gde/",
     linktree: "https://linktr.ee/vismay9",
     twitter: "https://x.com/m3ow_ai",
@@ -114,6 +125,7 @@ export const offers = [
   },
   {
     slug: "ai-systems",
+    href: "/ai-automation-digital-marketing-mangalore#ai-automation",
     title: "AI Systems",
     description:
       "Multilingual bots, agents, and automation wired into real workflows.",
@@ -121,6 +133,7 @@ export const offers = [
   },
   {
     slug: "growth-systems",
+    href: "/ai-automation-digital-marketing-mangalore#ai-backed-marketing",
     title: "Growth",
     description:
       "Go-to-market and outreach for clients who need pipeline, not just a site.",
@@ -420,15 +433,23 @@ export const clientWebsites = [
     name: "BergLabs",
     tagline: "Enterprise AI operations — production systems",
     url: "https://berglabs.ai/",
-    screenshot: "/screenshots/berglabs-homepage-2026-07-26.png",
+    screenshot: "/screenshots/berglabs-homepage-2026-07-26.webp",
     industry: "Enterprise AI",
     logo: "/berg-logo.svg",
   },
   {
+    name: "Tender Moments",
+    tagline: "Preschool & early learning",
+    url: "https://tendermomentshebbal.in/",
+    screenshot: "/screenshots/tender-moments-live-hero-2026-07-28.webp",
+    industry: "Early Education",
+    logo: tenderMomentsLogo.src,
+  },
+  {
     name: "Manipal Aerosports",
     tagline: "Aviation training & airshow brand",
-    url: "https://manipal-aerosports-hyer-rebuild.vercel.app",
-    screenshot: "/screenshots/manipal-aerosports.png",
+    url: "https://manipalaerosports.vercel.app",
+    screenshot: "/screenshots/manipal-aerosports.webp",
     industry: "Aviation",
     logo: LOGOS.manipalAerosports,
   },
@@ -436,7 +457,7 @@ export const clientWebsites = [
     name: "Coastal Edge AI",
     tagline: "Predictive social media marketing",
     url: "https://coastaledge.vercel.app/",
-    screenshot: "/screenshots/coastal-edge-ai.png",
+    screenshot: "/screenshots/coastal-edge-ai.webp",
     industry: "AI Marketing",
     logo: LOGOS.coastalEdge,
   },
@@ -444,23 +465,15 @@ export const clientWebsites = [
     name: "Suha Rehma",
     tagline: "Psychology practice — digital presence",
     url: "https://suharehma.vercel.app/",
-    screenshot: "/screenshots/suha-rehma.png",
+    screenshot: "/screenshots/suha-rehma.webp",
     industry: "Psychology",
-    logo: "",
-  },
-  {
-    name: "JB & Co Law",
-    tagline: "Legal services — modern practice site",
-    url: "https://jbandcolaw.vercel.app/",
-    screenshot: "/screenshots/jb-co-law.png",
-    industry: "Legal",
     logo: "",
   },
   {
     name: "EAASH",
     tagline: "Boutique coastal stay brand",
     url: "https://eaash.vercel.app/",
-    screenshot: "/screenshots/eaash.png",
+    screenshot: "/screenshots/eaash.webp",
     industry: "Hospitality",
     logo: "",
   },
