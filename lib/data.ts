@@ -113,14 +113,14 @@ export const offers = [
     slug: "interactive-experiences",
     title: "Experiences",
     description:
-      "Scroll stories, interactive web, and motion people remember and share.",
+      "Scroll-led stories and motion built around one idea, so people finish the page and remember it.",
     index: "01",
   },
   {
     slug: "product-web",
     title: "Product & Web",
     description:
-      "Websites and apps that look sharp and convert — designed and built to ship.",
+      "Websites and apps that look sharp, convert, and actually get shipped.",
     index: "02",
   },
   {
@@ -128,7 +128,7 @@ export const offers = [
     href: "/ai-automation-digital-marketing-mangalore#ai-automation",
     title: "AI Systems",
     description:
-      "Multilingual bots, agents, and automation wired into real workflows.",
+      "Multilingual assistants, agents, and automation wired into the workflow they are meant to fix.",
     index: "03",
   },
   {
@@ -136,7 +136,7 @@ export const offers = [
     href: "/ai-automation-digital-marketing-mangalore#ai-backed-marketing",
     title: "Growth",
     description:
-      "Go-to-market and outreach for clients who need pipeline, not just a site.",
+      "Positioning, outreach, and pipeline plumbing for teams who need customers, not just a site.",
     index: "04",
   },
 ] as const;
@@ -145,10 +145,10 @@ export const openSourceProjects = [
   {
     name: "Meow Operations",
     slug: "meow-ops",
-    tagline: "Local-first command deck for agent work: token spend, timelines, and loop evidence in one place.",
+    tagline: "The control room for agent work. Token spend, wall-clock timelines, and loop evidence, all read off your own machine.",
     description:
-      "Local-first command deck for Claude Code, Cursor, Aider and Codex: token analytics, wall-clock timelines, and Loop Ops, a read-only map where multi-agent loops show evidence before anything claims green.",
-    stats: ["30+ models", "4 AI tools", "Loop Ops control room", "MIT license", "3D companion"],
+      "A local-first control room for Codex, Claude Code, Cursor and Hermes. It reads the session files those tools already wrote to your disk and turns them into spend, timelines, run evidence, and a loop map that will not report green without an artifact behind it.",
+    stats: ["30+ models", "4 agent tools", "Local-first", "MIT license", "3D run visualiser"],
     github: "https://github.com/merak3i/meow-ops",
     demo: process.env.NEXT_PUBLIC_DEMO_URL ?? "",
     status: "live",
@@ -216,7 +216,7 @@ export const featuredArticles = [
   {
     id: "merak3i-1",
     title: "The Cost of Compute, the Compute of Cost",
-    excerpt: "A field report from the last summer of free compute. Four labs — Gemini, ChatGPT, Claude, Grok — and one orbital problem. They want you hooked before the rate card lands.",
+    excerpt: "A field report from the last summer of free compute. Four labs (Gemini, ChatGPT, Claude, Grok) and one orbital problem. They want you hooked before the rate card lands.",
     client: "Merak3i",
     clientLogo: LOGOS.merak3i,
     niche: "ai-compute",
@@ -229,7 +229,7 @@ export const featuredArticles = [
   {
     id: "rs-1",
     title: "The Pornhub x Mixpanel Breach",
-    excerpt: "A forensics deep dive — what happens when third-party analytics scripts become the attack surface.",
+    excerpt: "A forensics deep dive into what happens when third-party analytics scripts become the attack surface.",
     client: "Resonance Security",
     clientLogo: LOGOS.resonanceSecurity,
     niche: "security",
@@ -302,7 +302,7 @@ export const featuredArticles = [
   {
     id: "am-5",
     title: "What the Trump Presidency Means for Crypto: A Paradigm Shift",
-    excerpt: "The policy pivot that changed crypto's regulatory outlook — and what founders should do now.",
+    excerpt: "The policy pivot that changed crypto's regulatory outlook, and what founders should do now.",
     client: "Asset Mantle",
     clientLogo: LOGOS.assetMantle,
     niche: "blockchain",
@@ -315,7 +315,7 @@ export const featuredArticles = [
   {
     id: "stroi-1",
     title: "AI-Backed Industrial Analytics: From Origins to Intelligent Industry",
-    excerpt: "From basic SCADA to AI-driven predictive intelligence — the full arc of industrial analytics.",
+    excerpt: "From basic SCADA to AI-driven predictive intelligence: the full arc of industrial analytics.",
     client: "Stroi Analytics",
     clientLogo: LOGOS.stroiAnalytics,
     niche: "industrial-ai",
@@ -340,7 +340,7 @@ export const featuredArticles = [
   {
     id: "ap-2",
     title: "When Machines Learn to Think: The Human-Centered Revolution in Industrial Automation",
-    excerpt: "Human-machine collaboration isn't the future of industry — it's already the present.",
+    excerpt: "Human-machine collaboration is not the future of industry. It is already the present.",
     client: "Active Power",
     clientLogo: LOGOS.activePower,
     niche: "industrial-ai",
@@ -389,7 +389,7 @@ export const featuredArticles = [
   {
     id: "mw-3",
     title: "The Great Stablecoin Divide: A Tale of Two Visions for Global Finance",
-    excerpt: "Competing visions for stablecoin regulation — and why the outcome reshapes global capital flows.",
+    excerpt: "Competing visions for stablecoin regulation, and why the outcome reshapes global capital flows.",
     client: "Mantle Works",
     clientLogo: LOGOS.mantleWorks,
     niche: "blockchain",
@@ -401,7 +401,7 @@ export const featuredArticles = [
   {
     id: "mw-4",
     title: "The Invisible Hand of Web3: Why the Killer App Won't Announce Itself",
-    excerpt: "The most transformative Web3 application won't arrive with fanfare — it already hasn't.",
+    excerpt: "The most transformative Web3 application will not arrive with fanfare. It already has not.",
     client: "Mantle Works",
     clientLogo: LOGOS.mantleWorks,
     niche: "blockchain",
@@ -431,7 +431,7 @@ export type FeaturedArticle = (typeof featuredArticles)[number];
 export const clientWebsites = [
   {
     name: "BergLabs",
-    tagline: "Enterprise AI operations — production systems",
+    tagline: "Enterprise AI operations and production systems",
     url: "https://berglabs.ai/",
     screenshot: "/screenshots/berglabs-homepage-2026-07-26.webp",
     industry: "Enterprise AI",
@@ -463,7 +463,7 @@ export const clientWebsites = [
   },
   {
     name: "Suha Rehma",
-    tagline: "Psychology practice — digital presence",
+    tagline: "Psychology practice, digital presence",
     url: "https://suharehma.vercel.app/",
     screenshot: "/screenshots/suha-rehma.webp",
     industry: "Psychology",
@@ -532,14 +532,14 @@ export const clientVideos: ClientVideo[] = [
     client: "Mantle Works",
     videoId: "--3EhPjznAg",
     title: "Mantle Works",
-    description: "AI podcast — Web3 and RWA insights.",
+    description: "AI podcast on Web3 and RWA insights.",
     tag: "AI Podcast",
   },
   {
     client: "Mantle Works",
     videoId: "WroSa1eiUbU",
     title: "Mantle Works",
-    description: "AI podcast — Web3 and RWA insights.",
+    description: "AI podcast on Web3 and RWA insights.",
     tag: "AI Podcast",
   },
   {
@@ -560,7 +560,7 @@ export const clientVideos: ClientVideo[] = [
     client: "Resonance Security",
     videoId: "0pwHJjd1yhY",
     title: "Resonance Security",
-    description: "Cybersecurity audiocast — threat intelligence and industry insights.",
+    description: "Cybersecurity audiocast on threat intelligence and industry insights.",
     tag: "Audiocast",
   },
   {
@@ -579,7 +579,7 @@ export const clientVideos: ClientVideo[] = [
   },
 ];
 
-// ─── Client Shorts (YouTube Shorts — portrait) ───────────────────────────────
+// ─── Client Shorts (YouTube Shorts, portrait) ────────────────────────────────
 
 export type ShortsGroup = {
   client: string;
@@ -644,7 +644,7 @@ const CURATED_EXTRA_POSTS: SubstackPost[] = [
     title: "The Cost of Compute, the Compute of Cost",
     link: "https://merak3i.substack.com/p/the-cost-of-compute-the-compute-of",
     pubDate: "Sun, 26 Apr 2026 14:10:53 GMT",
-    excerpt: "A field report from the last summer of free compute. Four labs — Google Gemini, OpenAI ChatGPT, Anthropic Claude, xAI Grok — and one orbital problem. They want you hooked before the rate card lands.",
+    excerpt: "A field report from the last summer of free compute. Four labs (Google Gemini, OpenAI ChatGPT, Anthropic Claude, xAI Grok) and one orbital problem. They want you hooked before the rate card lands.",
   },
 ];
 

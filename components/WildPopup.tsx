@@ -3,9 +3,9 @@
 // Homepage popup that links out to the meow.wild scroll story (opens in its own
 // window). Attention is guided by two real visual-illusion mechanisms, both
 // reduced-motion gated:
-//   1. Gaze cueing — animated cat eyes blink and dart toward the CTA. Biological
+//   1. Gaze cueing: animated cat eyes blink and dart toward the CTA. Biological
 //      motion + gaze direction is one of the strongest involuntary attention pulls.
-//   2. Peripheral motion pop-out — a slow rotating conic halo behind the card; a
+//   2. Peripheral motion pop-out: a slow rotating conic halo behind the card; a
 //      single moving element among a static page captures the eye.
 
 import { useEffect, useState } from "react";
@@ -129,7 +129,7 @@ export default function WildPopup() {
             </div>
 
             <p className="mt-3 text-[13px] leading-relaxed text-text-muted">
-              How high does a cat live? Scroll down the mountain — from the snow
+              How high does a cat live? Scroll down the mountain, from the snow
               leopard at 5,000&nbsp;m to the cat asleep in your lap.
             </p>
 

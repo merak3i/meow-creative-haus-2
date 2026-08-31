@@ -35,7 +35,7 @@ export default function Authority() {
           {/* Left: Avatar */}
           <motion.div variants={itemVariants} className="relative">
             <div className="aspect-[4/5] bg-surface-elevated border border-surface-border relative overflow-hidden rounded-sm">
-              {/* Avatar image — cropped as headshot, face centered */}
+              {/* Avatar image, cropped as headshot with the face centered */}
               <div className="absolute inset-0">
                 <Image
                   src="/vismay-avatar.png"
@@ -83,28 +83,29 @@ export default function Authority() {
               variants={itemVariants}
               className="text-label-sm uppercase text-accent-teal tracking-[0.2em] mb-3"
             >
-              The Architect
+              Who you work with
             </motion.p>
             <motion.h2
               variants={itemVariants}
               className="text-display-lg mb-8"
             >
-              The Architect Behind the Systems.
+              One studio. No handoff to a junior.
             </motion.h2>
             <motion.p
               variants={itemVariants}
               className="text-body-lg text-text-muted mb-6"
             >
-              I am Vismay Hegde. I build scalable revenue engines for brands. I
-              combine AI technology with ruthless performance marketing to
-              generate measurable outcomes.
+              I am Vismay Hegde. I design and build the work, and I stay on the
+              project after launch. That means one person who knows why every
+              decision was made, and short feedback loops instead of a queue.
             </motion.p>
             <motion.p
               variants={itemVariants}
               className="text-body-lg text-text-muted mb-10"
             >
-              If you want pretty pictures, hire a design firm. If you want to
-              multiply your Annual Recurring Revenue, you work with us.
+              Everything on this site is a link you can open: client sites, our
+              own tools, the ship log with real dates. Judge the studio on that
+              rather than on adjectives.
             </motion.p>
             <motion.a
               variants={itemVariants}

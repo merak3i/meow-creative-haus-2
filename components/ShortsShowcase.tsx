@@ -43,7 +43,7 @@ function toRailItems(groups: ShortsGroup[]): FocusRailItem[] {
   );
 }
 
-// ─── Mobile — paired company card ────────────────────────────────────────────
+// ─── Mobile: paired company card ─────────────────────────────────────────────
 //
 //  Each card shows up to 2 portrait shorts from the same company side-by-side.
 //  Tap a thumbnail to play inline; tap ✕ to close.
@@ -128,7 +128,7 @@ function MobileCompanyCard({ group }: { group: ShortsGroup }) {
           </div>
         ))}
 
-        {/* Spacer when company has only 1 short — keeps visual balance */}
+        {/* Spacer when a company has only 1 short, keeps visual balance */}
         {pair.length === 1 && <div className="flex-1" />}
       </div>
     </div>
@@ -174,7 +174,7 @@ export default function ShortsShowcase() {
             variants={fadeUp}
             className="text-body-md text-text-muted max-w-[560px] mb-8"
           >
-            Vertical-first campaigns built for the scroll — platform-optimised,
+            Vertical-first campaigns built for the scroll: platform-optimised,
             brand-consistent, and engineered for maximum retention in the formats
             your audience actually watches.
           </motion.p>
@@ -198,7 +198,7 @@ export default function ShortsShowcase() {
           </motion.div>
         </div>
 
-        {/* ── Desktop: FocusRail portrait — full bleed ─────────────────── */}
+        {/* ── Desktop: FocusRail portrait, full bleed ──────────────────── */}
         <motion.div variants={fadeUp} className="hidden md:block">
           <FocusRail
             key={activeTag}
@@ -209,7 +209,7 @@ export default function ShortsShowcase() {
           />
         </motion.div>
 
-        {/* ── Mobile: paired company cards — horizontal snap scroll ─────── */}
+        {/* ── Mobile: paired company cards, horizontal snap scroll ─────── */}
         <motion.div
           variants={fadeUp}
           className="md:hidden overflow-x-auto flex gap-4 px-6 pb-4 snap-x snap-mandatory"

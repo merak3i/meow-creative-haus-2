@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import ClientMarquee from "@/components/ClientMarquee";
+import ClientWebsites from "@/components/ClientWebsites";
 import Offers from "@/components/Offers";
 import Lab from "@/components/Lab";
 import LoopEngineering from "@/components/LoopEngineering";
@@ -21,6 +22,7 @@ export default function Home() {
     <>
       <Hero />
       <ClientMarquee />
+      <ClientWebsites />
       <Offers />
       <Lab />
       <LoopEngineering />

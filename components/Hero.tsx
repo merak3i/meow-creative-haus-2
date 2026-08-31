@@ -9,7 +9,7 @@ import PinnedPanels from "@/components/PinnedPanels";
 import RevenueDashboard from "@/components/RevenueDashboard";
 
 // The pinned hero scene. Text owns the first beat, then recedes as the layered
-// dashboard panels rotate flat and rise to centre — the Scale signature.
+// dashboard panels rotate flat and rise to centre.
 function HeroScene({
   progress,
   reduced,
@@ -49,9 +49,9 @@ function HeroScene({
           </h1>
 
           <p className="text-body-lg text-text-muted max-w-[600px] mb-10">
-            Meow Creative Haus is a product and experience studio. We ship
-            interfaces, AI systems, and websites for founders and businesses in
-            India and beyond. Every project below is live — click any of them.
+            A product and experience studio in Mangalore, working with founders
+            and businesses across India and beyond. We build interfaces, AI
+            systems, and websites, then keep shipping after launch.
           </p>
 
           <div className="flex flex-wrap gap-4">
@@ -72,7 +72,7 @@ function HeroScene({
               variant="variant"
               className="text-sm uppercase tracking-widest"
             >
-              <a href="#offers">
+              <a href="#client-sites">
                 See the Work
               </a>
             </GradientButton>
@@ -96,7 +96,7 @@ function HeroScene({
           style={reduced ? { opacity: 1 } : { opacity: captionOpacity }}
           className="mt-8 text-center text-label-sm uppercase tracking-[0.2em] text-text-dim"
         >
-          Every project is live. Click any of them.
+          Every project on this page is live. Click any of them.
         </motion.p>
       </motion.div>
 

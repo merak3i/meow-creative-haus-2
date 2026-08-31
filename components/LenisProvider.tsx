@@ -48,7 +48,7 @@ export default function LenisProvider({
     if (prefersReduced) return;
 
     const instance = new Lenis({
-      lerp: 0.1, // smoothing factor — preferred over a fixed duration for wheel
+      lerp: 0.1, // smoothing factor, preferred over a fixed duration for wheel
       smoothWheel: true,
       syncTouch: false, // native touch feels better on mobile
       wheelMultiplier: 1,

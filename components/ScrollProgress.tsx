@@ -1,6 +1,6 @@
 "use client";
 
-// Fixed hairline progress bar bound to whole-page scroll — Scale-style.
+// Fixed hairline progress bar bound to whole-page scroll.
 // Scroll-linked (not time-animated), so it stays correct under reduced motion.
 
 import { motion, useScroll, useSpring } from "framer-motion";

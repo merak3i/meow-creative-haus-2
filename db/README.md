@@ -3,7 +3,7 @@
 This directory contains forward-looking database infrastructure for when
 this site needs a backend. Current target: **Supabase (PostgreSQL 15+)**.
 
-The site is currently 100% static — no database is connected.
+The site is currently 100% static: no database is connected.
 Run these migrations only when adding a feature that requires persistence.
 
 ---
@@ -41,7 +41,7 @@ chmod +x db/migrate.sh
 ./db/migrate.sh
 ```
 
-The runner is **idempotent** — re-running it skips already-applied migrations.
+The runner is **idempotent**: re-running it skips already-applied migrations.
 
 ---
 
@@ -51,8 +51,8 @@ The runner is **idempotent** — re-running it skips already-applied migrations.
 NNNN_snake_case_description.sql
 ```
 
-- `NNNN` — zero-padded sequence number (0001, 0002, …)
-- `snake_case_description` — brief description of what it does
+- `NNNN`: zero-padded sequence number (0001, 0002, …)
+- `snake_case_description`: brief description of what it does
 - Files are applied **in filename order**, so numbering is the only dependency mechanism
 
 ### Examples
@@ -101,7 +101,7 @@ DELETE FROM _migrations WHERE filename = '0003_your_feature.sql';
 | `0001_initial_schema.sql` | `contacts` and `waitlist` tables | Not yet applied |
 | `0002_leads_crm.sql` | `leads` table for acquisition funnel | Not yet applied |
 
-Apply `0001` first — `0002` depends on the `_migrations` table it creates.
+Apply `0001` first: `0002` depends on the `_migrations` table it creates.
 
 ---
 
@@ -113,6 +113,6 @@ Add these to `.env.local` (never commit):
 # Supabase
 NEXT_PUBLIC_SUPABASE_URL=https://xxxx.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJ...
-SUPABASE_SERVICE_ROLE_KEY=eyJ...   # server-side only — never expose to browser
+SUPABASE_SERVICE_ROLE_KEY=eyJ...   # server-side only: never expose to browser
 DATABASE_URL=postgres://postgres:...@db.xxxx.supabase.co:5432/postgres
 ```

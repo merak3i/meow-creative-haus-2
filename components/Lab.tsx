@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { openSourceProjects } from "@/lib/data";
 
@@ -38,14 +39,15 @@ export default function Lab() {
           From the Lab
         </motion.p>
         <motion.h2 variants={headerVariants} className="text-display-lg max-w-[700px] mb-4">
-          Open source tools for{" "}
-          <span className="text-gradient-accent">the agentic era.</span>
+          We build what we wish{" "}
+          <span className="text-gradient-accent">existed.</span>
         </motion.h2>
         <motion.p
           variants={headerVariants}
-          className="text-body-md text-text-muted mb-16 max-w-[500px]"
+          className="text-body-md text-text-muted mb-16 max-w-[560px]"
         >
-          We build what we wish existed.
+          Tools that came out of our own bad days, released under MIT so you can
+          run them without asking us for anything.
         </motion.p>
 
         {/* Project card */}
@@ -64,7 +66,7 @@ export default function Lab() {
                   {project.name}
                 </span>
                 <span className="text-label-sm text-text-dim border border-surface-border px-2 py-0.5">
-                  v1.3.0
+                  v1.6.2
                 </span>
                 <span className="text-label-sm text-accent-teal border border-accent-teal/30 px-2 py-0.5">
                   LIVE
@@ -105,6 +107,23 @@ export default function Lab() {
               </a>
             </div>
           </div>
+
+          <a
+            href="#loop-engineering"
+            className="mt-8 block overflow-hidden rounded-lg border border-surface-border bg-surface"
+          >
+            <Image
+              src="/screenshots/meow-ops/meow-ops-05-sanctum.webp"
+              alt="The Meow Ops Sanctum screen rendering a session of agent runs as an orbitable 3D scene"
+              width={2000}
+              height={1250}
+              sizes="(max-width: 768px) 100vw, 1200px"
+              className="h-auto w-full opacity-90 transition-opacity duration-500 group-hover:opacity-100"
+            />
+            <span className="block border-t border-surface-border px-5 py-3 text-label-sm uppercase tracking-wider text-text-dim">
+              Sanctum: a night of agent runs as a 3D scene. Five more screens below
+            </span>
+          </a>
         </motion.div>
 
         {/* Lab link */}

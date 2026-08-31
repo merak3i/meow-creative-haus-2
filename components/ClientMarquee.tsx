@@ -18,7 +18,7 @@ const headerVariants = {
   },
 };
 
-// Base logo height — all image logos scale from this value
+// Base logo height. All image logos scale from this value.
 const BASE_REM = 3.75; // 2.5rem × 1.5 = 50 % bigger
 
 function LogoStrip() {
@@ -95,7 +95,7 @@ export default function ClientMarquee() {
         </motion.h2>
       </motion.div>
 
-      {/* Single marquee row — right to left */}
+      {/* Single marquee row, right to left */}
       <div className="relative">
         <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-surface to-transparent z-10" />
         <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-surface to-transparent z-10" />

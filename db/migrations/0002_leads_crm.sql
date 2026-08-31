@@ -43,5 +43,5 @@ CREATE OR REPLACE TRIGGER leads_updated_at
 -- ─── RLS ──────────────────────────────────────────────────────────────────────
 ALTER TABLE leads ENABLE ROW LEVEL SECURITY;
 
--- Leads are internal only — no anon access
+-- Leads are internal only: no anon access
 -- All reads/writes go through service role (backend API or Supabase dashboard)

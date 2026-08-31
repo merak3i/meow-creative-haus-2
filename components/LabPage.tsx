@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { BarChart3, Bot, BrainCircuit, GitBranch, Network, ShieldCheck } from "lucide-react";
 import { openSourceProjects } from "@/lib/data";
-import ClientWebsites from "@/components/ClientWebsites";
 import LoopEngineering from "@/components/LoopEngineering";
 import PatherleTeaser from "@/components/PatherleTeaser";
 import ShipLog from "@/components/ShipLog";
@@ -77,9 +77,9 @@ export default function LabPage() {
             Open tools for{" "}
             <span className="text-gradient-accent">the agentic age.</span>
           </h1>
-          <p className="text-body-lg text-text-muted max-w-[580px]">
-            Free, MIT-licensed, and designed for developers who want to understand
-            what their AI is actually doing.
+          <p className="text-body-lg text-text-muted max-w-[620px]">
+            Free, MIT licensed, and built for developers who want to know what
+            their agents actually did, what it cost, and what they can prove.
           </p>
         </div>
 
@@ -93,10 +93,27 @@ export default function LabPage() {
           {/* Header */}
           <div className="flex flex-wrap items-center gap-2 mb-2">
             <h2 className="text-lg font-semibold text-accent-teal">{project.name}</h2>
-            <span className="text-[10px] text-text-dim border border-surface-border px-1.5 py-0.5">JUL 2026</span>
+            <span className="text-[10px] text-text-dim border border-surface-border px-1.5 py-0.5">v1.6.2 · JUL 2026</span>
             <span className="text-[10px] text-accent-teal border border-accent-teal/30 px-1.5 py-0.5">LIVE · MIT</span>
           </div>
           <p className="text-sm text-text-muted mb-6">{project.tagline}</p>
+
+          {/* Lead capture from the running app */}
+          <div className="mb-8 overflow-hidden rounded-lg border border-surface-border bg-surface">
+            <Image
+              src="/screenshots/meow-ops/meow-ops-02-ledger.webp"
+              alt="The Meow Ops Ledger screen with total spend, cost per active day, projected month, and calendar period breakdowns"
+              width={2000}
+              height={1100}
+              sizes="(max-width: 768px) 100vw, 1000px"
+              className="h-auto w-full"
+              priority
+            />
+            <p className="border-t border-surface-border px-4 py-3 text-[11px] text-text-dim">
+              The Ledger: what agent work actually costs, per day and per month,
+              read straight off local session files.
+            </p>
+          </div>
 
           {/* Feature columns */}
           <div className="grid gap-5 mb-8 md:grid-cols-2 lg:grid-cols-3">
@@ -189,13 +206,10 @@ export default function LabPage() {
 
       <ShipLog />
 
-      {/* Video Showcase Carousel — landscape, long-form */}
+      {/* Landscape, long-form */}
       <VideoShowcase />
 
-      {/* Client Websites Carousel */}
-      <ClientWebsites />
-
-      {/* Shorts Showcase — portrait, vertical short-form */}
+      {/* Portrait, vertical short-form */}
       <ShortsShowcase />
 
       <p className="px-6 md:px-12 pt-16 text-label-sm text-text-dim text-center">

@@ -1,7 +1,7 @@
 "use client";
 
 // Self-contained "selected work" panel used as the hero's front panel. No
-// external images — pure markup + inline SVG so it never breaks and stays crisp
+// external images. Pure markup plus inline SVG so it never breaks and stays crisp
 // at any scale. Mirrors the studio's pitch: real, shipped, live projects.
 
 const BARS = [38, 52, 47, 63, 71, 66, 84, 92];

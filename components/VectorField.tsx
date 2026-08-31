@@ -1,10 +1,10 @@
 "use client";
 
-// Futuretech vector backdrop — a receding perspective grid, a drifting node
+// Futuretech vector backdrop: a receding perspective grid, a drifting node
 // constellation, and one slow scan beam. Pure SVG + CSS keyframes, no canvas,
 // no per-frame JS. Sits absolutely behind content; honors reduced motion.
 export default function VectorField({ accent = "#ECD06F" }: { accent?: string }) {
-  // Deterministic constellation — same field every render, no hydration drift.
+  // Deterministic constellation. Same field every render, no hydration drift.
   const nodes = Array.from({ length: 24 }, (_, i) => {
     const x = ((i * 137.5) % 100);
     const y = ((i * 61.8 + 13) % 86) + 6;
