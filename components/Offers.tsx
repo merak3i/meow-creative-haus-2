@@ -3,7 +3,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { offers } from "@/lib/data";
 
-// Offers is a set of four static cards — there's no multi-state sequence to
+// Offers is a set of four static cards. There's no multi-state sequence to
 // scrub, so pinning would only manufacture dead space. Instead it's a normal
 // section with a tuned staggered reveal-on-enter (skipped under reduced motion).
 
@@ -22,26 +22,39 @@ const cardV = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
 };
 
+// Reduced motion still needs a reveal to run, otherwise the hidden styles that
+// were server-rendered are never cleared and the section stays at opacity 0.
+const still = {
+  hidden: { opacity: 1, y: 0 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0 } },
+};
+
 export default function Offers() {
   const reduced = useReducedMotion();
+  const headerVariants = reduced ? still : headerV;
+  const cardVariants = reduced ? still : cardV;
 
   return (
     <section id="offers" className="px-6 py-24 md:px-12 md:py-40">
       <motion.div
-        variants={reduced ? undefined : container}
-        initial={reduced ? undefined : "hidden"}
-        whileInView={reduced ? undefined : "visible"}
+        variants={container}
+        initial="hidden"
+        whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         className="mx-auto max-w-[1400px]"
       >
-        <motion.div variants={reduced ? undefined : headerV} className="mb-12 md:mb-16">
+        <motion.div variants={headerVariants} className="mb-12 md:mb-16">
           <p className="text-label-sm uppercase tracking-[0.2em] text-accent-teal mb-3">
             What We Build
           </p>
-          <h2 className="text-display-lg max-w-[820px]">
-            Work you can{" "}
-            <span className="text-gradient-accent">click.</span>
+          <h2 className="text-display-lg max-w-[820px] mb-5">
+            Four ways we get{" "}
+            <span className="text-gradient-accent">involved.</span>
           </h2>
+          <p className="text-body-md max-w-[560px] text-text-muted">
+            Most projects start in one of these and grow into another. Pick the
+            closest one and we will scope the rest on the call.
+          </p>
         </motion.div>
 
         <div className="grid gap-4 md:grid-cols-2 md:gap-6">
@@ -49,7 +62,7 @@ export default function Offers() {
             <motion.a
               key={offer.index}
               href={"href" in offer ? offer.href : `/services#${offer.slug}`}
-              variants={reduced ? undefined : cardV}
+              variants={cardVariants}
               className="group relative flex flex-col justify-between overflow-hidden rounded-xl border border-white/10 bg-white/[0.035] p-8 transition-colors duration-500 hover:border-accent-teal/40 hover:bg-white/[0.06] md:p-10"
             >
               <div className="absolute left-0 top-0 h-[2px] w-0 bg-accent-teal transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-full" />

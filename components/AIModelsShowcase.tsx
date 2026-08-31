@@ -36,7 +36,7 @@ function toRailItem(c: (typeof aiCampaigns)[number]): FocusRailItem {
     description: c.description,
     meta:        c.nicheLabel,
     videoId:     c.videoId,
-    // thumbnail served from YouTube CDN — zero cost until play
+    // thumbnail served from YouTube CDN, zero cost until play
     imageSrc:    isPlaceholder
       ? ""
       : `https://i.ytimg.com/vi/${c.videoId}/maxresdefault.jpg`,
@@ -84,7 +84,7 @@ export default function AIModelsShowcase() {
             className="text-body-md text-text-muted max-w-[560px] mb-8"
           >
             Synthetic AI presenters. No studio. No shoot days. No casting.
-            Every brand voice, rendered on demand — indistinguishable from the real thing.
+            Every brand voice, rendered on demand, indistinguishable from the real thing.
             This is how the next decade of advertising gets made.
           </motion.p>
 
@@ -107,7 +107,7 @@ export default function AIModelsShowcase() {
           </motion.div>
         </div>
 
-        {/* ── FocusRail — full bleed ────────────────────────────────────── */}
+        {/* ── FocusRail, full bleed ─────────────────────────────────────── */}
         {/* key=activeNiche forces remount + index reset on filter change   */}
         <motion.div variants={fadeUp}>
           <FocusRail

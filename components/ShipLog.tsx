@@ -1,8 +1,8 @@
 "use client";
 
-// Ship log: the changelog block metamorphosed into MCH's language: mono date
-// rail, hairline separators, teal LATEST badge. Real entries, real dates;
-// shipping cadence is the marketing.
+// Ship log: the changelog block in MCH's language. Mono date rail, hairline
+// separators, teal LATEST badge. Real entries, real dates; shipping cadence is
+// the marketing.
 import { motion } from "framer-motion";
 
 interface ShipLogEntry {
@@ -15,10 +15,16 @@ interface ShipLogEntry {
 const entries: ShipLogEntry[] = [
   {
     date: "AUG 31 2026",
+    title: "v1.7.0: The Meow Ops mockups get replaced by the real thing",
+    description:
+      "Six captures from the running app take over the product carousel: Today, Ledger, Runs, Map, Sanctum, and mobile. The illustrated placeholders are gone. Live client sites move up to the top of the homepage so the first proof arrives before the first pitch, the founder section stops talking about multiplying ARR, and every em dash on the site has been retired.",
+    badge: "LATEST",
+  },
+  {
+    date: "AUG 31 2026",
     title: "v1.2.0: Meow Ops becomes an inbox",
     description:
       "Five surfaces: Today, Review, Ledger, Sanctum, Learn. The focus timer is a chip on every screen. Companion is gone. Learn mines concepts from sessions you already ran. Each card has a name, a short industry summary, a layman what-you-did line, a source, and an I get this mark. You search YouTube yourself. No school. No XP.",
-    badge: "LATEST",
   },
   {
     date: "JUL 19 2026",
@@ -36,19 +42,19 @@ const entries: ShipLogEntry[] = [
     date: "JUL 16 2026",
     title: "v1.6.0: Record of Scrying Sanctum build and refinement",
     description:
-      "A retrospective release record follows the Apr 12–May 4 build from the first source-stat Sanctum through its WoW overhaul, Dalaran phases, citadel and floor refinements, Lich King pass, design-system freeze, modular extraction, and final visual and session-label polish.",
+      "A retrospective release record follows the Apr 12 to May 4 build from the first source-stat Sanctum through its WoW overhaul, Dalaran phases, citadel and floor refinements, Lich King pass, design-system freeze, modular extraction, and final visual and session-label polish.",
   },
   {
     date: "JUL 05 2026",
     title: "v1.5.1: The homepage stops bragging, starts proving",
     description:
-      "The revenue-engineering pitch and its unverifiable stats retire. The hero leads with one honest line — we design and build software worth feeling — a Selected Work panel puts live projects up front (meow.wild, Patherle, EAASH, Coastal Edge), and the four offers become Experiences, Product & Web, AI Systems, and Growth. Every claim on the page is a link you can click.",
+      "The revenue-engineering pitch and its unverifiable stats retire. The hero leads with one honest line, we design and build software worth feeling. A Selected Work panel puts live projects up front (meow.wild, Patherle, EAASH, Coastal Edge), and the four offers become Experiences, Product & Web, AI Systems, and Growth. Every claim on the page is a link you can click.",
   },
   {
     date: "JUN 14 2026",
     title: "v1.5.0: The site learns to scroll",
     description:
-      "A Scale-style rebuild — the hero assembles a live revenue dashboard as you descend, Loop Ops becomes a scroll-scrubbed walkthrough, and a smooth-scroll engine with a progress rail ties the page together. Space Grotesk lands in the product frames.",
+      "A scroll-led rebuild. The hero assembles a live revenue dashboard as you descend, Loop Ops becomes a scroll-scrubbed walkthrough, and a smooth-scroll engine with a progress rail ties the page together. Space Grotesk lands in the product frames.",
   },
   {
     date: "JUN 13 2026",
@@ -58,7 +64,7 @@ const entries: ShipLogEntry[] = [
   },
   {
     date: "JUN 13 2026",
-    title: "v1.4.0: FILE // 003 — Patherle, partially declassified",
+    title: "v1.4.0: FILE // 003, Patherle partially declassified",
     description:
       "The AI business OS we're building in the dark gets a teaser page: five stills, gold [WITHHELD] bars, and a build log that says just enough.",
   },
@@ -97,14 +103,21 @@ export default function ShipLog() {
         >
           Ship log
         </motion.p>
-        <motion.h2 variants={rowVariants} className="text-display-lg max-w-[700px] mb-12">
+        <motion.h2 variants={rowVariants} className="text-display-lg max-w-[700px] mb-5">
           What we shipped, <span className="text-gradient-accent">and when.</span>
         </motion.h2>
         <motion.p
           variants={rowVariants}
+          className="text-body-md text-text-muted mb-10 max-w-[620px]"
+        >
+          Dated, specific, and occasionally unflattering. If a release was mostly
+          us deleting our own copy, it says so.
+        </motion.p>
+        <motion.p
+          variants={rowVariants}
           className="font-mono text-label-sm text-text-dim tracking-[0.12em] mb-8 max-w-[760px]"
         >
-          VERSION KEY — major: architecture · minor: capability · patch: refinement
+          VERSION KEY · major: architecture · minor: capability · patch: refinement
         </motion.p>
 
         <div className="border-t border-surface-border">

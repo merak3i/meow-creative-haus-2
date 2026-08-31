@@ -34,9 +34,9 @@ The studio connects positioning, organic content workflows, outreach operations,
 
 ## Public projects
 
-- Meow Operations: local-first command deck for agent work — https://github.com/merak3i/meow-ops
-- Patherle: WhatsApp-first AI business system — https://www.patherle.com/
-- BergLabs: public client website and platform work — https://berglabs.ai/
+- Meow Operations: an MIT-licensed, local-first control room for agent work. It reads session files written by Codex, Claude Code, Cursor, and Hermes, then reports token spend, cost per day, wall-clock run timelines, and loop evidence. https://github.com/merak3i/meow-ops
+- Patherle: WhatsApp-first AI business system. https://www.patherle.com/
+- BergLabs: public client website and platform work. https://berglabs.ai/
 
 ## Geographic context
 

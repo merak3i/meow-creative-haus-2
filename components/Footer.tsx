@@ -28,7 +28,7 @@ export default function Footer() {
               MCH<span className="text-accent-teal">.</span>
             </p>
             <p className="text-text-muted text-body-md max-w-xs">
-              Product, web, and experience systems built in Mangalore for teams
+              A product and experience studio in Mangalore, working with teams
               anywhere.
             </p>
             <p className="mt-4 max-w-xs text-sm text-text-dim">
@@ -65,15 +65,18 @@ export default function Footer() {
               Start a Project
             </p>
             <p className="text-accent-teal text-body-lg block mb-2">
-              Chat on WhatsApp
+              Send the problem, not a brief.
             </p>
             <p className="text-text-dim text-sm mb-4">
-              Or call{" "}
+              Call{" "}
               <a href={`tel:${siteConfig.phone}`} className="hover:text-text">
                 {siteConfig.phoneDisplay}
               </a>
               <br />
-              Email {siteConfig.email}
+              or email{" "}
+              <a href={`mailto:${siteConfig.email}`} className="hover:text-text">
+                {siteConfig.email}
+              </a>
             </p>
             <a
               href={siteConfig.whatsapp}
@@ -98,7 +101,7 @@ export default function Footer() {
             reserved.
           </p>
           <p className="text-text-dim text-sm">
-            Engineered for scale.
+            Built in Mangalore. Shipped everywhere.
           </p>
         </motion.div>
       </div>

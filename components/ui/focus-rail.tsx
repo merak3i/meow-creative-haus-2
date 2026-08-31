@@ -17,7 +17,7 @@ export type FocusRailItem = {
   href?: string;
   meta?: string;
   logoSrc?: string;
-  videoId?: string;        // YouTube video ID — enables lazy nocookie embed on click
+  videoId?: string;        // YouTube video ID, enables a lazy nocookie embed on click
 };
 
 interface FocusRailProps {
@@ -48,7 +48,7 @@ function wrap(min: number, max: number, v: number) {
 // Spatial movement (x / z / rotateY)
 const BASE_SPRING = { type: "spring", stiffness: 300, damping: 30, mass: 1 } as const;
 
-// Scale — bouncier, used for the "tap" tactile feedback on the center card
+// Scale: bouncier, used for the "tap" tactile feedback on the center card
 const TAP_SPRING  = { type: "spring", stiffness: 450, damping: 18, mass: 1 } as const;
 
 // ─── Component ───────────────────────────────────────────────────────────────
@@ -70,7 +70,7 @@ export function FocusRail({
 
   const isLandscape = orientation === "landscape";
 
-  // Card geometry — landscape cards are wider, so x-spacing between cards must scale too
+  // Card geometry: landscape cards are wider, so x-spacing between cards must scale too
   const CARD_W_CLASS   = isLandscape ? "w-[380px] md:w-[480px]" : "w-[260px] md:w-[300px]";
   const CARD_ASPECT    = isLandscape ? "aspect-video"            : "aspect-[3/4]";
   const X_SPACING      = isLandscape ? 500                       : 320;
@@ -281,7 +281,7 @@ export function FocusRail({
                     <div className="absolute inset-0 rounded-2xl bg-gradient-to-b from-white/10 to-transparent pointer-events-none" />
                     <div className="absolute inset-0 rounded-2xl bg-black/10 pointer-events-none mix-blend-multiply" />
 
-                    {/* Play button — center card, real video only */}
+                    {/* Play button, center card and real video only */}
                     {isCenter && hasRealVideo && (
                       <div className="absolute inset-0 flex items-center justify-center">
                         <div className="w-14 h-14 rounded-full bg-black/70 border border-white/20 flex items-center justify-center group-hover:scale-110 group-hover:border-[#49c5b6] transition-all duration-300 backdrop-blur-sm">

@@ -46,7 +46,7 @@ CREATE INDEX IF NOT EXISTS waitlist_active_idx
 ALTER TABLE contacts ENABLE ROW LEVEL SECURITY;
 ALTER TABLE waitlist ENABLE ROW LEVEL SECURITY;
 
--- Allow anon (frontend) to insert only — never read
+-- Allow anon (frontend) to insert only: never read
 CREATE POLICY "anon_insert_contacts"
   ON contacts FOR INSERT
   TO anon

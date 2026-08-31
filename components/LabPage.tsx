@@ -4,7 +4,6 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { ClipboardCheck, GraduationCap, Inbox, ShieldCheck, Swords, Wallet } from "lucide-react";
 import { openSourceProjects } from "@/lib/data";
-import ClientWebsites from "@/components/ClientWebsites";
 import LoopEngineering from "@/components/LoopEngineering";
 import PatherleTeaser from "@/components/PatherleTeaser";
 import ShipLog from "@/components/ShipLog";
@@ -85,9 +84,9 @@ export default function LabPage() {
             Open tools for{" "}
             <span className="text-gradient-accent">the agentic age.</span>
           </h1>
-          <p className="text-body-lg text-text-muted max-w-[580px]">
-            Free, MIT-licensed, and designed for developers who want to understand
-            what their AI is actually doing.
+          <p className="text-body-lg text-text-muted max-w-[620px]">
+            Free, MIT licensed, and built for developers who want to know what
+            their agents actually did, what it cost, and what they can prove.
           </p>
         </div>
 
@@ -289,13 +288,10 @@ export default function LabPage() {
 
       <ShipLog />
 
-      {/* Video Showcase Carousel — landscape, long-form */}
+      {/* Landscape, long-form */}
       <VideoShowcase />
 
-      {/* Client Websites Carousel */}
-      <ClientWebsites />
-
-      {/* Shorts Showcase — portrait, vertical short-form */}
+      {/* Portrait, vertical short-form */}
       <ShortsShowcase />
 
       <p className="px-6 md:px-12 pt-16 text-label-sm text-text-dim text-center">
