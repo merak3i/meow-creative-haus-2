@@ -20,7 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `components/LoopEngineering.tsx`: section retitled from "Loop Ops" to "Meow Ops" with copy that states what the screens are and how they were sanitised. Raw `<img>` swapped for `next/image` with explicit intrinsic dimensions. The README block now describes what Meow Ops reads rather than only Loop Ops.
 - `components/Authority.tsx`: the "multiply your Annual Recurring Revenue" pitch replaced with what the studio actually offers, which is one person who stays on the project. The old copy contradicted the v1.5.1 note about the homepage proving instead of bragging.
 - `components/Offers.tsx`: heading changed from "Work you can click" (it listed services, not work) to "Four ways we get involved", plus a scoping sentence.
-- `components/Lab.tsx`: stale `v1.3.0` badge corrected to `v1.6.2`; heading and body rewritten.
+- `components/Lab.tsx`: stale `v1.3.0` badge corrected to `v1.2.0`; heading and body rewritten.
 - `components/ShipLog.tsx`: v1.7.0 entry added, `LATEST` badge moved off v1.6.2, and a section subhead added.
 - `components/Footer.tsx`: "Engineered for scale" replaced; the fake non-link "Chat on WhatsApp" line removed and the email turned into a real `mailto:` link.
 - `lib/data.ts`: Meow Ops tagline, description, and stat chips rewritten around what it reads and reports; four offer descriptions tightened.
@@ -37,12 +37,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- `components/LabPage.tsx`: Meow Ops 1.2.0 inbox cut: Today, Review, Ledger, Sanctum, Learn, focus timer chip, local article on sales loops that wait for a human.
+- `components/ShipLog.tsx`: public v1.2.0 ship note for the inbox cut (2026-08-31).
+- `public/screenshots/loom/*`: replaced with live 1.2.0 captures of the five surfaces.
 - `components/LabPage.tsx`: expanded the public Meow Ops feature and specs block to cover the owner-governed project learning control plane, Builder's Journey, Companion Project Intelligence, native-agent context adapters, and the local-only privacy boundary.
 - `components/WildPopup.tsx`: homepage popup linking out to the **meow.wild** scroll story (opens in its own window). Attention is guided by two reduced-motion-safe visual-illusion mechanisms: gaze-cueing cat eyes that blink and dart toward the CTA, and a rotating conic halo (peripheral-motion pop-out).
 - `lib/data.ts`: `siteConfig.meowWild` link.
 - Cross-repo auto-redeploy hook: a workflow in the `meow-wild` repo triggers an MCH production redeploy when meow.wild updates (keeps the attachment fresh).
 
 ### Changed
+- `components/LabPage.tsx`: field note rewritten from the July-August sales motion: how signals are found, qualified, receipted, drafted, queued, human-approved, and scored weekly.
 - `components/LoopEngineering.tsx`: replaced the pinned vertical scroll-scrub (which jump-cut between frames) with a native horizontal scroll-snap carousel: swipe / arrows / clickable steps + dots, active frame tracked via IntersectionObserver. Smoother and more intuitive; no scroll-hijacking.
 
 ### Removed

@@ -23,7 +23,7 @@ Meow Creative Haus is the public marketing site for the studio. It is built with
 
 ### `/lab`
 
-- Open-source Meow Ops project block with token analytics, agent ops, and the 3D companion.
+- Open-source Meow Ops project block (v1.2.0 inbox: Today, Review, Ledger, Sanctum, Learn).
 - `VideoShowcase`.
 - `ClientWebsites`.
 - `ShortsShowcase`.
@@ -39,14 +39,14 @@ Meow Creative Haus is the public marketing site for the studio. It is built with
 <table>
   <tr>
     <td width="50%">
-      <img src="public/screenshots/loom/loom-01-hierarchy.png" alt="The Loom hierarchy" />
+      <img src="public/screenshots/loom/loom-01-hierarchy.png" alt="Meow Ops Today" />
       <br />
-      <sub>The Loom hierarchy</sub>
+      <sub>Meow Ops Today</sub>
     </td>
     <td width="50%">
-      <img src="public/screenshots/loom/loom-03-inspector.png" alt="The Loom inspector" />
+      <img src="public/screenshots/loom/loom-03-inspector.png" alt="Meow Ops Ledger" />
       <br />
-      <sub>The Loom inspector</sub>
+      <sub>Meow Ops Ledger</sub>
     </td>
   </tr>
   <tr>

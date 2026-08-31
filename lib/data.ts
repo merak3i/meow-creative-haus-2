@@ -145,10 +145,10 @@ export const openSourceProjects = [
   {
     name: "Meow Operations",
     slug: "meow-ops",
-    tagline: "The control room for agent work. Token spend, wall-clock timelines, and loop evidence, all read off your own machine.",
+    tagline: "Local inbox for AI coding work. What happened, what it cost, what you should decide next.",
     description:
-      "A local-first control room for Codex, Claude Code, Cursor and Hermes. It reads the session files those tools already wrote to your disk and turns them into spend, timelines, run evidence, and a loop map that will not report green without an artifact behind it.",
-    stats: ["30+ models", "4 agent tools", "Local-first", "MIT license", "3D run visualiser"],
+      "Local inbox for Claude Code, Cursor, Aider, Codex, Hermes, and Antigravity. Five surfaces: Today, Review, Ledger, Sanctum, Learn. The focus timer is a chip. Companion is gone.",
+    stats: ["Today · Review · Ledger", "Sanctum · Learn", "Focus timer chip", "MIT license", "Local-first"],
     github: "https://github.com/merak3i/meow-ops",
     demo: process.env.NEXT_PUBLIC_DEMO_URL ?? "",
     status: "live",

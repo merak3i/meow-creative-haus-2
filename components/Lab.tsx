@@ -66,7 +66,7 @@ export default function Lab() {
                   {project.name}
                 </span>
                 <span className="text-label-sm text-text-dim border border-surface-border px-2 py-0.5">
-                  v1.6.2
+                  v1.2.0
                 </span>
                 <span className="text-label-sm text-accent-teal border border-accent-teal/30 px-2 py-0.5">
                   LIVE

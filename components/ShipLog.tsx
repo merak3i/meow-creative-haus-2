@@ -21,6 +21,12 @@ const entries: ShipLogEntry[] = [
     badge: "LATEST",
   },
   {
+    date: "AUG 31 2026",
+    title: "v1.2.0: Meow Ops becomes an inbox",
+    description:
+      "Five surfaces: Today, Review, Ledger, Sanctum, Learn. The focus timer is a chip on every screen. Companion is gone. Learn mines concepts from sessions you already ran. Each card has a name, a short industry summary, a layman what-you-did line, a source, and an I get this mark. You search YouTube yourself. No school. No XP.",
+  },
+  {
     date: "JUL 19 2026",
     title: "v1.6.2: Builder's Journey opens",
     description:
