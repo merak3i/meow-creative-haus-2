@@ -5,6 +5,7 @@ import { siteConfig } from "@/lib/data";
 
 const footerLinks = [
   { label: "Services", href: "/services" },
+  { label: "tech+misc larp", href: "/tech-misc-larp" },
   {
     label: "AI + Growth",
     href: "/ai-automation-digital-marketing-mangalore",

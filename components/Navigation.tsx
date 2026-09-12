@@ -20,6 +20,7 @@ function useNavLinks() {
     { label: "Services", href: "/services"           },
     { label: "About",    href: `${prefix}#authority` },
     { label: "Lab",      href: "/lab"                },
+    { label: "Zine",     href: "/tech-misc-larp"     },
     { label: "Playbook", href: `${prefix}#substack`  },
     { label: "Contact",  href: siteConfig.whatsapp, external: true },
   ];

@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-09-12
+
+- Added `/tech-misc-larp`, a 21-page click-to-scroll reader for issue 01 with a clickable signal rail, keyboard navigation, active-page tracking, responsive controls, and social metadata.
+- Added a homepage zine feature, navigation and footer links, and sitemap discovery.
+- Converted the 83.8 MB source PDF into 2 MB of web-optimized page images without changing the artwork.
+
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),

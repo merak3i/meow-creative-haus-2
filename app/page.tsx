@@ -10,6 +10,7 @@ import ShipLog from "@/components/ShipLog";
 import Authority from "@/components/Authority";
 import SubstackFeed from "@/components/SubstackFeed";
 import WildPopup from "@/components/WildPopup";
+import ZineTeaser from "@/components/ZineTeaser";
 
 export const metadata: Metadata = {
   alternates: {
@@ -29,6 +30,7 @@ export default function Home() {
       <PatherleTeaser />
       <ShipLog />
       <Authority />
+      <ZineTeaser />
       <SubstackFeed />
       <WildPopup />
     </>
