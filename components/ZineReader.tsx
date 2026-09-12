@@ -93,10 +93,10 @@ export default function ZineReader() {
       <header className="mx-auto grid max-w-[1500px] gap-8 px-5 pb-14 md:px-10 lg:grid-cols-[minmax(0,1fr)_minmax(280px,430px)] lg:items-end lg:pb-20">
         <div>
           <Link
-            href="/"
+            href="/tech-misc-larp"
             className="mb-10 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-[#7fa492] transition-colors hover:text-[#d1ffdf]"
           >
-            <ArrowLeft className="h-3.5 w-3.5" /> Meow Creative Haus
+            <ArrowLeft className="h-3.5 w-3.5" /> All issues
           </Link>
           <p className="mb-4 font-mono text-[10px] uppercase tracking-[0.28em] text-[#55df96]">
             tech+misc larp / issue 01 / sept 12, 2026
@@ -157,7 +157,7 @@ export default function ZineReader() {
           </div>
         </aside>
 
-        <main className="min-w-0" aria-label="Tech plus misc LARP issue 01">
+        <section className="min-w-0" aria-label="Tech plus misc LARP issue 01">
           {pages.map(([category, title], index) => {
             const page = index + 1;
             return (
@@ -192,7 +192,7 @@ export default function ZineReader() {
               </article>
             );
           })}
-        </main>
+        </section>
 
         <aside className="sticky top-24 hidden h-[calc(100vh-7rem)] self-start lg:flex lg:flex-col lg:items-center lg:justify-between" aria-label="Reader controls">
           <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-[#66736b] [writing-mode:vertical-rl]">

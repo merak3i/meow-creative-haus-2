@@ -2,6 +2,8 @@
 
 ## 2026-09-12
 
+- Turned `/tech-misc-larp` into a permanent zine archive, moved the first reader to `/tech-misc-larp/issue-01`, and added a reserved shelf for future issues.
+- Interlinked the zine with the homepage article feed, homepage feature, navigation, footer, and sitemap so issues live beside posts while retaining their own archive.
 - Added `/tech-misc-larp`, a 21-page click-to-scroll reader for issue 01 with a clickable signal rail, keyboard navigation, active-page tracking, responsive controls, and social metadata.
 - Added a homepage zine feature, navigation and footer links, and sitemap discovery.
 - Converted the 83.8 MB source PDF into 2 MB of web-optimized page images without changing the artwork.
