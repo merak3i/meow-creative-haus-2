@@ -35,11 +35,19 @@ export default function SkillLibrary() {
   return <main className={styles.page}>
     <div className={styles.container}>
       <div className={styles.top}><Link href="/lab">← the lab</Link><span>public skill kit / v1.0</span></div>
-      <section ref={presentation} tabIndex={-1} aria-label="Three-chapter presentation" className={`${styles.presentation} ${presenting ? styles.presenting : ""}`} onKeyDown={(event) => {
-        if (!presenting || event.target !== event.currentTarget) return;
+      <section ref={presentation} tabIndex={-1} role={presenting ? "dialog" : "region"} aria-modal={presenting || undefined} data-lenis-prevent={presenting ? "" : undefined} aria-label="Three-chapter presentation" className={`${styles.presentation} ${presenting ? styles.presenting : ""}`} onKeyDown={(event) => {
+        if (!presenting) return;
+        if (event.key === "Escape") { setPresenting(false); return; }
+        if (event.key === "Tab") {
+          const buttons = Array.from(event.currentTarget.querySelectorAll<HTMLButtonElement>("button:not(:disabled)"));
+          const first = buttons[0];
+          const last = buttons[buttons.length - 1];
+          if (event.shiftKey && (event.target === first || event.target === event.currentTarget)) { event.preventDefault(); last?.focus(); }
+          else if (!event.shiftKey && event.target === last) { event.preventDefault(); first?.focus(); }
+        }
+        if (event.target !== event.currentTarget) return;
         if (event.key === "ArrowRight") { event.preventDefault(); setChapter((value) => Math.min(2, value + 1)); }
         if (event.key === "ArrowLeft") { event.preventDefault(); setChapter((value) => Math.max(0, value - 1)); }
-        if (event.key === "Escape") setPresenting(false);
       }}>
         <div className={styles.chapterTop}><span>{current.tag}</span><button onClick={() => presenting ? setPresenting(false) : enterPresentation()}>{presenting ? "Exit presentation" : "Present this"}</button></div>
         <h1>{current.title}</h1>
