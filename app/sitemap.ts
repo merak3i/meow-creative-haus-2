@@ -47,5 +47,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "yearly",
       priority: 0.2,
     },
+    {
+      url: `${siteConfig.url}/skills-field-notes`,
+      lastModified: new Date("2026-09-15T00:00:00+05:30"),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
   ];
 }
