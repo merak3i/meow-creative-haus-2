@@ -5,6 +5,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
 
   return [
+    { url: `${siteConfig.url}/lab/skills`, lastModified: new Date("2026-09-15T00:00:00+05:30"), changeFrequency: "monthly", priority: 0.8 },
     {
       url: siteConfig.url,
       lastModified,
