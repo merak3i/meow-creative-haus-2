@@ -155,8 +155,8 @@ export default function StudioNotesSeptember2026() {
 
           <Figure
             src="/studio-notes/skills-release.webp"
-            alt="The MCH skills article and public skills shelf shown on the website"
-            caption="small instructions from the in-house flow"
+            alt="The live MCH public skills shelf showing filters and downloadable skill cards"
+            caption="the live skills shelf / 16 resources grouped by the work"
             screenshot
           />
 
