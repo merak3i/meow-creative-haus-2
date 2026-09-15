@@ -76,6 +76,18 @@ function HeroScene({
                 See the Work
               </a>
             </GradientButton>
+            <GradientButton
+              asChild
+              variant="variant"
+              className="text-sm uppercase tracking-widest"
+            >
+              <a href="/lab/skills">
+                Explore the Skills
+                <span className="ml-3 opacity-70 transition-all duration-300 group-hover:translate-x-1.5 group-hover:opacity-100">
+                  &rarr;
+                </span>
+              </a>
+            </GradientButton>
           </div>
         </div>
       </motion.div>
@@ -83,7 +95,7 @@ function HeroScene({
       {/* ── Panel beat ── */}
       <motion.div
         style={reduced ? { opacity: 1 } : { y: panelY, opacity: panelOpacity }}
-        className="absolute inset-0 flex flex-col items-center justify-center px-6 md:px-12"
+        className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center px-6 md:px-12"
       >
         <div className="h-[280px] w-full max-w-4xl md:h-[440px]">
           <PinnedPanels progress={progress} reduced={reduced} className="h-full">
