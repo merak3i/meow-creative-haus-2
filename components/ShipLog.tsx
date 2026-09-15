@@ -10,15 +10,31 @@ interface ShipLogEntry {
   date: string;
   title: string;
   description: string;
+  href?: string;
+  resources?: Array<{ name: string; detail: string }>;
 }
 
 const entries: ShipLogEntry[] = [
+  {
+    date: "SEP 15 2026",
+    title: "v1.8.0: The skills session becomes a public resource",
+    description:
+      "The recurring habits behind a local skills session are now a small, reusable library: read the brief, keep the source visible, make the handoff usable, and leave a receipt. Each file is a starting point you can edit for your own model, tools and permissions. The release is documented as a session because the useful part is the practice, not the prompt alone.",
+    href: "/lab/skills",
+    badge: "LATEST",
+    resources: [
+      { name: "Codex", detail: "build + verify" },
+      { name: "Claude Code", detail: "draft + revise" },
+      { name: "Cursor", detail: "inspect + edit" },
+      { name: "Hermes", detail: "cross-agent check" },
+      { name: "Antigravity", detail: "browser proof" },
+    ],
+  },
   {
     date: "AUG 31 2026",
     title: "v1.7.0: The Meow Ops mockups get replaced by the real thing",
     description:
       "Six captures from the running app take over the product carousel: Today, Ledger, Runs, Map, Sanctum, and mobile. The illustrated placeholders are gone. Live client sites move up to the top of the homepage so the first proof arrives before the first pitch, the founder section stops talking about multiplying ARR, and every em dash on the site has been retired.",
-    badge: "LATEST",
   },
   {
     date: "AUG 31 2026",
@@ -135,6 +151,40 @@ export default function ShipLog() {
                   {entry.title}
                 </h3>
                 <p className="text-body-md text-text-muted max-w-[680px]">{entry.description}</p>
+                {entry.href && (
+                  <a
+                    href={entry.href}
+                    className="inline-block mt-3 text-sm text-accent-teal hover:text-text-primary transition-colors duration-300"
+                  >
+                    Open the resource shelf →
+                  </a>
+                )}
+                {entry.resources && (
+                  <div className="mt-5" aria-label="Tools referenced in this release">
+                    <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-text-dim mb-2">
+                      Resource surfaces · full wordmarks
+                    </p>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 max-w-[840px]">
+                      {entry.resources.map((resource) => (
+                        <div
+                          key={resource.name}
+                          className="border border-surface-border bg-surface px-3 py-2.5"
+                          title={`${resource.name}: ${resource.detail}`}
+                        >
+                          <span className="block text-sm font-semibold text-text-primary leading-tight">
+                            {resource.name}
+                          </span>
+                          <span className="block mt-1 font-mono text-[9px] uppercase tracking-[0.12em] text-accent-teal">
+                            {resource.detail}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                    <p className="mt-2 text-[11px] text-text-dim max-w-[700px]">
+                      Names identify the tools seen in the session; the release is independent and implies no endorsement.
+                    </p>
+                  </div>
+                )}
               </div>
               {entry.badge && (
                 <span className="justify-self-start md:justify-self-end text-label-sm tracking-wider text-accent-teal border border-accent-teal/40 px-2 py-0.5">
