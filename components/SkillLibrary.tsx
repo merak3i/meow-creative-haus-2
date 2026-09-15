@@ -34,7 +34,7 @@ export default function SkillLibrary() {
 
   return <main className={styles.page}>
     <div className={styles.container}>
-      <div className={styles.top}><Link href="/lab">← the lab</Link><span>public skill kit / v1.0</span></div>
+      <div className={styles.top}><Link href="/lab">← the lab</Link><span>public resources / session release 01</span></div>
       <section ref={presentation} tabIndex={-1} role={presenting ? "dialog" : "region"} aria-modal={presenting || undefined} data-lenis-prevent={presenting ? "" : undefined} aria-label="Three-chapter presentation" className={`${styles.presentation} ${presenting ? styles.presenting : ""}`} onKeyDown={(event) => {
         if (!presenting) return;
         if (event.key === "Escape") { setPresenting(false); return; }
@@ -57,12 +57,12 @@ export default function SkillLibrary() {
         <p className={styles.small}>{presenting ? "Use the chapter buttons, or focus this panel and use ← →. Escape exits." : "A three-chapter introduction. The full library is below."}</p>
       </section>
 
-      <section className={styles.start} aria-labelledby="start-title"><div><p className={styles.label}>a small first task</p><h2 id="start-title">borrow one habit</h2><p>Choose a skill below. Download its file, read it, then attach it to your AI conversation with the example request and your own inputs. Ask the assistant to follow it for that task.</p></div><div><h3>Want to install it?</h3><p>Save the file as <code>SKILL.md</code> inside a folder named after the skill. Import that folder using your app’s skill support. Loading behavior varies by app; confirm the assistant can see the instructions. Downloading alone does not install anything.</p><p>These are tool-neutral instructions. Browser, OCR and document workflows need the corresponding tools. Nothing here adds an account, integration or scheduler.</p><a href="/skill-kit/mch-public-skills-v1.zip" download className={styles.primary}>Download all 16 skills ↓</a></div></section>
+      <section className={styles.start} aria-labelledby="start-title"><div><p className={styles.label}>a small first task</p><h2 id="start-title">borrow one resource</h2><p>A skill is a resource: a compact piece of operating knowledge you can inspect, adapt and carry between tools. Choose one below, download its file, then attach it to a bounded AI task with your own inputs.</p></div><div><h3>Want to install it?</h3><p>Save the file as <code>SKILL.md</code> inside a folder named after the skill. Import that folder using your app’s skill support. Loading behavior varies by app; confirm the assistant can see the instructions. Downloading alone does not install anything.</p><p>These are tool-neutral instructions. Browser, OCR and document workflows need the corresponding tools. Nothing here adds an account, integration or scheduler.</p><a href="/skill-kit/mch-public-skills-v1.zip" download className={styles.primary}>Download all 16 resources ↓</a></div></section>
 
       <section aria-labelledby="library-title">
         <div className={styles.libraryHeading}><div><p className={styles.label}>choose by the work</p><h2 id="library-title">the useful kit</h2></div><label className={styles.search}>Find a skill<input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="writing, browser, report…" /></label></div>
         <div className={styles.filters} role="group" aria-label="Filter by theme">{(["All", ...themes] as const).map((item) => <button key={item} aria-pressed={theme === item} onClick={() => setTheme(item)}>{item}</button>)}</div>
-        <p className={styles.small}>S = core utility in my setup · A = useful for a particular task · personal tiers, not quality scores</p>
+        <p className={styles.small}>S = core utility in my setup · A = useful for a particular task · personal tiers, not quality scores · every file is a resource to edit</p>
         <p className={styles.result} aria-live="polite">{matches.length} of 16 skills</p>
         <div className={styles.grid}>{matches.map((skill) => <article className={styles.skill} key={skill.id} id={skill.id}>
           <div className={styles.cardTop}><span>{skill.theme}</span><span className={styles.tier}>{skill.tier}</span></div>

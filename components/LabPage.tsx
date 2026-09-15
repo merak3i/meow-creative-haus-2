@@ -91,9 +91,9 @@ export default function LabPage() {
         </div>
 
         <section className="mb-24 border border-accent-teal/40 bg-surface-elevated p-8 md:p-12">
-          <p className="mb-4 font-mono text-xs text-accent-teal">PUBLIC SKILL KIT · v1.0</p>
+          <p className="mb-4 font-mono text-xs text-accent-teal">PUBLIC SKILL RESOURCES · SESSION RELEASE 01</p>
           <h2 className="mb-5 text-display-md">good habits, in small files</h2>
-          <p className="mb-6 max-w-2xl text-body-md text-text-muted">16 reusable workflows for writing, research, verification and recurring work. A short presentation, practical advice and composite examples from the work behind the kit.</p>
+          <p className="mb-6 max-w-2xl text-body-md text-text-muted">16 reusable skill resources for writing, research, verification and recurring work. A short presentation, practical advice and composite examples from the session behind the kit.</p>
           <a href="/lab/skills" className="inline-block border border-accent-teal px-5 py-3 text-sm text-accent-teal hover:bg-accent-teal hover:text-surface">Explore the skills →</a>
         </section>
 
