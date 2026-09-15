@@ -17,9 +17,9 @@ interface ShipLogEntry {
 const entries: ShipLogEntry[] = [
   {
     date: "SEP 15 2026",
-    title: "v1.8.0: The skills session becomes a public resource",
+    title: "v1.8.0: The workbench opens",
     description:
-      "The recurring habits behind a local skills session are now a small, reusable library: read the brief, keep the source visible, make the handoff usable, and leave a receipt. Each file is a starting point you can edit for your own model, tools and permissions. The release is documented as a session because the useful part is the practice, not the prompt alone.",
+      "Repeated corrections from real sessions became a public library of 16 editable skills. They cover writing, research, browser checks, release review and recurring work. Each one is plain Markdown, available separately or as one ZIP, with examples and limits visible before download. Treat them as starting points. You still have to understand your own workflow, spend time with the details, and rewrite each skill around your tools. One size does not fit all, especially when automation enters the work. A weekly or monthly log reviewer, pattern analyser or data miner can show you what keeps repeating and what needs to change. The more personal the skill becomes, the more useful it gets.",
     href: "/lab/skills",
     badge: "LATEST",
     resources: [
