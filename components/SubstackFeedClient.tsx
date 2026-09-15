@@ -72,19 +72,6 @@ export default function SubstackFeedClient({
         </motion.h2>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <motion.div variants={cardVariants} className="group relative overflow-hidden border border-accent-teal/30 bg-[#090d0b] transition-colors duration-500 hover:border-accent-teal">
-            <Link href={latestZineIssue.href} className="block h-full p-5">
-              <div className="grid h-full grid-cols-[100px_1fr] gap-5 sm:block">
-                <Image src={latestZineIssue.cover} alt={`Cover of ${latestZineIssue.issue}: ${latestZineIssue.title}`} width={1238} height={1548} sizes="(max-width: 639px) 100px, 350px" className="h-auto w-full border border-surface-border sm:mb-6" />
-                <div>
-                  <span className="mb-3 block text-label-sm uppercase tracking-wider text-accent-teal">Zine · {latestZineIssue.issue}</span>
-                  <h3 className="mb-4 text-xl font-semibold text-text transition-colors duration-300 group-hover:text-accent-teal">{latestZineIssue.title}</h3>
-                  <p className="mb-6 line-clamp-3 text-body-md text-text-muted">{latestZineIssue.description}</p>
-                  <span className="inline-flex items-center gap-2 text-label-sm uppercase text-text-dim transition-colors duration-300 group-hover:text-accent-teal">Open issue →</span>
-                </div>
-              </div>
-            </Link>
-          </motion.div>
           {posts.map((post) => (
             <motion.a
               key={post.link}
@@ -127,6 +114,19 @@ export default function SubstackFeedClient({
               </span>
             </motion.a>
           ))}
+          <motion.div variants={cardVariants} className="group relative overflow-hidden border border-accent-teal/30 bg-[#090d0b] transition-colors duration-500 hover:border-accent-teal">
+            <Link href={latestZineIssue.href} className="block h-full p-5">
+              <div className="grid h-full grid-cols-[100px_1fr] gap-5 sm:block">
+                <Image src={latestZineIssue.cover} alt={`Cover of ${latestZineIssue.issue}: ${latestZineIssue.title}`} width={1238} height={1548} sizes="(max-width: 639px) 100px, 350px" className="h-auto w-full border border-surface-border sm:mb-6" />
+                <div>
+                  <span className="mb-3 block text-label-sm uppercase tracking-wider text-accent-teal">Zine · {latestZineIssue.issue}</span>
+                  <h3 className="mb-4 text-xl font-semibold text-text transition-colors duration-300 group-hover:text-accent-teal">{latestZineIssue.title}</h3>
+                  <p className="mb-6 line-clamp-3 text-body-md text-text-muted">{latestZineIssue.description}</p>
+                  <span className="inline-flex items-center gap-2 text-label-sm uppercase text-text-dim transition-colors duration-300 group-hover:text-accent-teal">Open issue →</span>
+                </div>
+              </div>
+            </Link>
+          </motion.div>
         </div>
 
         <motion.div
