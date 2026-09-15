@@ -1,7 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
 import type { SubstackPost } from "@/lib/data";
+import { latestZineIssue } from "@/lib/zines";
 
 const sectionVariants = {
   hidden: {},
@@ -45,10 +48,6 @@ export default function SubstackFeedClient({
 }: {
   posts: SubstackPost[];
 }) {
-  if (posts.length === 0) {
-    return null;
-  }
-
   return (
     <section id="substack" className="py-24 md:py-40 px-6 md:px-12 border-t border-surface-border">
       <motion.div
@@ -62,17 +61,30 @@ export default function SubstackFeedClient({
           variants={headerVariants}
           className="text-label-sm uppercase text-accent-gold tracking-[0.2em] mb-3"
         >
-          Newsletter
+          Notes + zines
         </motion.p>
         <motion.h2
           variants={headerVariants}
           className="text-display-lg mb-16"
         >
-          Meow Creative Haus:{" "}
-          <span className="text-gradient-accent">The Playbook.</span>
+          Essays, field notes, and{" "}
+          <span className="text-gradient-accent">things with page numbers.</span>
         </motion.h2>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <motion.div variants={cardVariants} className="group relative overflow-hidden border border-accent-teal/30 bg-[#090d0b] transition-colors duration-500 hover:border-accent-teal">
+            <Link href={latestZineIssue.href} className="block h-full p-5">
+              <div className="grid h-full grid-cols-[100px_1fr] gap-5 sm:block">
+                <Image src={latestZineIssue.cover} alt={`Cover of ${latestZineIssue.issue}: ${latestZineIssue.title}`} width={1238} height={1548} sizes="(max-width: 639px) 100px, 350px" className="h-auto w-full border border-surface-border sm:mb-6" />
+                <div>
+                  <span className="mb-3 block text-label-sm uppercase tracking-wider text-accent-teal">Zine · {latestZineIssue.issue}</span>
+                  <h3 className="mb-4 text-xl font-semibold text-text transition-colors duration-300 group-hover:text-accent-teal">{latestZineIssue.title}</h3>
+                  <p className="mb-6 line-clamp-3 text-body-md text-text-muted">{latestZineIssue.description}</p>
+                  <span className="inline-flex items-center gap-2 text-label-sm uppercase text-text-dim transition-colors duration-300 group-hover:text-accent-teal">Open issue →</span>
+                </div>
+              </div>
+            </Link>
+          </motion.div>
           {posts.map((post) => (
             <motion.a
               key={post.link}
@@ -117,33 +129,14 @@ export default function SubstackFeedClient({
           ))}
         </div>
 
-        {/* CTA to full Substack */}
         <motion.div
           variants={headerVariants}
           className="mt-12 text-center"
         >
-          <a
-            href="https://impostersyndromeenjoyer.substack.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 px-8 py-4 border border-accent-gold/30 text-accent-gold text-label-sm uppercase tracking-widest hover:bg-accent-gold hover:text-surface transition-all duration-500"
-          >
-            View All Posts
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-            >
-              <path
-                d="M7 17L17 7M17 7H7M17 7V17"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </a>
+          <div className="flex flex-wrap justify-center gap-3">
+            <a href="https://impostersyndromeenjoyer.substack.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 border border-accent-gold/30 px-8 py-4 text-label-sm uppercase tracking-widest text-accent-gold transition-all duration-500 hover:bg-accent-gold hover:text-surface">View all articles ↗</a>
+            <Link href="/tech-misc-larp" className="inline-flex items-center gap-3 border border-accent-teal/30 px-8 py-4 text-label-sm uppercase tracking-widest text-accent-teal transition-all duration-500 hover:bg-accent-teal hover:text-surface">Browse the zine archive →</Link>
+          </div>
         </motion.div>
       </motion.div>
     </section>

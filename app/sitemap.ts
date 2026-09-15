@@ -43,6 +43,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${siteConfig.url}/tech-misc-larp/issue-01`,
+      lastModified: new Date("2026-09-12T00:00:00+05:30"),
+      changeFrequency: "yearly",
+      priority: 0.75,
+    },
+    {
       url: `${siteConfig.url}/privacy`,
       lastModified,
       changeFrequency: "yearly",
