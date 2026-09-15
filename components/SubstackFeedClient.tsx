@@ -76,8 +76,8 @@ export default function SubstackFeedClient({
             <motion.a
               key={post.link}
               href={post.link}
-              target="_blank"
-              rel="noopener noreferrer"
+              target={post.link.startsWith("/") ? undefined : "_blank"}
+              rel={post.link.startsWith("/") ? undefined : "noopener noreferrer"}
               variants={cardVariants}
               className="group block p-8 border border-surface-border bg-surface-elevated hover:border-text-dim transition-all duration-500 relative overflow-hidden"
             >

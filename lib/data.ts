@@ -597,6 +597,12 @@ export interface SubstackPost {
 
 const CURATED_EXTRA_POSTS: SubstackPost[] = [
   {
+    title: "been building, forgot to write about it",
+    link: "/studio-notes-september-2026",
+    pubDate: "Tue, 15 Sep 2026 00:00:00 GMT",
+    excerpt: "A few months of MCH work: OneClickWebsite India, BergLabs, Tender Moments, Meow Ops, a zine, and Patherle in progress.",
+  },
+  {
     title: "The Cost of Compute, the Compute of Cost",
     link: "https://merak3i.substack.com/p/the-cost-of-compute-the-compute-of",
     pubDate: "Sun, 26 Apr 2026 14:10:53 GMT",
