@@ -18,7 +18,7 @@ const headerVariants = {
   },
 };
 
-// Base logo height — all image logos scale from this value
+// Base logo height. All image logos scale from this value.
 const BASE_REM = 3.75; // 2.5rem × 1.5 = 50 % bigger
 
 function LogoStrip() {
@@ -52,13 +52,16 @@ function LogoStrip() {
                 alt={logo.name}
                 width={160}
                 height={64}
+                sizes="160px"
                 className={`relative z-10 h-auto w-auto max-w-[150px] object-contain transition-all duration-500 group-hover:scale-[1.03] group-hover:opacity-100 group-hover:drop-shadow-[0_0_12px_rgba(73,197,182,0.45)] group-active:scale-[1.03] group-active:opacity-100 group-active:drop-shadow-[0_0_12px_rgba(73,197,182,0.45)] ${
                   preserveColor
                     ? "opacity-55 saturate-0 brightness-110 group-hover:saturate-100 group-active:saturate-100"
                     : `grayscale brightness-125 opacity-45 group-hover:grayscale-0 group-active:grayscale-0${noInvert ? "" : " invert group-hover:invert-0 group-active:invert-0"}`
                 }`}
                 style={{ height: `${scale * BASE_REM}rem` }}
-                unoptimized
+                unoptimized={
+                  typeof logo.src === "string" && logo.src.endsWith(".svg")
+                }
               />
             )}
           </div>
@@ -88,11 +91,11 @@ export default function ClientMarquee() {
           variants={headerVariants}
           className="text-display-md text-gradient"
         >
-          Brands scaling with our systems.
+          Brands we&apos;ve built for.
         </motion.h2>
       </motion.div>
 
-      {/* Single marquee row — right to left */}
+      {/* Single marquee row, right to left */}
       <div className="relative">
         <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-surface to-transparent z-10" />
         <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-surface to-transparent z-10" />

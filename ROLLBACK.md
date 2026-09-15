@@ -10,11 +10,11 @@ Choose the one that fits the situation.
 ```
 Production is broken?
 │
-├─ Yes — how urgent?
+├─ Yes: how urgent?
 │   ├─ Urgent (users affected NOW)
 │   │   └─ → Strategy 1: Vercel instant rollback (< 2 min, no code changes)
 │   │
-│   └─ Non-urgent (can take 5–10 min)
+│   └─ Non-urgent (can take 5 to 10 min)
 │       └─ → Strategy 2: Git revert (leaves clean audit trail)
 │
 └─ Development/staging only
@@ -23,7 +23,7 @@ Production is broken?
 
 ---
 
-## Strategy 1 — Vercel Instant Rollback (Recommended for Production)
+## Strategy 1: Vercel Instant Rollback (Recommended for Production)
 
 Vercel keeps every deployment. You can reactivate any previous one instantly.
 
@@ -33,7 +33,7 @@ Vercel keeps every deployment. You can reactivate any previous one instantly.
 3. Click **Deployments** tab
 4. Find the last known-good deployment
 5. Click **⋯** → **Promote to Production**
-6. Done — DNS flips in < 30 seconds
+6. Done: DNS flips in < 30 seconds
 
 ### Via CLI
 ```bash
@@ -52,7 +52,7 @@ vercel promote <deployment-url> --scope <your-team>
 
 ---
 
-## Strategy 2 — Git Revert (Safe for Production, Auditable)
+## Strategy 2: Git Revert (Safe for Production, Auditable)
 
 Creates a new commit that undoes the problematic change. Main branch history stays linear.
 
@@ -66,17 +66,17 @@ git revert <commit-sha> --no-edit
 # Revert a range of commits (newest first)
 git revert <newest-sha>..<oldest-sha> --no-edit
 
-# Push — triggers a new Vercel deployment automatically
+# Push: triggers a new Vercel deployment automatically
 git push origin main
 ```
 
 **When to use**: When a specific commit introduced a bug and you want a traceable fix in git history.
 
-**Do not use `git revert` for**: Config changes that need immediate rollback — use Strategy 1 instead while you prepare the revert.
+**Do not use `git revert` for**: Config changes that need immediate rollback: use Strategy 1 instead while you prepare the revert.
 
 ---
 
-## Strategy 3 — Git Tag Checkout (Development Only)
+## Strategy 3: Git Tag Checkout (Development Only)
 
 Use this locally to test against a previous known-good state.
 **Never force-push to `main`.**
@@ -100,13 +100,13 @@ git checkout main
 # Create a new branch from the tag
 git checkout -b hotfix/rollback-to-v1.0.0 v1.0.0
 
-# Push the branch — deploy it on Vercel as a preview first
+# Push the branch: deploy it on Vercel as a preview first
 git push origin hotfix/rollback-to-v1.0.0
 
 # Only after verifying the preview, merge to main via PR
 gh pr create --base main --head hotfix/rollback-to-v1.0.0 \
   --title "hotfix: rollback to v1.0.0" \
-  --body "Emergency rollback — see incident notes"
+  --body "Emergency rollback: see incident notes"
 ```
 
 ---
@@ -117,8 +117,8 @@ gh pr create --base main --head hotfix/rollback-to-v1.0.0 \
 |-----|-----|------|-------------|
 | `v1.3.0` | _(current)_ | 2026-04-15 | Local screenshots, Canter Club marquee, Web Design section reorder |
 | `v1.2.1` | | 2026-04-14 | VideoShowcase promoted, AIModelsShowcase removed |
-| `v1.1.0` | | 2026-04-09 | Engineering hardening — dead code cleanup, DB scaffolding |
-| `v1.0.0` | `2256e7d` | 2026-04-07 | Production baseline — fully functional acquisition engine |
+| `v1.1.0` | | 2026-04-09 | Engineering hardening: dead code cleanup, DB scaffolding |
+| `v1.0.0` | `2256e7d` | 2026-04-07 | Production baseline: fully functional acquisition engine |
 
 ---
 

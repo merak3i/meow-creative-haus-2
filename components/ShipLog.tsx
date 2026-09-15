@@ -1,8 +1,8 @@
 "use client";
 
-// Ship log: the changelog block metamorphosed into MCH's language: mono date
-// rail, hairline separators, teal LATEST badge. Real entries, real dates;
-// shipping cadence is the marketing.
+// Ship log: the changelog block in MCH's language. Mono date rail, hairline
+// separators, teal LATEST badge. Real entries, real dates; shipping cadence is
+// the marketing.
 import { motion } from "framer-motion";
 
 interface ShipLogEntry {
@@ -10,55 +10,89 @@ interface ShipLogEntry {
   date: string;
   title: string;
   description: string;
+  href?: string;
+  resources?: Array<{ name: string; detail: string }>;
 }
 
 const entries: ShipLogEntry[] = [
   {
+    date: "SEP 15 2026",
+    title: "v1.8.0: The skills session becomes a public resource",
+    description:
+      "The recurring habits behind a local skills session are now a small, reusable library: read the brief, keep the source visible, make the handoff usable, and leave a receipt. Each file is a starting point you can edit for your own model, tools and permissions. The release is documented as a session because the useful part is the practice, not the prompt alone.",
+    href: "/lab/skills",
+    badge: "LATEST",
+    resources: [
+      { name: "Codex", detail: "build + verify" },
+      { name: "Claude Code", detail: "draft + revise" },
+      { name: "Cursor", detail: "inspect + edit" },
+      { name: "Hermes", detail: "cross-agent check" },
+      { name: "Antigravity", detail: "browser proof" },
+    ],
+  },
+  {
+    date: "AUG 31 2026",
+    title: "v1.7.0: The Meow Ops mockups get replaced by the real thing",
+    description:
+      "Six captures from the running app take over the product carousel: Today, Ledger, Runs, Map, Sanctum, and mobile. The illustrated placeholders are gone. Live client sites move up to the top of the homepage so the first proof arrives before the first pitch, the founder section stops talking about multiplying ARR, and every em dash on the site has been retired.",
+  },
+  {
+    date: "AUG 31 2026",
+    title: "v1.2.0: Meow Ops becomes an inbox",
+    description:
+      "Five surfaces: Today, Review, Ledger, Sanctum, Learn. The focus timer is a chip on every screen. Companion is gone. Learn mines concepts from sessions you already ran. Each card has a name, a short industry summary, a layman what-you-did line, a source, and an I get this mark. You search YouTube yourself. No school. No XP.",
+  },
+  {
     date: "JUL 19 2026",
-    title: "Builder's Journey opens",
+    title: "v1.6.2: Builder's Journey opens",
     description:
       "Meow Ops gains a calm, private learning track from vibe-led exploration to first-principles craft: start anywhere, resume unfinished workshops, practise quick recall for up to 360 days, and progress only when real evidence supports it.",
-    badge: "LATEST",
   },
   {
     date: "JUL 18 2026",
-    title: "Project learning moves under owner control",
+    title: "v1.6.1: Project learning moves under owner control",
     description:
       "Evidence from Codex, Claude Code, Hermes, Antigravity, and Cursor now enters one private local plane. Meow Ops can propose reusable learning, but publication, agent distribution, and rollback remain owner-governed.",
   },
   {
     date: "JUL 16 2026",
-    title: "Companion becomes a project partner",
+    title: "v1.6.0: Record of Scrying Sanctum build and refinement",
     description:
-      "The cat gains richer breeds, rooms, poses, and behaviour while Companion chat adds Soul Studio, owner-taught project context, evidence labels, and honest handling of known gaps, hypotheses, and blind spots.",
+      "A retrospective release record follows the Apr 12 to May 4 build from the first source-stat Sanctum through its WoW overhaul, Dalaran phases, citadel and floor refinements, Lich King pass, design-system freeze, modular extraction, and final visual and session-label polish.",
+  },
+  {
+    date: "JUL 05 2026",
+    title: "v1.5.1: The homepage stops bragging, starts proving",
+    description:
+      "The revenue-engineering pitch and its unverifiable stats retire. The hero leads with one honest line, we design and build software worth feeling. A Selected Work panel puts live projects up front (meow.wild, Patherle, EAASH, Coastal Edge), and the four offers become Experiences, Product & Web, AI Systems, and Growth. Every claim on the page is a link you can click.",
   },
   {
     date: "JUN 14 2026",
-    title: "v1.5: The site learns to scroll",
+    title: "v1.5.0: The site learns to scroll",
     description:
-      "A Scale-style rebuild — the hero assembles a live revenue dashboard as you descend, Loop Ops becomes a scroll-scrubbed walkthrough, and a smooth-scroll engine with a progress rail ties the page together. Space Grotesk lands in the product frames.",
+      "A scroll-led rebuild. The hero assembles a live revenue dashboard as you descend, Loop Ops becomes a scroll-scrubbed walkthrough, and a smooth-scroll engine with a progress rail ties the page together. Space Grotesk lands in the product frames.",
   },
   {
     date: "JUN 13 2026",
-    title: "v1.4: Loop Ops goes public",
+    title: "v1.4.0: Loop Ops goes public",
     description:
       "Meow Ops opens up with a five-frame Loop Ops tour built from generic demo data and an evidence-first posture.",
   },
   {
     date: "JUN 13 2026",
-    title: "FILE // 003: Patherle, partially declassified",
+    title: "v1.4.0: FILE // 003, Patherle partially declassified",
     description:
       "The AI business OS we're building in the dark gets a teaser page: five stills, gold [WITHHELD] bars, and a build log that says just enough.",
   },
   {
     date: "JUN 13 2026",
-    title: "Meow Ops becomes a control room",
+    title: "v1.4.0: Meow Ops becomes a control room",
     description:
       "Loop Ops ships inside Meow Ops with a generic workbook importer, local run timelines, and evidence-first node states.",
   },
   {
     date: "APR 15 2026",
-    title: "v1.3: The Lab fills up",
+    title: "v1.3.0: The Lab fills up",
     description:
       "Client showcases, video and shorts carousels, and a marquee of brands built to convert.",
   },
@@ -85,9 +119,22 @@ export default function ShipLog() {
         >
           Ship log
         </motion.p>
-        <motion.h2 variants={rowVariants} className="text-display-lg max-w-[700px] mb-12">
+        <motion.h2 variants={rowVariants} className="text-display-lg max-w-[700px] mb-5">
           What we shipped, <span className="text-gradient-accent">and when.</span>
         </motion.h2>
+        <motion.p
+          variants={rowVariants}
+          className="text-body-md text-text-muted mb-10 max-w-[620px]"
+        >
+          Dated, specific, and occasionally unflattering. If a release was mostly
+          us deleting our own copy, it says so.
+        </motion.p>
+        <motion.p
+          variants={rowVariants}
+          className="font-mono text-label-sm text-text-dim tracking-[0.12em] mb-8 max-w-[760px]"
+        >
+          VERSION KEY · major: architecture · minor: capability · patch: refinement
+        </motion.p>
 
         <div className="border-t border-surface-border">
           {entries.map((entry) => (
@@ -104,6 +151,40 @@ export default function ShipLog() {
                   {entry.title}
                 </h3>
                 <p className="text-body-md text-text-muted max-w-[680px]">{entry.description}</p>
+                {entry.href && (
+                  <a
+                    href={entry.href}
+                    className="inline-block mt-3 text-sm text-accent-teal hover:text-text-primary transition-colors duration-300"
+                  >
+                    Open the resource shelf →
+                  </a>
+                )}
+                {entry.resources && (
+                  <div className="mt-5" aria-label="Tools referenced in this release">
+                    <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-text-dim mb-2">
+                      Resource surfaces · full wordmarks
+                    </p>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 max-w-[840px]">
+                      {entry.resources.map((resource) => (
+                        <div
+                          key={resource.name}
+                          className="border border-surface-border bg-surface px-3 py-2.5"
+                          title={`${resource.name}: ${resource.detail}`}
+                        >
+                          <span className="block text-sm font-semibold text-text-primary leading-tight">
+                            {resource.name}
+                          </span>
+                          <span className="block mt-1 font-mono text-[9px] uppercase tracking-[0.12em] text-accent-teal">
+                            {resource.detail}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                    <p className="mt-2 text-[11px] text-text-dim max-w-[700px]">
+                      Names identify the tools seen in the session; the release is independent and implies no endorsement.
+                    </p>
+                  </div>
+                )}
               </div>
               {entry.badge && (
                 <span className="justify-self-start md:justify-self-end text-label-sm tracking-wider text-accent-teal border border-accent-teal/40 px-2 py-0.5">

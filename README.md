@@ -23,7 +23,7 @@ Meow Creative Haus is the public marketing site for the studio. It is built with
 
 ### `/lab`
 
-- Open-source Meow Ops project block with token analytics, agent ops, and the 3D companion.
+- Open-source Meow Ops project block (v1.2.0 inbox: Today, Review, Ledger, Sanctum, Learn).
 - `VideoShowcase`.
 - `ClientWebsites`.
 - `ShortsShowcase`.
@@ -39,14 +39,14 @@ Meow Creative Haus is the public marketing site for the studio. It is built with
 <table>
   <tr>
     <td width="50%">
-      <img src="public/screenshots/loom/loom-01-hierarchy.png" alt="The Loom hierarchy" />
+      <img src="public/screenshots/loom/loom-01-hierarchy.png" alt="Meow Ops Today" />
       <br />
-      <sub>The Loom hierarchy</sub>
+      <sub>Meow Ops Today</sub>
     </td>
     <td width="50%">
-      <img src="public/screenshots/loom/loom-03-inspector.png" alt="The Loom inspector" />
+      <img src="public/screenshots/loom/loom-03-inspector.png" alt="Meow Ops Ledger" />
       <br />
-      <sub>The Loom inspector</sub>
+      <sub>Meow Ops Ledger</sub>
     </td>
   </tr>
   <tr>
@@ -83,6 +83,26 @@ Meow Creative Haus is the public marketing site for the studio. It is built with
 - YouTube IDs for the video showcase live in `components/VideoShowcase.tsx`
 
 `fetchSubstackFeed()` runs server-side. It revalidates hourly and falls back to curated posts when the feed is unavailable.
+
+## Search visibility configuration
+
+Copy `.env.example` into the deployment environment and fill only the values
+issued by the relevant platform:
+
+- `NEXT_PUBLIC_SITE_URL` controls canonical URLs, structured data, robots,
+  sitemap, and the LLM reference files. Switch it only after the custom domain
+  resolves and is attached to production.
+- `NEXT_PUBLIC_GOOGLE_ANALYTICS_ID` enables GA4 and records WhatsApp, Calendly,
+  and email clicks as `generate_lead` events.
+- `GOOGLE_SITE_VERIFICATION` and `BING_SITE_VERIFICATION` add ownership
+  verification meta tags without hard-coding account tokens.
+
+Public discovery endpoints:
+
+- `/robots.txt`
+- `/sitemap.xml`
+- `/llms.txt`
+- `/llms-full.txt`
 
 ## Local setup
 

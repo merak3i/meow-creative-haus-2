@@ -14,14 +14,14 @@ const config: Config = {
         "surface-border": "#1a1a1a",
         text: "#f5f5f5",
         "text-muted": "#a0a0a0",
-        "text-dim": "#666666",
+        "text-dim": "#858585",
         accent: {
           teal: "#49c5b6",
           gold: "#ECD06F",
         },
       },
       fontFamily: {
-        sans: ["Poppins", "system-ui", "sans-serif"],
+        sans: ["var(--font-poppins)", "Poppins", "system-ui", "sans-serif"],
       },
       fontSize: {
         "display-xl": [

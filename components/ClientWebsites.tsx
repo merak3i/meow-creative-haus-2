@@ -28,7 +28,7 @@ function toRailItem(site: (typeof clientWebsites)[number]): FocusRailItem {
     imageSrc:    site.screenshot,
     href:        site.url,
     logoSrc:     site.logo || undefined,
-    // no videoId — center-card click opens site URL via focus-rail's href fallback
+    // no videoId, so a center-card click opens the site URL via focus-rail's href fallback
   };
 }
 
@@ -48,7 +48,7 @@ export default function ClientWebsites() {
         whileInView="visible"
         viewport={{ once: true, margin: "-80px" }}
       >
-        {/* Header — padded */}
+        {/* Header, padded */}
         <div className="px-6 md:px-12 max-w-[1400px] mx-auto mb-12">
           <motion.p variants={fadeUp} className="text-label-sm uppercase text-accent-teal tracking-[0.2em] mb-3">
             Web Design
@@ -63,7 +63,7 @@ export default function ClientWebsites() {
           </motion.p>
         </div>
 
-        {/* FocusRail — full bleed */}
+        {/* FocusRail, full bleed */}
         <motion.div variants={fadeUp}>
           <FocusRail
             items={railItems}
@@ -74,7 +74,7 @@ export default function ClientWebsites() {
           />
         </motion.div>
 
-        {/* CTA — padded */}
+        {/* CTA, padded */}
         <motion.div
           variants={fadeUp}
           className="px-6 md:px-12 max-w-[1400px] mx-auto mt-14 flex flex-col sm:flex-row items-start sm:items-center gap-6"

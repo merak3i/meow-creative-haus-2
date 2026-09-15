@@ -8,11 +8,8 @@ import ScrollStage from "@/components/ScrollStage";
 import PinnedPanels from "@/components/PinnedPanels";
 import RevenueDashboard from "@/components/RevenueDashboard";
 
-const headlineWords =
-  "Stop Burning Cash on Marketing That Doesn't Convert.".split(" ");
-
 // The pinned hero scene. Text owns the first beat, then recedes as the layered
-// dashboard panels rotate flat and rise to centre — the Scale signature.
+// dashboard panels rotate flat and rise to centre.
 function HeroScene({
   progress,
   reduced,
@@ -43,81 +40,62 @@ function HeroScene({
         className="absolute inset-0 flex flex-col justify-center px-6 md:px-12"
       >
         <div className="mx-auto w-full max-w-[1400px]">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-label-sm uppercase text-accent-teal tracking-[0.2em] mb-6"
-          >
-            Revenue Engineering Studio
-          </motion.p>
+          <p className="text-label-sm uppercase text-accent-teal tracking-[0.2em] mb-6">
+            Product &amp; Experience Studio
+          </p>
 
-          <motion.h1
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1.4 }}
-            className="text-display-xl mb-7 max-w-[15ch] [perspective:1000px]"
-          >
-            {headlineWords.map((word, wordIndex) => (
-              <span key={wordIndex} className="inline-block mr-[0.3em] last:mr-0">
-                {word.split("").map((letter, letterIndex) => (
-                  <motion.span
-                    key={`${wordIndex}-${letterIndex}`}
-                    initial={{ y: 100, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{
-                      delay: wordIndex * 0.08 + letterIndex * 0.025,
-                      type: "spring",
-                      stiffness: 150,
-                      damping: 25,
-                    }}
-                    className="inline-block bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent"
-                  >
-                    {letter}
-                  </motion.span>
-                ))}
-              </span>
-            ))}
-          </motion.h1>
+          <h1 className="text-display-xl mb-7 max-w-[15ch] bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
+            We design and build software worth feeling.
+          </h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            className="text-body-lg text-text-muted max-w-[600px] mb-10"
-          >
-            We engineer AI-driven B2B &amp; B2C acquisition systems that turn
-            strangers into booked calls and locked Annual Recurring Revenue.
-            Predictable growth. Zero BS.
-          </motion.p>
+          <p className="text-body-lg text-text-muted max-w-[600px] mb-10">
+            A product and experience studio in Mangalore, working with founders
+            and businesses across India and beyond. We build interfaces, AI
+            systems, and websites, then keep shipping after launch.
+          </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.1, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-wrap gap-4"
-          >
-            <a href={siteConfig.whatsapp} target="_blank" rel="noopener noreferrer">
-              <GradientButton className="text-sm uppercase tracking-widest">
-                Scale Your Revenue Today
+          <div className="flex flex-wrap gap-4">
+            <GradientButton asChild className="text-sm uppercase tracking-widest">
+              <a
+                href={siteConfig.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Start a Project
                 <span className="ml-3 opacity-70 transition-all duration-300 group-hover:translate-x-1.5 group-hover:opacity-100">
                   &rarr;
                 </span>
-              </GradientButton>
-            </a>
-            <a href="#offers">
-              <GradientButton variant="variant" className="text-sm uppercase tracking-widest">
-                See Our Systems
-              </GradientButton>
-            </a>
-          </motion.div>
+              </a>
+            </GradientButton>
+            <GradientButton
+              asChild
+              variant="variant"
+              className="text-sm uppercase tracking-widest"
+            >
+              <a href="#client-sites">
+                See the Work
+              </a>
+            </GradientButton>
+            <GradientButton
+              asChild
+              variant="variant"
+              className="text-sm uppercase tracking-widest"
+            >
+              <a href="/lab/skills">
+                Explore the Skills
+                <span className="ml-3 opacity-70 transition-all duration-300 group-hover:translate-x-1.5 group-hover:opacity-100">
+                  &rarr;
+                </span>
+              </a>
+            </GradientButton>
+          </div>
         </div>
       </motion.div>
 
       {/* ── Panel beat ── */}
       <motion.div
         style={reduced ? { opacity: 1 } : { y: panelY, opacity: panelOpacity }}
-        className="absolute inset-0 flex flex-col items-center justify-center px-6 md:px-12"
+        className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center px-6 md:px-12"
       >
         <div className="h-[280px] w-full max-w-4xl md:h-[440px]">
           <PinnedPanels progress={progress} reduced={reduced} className="h-full">
@@ -130,7 +108,7 @@ function HeroScene({
           style={reduced ? { opacity: 1 } : { opacity: captionOpacity }}
           className="mt-8 text-center text-label-sm uppercase tracking-[0.2em] text-text-dim"
         >
-          One system. Pipeline to locked ARR.
+          Every project on this page is live. Click any of them.
         </motion.p>
       </motion.div>
 

@@ -2,14 +2,26 @@ import tenderMomentsLogo from "@/assets/client-logos/tender-moments-logo.png";
 
 export const siteConfig = {
   name: "Meow Creative Haus",
+  url:
+    process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "") ??
+    "https://meowcreativehaus.xyz",
   email: "mewdiaservice@gmail.com",
+  phone: "+919448546254",
+  phoneDisplay: "+91 94485 46254",
   calendly: "https://calendly.com/mewdiaservice/30min",
   whatsapp: "https://wa.me/message/2A5FTZGCFJY6B1",
   meowWild: "https://meow-wild.vercel.app",
+  location: {
+    streetAddress: "1001, Provident Skyworth, Konchady",
+    locality: "Mangalore",
+    region: "Karnataka",
+    postalCode: "575008",
+    country: "IN",
+    hours: "Every day, 11:00 AM-9:00 PM",
+  },
   social: {
     instagram: "https://www.instagram.com/m3ow.ai/",
-    linkedinCompany:
-      "https://www.linkedin.com/company/105362259/admin/dashboard/",
+    linkedinCompany: "https://www.linkedin.com/company/105362259/",
     linkedinPersonal: "https://www.linkedin.com/in/vismay-h-b9a89a81gde/",
     linktree: "https://linktr.ee/vismay9",
     twitter: "https://x.com/m3ow_ai",
@@ -98,27 +110,33 @@ export const clientLogos = [
 
 export const offers = [
   {
-    title: "Strategic GTM",
+    slug: "interactive-experiences",
+    title: "Experiences",
     description:
-      "We map the exact path from zero to market dominance.",
+      "Scroll-led stories and motion built around one idea, so people finish the page and remember it.",
     index: "01",
   },
   {
-    title: "Performance Marketing",
+    slug: "product-web",
+    title: "Product & Web",
     description:
-      "Precision campaigns optimized for lowest CAC and highest LTV.",
+      "Websites and apps that look sharp, convert, and actually get shipped.",
     index: "02",
   },
   {
-    title: "AI Workflow Automation",
+    slug: "ai-systems",
+    href: "/ai-automation-digital-marketing-mangalore#ai-automation",
+    title: "AI Systems",
     description:
-      "Scaling your output while slashing operational overhead.",
+      "Multilingual assistants, agents, and automation wired into the workflow they are meant to fix.",
     index: "03",
   },
   {
-    title: "Account-Based Marketing",
+    slug: "growth-systems",
+    href: "/ai-automation-digital-marketing-mangalore#ai-backed-marketing",
+    title: "Growth",
     description:
-      "Sniper-targeted outreach to close enterprise whales.",
+      "Positioning, outreach, and pipeline plumbing for teams who need customers, not just a site.",
     index: "04",
   },
 ] as const;
@@ -127,10 +145,10 @@ export const openSourceProjects = [
   {
     name: "Meow Operations",
     slug: "meow-ops",
-    tagline: "Local-first command deck for agent work: token spend, timelines, and loop evidence in one place.",
+    tagline: "Local inbox for AI coding work. What happened, what it cost, what you should decide next.",
     description:
-      "Local-first command deck for Claude Code, Cursor, Aider and Codex: token analytics, wall-clock timelines, and Loop Ops, a read-only map where multi-agent loops show evidence before anything claims green.",
-    stats: ["30+ models", "4 AI tools", "Loop Ops control room", "MIT license", "3D companion"],
+      "Local inbox for Claude Code, Cursor, Aider, Codex, Hermes, and Antigravity. Five surfaces: Today, Review, Ledger, Sanctum, Learn. The focus timer is a chip. Companion is gone.",
+    stats: ["Today · Review · Ledger", "Sanctum · Learn", "Focus timer chip", "MIT license", "Local-first"],
     github: "https://github.com/merak3i/meow-ops",
     demo: process.env.NEXT_PUBLIC_DEMO_URL ?? "",
     status: "live",
@@ -184,9 +202,21 @@ const LOGOS = {
 export const featuredArticles = [
   // ── Merak3i (Personal Substack) ───────────────────────────────────────────
   {
+    id: "merak3i-2",
+    title: "BergLabs Identity & Website Build",
+    excerpt: "The April-to-July field record of turning a company story, identity system, AI-assisted build process, and WordPress release discipline into berglabs.ai.",
+    client: "BergLabs",
+    clientLogo: "/berg-logo.svg",
+    niche: "industrial-ai",
+    nicheLabel: "Industrial AI",
+    platform: "blog" as const,
+    href: "https://merak3i.substack.com/p/berglabs-identity-and-website-build",
+    coverImage: "/berglabs-identity-website-build.jpg",
+  },
+  {
     id: "merak3i-1",
     title: "The Cost of Compute, the Compute of Cost",
-    excerpt: "A field report from the last summer of free compute. Four labs — Gemini, ChatGPT, Claude, Grok — and one orbital problem. They want you hooked before the rate card lands.",
+    excerpt: "A field report from the last summer of free compute. Four labs (Gemini, ChatGPT, Claude, Grok) and one orbital problem. They want you hooked before the rate card lands.",
     client: "Merak3i",
     clientLogo: LOGOS.merak3i,
     niche: "ai-compute",
@@ -199,7 +229,7 @@ export const featuredArticles = [
   {
     id: "rs-1",
     title: "The Pornhub x Mixpanel Breach",
-    excerpt: "A forensics deep dive — what happens when third-party analytics scripts become the attack surface.",
+    excerpt: "A forensics deep dive into what happens when third-party analytics scripts become the attack surface.",
     client: "Resonance Security",
     clientLogo: LOGOS.resonanceSecurity,
     niche: "security",
@@ -272,7 +302,7 @@ export const featuredArticles = [
   {
     id: "am-5",
     title: "What the Trump Presidency Means for Crypto: A Paradigm Shift",
-    excerpt: "The policy pivot that changed crypto's regulatory outlook — and what founders should do now.",
+    excerpt: "The policy pivot that changed crypto's regulatory outlook, and what founders should do now.",
     client: "Asset Mantle",
     clientLogo: LOGOS.assetMantle,
     niche: "blockchain",
@@ -285,7 +315,7 @@ export const featuredArticles = [
   {
     id: "stroi-1",
     title: "AI-Backed Industrial Analytics: From Origins to Intelligent Industry",
-    excerpt: "From basic SCADA to AI-driven predictive intelligence — the full arc of industrial analytics.",
+    excerpt: "From basic SCADA to AI-driven predictive intelligence: the full arc of industrial analytics.",
     client: "Stroi Analytics",
     clientLogo: LOGOS.stroiAnalytics,
     niche: "industrial-ai",
@@ -310,7 +340,7 @@ export const featuredArticles = [
   {
     id: "ap-2",
     title: "When Machines Learn to Think: The Human-Centered Revolution in Industrial Automation",
-    excerpt: "Human-machine collaboration isn't the future of industry — it's already the present.",
+    excerpt: "Human-machine collaboration is not the future of industry. It is already the present.",
     client: "Active Power",
     clientLogo: LOGOS.activePower,
     niche: "industrial-ai",
@@ -359,7 +389,7 @@ export const featuredArticles = [
   {
     id: "mw-3",
     title: "The Great Stablecoin Divide: A Tale of Two Visions for Global Finance",
-    excerpt: "Competing visions for stablecoin regulation — and why the outcome reshapes global capital flows.",
+    excerpt: "Competing visions for stablecoin regulation, and why the outcome reshapes global capital flows.",
     client: "Mantle Works",
     clientLogo: LOGOS.mantleWorks,
     niche: "blockchain",
@@ -371,7 +401,7 @@ export const featuredArticles = [
   {
     id: "mw-4",
     title: "The Invisible Hand of Web3: Why the Killer App Won't Announce Itself",
-    excerpt: "The most transformative Web3 application won't arrive with fanfare — it already hasn't.",
+    excerpt: "The most transformative Web3 application will not arrive with fanfare. It already has not.",
     client: "Mantle Works",
     clientLogo: LOGOS.mantleWorks,
     niche: "blockchain",
@@ -400,10 +430,26 @@ export type FeaturedArticle = (typeof featuredArticles)[number];
 
 export const clientWebsites = [
   {
+    name: "BergLabs",
+    tagline: "Enterprise AI operations and production systems",
+    url: "https://berglabs.ai/",
+    screenshot: "/screenshots/berglabs-homepage-2026-07-26.webp",
+    industry: "Enterprise AI",
+    logo: "/berg-logo.svg",
+  },
+  {
+    name: "Tender Moments",
+    tagline: "Preschool & early learning",
+    url: "https://tendermomentshebbal.in/",
+    screenshot: "/screenshots/tender-moments-live-hero-2026-07-28.webp",
+    industry: "Early Education",
+    logo: tenderMomentsLogo.src,
+  },
+  {
     name: "Manipal Aerosports",
     tagline: "Aviation training & airshow brand",
-    url: "https://manipal-aerosports-hyer-rebuild.vercel.app",
-    screenshot: "/screenshots/manipal-aerosports.png",
+    url: "https://manipalaerosports.vercel.app",
+    screenshot: "/screenshots/manipal-aerosports.webp",
     industry: "Aviation",
     logo: LOGOS.manipalAerosports,
   },
@@ -411,31 +457,23 @@ export const clientWebsites = [
     name: "Coastal Edge AI",
     tagline: "Predictive social media marketing",
     url: "https://coastaledge.vercel.app/",
-    screenshot: "/screenshots/coastal-edge-ai.png",
+    screenshot: "/screenshots/coastal-edge-ai.webp",
     industry: "AI Marketing",
     logo: LOGOS.coastalEdge,
   },
   {
     name: "Suha Rehma",
-    tagline: "Psychology practice — digital presence",
+    tagline: "Psychology practice, digital presence",
     url: "https://suharehma.vercel.app/",
-    screenshot: "/screenshots/suha-rehma.png",
+    screenshot: "/screenshots/suha-rehma.webp",
     industry: "Psychology",
-    logo: "",
-  },
-  {
-    name: "JB & Co Law",
-    tagline: "Legal services — modern practice site",
-    url: "https://jbandcolaw.vercel.app/",
-    screenshot: "/screenshots/jb-co-law.png",
-    industry: "Legal",
     logo: "",
   },
   {
     name: "EAASH",
     tagline: "Boutique coastal stay brand",
     url: "https://eaash.vercel.app/",
-    screenshot: "/screenshots/eaash.png",
+    screenshot: "/screenshots/eaash.webp",
     industry: "Hospitality",
     logo: "",
   },
@@ -494,14 +532,14 @@ export const clientVideos: ClientVideo[] = [
     client: "Mantle Works",
     videoId: "--3EhPjznAg",
     title: "Mantle Works",
-    description: "AI podcast — Web3 and RWA insights.",
+    description: "AI podcast on Web3 and RWA insights.",
     tag: "AI Podcast",
   },
   {
     client: "Mantle Works",
     videoId: "WroSa1eiUbU",
     title: "Mantle Works",
-    description: "AI podcast — Web3 and RWA insights.",
+    description: "AI podcast on Web3 and RWA insights.",
     tag: "AI Podcast",
   },
   {
@@ -522,7 +560,7 @@ export const clientVideos: ClientVideo[] = [
     client: "Resonance Security",
     videoId: "0pwHJjd1yhY",
     title: "Resonance Security",
-    description: "Cybersecurity audiocast — threat intelligence and industry insights.",
+    description: "Cybersecurity audiocast on threat intelligence and industry insights.",
     tag: "Audiocast",
   },
   {
@@ -541,7 +579,7 @@ export const clientVideos: ClientVideo[] = [
   },
 ];
 
-// ─── Client Shorts (YouTube Shorts — portrait) ───────────────────────────────
+// ─── Client Shorts (YouTube Shorts, portrait) ────────────────────────────────
 
 export type ShortsGroup = {
   client: string;
@@ -603,10 +641,16 @@ const CURATED_EXTRA_POSTS: SubstackPost[] = [
     excerpt: "A few months of MCH work: OneClickWebsite India, BergLabs, Tender Moments, Meow Ops, a zine, and Patherle in progress.",
   },
   {
+    title: "BergLabs Identity & Website Build",
+    link: "https://merak3i.substack.com/p/berglabs-identity-and-website-build",
+    pubDate: "Sat, 25 Jul 2026 20:42:00 GMT",
+    excerpt: "The April-to-July field record of turning a company story, identity system, AI-assisted build process, and WordPress release discipline into berglabs.ai.",
+  },
+  {
     title: "The Cost of Compute, the Compute of Cost",
     link: "https://merak3i.substack.com/p/the-cost-of-compute-the-compute-of",
     pubDate: "Sun, 26 Apr 2026 14:10:53 GMT",
-    excerpt: "A field report from the last summer of free compute. Four labs — Google Gemini, OpenAI ChatGPT, Anthropic Claude, xAI Grok — and one orbital problem. They want you hooked before the rate card lands.",
+    excerpt: "A field report from the last summer of free compute. Four labs (Google Gemini, OpenAI ChatGPT, Anthropic Claude, xAI Grok) and one orbital problem. They want you hooked before the rate card lands.",
   },
 ];
 

@@ -4,7 +4,7 @@
 // depth that rotate from tilted (~16°) to flat and scale up as scroll progress
 // runs 0 → 1. The front panel carries real content (passed as children); two
 // ghost panels behind add depth and converge into alignment as the stack
-// levels out. Only transform/opacity are animated — never blur on scroll.
+// levels out. Only transform and opacity are animated, never blur on scroll.
 
 import { motion, useTransform, type MotionValue } from "framer-motion";
 
@@ -63,7 +63,7 @@ export default function PinnedPanels({
           }
           className="absolute inset-0 rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-[1px]"
         />
-        {/* Front panel — real content */}
+        {/* Front panel, real content */}
         <div className="relative overflow-hidden rounded-2xl border border-white/12 bg-surface-elevated shadow-[0_40px_120px_-20px_rgba(0,0,0,0.8),0_0_90px_-30px_rgba(73,197,182,0.25)]">
           <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/25 to-transparent" />
           {children}

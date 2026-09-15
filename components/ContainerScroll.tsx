@@ -1,6 +1,6 @@
 "use client";
 
-// Scroll-driven 3D reveal card — metamorphosed from the Aceternity
+// Scroll-driven 3D reveal card, adapted from the Aceternity
 // container-scroll-animation into MCH's design language: surface tokens,
 // hairline borders, a gold ambient glow instead of the stock black shadow
 // stack, and a header that drifts up as the device levels out.

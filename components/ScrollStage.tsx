@@ -12,7 +12,7 @@
 // Progress is computed manually from getBoundingClientRect on a rAF tick rather
 // than framer's useScroll target-offset. That sidesteps the well-known
 // measurement race (fonts/layout shifting after mount) and stays perfectly in
-// sync with Lenis's smooth scroll — the rect is the single source of truth.
+// sync with Lenis's smooth scroll. The rect is the single source of truth.
 
 import { useEffect, useRef } from "react";
 import { useMotionValue, useReducedMotion, type MotionValue } from "framer-motion";
@@ -27,7 +27,7 @@ export default function ScrollStage({
   stageClassName = "",
 }: {
   children: (progress: MotionValue<number>, reduced: boolean) => React.ReactNode;
-  /** Track height in viewport units — longer = slower, more deliberate scrub. */
+  /** Track height in viewport units. Longer means a slower, more deliberate scrub. */
   heightVh?: number;
   id?: string;
   className?: string;
@@ -57,7 +57,7 @@ export default function ScrollStage({
   }, [reduced, progress]);
 
   // Under reduced motion, collapse the track to a single screen and render the
-  // scene's resting state — no pinning, no scrubbing.
+  // scene's resting state: no pinning, no scrubbing.
   if (reduced) {
     return (
       <section id={id} className={className}>

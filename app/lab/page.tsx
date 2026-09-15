@@ -2,14 +2,33 @@ import type { Metadata } from "next";
 import LabPage from "@/components/LabPage";
 
 export const metadata: Metadata = {
-  title: "Lab — Meow Creative Haus",
+  title: "AI Systems & Open-Source Product Lab",
   description:
-    "Open tools, public systems, and ship notes from the lab. Meow Operations, Loop Ops, client work, and the build log.",
+    "Explore open-source AI operations tools, product experiments, client work, and public ship notes from the Meow Creative Haus lab.",
+  alternates: {
+    canonical: "/lab",
+  },
   openGraph: {
-    title: "Lab — Meow Creative Haus",
+    title: "AI Systems & Open-Source Product Lab | Meow Creative Haus",
     description:
-      "Open tools, internal systems, and ship notes from the lab floor.",
+      "Open-source AI operations tools, product experiments, client work, and public ship notes from the Meow Creative Haus lab.",
+    url: "/lab",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Meow Creative Haus product, web, and AI studio",
+      },
+    ],
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AI Systems & Open-Source Product Lab | Meow Creative Haus",
+    description:
+      "Open-source AI operations tools, product experiments, client work, and public ship notes.",
+    images: ["/opengraph-image"],
   },
 };
 

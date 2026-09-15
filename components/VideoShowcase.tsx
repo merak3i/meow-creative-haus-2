@@ -28,21 +28,21 @@ const CATEGORIES = [
     eyebrow:     "Full Portfolio",
     label:       "All Formats",
     descriptor:  "Every channel. Every medium.",
-    body:        "From traditional video campaigns to AI-generated presenters and branded podcast series — the complete range of media we produce for clients.",
+    body:        "From traditional video campaigns to AI-generated presenters and branded podcast series: the complete range of media we produce for clients.",
   },
   {
     key:         "Video Marketing",
     eyebrow:     "Video Marketing",
     label:       "Video Marketing",
     descriptor:  "Performance-driven. Conversion-focused.",
-    body:        "Traditional video campaigns engineered around your funnel. Scripted for impact, produced with precision, and distributed to move audiences at every stage — awareness through acquisition.",
+    body:        "Traditional video campaigns engineered around your funnel. Scripted for impact, produced with precision, and distributed to move audiences at every stage, from awareness through acquisition.",
   },
   {
     key:         "AI Model",
     eyebrow:     "AI Media",
     label:       "AI Model",
     descriptor:  "No studio. No shoot days. Unlimited scale.",
-    body:        "Synthetic AI presenters built to your exact brand voice and visual identity. Campaign-ready media delivered faster and at a fraction of traditional production cost — without sacrificing authority.",
+    body:        "Synthetic AI presenters built to your exact brand voice and visual identity. Campaign-ready media delivered faster and at a fraction of traditional production cost, without sacrificing authority.",
   },
   {
     key:         "AI Podcast",
@@ -56,7 +56,7 @@ const CATEGORIES = [
     eyebrow:     "Audiocast",
     label:       "Audiocast",
     descriptor:  "Long-form audio. Expert positioning.",
-    body:        "Branded audiocast series that go deep — interview-driven, research-backed, and distributed to the audiences that actually make buying decisions.",
+    body:        "Branded audiocast series that go deep: interview-driven, research-backed, and distributed to the audiences that actually make buying decisions.",
   },
 ] as const;
 
@@ -119,7 +119,7 @@ export default function VideoShowcase() {
             variants={fadeUp}
             className="text-body-md text-text-muted max-w-[620px] mb-14 leading-relaxed"
           >
-            We produce across the full spectrum of modern media — performance-driven
+            We produce across the full spectrum of modern media: performance-driven
             video campaigns, AI-generated brand presenters, and podcast series built
             to establish authority. Whatever your channel, whatever your audience,
             we engineer content that earns attention and converts it.
@@ -198,7 +198,7 @@ export default function VideoShowcase() {
 
         </div>
 
-        {/* ── FocusRail — full bleed ────────────────────────────────────── */}
+        {/* ── FocusRail, full bleed ─────────────────────────────────────── */}
         {/* key=activeKey forces remount + index reset on filter change      */}
         <motion.div variants={fadeUp}>
           <FocusRail

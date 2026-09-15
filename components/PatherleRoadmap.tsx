@@ -1,6 +1,6 @@
 "use client";
 
-// Build-log timeline — metamorphosed from the 8bit changelog block into MCH's
+// Build-log timeline, adapted from the 8bit changelog block into MCH's
 // language: mono dates, hairline cards, gold status badges, no retro fonts.
 // Entries tease capability without naming internals.
 import { motion } from "framer-motion";

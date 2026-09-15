@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# db/migrate.sh — Run pending SQL migrations against a PostgreSQL database.
+# db/migrate.sh: Run pending SQL migrations against a PostgreSQL database.
 #
 # Usage:
 #   DATABASE_URL=postgres://user:pass@host/db ./db/migrate.sh
