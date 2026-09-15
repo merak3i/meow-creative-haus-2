@@ -121,9 +121,9 @@ export default function StudioNotesSeptember2026() {
             <p>tender moments has involved the website, parent-facing content and the enquiry process around it</p>
             <p>clearer visit prompts, a compact testimonial section, and a lead register that puts age band, programme, care hours, start timing and area together</p>
             <p>the staff still enters the enquiry. there isn&apos;t a magical inbox-to-sheet connection hiding here (yet)</p>
-            <p>the automatic welcome is only the start</p>
-            <p>reply two needs someone to read what the parent actually said and choose a useful follow-up</p>
-            <p>this keeps coming up in the marketing automation work: write the second reply before congratulating yourself on the first one</p>
+            <p>right now, n+1 is the basic acknowledgement</p>
+            <p>after that, staff read what the parent actually said and follow up in their own words. pasting an LLM reply into that moment loses trust</p>
+            <p>the future path is a webhook into a database update, then support for n+2 and n+n replies without hiding the human inside the workflow</p>
             <p>you find the missing information very quickly</p>
           </div>
 
@@ -146,6 +146,21 @@ export default function StudioNotesSeptember2026() {
           </div>
 
           <div className="article-copy font-serif text-[1.1rem] leading-[1.85] text-[#263b36] md:text-[1.18rem]">
+            <h2>the small instructions have a shelf now</h2>
+            <p>some of the MCH in-house flow is now available through the skills section on the website</p>
+            <p>clear answer helps get to the point. keep my voice edits without sanding the writing flat. usable handoff makes the result easier for the next person to pick up</p>
+            <p>they are small instruction files built from repeated work, which is probably the right size for them</p>
+            <p><Link className="text-[#157e73] underline decoration-[#157e73]/40 underline-offset-4 hover:text-[#0f5d56]" href="/lab/skills">browse the MCH skills</Link></p>
+          </div>
+
+          <Figure
+            src="/studio-notes/skills-release.webp"
+            alt="The MCH skills article and public skills shelf shown on the website"
+            caption="small instructions from the in-house flow"
+            screenshot
+          />
+
+          <div className="article-copy font-serif text-[1.1rem] leading-[1.85] text-[#263b36] md:text-[1.18rem]">
             <h2>meanwhile, meow ops got a little carried away</h2>
             <p>what started as making dev logs readable is growing into an interactive 3d sanctum</p>
             <p>the sanctum is being carried through blender work, with a local guide that has voice and mouth-animation work</p>
@@ -166,12 +181,12 @@ export default function StudioNotesSeptember2026() {
           <div className="article-copy font-serif text-[1.1rem] leading-[1.85] text-[#263b36] md:text-[1.18rem]">
             <h2>a zine escaped, and october has a token problem</h2>
             <p>tech+misc larp issue 01 is out</p>
-            <p>21 pages of being chronically online and deciding to make something out of the information onslaught</p>
             <p>randomly fired, whenever there&apos;s something worth putting together</p>
             <p><a className="text-[#157e73] underline decoration-[#157e73]/40 underline-offset-4 hover:text-[#0f5d56]" href="https://meowcreativehaus.xyz/tech-misc-larp">read issue 01 here</a></p>
             <p>next month i&apos;m planning to move most of the mch workflow towards hermes agent + kimi k3</p>
             <p>the aim is lower token cost. the migration is WIP and the savings are still something to measure</p>
             <p>cheap inference gets less exciting if i spend the evening repairing the output, so that&apos;ll be part of the experiment too</p>
+            <p>i&apos;m also exploring Kunchenguid&apos;s Firstmate, Herdr and Lavish around agent supervision and visual review. that is exploratory too, not the new permanent stack</p>
           </div>
 
           <Figure
