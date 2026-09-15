@@ -31,6 +31,14 @@ export default function Home() {
       <ShipLog />
       <Authority />
       <ZineTeaser />
+      <section className="border-b border-surface-border bg-black px-6 py-16 md:px-12">
+        <div className="mx-auto max-w-[1100px]">
+          <p className="mb-4 font-mono text-xs uppercase tracking-widest text-accent-teal">field notes / september 2026</p>
+          <h2 className="max-w-3xl text-display-md">my laptop has a skill issue</h2>
+          <p className="my-6 max-w-2xl text-body-md text-text-muted">The useful kind. A local-history audit of the AI skills behind the work, with S and A tiers, a few specialist rescues, and the limits of the evidence.</p>
+          <a href="/skills-field-notes" className="inline-block border border-accent-teal px-5 py-3 text-sm text-accent-teal transition-colors hover:bg-accent-teal hover:text-surface">read the field notes →</a>
+        </div>
+      </section>
       <SubstackFeed />
       <WildPopup />
     </>
