@@ -29,8 +29,8 @@ export default function SkillsFieldNotes() {
         <Link href="/#substack" className={styles.back}>← back to the playbook</Link>
         <p className={styles.eyebrow}>field notes / 15 september 2026 / by vismay hegde</p>
         <h1>my laptop has a <span>skill issue</span></h1>
-        <p className={styles.dek}>the useful kind / a small field report from the apps i keep asking to do things</p>
-        <a href="#the-stuff-that-keeps-showing-up" className={styles.jump}>skip to the ranking ↓</a>
+        <p className={styles.dek}>the useful kind / what i keep asking AI to do, and where the small instructions earn their place</p>
+        <a href="#s-tier-is-a-lot-of-editing-and-checking" className={styles.jump}>skip to the useful skills ↓</a>
       </header>
       <figure className={styles.hero}>
         <Image src="/skills-field-notes/tier-list.png" alt="S tier: writing, chat delivery, browser proof, PDF and documents, Rocky, social content. A tier: research, GTM and outreach, ops rhythm, vision rescue, finance documents, grilling. A pixel cat thinks about its own tools." width={1536} height={1024} priority sizes="(max-width: 1000px) 100vw, 1100px" unoptimized />
