@@ -9,15 +9,15 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        surface: "#090807",
-        "surface-elevated": "#201c19",
-        "surface-border": "#3b332c",
-        text: "#e6e5e0",
-        "text-muted": "#bdb7af",
-        "text-dim": "#a69b90",
+        surface: "#101014",
+        "surface-elevated": "#1C1B24",
+        "surface-border": "#383443",
+        text: "#F3EFE8",
+        "text-muted": "#BDB7C9",
+        "text-dim": "#A49CAD",
         accent: {
-          teal: "#ec6d1c",
-          gold: "#f4b084",
+          teal: "#B6A0FF",
+          gold: "#CBBEFF",
         },
       },
       fontFamily: {
