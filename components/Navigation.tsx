@@ -124,6 +124,8 @@ export default function Navigation() {
           onClick={() => setMenuOpen(!menuOpen)}
           className="lg:hidden flex flex-col gap-1.5 z-50"
           aria-label="Toggle menu"
+          aria-expanded={menuOpen}
+          aria-controls="mobile-navigation"
         >
           <motion.span
             animate={menuOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
@@ -148,7 +150,8 @@ export default function Navigation() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-0 overflow-y-auto bg-surface/98 px-6 py-24 backdrop-blur-sm flex flex-col items-center justify-center gap-6 lg:hidden"
+            id="mobile-navigation"
+            className="terminal-mobile-menu fixed inset-0 overflow-y-auto bg-surface px-6 py-24 flex flex-col items-center gap-6 lg:hidden"
           >
             {navLinks.map((link, i) => (
               <motion.div

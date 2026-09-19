@@ -66,11 +66,11 @@ export default function RevenueDashboard() {
                     style={{
                       height: `${(h / MAX) * 100}%`,
                       background: isLast
-                        ? "linear-gradient(180deg,#5fd6c7,#49c5b6)"
+                        ? "linear-gradient(180deg,#f4b084,#ec6d1c)"
                         : isRecent
-                          ? "linear-gradient(180deg,#49c5b6aa,#49c5b655)"
+                          ? "linear-gradient(180deg,#ec6d1caa,#ec6d1c55)"
                           : "linear-gradient(180deg,#5a5e66,#3a3d44)",
-                      boxShadow: isLast ? "0 0 24px rgba(73,197,182,0.45)" : "none",
+                      boxShadow: isLast ? "0 0 24px rgba(236,109,28,0.45)" : "none",
                     }}
                   />
                 </div>

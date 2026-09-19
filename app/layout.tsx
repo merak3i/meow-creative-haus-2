@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Poppins, Cormorant_Garamond, Pixelify_Sans } from "next/font/google";
 import "./globals.css";
+import "./terminal.css";
 import LenisProvider from "@/components/LenisProvider";
 import Navigation from "@/components/Navigation";
 import ScrollProgress from "@/components/ScrollProgress";
@@ -8,6 +9,8 @@ import Footer from "@/components/Footer";
 import Analytics from "@/components/Analytics";
 import { siteConfig } from "@/lib/data";
 
+const display = Cormorant_Garamond({ subsets: ["latin"], weight: ["400", "500"], variable: "--font-terminal-display", display: "swap" });
+const pixel = Pixelify_Sans({ subsets: ["latin"], variable: "--font-terminal-pixel", display: "swap" });
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
@@ -171,7 +174,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${poppins.className} bg-surface text-text`}>
+      <body className={`${poppins.className} ${display.variable} ${pixel.variable} terminal-theme bg-surface text-text`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
