@@ -2,7 +2,7 @@
 
 // Self-contained "selected work" panel used as the hero's front panel. No
 // external images. Pure markup plus inline SVG so it never breaks and stays crisp
-// at any scale. Mirrors the studio's pitch: real, shipped, live projects.
+// at any scale. Mirrors the studio's pitch with each project's current status.
 
 const BARS = [38, 52, 47, 63, 71, 66, 84, 92];
 const MAX = 100;
@@ -28,7 +28,7 @@ export default function RevenueDashboard() {
       <div className="grid grid-cols-3 gap-px bg-surface-border">
         {[
           { k: "meow.wild", v: "18 species", d: "live" },
-          { k: "Patherle", v: "24 languages", d: "live" },
+          { k: "Patherle", v: "24 languages", d: "beta" },
           { k: "Brands shipped", v: "16", d: "portfolio" },
         ].map((m) => (
           <div key={m.k} className="bg-surface-elevated px-4 py-4 md:px-6 md:py-5">
@@ -87,7 +87,7 @@ export default function RevenueDashboard() {
           <ul className="mt-4 space-y-3">
             {[
               { n: "meow.wild", s: "Live", c: "text-accent-teal" },
-              { n: "Patherle", s: "Live", c: "text-accent-teal" },
+              { n: "Patherle", s: "Beta", c: "text-accent-teal" },
               { n: "EAASH Homestay", s: "Live", c: "text-accent-teal" },
               { n: "Coastal Edge AI", s: "Live", c: "text-accent-teal" },
             ].map((r) => (
