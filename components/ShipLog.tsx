@@ -4,6 +4,8 @@
 // separators, teal LATEST badge. Real entries, real dates; shipping cadence is
 // the marketing.
 import { motion } from "framer-motion";
+import Image from "next/image";
+import { useRef } from "react";
 
 interface ShipLogEntry {
   badge?: string;
@@ -11,17 +13,30 @@ interface ShipLogEntry {
   title: string;
   description: string;
   href?: string;
+  releaseDetails?: boolean;
   resources?: Array<{ name: string; detail: string }>;
 }
 
 const entries: ShipLogEntry[] = [
+  {
+    date: "OCT 01 2026",
+    title: "v1.9.0: Sanctum gets an original archive identity",
+    description:
+      "An early rebuild gives Meow Ops Sanctum a grounded archive setting, a fictional guide, and a distinct Archive Seal. Dated design records help compare versions; they do not establish legal rights.",
+    badge: "LATEST",
+    releaseDetails: true,
+    resources: [
+      { name: "Meow Ops", detail: "Sanctum build" },
+      { name: "Archive Seal", detail: "authored mark" },
+    ],
+    href: "https://meow-ops.vercel.app/#/sanctum",
+  },
   {
     date: "SEP 15 2026",
     title: "v1.8.0: The workbench opens",
     description:
       "Repeated corrections from real sessions became a public library of 16 editable skills. They cover writing, research, browser checks, release review and recurring work. Each one is plain Markdown, available separately or as one ZIP, with examples and limits visible before download. Treat them as starting points. You still have to understand your own workflow, spend time with the details, and rewrite each skill around your tools. One size does not fit all, especially when automation enters the work. A weekly or monthly log reviewer, pattern analyser or data miner can show you what keeps repeating and what needs to change. The more personal the skill becomes, the more useful it gets.",
     href: "/lab/skills",
-    badge: "LATEST",
     resources: [
       { name: "Codex", detail: "build + verify" },
       { name: "Claude Code", detail: "draft + revise" },
@@ -104,6 +119,8 @@ const rowVariants = {
 };
 
 export default function ShipLog() {
+  const releaseDialog = useRef<HTMLDialogElement>(null);
+
   return (
     <section id="ship-log" className="px-6 md:px-12 pb-24 md:pb-40">
       <motion.div
@@ -154,9 +171,14 @@ export default function ShipLog() {
                 {entry.href && (
                   <a
                     href={entry.href}
-                    className="inline-block mt-3 text-sm text-accent-teal hover:text-text-primary transition-colors duration-300"
+                    className="inline-block mt-3 text-sm text-accent-teal hover:text-text transition-colors duration-300"
+                    aria-haspopup={entry.releaseDetails ? "dialog" : undefined}
+                    onClick={entry.releaseDetails ? (event) => {
+                      event.preventDefault();
+                      releaseDialog.current?.showModal();
+                    } : undefined}
                   >
-                    Open the resource shelf →
+                    {entry.releaseDetails ? "View build image and next steps ↗" : "Open the resource shelf →"}
                   </a>
                 )}
                 {entry.resources && (
@@ -171,7 +193,7 @@ export default function ShipLog() {
                           className="border border-surface-border bg-surface px-3 py-2.5"
                           title={`${resource.name}: ${resource.detail}`}
                         >
-                          <span className="block text-sm font-semibold text-text-primary leading-tight">
+                          <span className="block text-sm font-semibold text-text leading-tight">
                             {resource.name}
                           </span>
                           <span className="block mt-1 font-mono text-[9px] uppercase tracking-[0.12em] text-accent-teal">
@@ -195,6 +217,55 @@ export default function ShipLog() {
           ))}
         </div>
       </motion.div>
+      <dialog
+        ref={releaseDialog}
+        aria-labelledby="sanctum-release-title"
+        className="m-auto max-h-[90dvh] w-[calc(100%-2rem)] max-w-4xl overflow-y-auto border border-surface-border bg-surface p-0 text-text backdrop:bg-black/75"
+      >
+        <div className="p-5 sm:p-8">
+          <div className="mb-5 flex items-start justify-between gap-4">
+            <div>
+              <p className="font-mono text-xs uppercase tracking-[0.16em] text-accent-teal">Meow Creative Haus Ship Log · v1.9.0</p>
+              <h2 id="sanctum-release-title" className="mt-2 text-display-md text-text">Sanctum archive identity</h2>
+            </div>
+            <form method="dialog">
+              <button className="border border-surface-border px-3 py-2 text-sm text-text-muted hover:text-text" aria-label="Close release details">
+                Close
+              </button>
+            </form>
+          </div>
+          <Image
+            src="/images/ship-log/meow-ops-sanctum-v1-9.jpg"
+            alt="Meow Ops Sanctum early build: a civic archive atrium and session index with the distinct Archive Seal"
+            width={1440}
+            height={900}
+            unoptimized
+            className="mb-6 h-auto w-full border border-surface-border"
+          />
+          <div className="grid gap-5 text-sm leading-relaxed sm:grid-cols-3">
+            <section>
+              <h3 className="mb-1 font-semibold text-text">What changed</h3>
+              <p className="text-text-muted">A civic archive atrium, a fictional archive worker, session-linked figures, and an authored Archive Seal. The preview uses synthetic sample data.</p>
+            </section>
+            <section>
+              <h3 className="mb-1 font-semibold text-text">Still early</h3>
+              <p className="text-text-muted">The scene is raw. The guide, movement, collisions, framing, and performance still need refinement.</p>
+            </section>
+            <section>
+              <h3 className="mb-1 font-semibold text-text">Next</h3>
+              <p className="text-text-muted">Explore a useful Krishna-inspired AI guide role while keeping its appearance original; improve character physics and movement; and decide whether opt-in, privacy-safe telemetry is useful before collecting anything. The longer-term aim is a cinematic, lived-in open-world RPG with shared-world scale.</p>
+            </section>
+          </div>
+          <a
+            href="https://meow-ops.vercel.app/#/sanctum"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 inline-block text-sm text-accent-teal hover:text-text"
+          >
+            Open Meow Ops Sanctum ↗
+          </a>
+        </div>
+      </dialog>
     </section>
   );
 }
