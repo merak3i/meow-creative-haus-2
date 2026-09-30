@@ -108,7 +108,7 @@ function HeroScene({
           style={reduced ? { opacity: 1 } : { opacity: captionOpacity }}
           className="mt-8 text-center text-label-sm uppercase tracking-[0.2em] text-text-dim"
         >
-          Every project on this page is live. Click any of them.
+          Live projects and Patherle in beta. Click to explore.
         </motion.p>
       </motion.div>
 

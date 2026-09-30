@@ -46,7 +46,7 @@ export default function PatherleTeaser() {
               </h3>
               <p className="text-body-md text-text-muted max-w-[620px]">
                 WhatsApp-first. 24 languages: 22 Indic, plus Mandarin and
-                Spanish. Live for early businesses in India and beyond.
+                Spanish. In beta with early businesses in India and beyond.
                 The private automation layer stays{" "}
                 <span className="font-mono text-accent-gold/90">[WITHHELD]</span>. Some
                 public surfaces, we&apos;ll show you.
