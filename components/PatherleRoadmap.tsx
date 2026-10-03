@@ -15,12 +15,12 @@ export interface RoadmapEntry {
 
 const entries: RoadmapEntry[] = [
   {
-    date: "TODAY",
-    title: "Live for early businesses",
+    date: "BUILD PREVIEW",
+    title: "Conversational business workflows",
     description:
-      "Multilingual WhatsApp + voice commerce, catalogue, leads, campaigns, and payments for Indian MSMEs in production.",
-    badge: "LIVE",
-    badgeTone: "live",
+      "Interface studies explore WhatsApp, voice, catalogue, leads and operational tasks. Production adoption and payment behaviour are not verified by this portfolio.",
+    badge: "BETA",
+    badgeTone: "wip",
   },
   {
     date: "IN THE LAB",

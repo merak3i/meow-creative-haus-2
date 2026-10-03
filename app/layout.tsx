@@ -1,23 +1,21 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import LenisProvider from "@/components/LenisProvider";
 import Navigation from "@/components/Navigation";
-import ScrollProgress from "@/components/ScrollProgress";
 import Footer from "@/components/Footer";
 import Analytics from "@/components/Analytics";
 import { siteConfig } from "@/lib/data";
 
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
   preload: true,
   fallback: ["system-ui", "Arial", "sans-serif"],
 });
 
 const siteDescription =
-  "Meow Creative Haus is an India-based product, web, and experience studio building interactive websites, AI systems, and digital products for founders and businesses.";
+  "Digital products & media for founders and businesses. Websites, AI systems and visual stories, with support after launch.";
 
 const postalAddress = {
   "@type": "PostalAddress",
@@ -46,7 +44,7 @@ const openingHours = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "AI Product & Web Studio India | Meow Creative Haus",
+    default: "Digital products & media | Meow Creative Haus",
     template: "%s | Meow Creative Haus",
   },
   description: siteDescription,
@@ -82,7 +80,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "AI Product & Web Studio India | Meow Creative Haus",
+    title: "Digital products & media | Meow Creative Haus",
     description: siteDescription,
     url: "/",
     siteName: "Meow Creative Haus",
@@ -91,7 +89,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI Product & Web Studio India | Meow Creative Haus",
+    title: "Digital products & media | Meow Creative Haus",
     description: siteDescription,
   },
 };
@@ -157,6 +155,7 @@ const structuredData = {
         "Product design and development",
         "Web design and development",
         "Interactive digital experiences",
+        "Branded media, illustration and video",
         "AI systems and automation",
         "Go-to-market systems",
       ],
@@ -179,13 +178,11 @@ export default function RootLayout({
           }}
         />
         <Analytics />
-        <LenisProvider>
-          <div className="grain-overlay" />
-          <ScrollProgress />
+        <div>
           <Navigation />
-          <main>{children}</main>
+          <main id="main-content">{children}</main>
           <Footer />
-        </LenisProvider>
+        </div>
       </body>
     </html>
   );

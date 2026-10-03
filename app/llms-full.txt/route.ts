@@ -1,61 +1,45 @@
 import { siteConfig } from "@/lib/data";
-
+import { workProjects } from "@/lib/work";
+import { faqs } from "@/lib/faq";
 export const dynamic = "force-static";
-
 export function GET() {
-  const body = `# Meow Creative Haus: extended reference
+  return new Response(
+    `# Meow Creative Haus: extended reference
 
-## Identity
-
-Meow Creative Haus is a product, web, and experience studio based in Mangalore, Karnataka, India. The studio builds websites, digital products, practical AI systems, interactive experiences, and go-to-market infrastructure.
-
-Canonical website: ${siteConfig.url}/
+Meow Creative Haus designs digital products and media: websites, product interfaces, AI workflows, illustrations, social creative and video. Work can include design, implementation, launch preparation and agreed support after launch.
+Canonical: ${siteConfig.url}/
 Services: ${siteConfig.url}/services
-AI automation and AI-backed digital marketing: ${siteConfig.url}/ai-automation-digital-marketing-mangalore
-Lab and public work: ${siteConfig.url}/lab
+Work: ${siteConfig.url}/work
+Journal: ${siteConfig.url}/journal
+Updates: ${siteConfig.url}/updates
+Lab: ${siteConfig.url}/lab
+AI automation and marketing: ${siteConfig.url}/ai-automation-digital-marketing-mangalore
 
-## What the studio does
+## Work and status
+${workProjects.map((p) => `- ${p.name}: ${p.description} Status: ${p.status}. ${siteConfig.url}/work/${p.slug}`).join("\n")}
 
-### Product and web
+## Project questions
+${faqs.map((f) => `### ${f.question}\n${f.answer}\n${siteConfig.url}${f.href}\n`).join("\n")}
 
-Meow Creative Haus designs and develops marketing websites and digital product interfaces. Work can include information architecture, interface design, development, integrations, launch preparation, and iteration after release.
+## Reading and historical resources
+Zine archive: ${siteConfig.url}/tech-misc-larp
+Issue 01: ${siteConfig.url}/tech-misc-larp/issue-01
+September studio notes: ${siteConfig.url}/studio-notes-september-2026
+Public skills: ${siteConfig.url}/lab/skills
 
-### Interactive experiences
-
-The studio creates scroll-led stories, motion systems, campaign experiences, and other interactive web work where narrative and implementation need to ship together.
-
-### AI systems
-
-The studio builds multilingual assistants, agent-operated tools, workflow automation, and operational control surfaces. Human oversight and inspectable evidence are part of the delivery approach.
-
-### Go-to-market systems
-
-The studio connects positioning, organic content workflows, outreach operations, and pipeline infrastructure to the product or website being launched.
-
-## Public projects
-
-- Meow Operations: an MIT-licensed, local-first control room for agent work. It reads session files written by Codex, Claude Code, Cursor, and Hermes, then reports token spend, cost per day, wall-clock run timelines, and loop evidence. https://github.com/merak3i/meow-ops
-- Patherle: WhatsApp-first AI business system. https://www.patherle.com/
-- BergLabs: public client website and platform work. https://berglabs.ai/
-
-## Geographic context
-
-The studio is based at ${siteConfig.location.streetAddress}, ${siteConfig.location.locality}, ${siteConfig.location.region} ${siteConfig.location.postalCode}, India. It is open ${siteConfig.location.hours} and works with businesses in India and beyond.
+Drafts and concepts are not delivered results. Local creation dates do not establish publication. Build descriptions do not assert ownership. Historical release records retain their original wording and must be read in their dated context. Illustrative scenarios do not establish client outcomes.
 
 ## Contact
-
-- Phone: ${siteConfig.phoneDisplay}
-- Email: ${siteConfig.email}
-- Instagram: ${siteConfig.social.instagram}
-- LinkedIn: ${siteConfig.social.linkedinPersonal}
-- X: ${siteConfig.social.twitter}
-- GitHub: ${siteConfig.social.github}
-`;
-
-  return new Response(body, {
-    headers: {
-      "Content-Type": "text/plain; charset=utf-8",
-      "Cache-Control": "public, max-age=0, s-maxage=86400",
+Email: ${siteConfig.email}
+Phone: ${siteConfig.phoneDisplay}
+Instagram: ${siteConfig.social.instagram}
+LinkedIn: ${siteConfig.social.linkedinPersonal}
+`,
+    {
+      headers: {
+        "Content-Type": "text/plain; charset=utf-8",
+        "Cache-Control": "public, max-age=0, s-maxage=86400",
+      },
     },
-  });
+  );
 }

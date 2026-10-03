@@ -39,12 +39,12 @@ export default function PatherleTease() {
             </span>
           </div>
           <h1 className="text-display-xl max-w-[900px] mb-6">
-            The AI business OS we&apos;re building{" "}
+            A business OS build{" "}
             <span className="text-gradient-accent">in the dark.</span>
           </h1>
           <p className="text-body-md text-text-muted max-w-[560px]">
-            Patherle runs real businesses over WhatsApp today: 24 languages
-            (22 Indic, plus Mandarin and Spanish), voice, catalogue, payments.
+            Patherle explores conversational business workflows over WhatsApp,
+            with interface studies for voice, catalogue and operational tasks.
             That part is public. The deeper automation
             layer stays behind the gold bars.
           </p>
@@ -134,10 +134,10 @@ export default function PatherleTease() {
           className="max-w-[1400px] mx-auto border border-surface-border bg-surface-elevated p-10 md:p-14 flex flex-col md:flex-row md:items-center md:justify-between gap-8"
         >
           <div>
-            <h3 className="text-display-md mb-2">Early businesses are already on it.</h3>
+            <h3 className="text-display-md mb-2">Explore the public build.</h3>
             <p className="text-body-md text-text-muted max-w-[480px]">
-              The private automation layer arrives wider soon. Watch the public
-              Loop Ops discipline in the lab meanwhile.
+              Selected screens show the direction of the interface. Visit the
+              public surface or explore the related build notes.
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-3 shrink-0">
@@ -150,7 +150,7 @@ export default function PatherleTease() {
               Visit patherle.com →
             </a>
             <Link
-              href="/#loop-engineering"
+              href="/work/meow-ops"
               className="inline-flex items-center justify-center px-6 py-3 border border-accent-teal/50 text-accent-teal text-label-sm uppercase tracking-wider hover:border-accent-teal hover:bg-accent-teal/5 transition-all duration-300"
             >
               See Loop Ops

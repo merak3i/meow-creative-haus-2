@@ -1,55 +1,35 @@
 import { siteConfig } from "@/lib/data";
-
 export const dynamic = "force-static";
-
 export function GET() {
-  const body = `# Meow Creative Haus
+  return new Response(
+    `# Meow Creative Haus
+> Digital products & media for founders and businesses. Websites, AI systems and visual stories, with support after launch.
 
-> Meow Creative Haus is an India-based product, web, and experience studio. It designs and builds interactive websites, AI systems, digital products, and go-to-market systems for founders and businesses.
+Canonical: ${siteConfig.url}/
 
-## Canonical pages
+## Useful pages
+- [Work](${siteConfig.url}/work): grouped clients, builds and labelled concepts
+- [Services](${siteConfig.url}/services): scope and capabilities
+- [Before we start](${siteConfig.url}/#before-we-start): project questions and direct answers
+- [Lab](${siteConfig.url}/lab): tools, motion studies and original art
+- [Patherle build](${siteConfig.url}/work/patherle): selected interfaces, beta status
+- [1ClickWebsite India build](${siteConfig.url}/work/1clickwebsite-india): alpha workflow exploration
+- [Journal](${siteConfig.url}/journal): writing and permanent archive links
+- [Zine](${siteConfig.url}/tech-misc-larp): Tech / Misc / Larp archive and Issue 01
+- [Studio notes](${siteConfig.url}/studio-notes-september-2026): September 2026
+- [Updates](${siteConfig.url}/updates): complete dated release records
+- [Skills](${siteConfig.url}/lab/skills): editable public skills
+- [AI automation and marketing](${siteConfig.url}/ai-automation-digital-marketing-mangalore): retained service page
+- [Privacy](${siteConfig.url}/privacy)
+- [Extended reference](${siteConfig.url}/llms-full.txt)
 
-- Home: ${siteConfig.url}/
-- Services: ${siteConfig.url}/services
-- AI automation and AI-backed digital marketing: ${siteConfig.url}/ai-automation-digital-marketing-mangalore
-- Lab: ${siteConfig.url}/lab
-- Patherle: ${siteConfig.url}/patherle
-- Privacy: ${siteConfig.url}/privacy
-
-## Services
-
-- Interactive experiences and motion-led websites
-- Product and web design and development
-- AI systems, multilingual bots, agents, and workflow automation
-- Go-to-market and outreach systems
-
-## Location
-
-- Based in Mangalore, Karnataka, India
-- Studio: ${siteConfig.location.streetAddress}, ${siteConfig.location.locality}, ${siteConfig.location.region} ${siteConfig.location.postalCode}
-- Hours: ${siteConfig.location.hours}
-- Works with clients in India and beyond
-
-## Public work
-
-- Meow Operations: https://github.com/merak3i/meow-ops
-- Patherle: https://www.patherle.com/
-- BergLabs: https://berglabs.ai/
-
-## Contact and profiles
-
-- Phone: ${siteConfig.phoneDisplay}
-- Email: ${siteConfig.email}
-- Instagram: ${siteConfig.social.instagram}
-- LinkedIn: ${siteConfig.social.linkedinPersonal}
-- X: ${siteConfig.social.twitter}
-- GitHub: ${siteConfig.social.github}
-`;
-
-  return new Response(body, {
-    headers: {
-      "Content-Type": "text/plain; charset=utf-8",
-      "Cache-Control": "public, max-age=0, s-maxage=86400",
+Drafts, concepts and illustrative scenarios are labelled. Build pages do not assert ownership. Historical release statements describe their original date, not current capability. Source links are evidence of the linked record, not a performance guarantee.
+`,
+    {
+      headers: {
+        "Content-Type": "text/plain; charset=utf-8",
+        "Cache-Control": "public, max-age=0, s-maxage=86400",
+      },
     },
-  });
+  );
 }

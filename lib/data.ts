@@ -150,7 +150,7 @@ export const openSourceProjects = [
       "Local inbox for Claude Code, Cursor, Aider, Codex, Hermes, and Antigravity. Five surfaces: Today, Review, Ledger, Sanctum, Learn. The focus timer is a chip. Companion is gone.",
     stats: ["Today · Review · Ledger", "Sanctum · Learn", "Focus timer chip", "MIT license", "Local-first"],
     github: "https://github.com/merak3i/meow-ops",
-    demo: process.env.NEXT_PUBLIC_DEMO_URL ?? "",
+    demo: process.env.NEXT_PUBLIC_DEMO_URL ?? "https://meow-ops.vercel.app/",
     status: "live",
   },
 ] as const;

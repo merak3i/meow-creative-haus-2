@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const alt =
-  "Meow Creative Haus - AI product, web, and experience studio in India";
+  "Meow Creative Haus - digital products & media";
 export const size = {
   width: 1200,
   height: 630,
@@ -34,7 +34,7 @@ export default function OpenGraphImage() {
             textTransform: "uppercase",
           }}
         >
-          Product + Web + AI
+          Digital products &amp; media
         </div>
         <div
           style={{
@@ -53,7 +53,7 @@ export default function OpenGraphImage() {
               lineHeight: 1,
             }}
           >
-            Software worth feeling.
+            Ideas, made tangible.
           </div>
           <div
             style={{
@@ -63,8 +63,7 @@ export default function OpenGraphImage() {
               lineHeight: 1.35,
             }}
           >
-            Interactive websites, AI systems, and digital products built in
-            India for founders and businesses.
+            Websites, AI systems and visual stories for founders and businesses.
           </div>
         </div>
         <div style={{ display: "flex", fontSize: 28, fontWeight: 600 }}>

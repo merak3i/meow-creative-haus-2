@@ -1,58 +1,42 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/data";
-
+import { workProjects } from "@/lib/work";
+import { entries, releaseSlug } from "@/lib/updates";
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date();
-
   return [
-    { url: `${siteConfig.url}/lab/skills`, lastModified: new Date("2026-09-15T00:00:00+05:30"), changeFrequency: "monthly", priority: 0.8 },
-    {
-      url: siteConfig.url,
-      lastModified,
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-    {
-      url: `${siteConfig.url}/services`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${siteConfig.url}/ai-automation-digital-marketing-mangalore`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${siteConfig.url}/lab`,
-      lastModified,
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${siteConfig.url}/patherle`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${siteConfig.url}/tech-misc-larp`,
-      lastModified: new Date("2026-09-12T00:00:00+05:30"),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${siteConfig.url}/tech-misc-larp/issue-01`,
-      lastModified: new Date("2026-09-12T00:00:00+05:30"),
-      changeFrequency: "yearly",
-      priority: 0.75,
-    },
-    {
-      url: `${siteConfig.url}/privacy`,
-      lastModified,
-      changeFrequency: "yearly",
-      priority: 0.2,
-    },
+    ...[
+      "",
+      "/services",
+      "/work",
+      "/lab",
+      "/lab/archive",
+      "/patherle",
+      "/journal",
+      "/updates",
+    ].map((route) => ({
+      url: siteConfig.url + route,
+      lastModified: "2026-10-03",
+      changeFrequency: "monthly" as const,
+      priority: route ? 0.8 : 1,
+    })),
+    ...[
+      { route: "/lab/skills", date: "2026-09-15" },
+      { route: "/studio-notes-september-2026", date: "2026-09-15" },
+      { route: "/tech-misc-larp", date: "2026-09-12" },
+      { route: "/tech-misc-larp/issue-01", date: "2026-09-12" },
+      {
+        route: "/ai-automation-digital-marketing-mangalore",
+        date: "2026-07-29",
+      },
+      { route: "/privacy", date: "2026-07-28" },
+    ].map((p) => ({ url: siteConfig.url + p.route, lastModified: p.date })),
+    ...workProjects.map((p) => ({
+      url: `${siteConfig.url}/work/${p.slug}`,
+      lastModified: p.modifiedAt,
+    })),
+    ...entries.map((e, i) => ({
+      url: `${siteConfig.url}/updates/${releaseSlug(e, i)}`,
+      lastModified: "2026-10-03",
+    })),
   ];
 }

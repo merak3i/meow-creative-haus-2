@@ -1,37 +1,70 @@
 import type { Metadata } from "next";
-import LabPage from "@/components/LabPage";
-
+import Link from "next/link";
+import WorkCard from "@/components/WorkCard";
+import { getProject } from "@/lib/work";
+import { siteConfig } from "@/lib/data";
 export const metadata: Metadata = {
-  title: "AI Systems & Open-Source Product Lab",
+  title: "Lab · tools, motion & creative studies",
   description:
-    "Explore open-source AI operations tools, product experiments, client work, and public ship notes from the Meow Creative Haus lab.",
-  alternates: {
-    canonical: "/lab",
-  },
-  openGraph: {
-    title: "AI Systems & Open-Source Product Lab | Meow Creative Haus",
-    description:
-      "Open-source AI operations tools, product experiments, client work, and public ship notes from the Meow Creative Haus lab.",
-    url: "/lab",
-    images: [
-      {
-        url: "/opengraph-image",
-        width: 1200,
-        height: 630,
-        alt: "Meow Creative Haus product, web, and AI studio",
-      },
-    ],
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "AI Systems & Open-Source Product Lab | Meow Creative Haus",
-    description:
-      "Open-source AI operations tools, product experiments, client work, and public ship notes.",
-    images: ["/opengraph-image"],
-  },
+    "Meow Ops, silent DSR motion studies, original art, creative concepts and a public skills library. Explore the experiments and their current status.",
+  alternates: { canonical: "/lab" },
+  openGraph: { url: "/lab", images: ["/opengraph-image"] },
 };
-
 export default function Lab() {
-  return <LabPage />;
+  return (
+    <div className="portfolio-page">
+      <div className="page-intro">
+        <p className="eyebrow">The Lab</p>
+        <h1>
+          A little room
+          <br />
+          <span>to explore.</span>
+        </h1>
+        <p>
+          Tools, visual studies and experiments alongside the client work.
+          Concepts stay labelled as concepts; a prototype is an invitation to
+          look closer.
+        </p>
+      </div>
+      <nav className="archive-strip" aria-label="Lab resources">
+        <Link href="/lab/skills">Public skills library ↗</Link>
+        <Link href="/updates">Build history ↗</Link>
+        <a href={siteConfig.meowWild} target="_blank" rel="noreferrer">
+          Explore meow.wild ↗
+        </a>
+      </nav>
+      <div className="work-grid lab-work-grid">
+        {[
+          "meow-ops",
+          "dil-se-rave",
+          "mch-art",
+          "patherle",
+          "1clickwebsite-india",
+        ].map((slug) => (
+          <WorkCard key={slug} project={getProject(slug)!} />
+        ))}
+      </div>
+      <section id="loop-engineering" className="archive-strip">
+        <Link href="/lab/archive#loop-engineering">
+          Original Meow Ops walkthrough ↗
+        </Link>
+      </section>
+      <section id="ship-log" className="archive-strip">
+        <Link href="/updates">Complete release archive ↗</Link>
+        <Link href="/lab/archive#ship-log">Historical release details ↗</Link>
+      </section>
+      <section id="client-videos" className="archive-strip">
+        <Link href="/work?discipline=Motion">All video work ↗</Link>
+      </section>
+      <section id="client-shorts" className="archive-strip">
+        <Link href="/work?discipline=Social">All short-form work ↗</Link>
+      </section>
+      <section id="patherle" className="archive-strip">
+        <Link href="/work/patherle">Patherle build ↗</Link>
+      </section>
+      <section id="open-source" className="archive-strip">
+        <Link href="/lab/archive">Historical Lab view ↗</Link>
+      </section>
+    </div>
+  );
 }
