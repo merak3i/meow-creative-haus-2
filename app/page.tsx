@@ -67,7 +67,8 @@ export default function Home() {
                   alt="Room within a face: an original purple abstract study"
                   width={art.width}
                   height={art.height}
-                  priority
+                priority
+                fetchPriority="high"
                   sizes="(max-width: 700px) 90vw, 46vw"
                 />
                 <span>
