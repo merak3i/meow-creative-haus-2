@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import PageMotion from "@/components/PageMotion";
 import Analytics from "@/components/Analytics";
 import { siteConfig } from "@/lib/data";
 
@@ -178,6 +179,7 @@ export default function RootLayout({
           }}
         />
         <Analytics />
+        <PageMotion />
         <div>
           <Navigation />
           <main id="main-content">{children}</main>

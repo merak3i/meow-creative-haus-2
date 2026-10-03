@@ -34,7 +34,7 @@ export default function Home() {
         <section id="hero" className="portfolio-hero">
           <div className="hero-copy">
             <p className="eyebrow">
-              <span className="status-dot" /> Independent creative studio
+              <span className="status-dot" /> Product &amp; Experience Studio
             </p>
             <h1>
               Digital products

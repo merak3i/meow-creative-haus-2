@@ -448,8 +448,6 @@ export const workProjects = [...archival, ...extra];
 export const featuredSlugs = [
   "tender-moments",
   "berglabs",
-  "falcon-fitness",
-  "eaash",
 ];
 export const projectCover = (project: WorkProject) =>
   project.media.find((m) => m.thumbnail)?.thumbnail;

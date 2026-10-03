@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+.section-lines { position: relative; isolation: isolate; }
+.section-lines::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: url("/section-lines.svg") center / cover no-repeat; opacity: .12; }
+
 /* Portfolio framing keeps the work's own colour and character. */
 :root { --portfolio-line:#2b302e; --portfolio-muted:#b0b8b4; --portfolio-teal:#64dbc8; --portfolio-gold:#e8ca84; }
 .hero-scroll-track {--hero-progress:0;position:relative;}
