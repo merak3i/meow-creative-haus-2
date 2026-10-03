@@ -1,6 +1,6 @@
 "use client";
 
-import { Fragment, useEffect, useRef, type ReactNode } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
 
 export default function HeroScroll({ children }: { children: ReactNode }) {
   const track = useRef<HTMLDivElement>(null);
@@ -62,16 +62,12 @@ export default function HeroScroll({ children }: { children: ReactNode }) {
           >
             {[1, -1].flatMap((position) =>
               Array.from({ length: 18 }, (_, i) => (
-                <Fragment key={`${position}-${i}`}>
                   <path
-                    id={`hero-path-${position}-${i}`}
+                    key={`${position}-${i}`}
                     d={`M-${380 - i * 10 * position} -${189 + i * 12}C-${380 - i * 10 * position} -${189 + i * 12} -${312 - i * 10 * position} ${216 - i * 12} ${152 - i * 10 * position} ${343 - i * 12}C${616 - i * 10 * position} ${470 - i * 12} ${684 - i * 10 * position} ${875 - i * 12} ${684 - i * 10 * position} ${875 - i * 12}`}
                     stroke="currentColor"
                     strokeWidth={0.5 + i * 0.04}
-                    pathLength={1}
                   />
-                  <use href={`#hero-path-${position}-${i}`} />
-                </Fragment>
               )),
             )}
           </svg>
