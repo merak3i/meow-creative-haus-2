@@ -10,9 +10,10 @@ export default function HeroScroll({ children }: { children: ReactNode }) {
     const reduced = matchMedia("(prefers-reduced-motion: reduce)");
     let visible = false;
     let frame = 0;
+    let ready = false;
     const syncMotion = () => {
       element.dataset.motion =
-        visible && !document.hidden && !reduced.matches ? "running" : "paused";
+        ready && visible && !document.hidden && !reduced.matches ? "running" : "paused";
     };
     const update = () => {
       frame = 0;
@@ -38,12 +39,18 @@ export default function HeroScroll({ children }: { children: ReactNode }) {
       request();
     };
     observer.observe(element);
+    // Let the critical artwork and text paint before promoting the decoration.
+    const motionStart = window.setTimeout(() => {
+      ready = true;
+      syncMotion();
+    }, 1200);
     addEventListener("scroll", request, { passive: true });
     addEventListener("resize", request);
     reduced.addEventListener("change", motionPreferenceChanged);
     document.addEventListener("visibilitychange", syncMotion);
     return () => {
       observer.disconnect();
+      clearTimeout(motionStart);
       cancelAnimationFrame(frame);
       removeEventListener("scroll", request);
       removeEventListener("resize", request);
