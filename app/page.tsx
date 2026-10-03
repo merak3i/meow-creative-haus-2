@@ -26,7 +26,7 @@ export default function Home() {
         rel="preload"
         as="image"
         type="image/avif"
-        imageSrcSet="/work-media/hero-pool-640.avif 640w, /work-media/hero-pool-680.avif 680w, /work-media/hero-pool-750.avif 750w, /work-media/hero-pool-1080.avif 1080w, /work-media/hero-pool-1122.avif 1122w"
+        imageSrcSet="/work-media/hero-pool-240.avif 240w, /work-media/hero-pool-420.avif 420w, /work-media/hero-pool-480.avif 480w, /work-media/hero-pool-640.avif 640w, /work-media/hero-pool-680.avif 680w, /work-media/hero-pool-750.avif 750w, /work-media/hero-pool-1080.avif 1080w, /work-media/hero-pool-1122.avif 1122w"
         imageSizes="(max-width: 700px) 240px, 380px"
         fetchPriority="high"
       />
@@ -72,7 +72,7 @@ export default function Home() {
                 <picture>
                   <source
                     type="image/avif"
-                    srcSet="/work-media/hero-pool-640.avif 640w, /work-media/hero-pool-680.avif 680w, /work-media/hero-pool-750.avif 750w, /work-media/hero-pool-1080.avif 1080w, /work-media/hero-pool-1122.avif 1122w"
+                    srcSet="/work-media/hero-pool-240.avif 240w, /work-media/hero-pool-420.avif 420w, /work-media/hero-pool-480.avif 480w, /work-media/hero-pool-640.avif 640w, /work-media/hero-pool-680.avif 680w, /work-media/hero-pool-750.avif 750w, /work-media/hero-pool-1080.avif 1080w, /work-media/hero-pool-1122.avif 1122w"
                     sizes="(max-width: 700px) 240px, 380px"
                   />
                   <img
