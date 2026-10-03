@@ -77,9 +77,15 @@ const archival: WorkProject[] = names.map((name) => {
       title: w.name + " · website",
       group: "Website",
       status: "Portfolio archive",
-      thumbnail: w.screenshot,
+      thumbnail:
+        w.name === "Tender Moments"
+          ? "/work-media/tender-moments-2026-09-04-kids-101-015-thumb.webp"
+          : w.screenshot,
       href: w.url,
-      caption: w.tagline,
+      caption:
+        w.name === "Tender Moments"
+          ? "Preschool website work; a finished Kids 101 illustration is used as the portfolio preview."
+          : w.tagline,
       width: 1440,
       height: 900,
     })),
