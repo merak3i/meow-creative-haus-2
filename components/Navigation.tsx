@@ -51,6 +51,7 @@ export default function Navigation() {
       </a>
       <nav className="site-nav" aria-label="Main navigation">
         <Link
+          prefetch={false}
           className="wordmark"
           href="/"
         >
@@ -60,6 +61,7 @@ export default function Navigation() {
         <div className="desktop-nav">
           {links.map((l) => (
             <Link
+              prefetch={false}
               key={l.href}
               href={l.href}
               aria-current={pathname.startsWith(l.href) ? "page" : undefined}
@@ -67,7 +69,7 @@ export default function Navigation() {
               {l.label}
             </Link>
           ))}
-          <Link className="nav-contact" href="/#contact">
+          <Link className="nav-contact" href="/#contact" prefetch={false}>
             Start a project ↗
           </Link>
         </div>
@@ -84,11 +86,11 @@ export default function Navigation() {
         {open && (
           <div ref={panel} id="mobile-navigation" className="mobile-nav">
             {links.map((l) => (
-              <Link key={l.href} href={l.href} onClick={() => setOpen(false)}>
+              <Link key={l.href} href={l.href} prefetch={false} onClick={() => setOpen(false)}>
                 {l.label}
               </Link>
             ))}
-            <Link href="/#contact" onClick={() => setOpen(false)}>
+            <Link href="/#contact" prefetch={false} onClick={() => setOpen(false)}>
               Start a project ↗
             </Link>
           </div>

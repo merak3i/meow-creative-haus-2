@@ -47,7 +47,7 @@ export default function Home() {
               launch.
             </p>
             <div className="hero-actions">
-              <Link className="button-primary" href="/work">
+              <Link className="button-primary" href="/work" prefetch={false}>
                 View work <span aria-hidden="true">↗</span>
               </Link>
               <a className="button-text" href="#contact">
@@ -68,7 +68,7 @@ export default function Home() {
           </div>
           <div className="hero-art">
             {art?.src && (
-              <Link href="/work/mch-art">
+              <Link href="/work/mch-art" prefetch={false}>
                 <picture>
                   <source
                     type="image/avif"
