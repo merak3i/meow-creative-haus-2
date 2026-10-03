@@ -26,7 +26,7 @@ export default function Home() {
         rel="preload"
         as="image"
         type="image/avif"
-        imageSrcSet="/work-media/hero-purple-640.avif 640w, /work-media/hero-purple-750.avif 750w, /work-media/hero-purple-1536.avif 1536w"
+        imageSrcSet="/work-media/hero-purple-640.avif 640w, /work-media/hero-purple-680.avif 680w, /work-media/hero-purple-750.avif 750w, /work-media/hero-purple-1080.avif 1080w, /work-media/hero-purple-1536.avif 1536w"
         imageSizes="(max-width: 700px) 90vw, 46vw"
         fetchPriority="high"
       />
@@ -72,7 +72,7 @@ export default function Home() {
                 <picture>
                   <source
                     type="image/avif"
-                    srcSet="/work-media/hero-purple-640.avif 640w, /work-media/hero-purple-750.avif 750w, /work-media/hero-purple-1536.avif 1536w"
+                    srcSet="/work-media/hero-purple-640.avif 640w, /work-media/hero-purple-680.avif 680w, /work-media/hero-purple-750.avif 750w, /work-media/hero-purple-1080.avif 1080w, /work-media/hero-purple-1536.avif 1536w"
                     sizes="(max-width: 700px) 90vw, 46vw"
                   />
                   <img
