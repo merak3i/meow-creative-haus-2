@@ -1,6 +1,6 @@
 import Link from "next/link";
 import PortfolioImage from "@/components/PortfolioImage";
-import { projectCover, type WorkProject } from "@/lib/work";
+import { projectCardCover, projectCover, type WorkProject } from "@/lib/work";
 export default function WorkCard({
   project,
   featured = false,
@@ -9,6 +9,7 @@ export default function WorkCard({
   featured?: boolean;
 }) {
   const cover = projectCover(project);
+  const cardCover = projectCardCover(project);
   const thumbnails = project.media
     .filter((m) => m.thumbnail && m.thumbnail !== cover)
     .slice(0, 3);
@@ -22,10 +23,11 @@ export default function WorkCard({
       >
         {cover ? (
           <PortfolioImage
-            src={cover}
+            src={cardCover!}
             alt=""
             sizes="(max-width: 700px) 92vw, (max-width: 1100px) 46vw, 40vw"
             className="cover-image"
+            defer={featured}
           />
         ) : (
           <div className="roster-cover">

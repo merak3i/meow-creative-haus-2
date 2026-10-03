@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+main > section:not(#hero),main > .faq-section { content-visibility:auto; contain-intrinsic-size:auto 900px; }
+img[data-deferred] { display:none; }
+@media (scripting: none) { img[data-deferred] { display:block; } }
 .section-lines { position: relative; isolation: isolate; }
 .section-lines::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: url("/section-lines.svg") center top / 1440px 800px repeat-y; opacity: .12; }
 
@@ -12,11 +15,7 @@
 .hero-scroll-stage .portfolio-hero {position:relative;z-index:1;}
 .hero-paths {position:absolute;inset:0;pointer-events:none;color:#c7d5ce;opacity:.32;mask-image:linear-gradient(110deg,transparent 2%,#000 58%);transform:translate3d(0,calc(var(--hero-progress) * -60px),0);}
 .hero-paths svg {width:100%;height:100%;animation:hero-path-drift 12s ease-in-out infinite alternate;animation-play-state:paused;transform-origin:50% 50%;}
-.hero-paths path {stroke-dasharray:.65 .35;animation:hero-line-flow 16s linear infinite;animation-play-state:paused;}
-.hero-paths path:nth-child(3n+1) {animation-duration:20s;animation-delay:-7s;}
-.hero-paths path:nth-child(3n+2) {animation-duration:24s;animation-delay:-12s;}
 .hero-scroll-track[data-motion="running"] .hero-paths svg {animation-play-state:running;}
-.hero-scroll-track[data-motion="running"] .hero-paths path {animation-play-state:running;}
 @keyframes hero-line-flow {from {stroke-dashoffset:1;opacity:.5;}50% {opacity:1;}to {stroke-dashoffset:-1;opacity:.5;}}
 @keyframes hero-path-drift {from {transform:translate3d(-3%,-2%,0) rotate(-1.5deg) scale(1.06);}to {transform:translate3d(3%,3%,0) rotate(1.5deg) scale(1.12);}}
 .hero-scroll-cue {position:absolute;right:1.2%;top:45%;z-index:2;color:var(--portfolio-muted);font-size:10px;letter-spacing:.15em;text-transform:uppercase;writing-mode:vertical-rl;display:flex;align-items:center;gap:14px;}

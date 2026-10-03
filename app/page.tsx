@@ -83,7 +83,7 @@ export default function Home() {
                     width={art.width}
                     height={art.height}
                     fetchPriority="high"
-                    decoding="async"
+                    decoding="sync"
                   />
                 </picture>
                 <span>

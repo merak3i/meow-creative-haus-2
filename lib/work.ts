@@ -457,6 +457,13 @@ export const featuredSlugs = [
 ];
 export const projectCover = (project: WorkProject) =>
   project.media.find((m) => m.thumbnail)?.thumbnail;
+// Card-only crops: same artwork, framed to the card's landscape window so
+// small screens do not download pixels the cover crop never shows.
+const cardCovers: Record<string, string> = {
+  "tender-moments": "/work-media/tender-moments-2026-09-04-kids-101-015-cover.webp",
+};
+export const projectCardCover = (project: WorkProject) =>
+  cardCovers[project.slug] ?? projectCover(project);
 export function getProject(slug: string) {
   return workProjects.find((p) => p.slug === slug);
 }
