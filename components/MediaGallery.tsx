@@ -229,7 +229,7 @@ export default function MediaGallery({ media }: { media: WorkMedia[] }) {
           )}
           {active?.kind === "image" && (
             <div
-              className="image-viewport"
+              className={`image-viewport ${active.status === "Roster record" ? "roster-viewport" : ""}`}
               tabIndex={zoomed ? 0 : undefined}
               aria-label={
                 zoomed ? "Zoomed image: scroll to explore" : undefined

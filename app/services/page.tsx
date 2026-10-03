@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FAQ from "@/components/FAQ";
+import Authority from "@/components/Authority";
 import { siteConfig } from "@/lib/data";
 export const metadata: Metadata = {
   title: "Services · digital products & media",
@@ -105,6 +106,7 @@ export default function Services() {
           ))}
         </div>
       </div>
+      <Authority />
       <FAQ />
       <section className="portfolio-section contact-section">
         <p className="eyebrow">Start with the brief</p>

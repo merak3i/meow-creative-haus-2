@@ -30,10 +30,12 @@ export default function Journal() {
           <h3>The zine archive ↗</h3>
           <p>Issue 01, its reading links and the local archive.</p>
         </Link>
-        <Link className="build-card" href="/studio-notes-september-2026">
-          <p className="eyebrow">15 Sep 2026</p>
-          <h3>September studio notes ↗</h3>
-          <p>Websites, media, builds and lessons from the studio.</p>
+        <Link className="build-card" href="/studio-notes">
+          <p className="eyebrow">Studio Notes</p>
+          <h3>The issue archive ↗</h3>
+          <p>
+            Dated issues on websites, media, builds and lessons from the studio.
+          </p>
         </Link>
       </div>
       <div className="archive-list">

@@ -25,6 +25,7 @@ ${faqs.map((f) => `### ${f.question}\n${f.answer}\n${siteConfig.url}${f.href}\n`
 Zine archive: ${siteConfig.url}/tech-misc-larp
 Issue 01: ${siteConfig.url}/tech-misc-larp/issue-01
 September studio notes: ${siteConfig.url}/studio-notes-september-2026
+Studio Notes issue archive: ${siteConfig.url}/studio-notes
 Public skills: ${siteConfig.url}/lab/skills
 
 Drafts and concepts are not delivered results. Local creation dates do not establish publication. Build descriptions do not assert ownership. Historical release records retain their original wording and must be read in their dated context. Illustrative scenarios do not establish client outcomes.

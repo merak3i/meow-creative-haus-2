@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useInView, useReducedMotion } from "framer-motion";
+import { useRef } from "react";
 import Image from "next/image";
 import { siteConfig } from "@/lib/data";
 
@@ -19,14 +20,19 @@ const itemVariants = {
 };
 
 export default function Authority() {
+  const section = useRef<HTMLElement>(null);
+  const visible = useInView(section);
+  const reduced = useReducedMotion();
+  const rotate = visible && !reduced;
   return (
     <section
+      ref={section}
       id="authority"
       className="perforated-section overflow-hidden py-24 md:py-40 px-6 md:px-12 border-t border-surface-border"
     >
       <motion.div
         variants={sectionVariants}
-        initial="hidden"
+        initial={false}
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         className="max-w-[1400px] mx-auto"
@@ -43,7 +49,6 @@ export default function Authority() {
                   fill
                   className="object-cover object-[center_25%]"
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  priority
                 />
               </div>
 
@@ -57,7 +62,7 @@ export default function Authority() {
 
               {/* Rotating ring accents behind avatar */}
               <motion.div
-                animate={{ rotate: 360 }}
+                animate={rotate ? { rotate: 360 } : undefined}
                 transition={{
                   duration: 20,
                   repeat: Infinity,
@@ -66,7 +71,7 @@ export default function Authority() {
                 className="absolute -bottom-20 -right-20 w-64 h-64 border border-accent-teal/10 rounded-full pointer-events-none"
               />
               <motion.div
-                animate={{ rotate: -360 }}
+                animate={rotate ? { rotate: -360 } : undefined}
                 transition={{
                   duration: 30,
                   repeat: Infinity,
@@ -85,10 +90,7 @@ export default function Authority() {
             >
               Who you work with
             </motion.p>
-            <motion.h2
-              variants={itemVariants}
-              className="text-display-lg mb-8"
-            >
+            <motion.h2 variants={itemVariants} className="text-display-lg mb-8">
               One studio. No handoff to a junior.
             </motion.h2>
             <motion.p

@@ -14,9 +14,11 @@ Canonical: ${siteConfig.url}/
 - [Lab](${siteConfig.url}/lab): tools, motion studies and original art
 - [Patherle build](${siteConfig.url}/work/patherle): selected interfaces, beta status
 - [1ClickWebsite India build](${siteConfig.url}/work/1clickwebsite-india): alpha workflow exploration
+- [meow.wild build](${siteConfig.url}/work/meow-wild): interactive cat scroll story
 - [Journal](${siteConfig.url}/journal): writing and permanent archive links
 - [Zine](${siteConfig.url}/tech-misc-larp): Tech / Misc / Larp archive and Issue 01
 - [Studio notes](${siteConfig.url}/studio-notes-september-2026): September 2026
+- [Studio Notes archive](${siteConfig.url}/studio-notes): permanent links to each issue
 - [Updates](${siteConfig.url}/updates): complete dated release records
 - [Skills](${siteConfig.url}/lab/skills): editable public skills
 - [AI automation and marketing](${siteConfig.url}/ai-automation-digital-marketing-mangalore): retained service page

@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       "/lab/archive",
       "/patherle",
       "/journal",
+      "/studio-notes",
       "/updates",
     ].map((route) => ({
       url: siteConfig.url + route,

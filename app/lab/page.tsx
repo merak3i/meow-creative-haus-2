@@ -40,6 +40,7 @@ export default function Lab() {
           "mch-art",
           "patherle",
           "1clickwebsite-india",
+          "meow-wild",
         ].map((slug) => (
           <WorkCard key={slug} project={getProject(slug)!} />
         ))}

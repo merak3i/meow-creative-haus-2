@@ -227,6 +227,41 @@ berg.note =
   "The citation fingerprint draft comments on Foundation × AirOps and PromptWatch research, with original attribution retained in the artwork. Robotics pre-annotation is a composite illustrative scenario, not a client result or measured outcome. Neither carousel is claimed as published.";
 const extra: WorkProject[] = [
   {
+    slug: "meow-wild",
+    name: "meow.wild",
+    status: "Interactive build",
+    description: "A playful scroll story exploring the world of cats.",
+    brief: "Turn a small curiosity into an exploratory web experience.",
+    contribution:
+      "Interactive storytelling and a scroll-led visual journey. Open the standalone build to explore it.",
+    disciplines: ["Websites", "Products", "Concepts"],
+    modifiedAt: "2026-10-03",
+    media: [
+      {
+        id: "meow-wild-public-build",
+        kind: "image",
+        title: "meow.wild · public build capture",
+        group: "Interactive build",
+        status: "Public build",
+        src: "/work-media/meow-wild-public-build.webp",
+        thumbnail: "/work-media/meow-wild-public-build.webp",
+        sourceHref: "https://meow-wild.vercel.app",
+        width: 1440,
+        height: 1000,
+        caption: "The standalone scroll story, captured on 3 October 2026.",
+      },
+      {
+        id: "meow-wild-explore",
+        kind: "website",
+        title: "Explore meow.wild",
+        group: "Interactive build",
+        status: "Public build",
+        href: "https://meow-wild.vercel.app",
+        caption: "Open the standalone scroll story in a new tab.",
+      },
+    ],
+  },
+  {
     slug: "sasta-hacker",
     name: "Sasta Hacker outro concepts",
     description:
@@ -411,7 +446,7 @@ export const featuredSlugs = [
   "tender-moments",
   "berglabs",
   "falcon-fitness",
-  "manipal-aerosports",
+  "eaash",
 ];
 export const projectCover = (project: WorkProject) =>
   project.media.find((m) => m.thumbnail)?.thumbnail;

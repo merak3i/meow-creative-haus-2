@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import FAQ from "@/components/FAQ";
+import HeroScroll from "@/components/HeroScroll";
 import WorkCard from "@/components/WorkCard";
 import { featuredSlugs, getProject } from "@/lib/work";
 import { siteConfig } from "@/lib/data";
@@ -22,54 +23,65 @@ export default function Home() {
     getProject("mch-art")?.media[0];
   return (
     <>
-      <section id="hero" className="portfolio-hero">
-        <div className="hero-copy">
-          <p className="eyebrow">
-            <span className="status-dot" /> Independent creative studio
-          </p>
-          <h1>
-            Digital products
-            <br />
-            <span>&amp; media.</span>
-          </h1>
-          <p className="hero-description">
-            Digital products &amp; media for founders and businesses. Websites,
-            AI systems and visual stories, with support after launch.
-          </p>
-          <div className="hero-actions">
-            <Link className="button-primary" href="/work">
-              View work <span aria-hidden="true">↗</span>
-            </Link>
-            <a className="button-text" href="#contact">
-              Start a project <span aria-hidden="true">↗</span>
+      <HeroScroll>
+        <section id="hero" className="portfolio-hero">
+          <div className="hero-copy">
+            <p className="eyebrow">
+              <span className="status-dot" /> Independent creative studio
+            </p>
+            <h1>
+              Digital products
+              <br />
+              <span>&amp; media.</span>
+            </h1>
+            <p className="hero-description">
+              Digital products &amp; media for founders and businesses.
+              Websites, AI systems and visual stories, with support after
+              launch.
+            </p>
+            <div className="hero-actions">
+              <Link className="button-primary" href="/work">
+                View work <span aria-hidden="true">↗</span>
+              </Link>
+              <a className="button-text" href="#contact">
+                Start a project <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+            <p className="hero-footnote">
+              From the first sketch to the working thing.
+            </p>
+            <a
+              className="hero-wild-link"
+              href={siteConfig.meowWild}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span aria-hidden="true">◉ ◉</span> meow.wild · a little detour ↗
             </a>
           </div>
-          <p className="hero-footnote">
-            From the first sketch to the working thing.
-          </p>
-        </div>
-        <div className="hero-art">
-          {art?.src && (
-            <Link href="/work/mch-art">
-              <Image
-                src={art.src}
-                alt="Room within a face: an original purple abstract study"
-                width={art.width}
-                height={art.height}
-                priority
-                sizes="(max-width: 700px) 90vw, 46vw"
-              />
-              <span>
-                Study in colour &amp; space <span aria-hidden="true">↗</span>
-              </span>
-            </Link>
-          )}
-          <div className="hero-art-label">
-            <span>Meow Creative Haus</span>
-            <span>Design / Build / Tell</span>
+          <div className="hero-art">
+            {art?.src && (
+              <Link href="/work/mch-art">
+                <Image
+                  src={art.src}
+                  alt="Room within a face: an original purple abstract study"
+                  width={art.width}
+                  height={art.height}
+                  priority
+                  sizes="(max-width: 700px) 90vw, 46vw"
+                />
+                <span>
+                  Study in colour &amp; space <span aria-hidden="true">↗</span>
+                </span>
+              </Link>
+            )}
+            <div className="hero-art-label">
+              <span>Meow Creative Haus</span>
+              <span>Design / Build / Tell</span>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </HeroScroll>
       <section id="client-sites" className="portfolio-section">
         <div id="selected-work" className="section-heading">
           <div>
@@ -145,7 +157,7 @@ export default function Home() {
           </p>
         </div>
         <div className="builds-grid">
-          {["patherle", "1clickwebsite-india"].map((slug) => {
+          {["patherle", "1clickwebsite-india", "meow-wild"].map((slug) => {
             const p = getProject(slug)!;
             return (
               <Link key={slug} href={`/work/${slug}`} className="build-card">
@@ -199,9 +211,7 @@ export default function Home() {
             Design &amp; build practice ↗
           </Link>
           <Link href="/updates">All releases &amp; updates ↗</Link>
-          <Link href="/studio-notes-september-2026">
-            September studio notes ↗
-          </Link>
+          <Link href="/studio-notes">Studio Notes · all issues ↗</Link>
           <Link id="substack" href="/journal">
             Writing &amp; zine archive ↗
           </Link>
