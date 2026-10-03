@@ -17,13 +17,16 @@ export default function PageMotion() {
       !section.closest(".hero-scroll-track"));
 
     sections.forEach((section, index) => {
-      section.classList.toggle("section-lines", index % 2 === 0);
+      section.dataset.lineSection = String(index % 2 === 0);
     });
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
         observer.unobserve(entry.target);
+        if ((entry.target as HTMLElement).dataset.lineSection === "true") {
+          entry.target.classList.add("section-lines");
+        }
         if (preference.matches) return;
         const animation = entry.target.animate(
           [
@@ -46,7 +49,10 @@ export default function PageMotion() {
       observer.disconnect();
       preference.removeEventListener("change", cancel);
       animations.forEach((animation) => animation.cancel());
-      sections.forEach((section) => section.classList.remove("section-lines"));
+      sections.forEach((section) => {
+        section.classList.remove("section-lines");
+        delete section.dataset.lineSection;
+      });
     };
   }, [pathname]);
 
