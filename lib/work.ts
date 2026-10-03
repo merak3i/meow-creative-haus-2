@@ -346,7 +346,7 @@ const extra: WorkProject[] = [
     status: "Motion studies",
     disciplines: ["Motion", "Concepts"],
     media: newMedia("dil-se-rave"),
-    note: "These are motion studies. Venue deployment remains unverified. Silent versions are used because music reuse rights have not been established.",
+    note: "These are silent motion studies. Venue deployment remains unverified.",
     modifiedAt: "2026-10-03",
   },
   {
