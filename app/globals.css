@@ -11,6 +11,8 @@
 .viewer-controls {display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:16px;font-size:11px;color:var(--portfolio-muted);}.viewer-controls button {border:1px solid #546b5b;padding:12px;min-height:44px;color:#e0e9e2;}.viewer-controls button:disabled {opacity:.4;cursor:default;}.viewer-controls span {padding:0 8px;}.image-viewport {overflow:auto;max-height:68dvh;background:#080c09;}.image-viewport .dialog-image {display:block;margin:auto;}.image-viewport .is-zoomed {width:auto;max-width:none;max-height:none;height:auto;}.media-file-link {display:inline-block;padding:10px 0;}
 .media-item figcaption>p {font-size:12px;}.media-item .media-date {font-size:10px;}
 .roster-image-cover .cover-image {object-fit:contain;padding:40px;}
+.roster-image-cover, .roster-media .media-thumb {background:#ecefe9;}
+.roster-media .media-thumb img {padding:24px;}
 html { scroll-padding-top:100px; }
 a,button,input,summary { -webkit-tap-highlight-color:transparent; }
 :focus-visible { outline:2px solid var(--portfolio-teal); outline-offset:5px; }

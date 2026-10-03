@@ -32,7 +32,7 @@ export default function PatherleTease() {
         <div className="max-w-[1400px] mx-auto">
           <div className="flex items-center gap-3 mb-4">
             <span className="font-mono text-label-sm tracking-[0.25em] text-text-dim">
-              INTERNAL BUILD // 003
+              BUILD STUDY // 003
             </span>
             <span className="text-label-sm tracking-wider text-accent-gold border border-accent-gold/40 px-2 py-0.5 animate-pulse">
               WIP

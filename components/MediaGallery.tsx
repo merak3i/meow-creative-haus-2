@@ -104,7 +104,11 @@ export default function MediaGallery({ media }: { media: WorkMedia[] }) {
                   item.kind,
                 );
                 return (
-                  <figure key={item.id} id={item.id} className="media-item">
+                  <figure
+                    key={item.id}
+                    id={item.id}
+                    className={`media-item ${item.status === "Roster record" ? "roster-media" : ""}`}
+                  >
                     <a
                       className={`media-thumb ${!item.thumbnail ? "text-thumb" : ""}`}
                       href={
