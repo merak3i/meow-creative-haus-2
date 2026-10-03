@@ -11,9 +11,15 @@ export default function HeroScroll({ children }: { children: ReactNode }) {
     let visible = false;
     let frame = 0;
     let ready = false;
+    let motionFallback: number | undefined;
+    let paintObserver: PerformanceObserver | undefined;
     const syncMotion = () => {
       element.dataset.motion =
         ready && visible && !document.hidden && !reduced.matches ? "running" : "paused";
+    };
+    const startMotion = () => {
+      ready = true;
+      syncMotion();
     };
     const update = () => {
       frame = 0;
@@ -29,6 +35,14 @@ export default function HeroScroll({ children }: { children: ReactNode }) {
       if (!frame && visible && !reduced.matches)
         frame = requestAnimationFrame(update);
     };
+    const startOnScroll = () => {
+      if (!ready && !reduced.matches) {
+        startMotion();
+        paintObserver?.disconnect();
+        if (motionFallback !== undefined) clearTimeout(motionFallback);
+      }
+      request();
+    };
     const observer = new IntersectionObserver(([entry]) => {
       visible = entry.isIntersecting;
       syncMotion();
@@ -39,20 +53,31 @@ export default function HeroScroll({ children }: { children: ReactNode }) {
       request();
     };
     observer.observe(element);
-    // Let the critical artwork and text paint before promoting the decoration.
-    const motionStart = window.setTimeout(() => {
-      ready = true;
-      syncMotion();
-    }, 1200);
-    addEventListener("scroll", request, { passive: true });
+    // Start line drift after the hero paints so it cannot compete with LCP.
+    if (
+      "PerformanceObserver" in window &&
+      PerformanceObserver.supportedEntryTypes?.includes("largest-contentful-paint")
+    ) {
+      paintObserver = new PerformanceObserver((list) => {
+        if (!list.getEntries().length) return;
+        paintObserver?.disconnect();
+        startMotion();
+      });
+      paintObserver.observe({ type: "largest-contentful-paint", buffered: true });
+      motionFallback = window.setTimeout(startMotion, 4000);
+    } else {
+      motionFallback = window.setTimeout(startMotion, 1800);
+    }
+    addEventListener("scroll", startOnScroll, { passive: true });
     addEventListener("resize", request);
     reduced.addEventListener("change", motionPreferenceChanged);
     document.addEventListener("visibilitychange", syncMotion);
     return () => {
       observer.disconnect();
-      clearTimeout(motionStart);
+      paintObserver?.disconnect();
+      if (motionFallback !== undefined) clearTimeout(motionFallback);
       cancelAnimationFrame(frame);
-      removeEventListener("scroll", request);
+      removeEventListener("scroll", startOnScroll);
       removeEventListener("resize", request);
       reduced.removeEventListener("change", motionPreferenceChanged);
       document.removeEventListener("visibilitychange", syncMotion);
