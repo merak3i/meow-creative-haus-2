@@ -10,16 +10,9 @@ export default function HeroScroll({ children }: { children: ReactNode }) {
     const reduced = matchMedia("(prefers-reduced-motion: reduce)");
     let visible = false;
     let frame = 0;
-    let ready = false;
-    let motionFallback: number | undefined;
-    let paintObserver: PerformanceObserver | undefined;
     const syncMotion = () => {
       element.dataset.motion =
-        ready && visible && !document.hidden && !reduced.matches ? "running" : "paused";
-    };
-    const startMotion = () => {
-      ready = true;
-      syncMotion();
+        visible && !document.hidden && !reduced.matches ? "running" : "paused";
     };
     const update = () => {
       frame = 0;
@@ -35,14 +28,6 @@ export default function HeroScroll({ children }: { children: ReactNode }) {
       if (!frame && visible && !reduced.matches)
         frame = requestAnimationFrame(update);
     };
-    const startOnScroll = () => {
-      if (!ready && !reduced.matches) {
-        startMotion();
-        paintObserver?.disconnect();
-        if (motionFallback !== undefined) clearTimeout(motionFallback);
-      }
-      request();
-    };
     const observer = new IntersectionObserver(([entry]) => {
       visible = entry.isIntersecting;
       syncMotion();
@@ -53,31 +38,14 @@ export default function HeroScroll({ children }: { children: ReactNode }) {
       request();
     };
     observer.observe(element);
-    // Start line drift after the hero paints so it cannot compete with LCP.
-    if (
-      "PerformanceObserver" in window &&
-      PerformanceObserver.supportedEntryTypes?.includes("largest-contentful-paint")
-    ) {
-      paintObserver = new PerformanceObserver((list) => {
-        if (!list.getEntries().length) return;
-        paintObserver?.disconnect();
-        startMotion();
-      });
-      paintObserver.observe({ type: "largest-contentful-paint", buffered: true });
-      motionFallback = window.setTimeout(startMotion, 4000);
-    } else {
-      motionFallback = window.setTimeout(startMotion, 1800);
-    }
-    addEventListener("scroll", startOnScroll, { passive: true });
+    addEventListener("scroll", request, { passive: true });
     addEventListener("resize", request);
     reduced.addEventListener("change", motionPreferenceChanged);
     document.addEventListener("visibilitychange", syncMotion);
     return () => {
       observer.disconnect();
-      paintObserver?.disconnect();
-      if (motionFallback !== undefined) clearTimeout(motionFallback);
       cancelAnimationFrame(frame);
-      removeEventListener("scroll", startOnScroll);
+      removeEventListener("scroll", request);
       removeEventListener("resize", request);
       reduced.removeEventListener("change", motionPreferenceChanged);
       document.removeEventListener("visibilitychange", syncMotion);
@@ -99,6 +67,7 @@ export default function HeroScroll({ children }: { children: ReactNode }) {
                     d={`M-${380 - i * 10 * position} -${189 + i * 12}C-${380 - i * 10 * position} -${189 + i * 12} -${312 - i * 10 * position} ${216 - i * 12} ${152 - i * 10 * position} ${343 - i * 12}C${616 - i * 10 * position} ${470 - i * 12} ${684 - i * 10 * position} ${875 - i * 12} ${684 - i * 10 * position} ${875 - i * 12}`}
                     stroke="currentColor"
                     strokeWidth={0.5 + i * 0.04}
+                    pathLength={1}
                   />
               )),
             )}

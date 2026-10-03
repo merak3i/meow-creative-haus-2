@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 };
 export default function Home() {
   const art =
-    getProject("mch-art")?.media.find((m) => m.title.includes("room within")) ??
+    getProject("mch-art")?.media.find((m) => m.title === "sopranos pool") ??
     getProject("mch-art")?.media[0];
   return (
     <>
@@ -26,8 +26,8 @@ export default function Home() {
         rel="preload"
         as="image"
         type="image/avif"
-        imageSrcSet="/work-media/hero-purple-640.avif 640w, /work-media/hero-purple-680.avif 680w, /work-media/hero-purple-750.avif 750w, /work-media/hero-purple-1080.avif 1080w, /work-media/hero-purple-1536.avif 1536w"
-        imageSizes="(max-width: 700px) 90vw, 46vw"
+        imageSrcSet="/work-media/hero-pool-640.avif 640w, /work-media/hero-pool-680.avif 680w, /work-media/hero-pool-750.avif 750w, /work-media/hero-pool-1080.avif 1080w, /work-media/hero-pool-1122.avif 1122w"
+        imageSizes="(max-width: 700px) 240px, 380px"
         fetchPriority="high"
       />
       <HeroScroll>
@@ -68,18 +68,18 @@ export default function Home() {
           </div>
           <div className="hero-art">
             {art?.src && (
-              <Link href="/work/mch-art" prefetch={false}>
+              <Link href={`/work/mch-art?media=${art.id}`} prefetch={false}>
                 <picture>
                   <source
                     type="image/avif"
-                    srcSet="/work-media/hero-purple-640.avif 640w, /work-media/hero-purple-680.avif 680w, /work-media/hero-purple-750.avif 750w, /work-media/hero-purple-1080.avif 1080w, /work-media/hero-purple-1536.avif 1536w"
-                    sizes="(max-width: 700px) 90vw, 46vw"
+                    srcSet="/work-media/hero-pool-640.avif 640w, /work-media/hero-pool-680.avif 680w, /work-media/hero-pool-750.avif 750w, /work-media/hero-pool-1080.avif 1080w, /work-media/hero-pool-1122.avif 1122w"
+                    sizes="(max-width: 700px) 240px, 380px"
                   />
                   <img
                     src={art.src}
-                    srcSet={`/work-media/hero-purple-750.webp 750w, ${art.src} 1536w`}
-                    sizes="(max-width: 700px) 90vw, 46vw"
-                    alt="Room within a face: an original purple abstract study"
+                    srcSet={`/work-media/hero-pool-750.webp 750w, ${art.src} 1122w`}
+                    sizes="(max-width: 700px) 240px, 380px"
+                    alt="Purple film-inspired study of a man beside a pool with ducks"
                     width={art.width}
                     height={art.height}
                     fetchPriority="high"
@@ -87,7 +87,7 @@ export default function Home() {
                   />
                 </picture>
                 <span>
-                  Study in colour &amp; space <span aria-hidden="true">↗</span>
+                  Sopranos pool · film-inspired study <span aria-hidden="true">↗</span>
                 </span>
               </Link>
             )}
