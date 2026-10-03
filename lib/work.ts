@@ -184,7 +184,7 @@ tender.brief =
 tender.contribution =
   "Website design and implementation, Kids 101 illustrations, social concepts, Montessori carousel design and Teachers’ Day motion artwork.";
 tender.note =
-  "September local creation dates and Instagram publication evidence are separate. The 30 illustrated exports are not 30 verified published posts. The Teachers’ Day end card is shown here; footage with identifiable children needs portfolio permission before inclusion.";
+  "September creation dates and Instagram publication evidence are separate. The 30 illustrated exports are not 30 verified published posts. The Teachers’ Day selection shows the finished motion artwork’s end card.";
 tender.media.push(
   ...[
     {
