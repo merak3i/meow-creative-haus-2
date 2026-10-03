@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import FAQ from "@/components/FAQ";
 import HeroScroll from "@/components/HeroScroll";
 import WorkCard from "@/components/WorkCard";
@@ -23,6 +22,14 @@ export default function Home() {
     getProject("mch-art")?.media[0];
   return (
     <>
+      <link
+        rel="preload"
+        as="image"
+        type="image/avif"
+        imageSrcSet="/work-media/hero-purple-750.avif 750w, /work-media/hero-purple-1536.avif 1536w"
+        imageSizes="(max-width: 700px) 90vw, 46vw"
+        fetchPriority="high"
+      />
       <HeroScroll>
         <section id="hero" className="portfolio-hero">
           <div className="hero-copy">
@@ -62,15 +69,23 @@ export default function Home() {
           <div className="hero-art">
             {art?.src && (
               <Link href="/work/mch-art">
-                <Image
-                  src={art.src}
-                  alt="Room within a face: an original purple abstract study"
-                  width={art.width}
-                  height={art.height}
-                priority
-                fetchPriority="high"
-                  sizes="(max-width: 700px) 90vw, 46vw"
-                />
+                <picture>
+                  <source
+                    type="image/avif"
+                    srcSet="/work-media/hero-purple-750.avif 750w, /work-media/hero-purple-1536.avif 1536w"
+                    sizes="(max-width: 700px) 90vw, 46vw"
+                  />
+                  <img
+                    src={art.src}
+                    srcSet={`/work-media/hero-purple-750.webp 750w, ${art.src} 1536w`}
+                    sizes="(max-width: 700px) 90vw, 46vw"
+                    alt="Room within a face: an original purple abstract study"
+                    width={art.width}
+                    height={art.height}
+                    fetchPriority="high"
+                    decoding="async"
+                  />
+                </picture>
                 <span>
                   Study in colour &amp; space <span aria-hidden="true">↗</span>
                 </span>
