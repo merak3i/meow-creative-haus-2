@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { featuredArticles } from "@/lib/data";
+import { unavailableArticleSources } from "@/lib/article-sources";
 export const metadata: Metadata = {
   title: "Journal & zine",
   description:
@@ -48,11 +49,18 @@ export default function Journal() {
             </p>
             <div>
               <h2>
-                <a href={a.href} target="_blank" rel="noreferrer">
+                <a
+                  href={unavailableArticleSources[a.id] ? `/work/resonance-security#article-${a.id}` : a.href}
+                  target={unavailableArticleSources[a.id] ? undefined : "_blank"}
+                  rel={unavailableArticleSources[a.id] ? undefined : "noreferrer"}
+                >
                   {a.title} ↗
                 </a>
               </h2>
               <p>{a.excerpt}</p>
+              {unavailableArticleSources[a.id] && (
+                <p>{unavailableArticleSources[a.id]}</p>
+              )}
             </div>
           </article>
         ))}

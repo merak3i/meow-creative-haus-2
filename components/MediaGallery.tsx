@@ -117,7 +117,7 @@ export default function MediaGallery({ media }: { media: WorkMedia[] }) {
                       onClick={viewable ? (e) => open(item, e) : undefined}
                       target={viewable ? undefined : "_blank"}
                       rel={viewable ? undefined : "noreferrer"}
-                      aria-label={`${viewable ? "View" : "Open"} ${item.title}`}
+                      aria-label={`${item.sourceNote ? "Original source unavailable:" : viewable ? "View" : "Open"} ${item.title}`}
                     >
                       {item.thumbnail ? (
                         <PortfolioImage
@@ -135,13 +135,14 @@ export default function MediaGallery({ media }: { media: WorkMedia[] }) {
                           ? "Play ↗"
                           : viewable
                             ? "View ↗"
-                            : "Open ↗"}
+                            : item.sourceNote ? "Original URL ↗" : "Open ↗"}
                       </span>
                     </a>
                     <figcaption>
                       <span className="eyebrow">{item.status}</span>
                       <h3>{item.title}</h3>
                       {item.caption && <p>{item.caption}</p>}
+                      {item.sourceNote && <p>{item.sourceNote}</p>}
                       {(item.createdAt || item.publishedAt) && (
                         <p className="media-date">
                           {item.createdAt && `Created ${item.createdAt}`}

@@ -6,6 +6,7 @@ import {
   featuredArticles,
 } from "@/lib/data";
 import imported from "@/lib/work-media.json";
+import { unavailableArticleSources } from "@/lib/article-sources";
 
 import { disciplines } from "@/lib/work-query";
 export { disciplines } from "@/lib/work-query";
@@ -26,6 +27,7 @@ export interface WorkMedia {
   publishedAt?: string;
   sourceHref?: string;
   caption?: string;
+  sourceNote?: string;
 }
 export interface WorkProject {
   slug: string;
@@ -119,6 +121,7 @@ const archival: WorkProject[] = names.map((name) => {
       thumbnail: a.coverImage,
       href: a.href,
       caption: a.excerpt,
+      sourceNote: unavailableArticleSources[a.id],
       width: 1200,
       height: 750,
     })),
