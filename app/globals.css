@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-main > section:not(#hero),main > .faq-section { content-visibility:auto; contain-intrinsic-size:auto 900px; }
 img[data-deferred] { display:none; }
 @media (scripting: none) { img[data-deferred] { display:block; } }
 .section-lines { position: relative; isolation: isolate; }

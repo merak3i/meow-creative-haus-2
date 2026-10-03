@@ -39,6 +39,7 @@ export default function HeroScroll({ children }: { children: ReactNode }) {
     let visible = false;
     let ready = false;
     let frame = 0;
+    let last = "";
     let fallback: number | undefined;
     let paint: PerformanceObserver | undefined;
     const sync = () => {
@@ -49,17 +50,17 @@ export default function HeroScroll({ children }: { children: ReactNode }) {
     };
     const update = () => {
       frame = 0;
-      if (!visible || reduced.matches) return;
+      if (reduced.matches) return;
       const rect = element.getBoundingClientRect();
       const progress = Math.max(
         0,
         Math.min(1, -rect.top / Math.max(rect.height - innerHeight, 1)),
       );
-      element.style.setProperty("--hero-progress", progress.toFixed(3));
+      const value = progress.toFixed(3);
+      if (value !== last) element.style.setProperty("--hero-progress", (last = value));
     };
     const request = () => {
-      if (!frame && visible && !reduced.matches)
-        frame = requestAnimationFrame(update);
+      if (!frame && !reduced.matches) frame = requestAnimationFrame(update);
     };
     // The line field starts once the hero has painted, so it never competes
     // with the largest paint. Scrolling or a timeout start it too.
