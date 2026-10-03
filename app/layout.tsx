@@ -180,6 +180,7 @@ export default function RootLayout({
         />
         <Analytics />
         <PageMotion />
+        <div className="scroll-thread" aria-hidden="true" />
         <div>
           <Navigation />
           <main id="main-content">{children}</main>

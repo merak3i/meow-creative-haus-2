@@ -13,11 +13,93 @@ img[data-deferred] { display:none; }
 .hero-scroll-track {--hero-progress:0;position:relative;}
 .hero-scroll-stage {position:relative;overflow:hidden;}
 .hero-scroll-stage .portfolio-hero {position:relative;z-index:1;}
-.hero-paths {position:absolute;inset:0;pointer-events:none;color:#c7d5ce;opacity:.32;mask-image:linear-gradient(110deg,transparent 2%,#000 58%);transform:translate3d(0,calc(var(--hero-progress) * -60px),0);}
-.hero-paths svg {width:100%;height:100%;animation:hero-path-drift 12s ease-in-out infinite alternate;animation-play-state:paused;transform-origin:50% 50%;}
-.hero-scroll-track[data-motion="running"] .hero-paths svg {animation-play-state:running;}
-@keyframes hero-line-flow {from {stroke-dashoffset:1;opacity:.5;}50% {opacity:1;}to {stroke-dashoffset:-1;opacity:.5;}}
-@keyframes hero-path-drift {from {transform:translate3d(-3%,-2%,0) rotate(-1.5deg) scale(1.06);}to {transform:translate3d(3%,3%,0) rotate(1.5deg) scale(1.12);}}
+.hero-paths {--line-alpha:.4;position:absolute;inset:0;pointer-events:none;color:#c7d5ce;mask-image:linear-gradient(110deg,transparent 2%,#000 58%);overflow:hidden;}
+.hero-depth {position:absolute;inset:0;}
+.hero-layer {position:absolute;inset:-8%;width:116%;height:116%;transform-origin:50% 50%;animation-name:hero-drift-1;animation-duration:18s;animation-timing-function:ease-in-out;animation-iteration-count:infinite;animation-direction:alternate;animation-fill-mode:both;animation-play-state:paused;will-change:transform;opacity:var(--line-alpha);}
+.hero-layer-1 {animation-name:hero-drift-1;}
+.hero-layer-2 {animation-name:hero-drift-2;animation-duration:26s;animation-direction:alternate-reverse;opacity:calc(var(--line-alpha) * .72);}
+.hero-layer-3 {animation-name:hero-drift-3;animation-duration:34s;opacity:calc(var(--line-alpha) * .5);}
+.hero-defs {position:absolute;width:0;height:0;}
+/* A teal-to-gold signal travels along the middle layer: the band and its contents move in opposite directions, so the strokes stay put while the light passes. */
+.hero-sweep {overflow:hidden;}
+.hero-sweep-band {position:absolute;top:0;bottom:0;left:0;width:30%;mask-image:linear-gradient(90deg,transparent,#000 42%,#000 58%,transparent);transform:translate3d(-100%,0,0);animation:hero-sweep-band 9s linear infinite paused;will-change:transform;}
+.hero-sweep-field {position:absolute;top:0;bottom:0;left:0;width:333.334%;transform:translate3d(30%,0,0);animation:hero-sweep-field 9s linear infinite paused;will-change:transform;}
+.hero-sweep .hero-layer {opacity:.95;}
+.hero-scroll-track[data-motion="running"] :is(.hero-layer,.hero-sweep-band,.hero-sweep-field) {animation-play-state:running;}
+@keyframes hero-drift-1 {from {transform:translate3d(-4%,-2.5%,0) rotate(-2deg);}to {transform:translate3d(4%,3%,0) rotate(1.2deg);}}
+@keyframes hero-drift-2 {from {transform:translate3d(3.5%,-3%,0) rotate(1.6deg);}to {transform:translate3d(-3.5%,2.5%,0) rotate(-1.6deg);}}
+@keyframes hero-drift-3 {from {transform:translate3d(-2.5%,3.5%,0) rotate(.6deg) scale(1.03);}to {transform:translate3d(3%,-2.5%,0) rotate(-2.2deg) scale(1.03);}}
+@keyframes hero-sweep-band {from {transform:translate3d(-100%,0,0);}38%,to {transform:translate3d(333.334%,0,0);}}
+@keyframes hero-sweep-field {from {transform:translate3d(30%,0,0);}38%,to {transform:translate3d(-100%,0,0);}}
+/* On scroll the three depths part: near strokes travel further than far ones. */
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-depth {animation:hero-part-1 linear both;animation-timeline:scroll(root);animation-range:0 100vh;}
+    .hero-depth-2 {animation-name:hero-part-2;}
+    .hero-depth-3 {animation-name:hero-part-3;}
+  }
+}
+@keyframes hero-part-1 {to {transform:translate3d(0,-150px,0);}}
+@keyframes hero-part-2 {to {transform:translate3d(0,-80px,0);}}
+@keyframes hero-part-3 {to {transform:translate3d(0,-30px,0);}}
+/* The thread: one teal line in the gutter that draws down with the page. */
+.scroll-thread {position:fixed;top:72px;bottom:0;left:clamp(12px,1.7vw,26px);width:1px;z-index:40;pointer-events:none;background:color-mix(in srgb,var(--portfolio-line) 70%,transparent);}
+.scroll-thread::after {content:"";position:absolute;inset:0;background:linear-gradient(var(--portfolio-teal),color-mix(in srgb,var(--portfolio-teal) 35%,transparent));transform-origin:50% 0;opacity:.55;}
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .scroll-thread::after {animation:thread-draw linear both;animation-timeline:scroll(root);}
+  }
+}
+@keyframes thread-draw {from {transform:scaleY(0);}to {transform:scaleY(1);}}
+/* Homepage stations: a gold mark sits on the thread at each section and lights as the section passes. Decorative, generated content only. */
+main > section {position:relative;}
+main:has(> .hero-scroll-track) > section[id]:not(#authority) {view-timeline-name:--station;}
+main:has(> .hero-scroll-track) > section[id]:not(#authority)::after {content:"";position:absolute;top:78px;left:calc(clamp(12px,1.7vw,26px) - (100vw - 100%) / 2 - 4px);width:7px;height:7px;border:1px solid var(--portfolio-gold);background:var(--portfolio-gold);transform:rotate(45deg);opacity:.75;pointer-events:none;}
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    main:has(> .hero-scroll-track) > section[id]:not(#authority)::after {animation:station-light linear both;animation-timeline:--station;animation-range:entry 20% exit 60%;}
+  }
+}
+@keyframes station-light {from {opacity:.2;transform:rotate(45deg) scale(.6);}25%,70% {opacity:1;transform:rotate(45deg) scale(1);}to {opacity:.35;transform:rotate(45deg) scale(.8);}}
+@media(max-width:899px) {.scroll-thread,main:has(> .hero-scroll-track) > section[id]::after {display:none;}}
+/* One reveal grammar. Defaults are fully visible; motion only applies where scroll timelines exist and motion is welcome. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    main :is(.section-heading h2,.gallery-heading h2,.contact-section h2) {animation:reveal-line linear both;animation-timeline:view();animation-range:entry 0% entry 100%;}
+    main .work-card .work-cover {animation:reveal-frame linear both;animation-timeline:view();animation-range:entry 0% entry 100%;}
+    main .work-card .cover-image {animation:reveal-settle linear both;animation-timeline:view();animation-range:entry 0% cover 50%;}
+    main :is(.section-heading>p,.service-grid>article,.build-card,.lab-links>a,.faq-list>details,.media-item,.archive-list>article,.section-note) {animation:reveal-rise linear both;animation-timeline:view();animation-range:entry 0% entry 80%;}
+    main :is(.service-grid>article,.build-card,.lab-links>a,.media-item):nth-child(3n+2) {animation-range:entry 10% entry 90%;}
+    main :is(.service-grid>article,.build-card,.lab-links>a,.media-item):nth-child(3n) {animation-range:entry 20% entry 100%;}
+  }
+}
+@keyframes reveal-line {from {clip-path:inset(-.2em -.2em 100% -.2em);transform:translateY(.4em);}to {clip-path:inset(-.2em);transform:none;}}
+@keyframes reveal-frame {from {clip-path:inset(10% 7% 10% 7%);}to {clip-path:inset(0);}}
+@keyframes reveal-settle {from {scale:1.06;}to {scale:1;}}
+@keyframes reveal-rise {from {opacity:0;translate:0 12px;}to {opacity:1;translate:none;}}
+/* Fallback for browsers without scroll timelines: one observer marks items that start below the fold. */
+.reveal-fallback .reveal-pending {opacity:0;translate:0 12px;}
+.reveal-fallback .reveal-target {transition:opacity .6s cubic-bezier(.2,.7,.2,1),translate .6s cubic-bezier(.2,.7,.2,1);}
+/* Builds: a native snap rail on phones, a grid elsewhere. */
+@media(max-width:700px) {
+  .builds-section .builds-grid {display:grid;grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:84%;gap:14px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scroll-padding-inline:0;scrollbar-width:none;margin-right:-5.5%;padding-right:5.5%;padding-bottom:4px;}
+  .builds-section .builds-grid::-webkit-scrollbar {display:none;}
+  .builds-section .build-card {scroll-snap-align:start;display:flex;flex-direction:column;}
+  .builds-section .build-detail {margin-top:auto;padding-top:24px;}
+}
+/* FAQ: the answer settles in as it opens; the gold marker turns. */
+.faq-list summary span {color:var(--portfolio-gold);transition:transform .35s cubic-bezier(.2,.7,.2,1);}
+@media (prefers-reduced-motion: no-preference) {
+  .faq-list details[open] .faq-answer {animation:faq-open .45s cubic-bezier(.2,.7,.2,1);}
+}
+@keyframes faq-open {from {opacity:0;transform:translateY(-6px);}to {opacity:1;transform:none;}}
+/* Contact: the line field returns, quieter, as the bookend to the hero. */
+.contact-section {overflow:hidden;isolation:isolate;}
+.contact-field {position:absolute;inset:-10% -6% -10% 34%;z-index:-1;pointer-events:none;color:var(--portfolio-teal);opacity:.16;mask-image:linear-gradient(100deg,transparent 0%,#000 55%);}
+.contact-field svg {width:100%;height:100%;animation:contact-drift 30s ease-in-out infinite alternate paused;will-change:transform;}
+.contact-field[data-motion="running"] svg {animation-play-state:running;}
+@keyframes contact-drift {from {transform:translate3d(-2%,2%,0) rotate(-1deg);}to {transform:translate3d(2%,-2%,0) rotate(1.4deg);}}
+@media(max-width:700px) {.contact-field {inset:auto -20% -10% 10%;height:70%;opacity:.12;}}
 .hero-scroll-cue {position:absolute;right:1.2%;top:45%;z-index:2;color:var(--portfolio-muted);font-size:10px;letter-spacing:.15em;text-transform:uppercase;writing-mode:vertical-rl;display:flex;align-items:center;gap:14px;}
 .hero-scroll-cue span {height:60px;width:1px;background:linear-gradient(var(--portfolio-teal),#737d78);}
 .hero-wild-link {display:inline-flex;align-items:center;gap:10px;margin-top:24px;font-size:12px;color:var(--portfolio-gold);padding:8px 0;}
@@ -25,9 +107,9 @@ img[data-deferred] { display:none; }
 .notes-issue-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px;}
 .notes-issue {min-width:0;}.notes-cover {display:block;border:1px solid var(--portfolio-line);margin-bottom:24px;}.notes-cover img {width:100%;height:auto;}.notes-issue h2 {font-size:26px;line-height:1.3;margin:16px 0;letter-spacing:-.025em;}.notes-issue>p:not(.eyebrow) {color:var(--portfolio-muted);font-size:14px;line-height:1.8;margin-bottom:20px;}
 @media(min-width:900px) and (min-height:650px) {.hero-scroll-track {height:125svh;}.hero-scroll-stage {position:sticky;top:72px;height:calc(100svh - 72px);}.hero-scroll-stage .portfolio-hero {min-height:100%;}.hero-scroll-stage .hero-art {transform:perspective(1200px) rotateY(calc(var(--hero-progress) * -6deg)) translateY(calc(var(--hero-progress) * -30px));}}
-@media(max-width:899px) {.hero-scroll-cue {display:none;}.hero-paths {opacity:.22;}.notes-issue-grid {grid-template-columns:1fr;}}
-@media(prefers-reduced-motion:reduce) {.hero-scroll-track {height:auto;}.hero-scroll-stage {position:relative;height:auto;}.hero-scroll-stage .hero-art,.hero-paths {transform:none;}}
-@media(prefers-reduced-motion:reduce) {.hero-paths svg,.hero-paths path {animation:none;transform:none;}.hero-paths path {stroke-dasharray:none;}}
+@media(max-width:899px) {.hero-scroll-cue {display:none;}.hero-paths {--line-alpha:.3;}.notes-issue-grid {grid-template-columns:1fr;}}
+@media(prefers-reduced-motion:reduce) {.hero-scroll-track {height:auto;}.hero-scroll-stage {position:relative;height:auto;}.hero-scroll-stage .hero-art {transform:none;}}
+@media(prefers-reduced-motion:reduce) {.hero-layer,.hero-depth {animation:none;transform:none;}.hero-sweep {display:none;}}
 .journal-features,.lab-work-grid { margin-top:32px; }
 .image-fallback { position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:20px;background:#18251e;color:#c9dace;font-size:12px;text-align:center;line-height:1.8; }
 .image-fallback small { font-size:10px;font-weight:400; }

@@ -249,6 +249,23 @@ export default function Home() {
       </section>
       <FAQ />
       <section id="contact" className="portfolio-section contact-section">
+        <div
+          className="contact-field"
+          aria-hidden="true"
+          data-motion-scope=""
+          data-motion="paused"
+        >
+          <svg viewBox="0 0 600 400" fill="none" preserveAspectRatio="xMidYMid slice">
+            {Array.from({ length: 12 }, (_, i) => (
+              <path
+                key={i}
+                d={`M${-40 + i * 6} ${430 - i * 14}C${160 + i * 4} ${300 - i * 18} ${300 - i * 6} ${120 + i * 10} ${640} ${-20 + i * 22}`}
+                stroke="currentColor"
+                strokeWidth={0.6 + (i % 4) * 0.15}
+              />
+            ))}
+          </svg>
+        </div>
         <p className="eyebrow">Have something in mind?</p>
         <h2>
           Let’s make it
