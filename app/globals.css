@@ -94,7 +94,7 @@ main:has(> .hero-scroll-track) > section[id]:not(#authority)::after {content:"";
   .builds-section .build-detail {margin-top:auto;padding-top:24px;}
 }
 /* FAQ: the answer settles in as it opens; the gold marker turns. */
-.faq-list summary span {color:var(--portfolio-gold);transition:transform .35s cubic-bezier(.2,.7,.2,1);}
+.faq-list details summary span {color:var(--portfolio-gold);transition:transform .35s cubic-bezier(.2,.7,.2,1);}
 @media (prefers-reduced-motion: no-preference) {
   .faq-list details[open] .faq-answer {animation:faq-open .45s cubic-bezier(.2,.7,.2,1);}
 }
