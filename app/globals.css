@@ -4,6 +4,8 @@
 
 img[data-deferred] { display:none; }
 @media (scripting: none) { img[data-deferred] { display:block; } }
+/* Script-driven entrances (older Lab and Patherle sections) start from an inline hidden state; with scripting off, show their resting state. */
+@media (scripting: none) { main [style*="opacity:0"],main [style*="opacity: 0"] { opacity:1 !important; transform:none !important; } }
 .section-lines { position: relative; isolation: isolate; }
 .section-lines::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: url("/section-lines.svg") center top / 1440px 800px repeat-y; opacity: .12; }
 
@@ -62,13 +64,13 @@ main:has(> .hero-scroll-track) > section[id]:not(#authority)::after {content:"";
 }
 @keyframes station-light {from {opacity:.2;transform:rotate(45deg) scale(.6);}25%,70% {opacity:1;transform:rotate(45deg) scale(1);}to {opacity:.35;transform:rotate(45deg) scale(.8);}}
 @media(max-width:899px) {.scroll-thread,main:has(> .hero-scroll-track) > section[id]::after {display:none;}}
-/* One reveal grammar. Defaults are fully visible; motion only applies where scroll timelines exist and motion is welcome. */
+/* One reveal grammar. Defaults are fully visible; motion only applies where scroll timelines exist and motion is welcome. No fill mode: outside its range, or when the page cannot scroll at all, an item simply shows its resting state. */
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
-    main :is(.section-heading h2,.gallery-heading h2,.contact-section h2) {animation:reveal-line linear both;animation-timeline:view();animation-range:entry 0% entry 100%;}
-    main .work-card .work-cover {animation:reveal-frame linear both;animation-timeline:view();animation-range:entry 0% entry 100%;}
-    main .work-card .cover-image {animation:reveal-settle linear both;animation-timeline:view();animation-range:entry 0% cover 50%;}
-    main :is(.section-heading>p,.service-grid>article,.build-card,.lab-links>a,.faq-list>details,.archive-list>article,.section-note) {animation:reveal-rise linear both;animation-timeline:view();animation-range:entry 0% entry 80%;}
+    main :is(.section-heading h2,.gallery-heading h2,.contact-section h2) {animation:reveal-line linear;animation-timeline:view();animation-range:entry 0% entry 100%;}
+    main .work-card .work-cover {animation:reveal-frame linear;animation-timeline:view();animation-range:entry 0% entry 100%;}
+    main .work-card .cover-image {animation:reveal-settle linear;animation-timeline:view();animation-range:entry 0% cover 50%;}
+    main :is(.section-heading>p,.service-grid>article,.build-card,.lab-links>a,.faq-list>details,.archive-list>article,.section-note) {animation:reveal-rise linear;animation-timeline:view();animation-range:entry 0% entry 80%;}
     main :is(.service-grid>article,.build-card,.lab-links>a):nth-child(3n+2) {animation-range:entry 10% entry 90%;}
     main :is(.service-grid>article,.build-card,.lab-links>a):nth-child(3n) {animation-range:entry 20% entry 100%;}
   }
