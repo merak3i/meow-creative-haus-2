@@ -77,6 +77,7 @@ export default function HeroScroll({ children }: { children: ReactNode }) {
     };
     const observer = new IntersectionObserver(([entry]) => {
       visible = entry.isIntersecting;
+      element.dataset.onscreen = String(visible);
       sync();
       request();
     });

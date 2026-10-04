@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 // Reveal targets for browsers without CSS scroll timelines. Keep in sync with
 // the reveal grammar in globals.css.
 const revealTargets =
-  "main :is(.section-heading h2,.gallery-heading h2,.contact-section h2,.work-card,.section-heading>p,.service-grid>article,.build-card,.lab-links>a,.faq-list>details,.media-item,.archive-list>article,.section-note)";
+  "main :is(.section-heading h2,.gallery-heading h2,.contact-section h2,.work-card,.section-heading>p,.service-grid>article,.build-card,.lab-links>a,.faq-list>details,.archive-list>article,.section-note)";
 
 export default function PageMotion() {
   const pathname = usePathname();
@@ -71,7 +71,9 @@ export default function PageMotion() {
         });
       }, { threshold: 0.12 });
       document.querySelectorAll<HTMLElement>(revealTargets).forEach((item) => {
-        if (item.getBoundingClientRect().top < innerHeight) return;
+        const box = item.getBoundingClientRect();
+        // Items already on screen, or parked sideways in a rail, never wait.
+        if (box.top < innerHeight || box.left >= innerWidth || box.right <= 0) return;
         item.classList.add("reveal-target", "reveal-pending");
         pending.push(item);
         reveal?.observe(item);
