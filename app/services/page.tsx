@@ -6,7 +6,7 @@ import { siteConfig } from "@/lib/data";
 export const metadata: Metadata = {
   title: "Services · digital products & media",
   description:
-    "Website and product design, branded media, interactive experiences, AI workflows and growth systems. Agree a practical scope with Meow Creative Haus.",
+    "Website and product design, branded media, interactive experiences, AI workflows, growth systems and search and AI visibility (SEO, AEO, GEO). Agree a practical scope with Meow Creative Haus.",
   alternates: { canonical: "/services" },
   openGraph: { url: "/services", images: ["/opengraph-image"] },
 };
@@ -55,6 +55,15 @@ const services = [
     deliverables:
       "Positioning / Organic content workflows / Outreach operations / Pipeline infrastructure",
     work: "coastal-edge-ai",
+  },
+  {
+    slug: "visibility",
+    title: "Search & AI visibility",
+    description:
+      "SEO, answer engine optimisation (AEO) and generative engine optimisation (GEO) so search engines and AI assistants can find, cite and describe your business accurately. Backlinking and brand mentions are earned through useful publishing, listings and digital PR, never bought.",
+    deliverables:
+      "SEO audit / Structured data / AEO answer content / GEO citation checks / Backlinking & brand mentions",
+    work: "berglabs",
   },
 ];
 export default function Services() {

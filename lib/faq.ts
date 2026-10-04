@@ -40,6 +40,22 @@ export const faqs = [
     link: "Inside the Lab",
   },
   {
+    id: "search-ai-visibility",
+    question: "Do you offer SEO, AEO and GEO services?",
+    answer:
+      "Yes. We work on search visibility (SEO), answer engine optimisation (AEO) and generative engine optimisation (GEO): clear page structure, structured data, citeable answers and consistent brand details, so search engines and AI assistants can find and describe your business accurately. Nobody controls rankings or AI answers, so we agree checks we can measure instead of promising positions.",
+    href: "/services#visibility",
+    link: "Search & AI visibility",
+  },
+  {
+    id: "backlinking",
+    question: "How do you approach backlinking and brand mentions?",
+    answer:
+      "We earn links and mentions through useful publishing, relevant directory and partner listings, digital PR and credible profiles. We do not buy links or use link networks. You receive a record of what was earned, where it points and why it is relevant.",
+    href: "/services#visibility",
+    link: "Visibility services",
+  },
+  {
     id: "scope-and-pricing",
     question: "How are project scope, timelines and pricing agreed?",
     answer:

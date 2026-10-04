@@ -77,14 +77,11 @@ const archival: WorkProject[] = names.map((name) => {
       title: w.name + " · website",
       group: "Website",
       status: "Portfolio archive",
-      thumbnail:
-        w.name === "Tender Moments"
-          ? "/work-media/tender-moments-2026-09-04-kids-101-015-thumb.webp"
-          : w.screenshot,
+      thumbnail: w.screenshot,
       href: w.url,
       caption:
         w.name === "Tender Moments"
-          ? "Preschool website work; a finished Kids 101 illustration is used as the portfolio preview."
+          ? "Preschool website work, shown with the live site hero."
           : w.tagline,
       width: 1440,
       height: 900,
@@ -193,7 +190,7 @@ tender.brief =
 tender.contribution =
   "Website design and implementation, Kids 101 illustrations, social concepts, Montessori carousel design and Teachers’ Day motion artwork.";
 tender.note =
-  "September creation dates and Instagram publication evidence are separate. The 30 illustrated exports are not 30 verified published posts. The Teachers’ Day selection shows the finished motion artwork’s end card.";
+  "September creation dates and Instagram publication evidence are separate. The seven illustrated exports are not seven verified published posts. The Teachers’ Day selection shows the finished motion artwork’s end card.";
 tender.media.push(
   ...[
     {
