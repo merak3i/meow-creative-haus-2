@@ -13,10 +13,18 @@ const strokes = [1, -1].flatMap((position) =>
   })),
 );
 
-function Layer({ layer, stroke }: { layer: number; stroke: string }) {
+function Layer({
+  layer,
+  stroke,
+  extra = "",
+}: {
+  layer: number;
+  stroke: string;
+  extra?: string;
+}) {
   return (
     <svg
-      className={`hero-layer hero-layer-${layer + 1}`}
+      className={`hero-layer hero-layer-${layer + 1}${extra}`}
       viewBox="0 0 696 316"
       fill="none"
       preserveAspectRatio="xMidYMid slice"
@@ -71,9 +79,19 @@ export default function HeroScroll({ children }: { children: ReactNode }) {
       if (fallback !== undefined) clearTimeout(fallback);
       sync();
     };
+    // While the page is being scrolled the depth layers already move with
+    // it; the free drift holds still so each scroll frame stays light.
+    let settle: number | undefined;
     const onScroll = () => {
       start();
       request();
+      if (!visible) return;
+      if (settle === undefined) element.dataset.scrolling = "";
+      else clearTimeout(settle);
+      settle = window.setTimeout(() => {
+        settle = undefined;
+        delete element.dataset.scrolling;
+      }, 160);
     };
     const observer = new IntersectionObserver(([entry]) => {
       visible = entry.isIntersecting;
@@ -104,6 +122,7 @@ export default function HeroScroll({ children }: { children: ReactNode }) {
       paint?.disconnect();
       if (fallback !== undefined) clearTimeout(fallback);
       cancelAnimationFrame(frame);
+      if (settle !== undefined) clearTimeout(settle);
       removeEventListener("scroll", onScroll);
       removeEventListener("resize", request);
       reduced.removeEventListener("change", preference);
@@ -114,21 +133,11 @@ export default function HeroScroll({ children }: { children: ReactNode }) {
     <div className="hero-scroll-track" data-motion="paused" ref={track}>
       <div className="hero-scroll-stage">
         <div className="hero-paths" aria-hidden="true">
-          <div className="hero-depth hero-depth-1">
-            <Layer layer={0} stroke="currentColor" />
-          </div>
-          <div className="hero-depth hero-depth-2">
-            <Layer layer={1} stroke="currentColor" />
-          </div>
-          <div className="hero-depth hero-depth-3">
-            <Layer layer={2} stroke="currentColor" />
-          </div>
-          <div className="hero-depth hero-depth-2 hero-sweep">
-            <div className="hero-sweep-band">
-              <div className="hero-sweep-field">
-                <Layer layer={1} stroke="url(#hero-signal)" />
-              </div>
-            </div>
+          <Layer layer={0} stroke="currentColor" />
+          <Layer layer={1} stroke="currentColor" />
+          <Layer layer={2} stroke="currentColor" />
+          <div className="hero-sweep-band">
+            <Layer layer={1} stroke="url(#hero-signal)" extra=" hero-sweep-lines" />
           </div>
           <svg className="hero-defs" width="0" height="0" focusable="false">
             <defs>

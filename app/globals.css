@@ -13,36 +13,35 @@ img[data-deferred] { display:none; }
 .hero-scroll-stage {position:relative;overflow:hidden;}
 .hero-scroll-stage .portfolio-hero {position:relative;z-index:1;}
 .hero-paths {--line-alpha:.4;position:absolute;inset:0;pointer-events:none;color:#c7d5ce;mask-image:linear-gradient(110deg,transparent 2%,#000 58%);overflow:hidden;}
-.hero-depth {position:absolute;inset:0;}
-.hero-layer {position:absolute;inset:-8%;width:116%;height:116%;transform-origin:50% 50%;animation-name:hero-drift-1;animation-duration:18s;animation-timing-function:ease-in-out;animation-iteration-count:infinite;animation-direction:alternate;animation-fill-mode:both;animation-play-state:paused;opacity:var(--line-alpha);}
-.hero-layer-1 {animation-name:hero-drift-1;}
-.hero-layer-2 {animation-name:hero-drift-2;animation-duration:26s;animation-direction:alternate-reverse;opacity:calc(var(--line-alpha) * .72);}
-.hero-layer-3 {animation-name:hero-drift-3;animation-duration:34s;opacity:calc(var(--line-alpha) * .5);}
+.hero-layer {--drift:hero-drift-1;--drift-time:18s;--drift-dir:alternate;--part:hero-part-1;--play:paused;position:absolute;inset:-8%;width:116%;height:116%;transform-origin:50% 50%;opacity:var(--line-alpha);animation-name:var(--drift);animation-duration:var(--drift-time);animation-timing-function:ease-in-out;animation-iteration-count:infinite;animation-direction:var(--drift-dir);animation-fill-mode:both;animation-play-state:var(--play);}
+.hero-layer-2 {--drift:hero-drift-2;--drift-time:26s;--drift-dir:alternate-reverse;--part:hero-part-2;opacity:calc(var(--line-alpha) * .72);}
+.hero-layer-3 {--drift:hero-drift-3;--drift-time:34s;--part:hero-part-3;opacity:calc(var(--line-alpha) * .5);}
 .hero-defs {position:absolute;width:0;height:0;}
-/* A teal-to-gold signal travels along the middle layer: the band and its contents move in opposite directions, so the strokes stay put while the light passes. */
-.hero-sweep {overflow:hidden;}
-.hero-sweep-band {position:absolute;top:0;bottom:0;left:0;width:30%;mask-image:linear-gradient(90deg,transparent,#000 42%,#000 58%,transparent);transform:translate3d(-100%,0,0);animation:hero-sweep-band 9s linear infinite paused;}
-.hero-sweep-field {position:absolute;top:0;bottom:0;left:0;width:333.334%;transform:translate3d(30%,0,0);animation:hero-sweep-field 9s linear infinite paused;}
-.hero-sweep .hero-layer {opacity:.95;}
+/* A teal-to-gold signal crosses the middle layer every 9s. The band travels one way and its strokes the other (translate), so the lines hold still while the light passes. */
+.hero-sweep-band {--play:paused;position:absolute;top:0;bottom:0;left:0;width:30%;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 42%,#000 58%,transparent);transform:translate3d(-100%,0,0);animation-name:hero-sweep-band;animation-duration:9s;animation-timing-function:linear;animation-iteration-count:infinite;animation-play-state:var(--play);}
+.hero-sweep-band .hero-sweep-lines {inset:-8% auto auto -26.667%;width:386.667%;height:116%;opacity:.95;animation-name:var(--drift),hero-sweep-counter;animation-duration:var(--drift-time),9s;animation-timing-function:ease-in-out,linear;animation-iteration-count:infinite,infinite;animation-direction:var(--drift-dir),normal;animation-fill-mode:both,both;animation-play-state:var(--play),var(--play);}
+/* On wide screens the field occupies the open right side only: the copy column never showed it, and a smaller field keeps every frame light. */
+@media(min-width:900px) {.hero-paths {left:36%;mask-image:linear-gradient(90deg,transparent 0%,#000 42%);}}
 /* Off screen the field is not drawn at all (set by script, so it never hides without it). */
 .hero-scroll-track[data-onscreen="false"] .hero-paths {display:none;}
-.hero-scroll-track[data-motion="running"] :is(.hero-layer,.hero-sweep-band,.hero-sweep-field) {animation-play-state:running;}
+.hero-scroll-track[data-motion="running"] :is(.hero-layer,.hero-sweep-band) {--play:running;}
+/* While the page scrolls, the scroll-linked parting carries the motion and the free drift holds still. */
+.hero-scroll-track[data-motion="running"][data-scrolling] :is(.hero-layer,.hero-sweep-band) {--play:paused;}
 @keyframes hero-drift-1 {from {transform:translate3d(-4%,-2.5%,0) rotate(-2deg);}to {transform:translate3d(4%,3%,0) rotate(1.2deg);}}
 @keyframes hero-drift-2 {from {transform:translate3d(3.5%,-3%,0) rotate(1.6deg);}to {transform:translate3d(-3.5%,2.5%,0) rotate(-1.6deg);}}
 @keyframes hero-drift-3 {from {transform:translate3d(-2.5%,3.5%,0) rotate(.6deg) scale(1.03);}to {transform:translate3d(3%,-2.5%,0) rotate(-2.2deg) scale(1.03);}}
 @keyframes hero-sweep-band {from {transform:translate3d(-100%,0,0);}38%,to {transform:translate3d(333.334%,0,0);}}
-@keyframes hero-sweep-field {from {transform:translate3d(30%,0,0);}38%,to {transform:translate3d(-100%,0,0);}}
-/* On scroll the three depths part: near strokes travel further than far ones. */
+@keyframes hero-sweep-counter {from {translate:25.862% 0;}38%,to {translate:-86.207% 0;}}
+/* On scroll the three depths part (translate, alongside the drift): near strokes travel further than far ones. */
 @supports (animation-timeline: scroll()) {
   @media (prefers-reduced-motion: no-preference) {
-    .hero-depth {animation:hero-part-1 linear both;animation-timeline:scroll(root);animation-range:0 100vh;}
-    .hero-depth-2 {animation-name:hero-part-2;}
-    .hero-depth-3 {animation-name:hero-part-3;}
+    .hero-paths > .hero-layer {animation-name:var(--drift),var(--part);animation-duration:var(--drift-time),auto;animation-timing-function:ease-in-out,linear;animation-iteration-count:infinite,1;animation-direction:var(--drift-dir),normal;animation-fill-mode:both,both;animation-play-state:var(--play),running;animation-timeline:auto,scroll(root);animation-range:normal,0 100vh;}
+    .hero-sweep-band {animation-name:hero-sweep-band,hero-part-2;animation-duration:9s,auto;animation-timing-function:linear,linear;animation-iteration-count:infinite,1;animation-fill-mode:none,both;animation-play-state:var(--play),running;animation-timeline:auto,scroll(root);animation-range:normal,0 100vh;}
   }
 }
-@keyframes hero-part-1 {to {transform:translate3d(0,-150px,0);}}
-@keyframes hero-part-2 {to {transform:translate3d(0,-80px,0);}}
-@keyframes hero-part-3 {to {transform:translate3d(0,-30px,0);}}
+@keyframes hero-part-1 {to {translate:0 -150px;}}
+@keyframes hero-part-2 {to {translate:0 -80px;}}
+@keyframes hero-part-3 {to {translate:0 -30px;}}
 /* The thread: one teal line in the gutter that draws down with the page. */
 .scroll-thread {position:fixed;top:72px;bottom:0;left:clamp(12px,1.7vw,26px);width:1px;z-index:40;pointer-events:none;background:color-mix(in srgb,var(--portfolio-line) 70%,transparent);}
 .scroll-thread::after {content:"";position:absolute;inset:0;background:linear-gradient(var(--portfolio-teal),color-mix(in srgb,var(--portfolio-teal) 35%,transparent));transform-origin:50% 0;opacity:.55;}
@@ -114,7 +113,7 @@ main:has(> .hero-scroll-track) > section[id]:not(#authority)::after {content:"";
 @media(min-width:900px) and (min-height:650px) {.hero-scroll-track {height:125svh;}.hero-scroll-stage {position:sticky;top:72px;height:calc(100svh - 72px);}.hero-scroll-stage .portfolio-hero {min-height:100%;}.hero-scroll-stage .hero-art {transform:perspective(1200px) rotateY(calc(var(--hero-progress) * -6deg)) translateY(calc(var(--hero-progress) * -30px));}}
 @media(max-width:899px) {.hero-scroll-cue {display:none;}.hero-paths {--line-alpha:.3;}.notes-issue-grid {grid-template-columns:1fr;}}
 @media(prefers-reduced-motion:reduce) {.hero-scroll-track {height:auto;}.hero-scroll-stage {position:relative;height:auto;}.hero-scroll-stage .hero-art {transform:none;}}
-@media(prefers-reduced-motion:reduce) {.hero-layer,.hero-depth {animation:none;transform:none;}.hero-sweep {display:none;}}
+@media(prefers-reduced-motion:reduce) {.hero-layer {animation:none;transform:none;translate:none;}.hero-sweep-band {display:none;}}
 .journal-features,.lab-work-grid { margin-top:32px; }
 .image-fallback { position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:20px;background:#18251e;color:#c9dace;font-size:12px;text-align:center;line-height:1.8; }
 .image-fallback small { font-size:10px;font-weight:400; }
