@@ -268,20 +268,6 @@ const extra: WorkProject[] = [
     ],
   },
   {
-    slug: "sasta-hacker",
-    name: "Sasta Hacker outro concepts",
-    description:
-      "AI-assisted portrait performance and a short outro direction.",
-    brief:
-      "Explore a fast portrait outro with a fashion and cyberpunk visual direction.",
-    contribution:
-      "AI-assisted adult performance concept. The silent study is shown without music reuse or delivery claims.",
-    status: "Concept · delivery unverified",
-    disciplines: ["Motion", "Concepts"],
-    media: newMedia("sasta-hacker"),
-    modifiedAt: "2026-10-03",
-  },
-  {
     slug: "falcon-fitness",
     name: "Falcon Fitness",
     description: "An expressive fitness website and campaign artwork.",
@@ -447,7 +433,54 @@ const extra: WorkProject[] = [
     modifiedAt: "2026-10-03",
   },
 ];
-export const workProjects = [...archival, ...extra];
+const rhyth = archival.find((p) => p.slug === "rhyth-jain")!;
+rhyth.description =
+  "Brand record and the Sasta Hacker AI-assisted portrait outro concept.";
+rhyth.brief =
+  "Explore a fast portrait outro with a fashion and cyberpunk visual direction.";
+rhyth.contribution =
+  "AI-assisted adult performance concept. The silent study is shown without music reuse or delivery claims.";
+rhyth.status = "Concept · delivery unverified";
+rhyth.disciplines = ["Motion", "Concepts"];
+const resonance = archival.find((p) => p.slug === "resonance-security")!;
+resonance.media.push(
+  ...[
+    {
+      id: "rs-linkedin",
+      title: "Resonance Security on LinkedIn",
+      href: "https://www.linkedin.com/company/resonance-security/",
+    },
+    {
+      id: "rs-instagram",
+      title: "Resonance Security on Instagram",
+      href: "https://www.instagram.com/resonancesecurity/",
+    },
+    {
+      id: "rs-site",
+      title: "resonance.security",
+      href: "https://www.resonance.security/",
+    },
+  ].map((m) => ({
+    ...m,
+    kind: "resource" as const,
+    group: "Brand channels",
+    status: "Official channel",
+  })),
+);
+// Logo-only roster brands sit on the last page of the Work index.
+const lastPage = [
+  "coastal-karnataka-sailing-club",
+  "jb-co",
+  "precision-electrical-works",
+  "blackfrog",
+  "rhyth-jain",
+  "canterclub",
+];
+const ordered = [...archival, ...extra];
+export const workProjects = [
+  ...ordered.filter((p) => !lastPage.includes(p.slug)),
+  ...lastPage.map((slug) => ordered.find((p) => p.slug === slug)!),
+];
 export const featuredSlugs = [
   "tender-moments",
   "berglabs",

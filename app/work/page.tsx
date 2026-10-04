@@ -37,7 +37,7 @@ export default async function Work({
           .toLowerCase()
           .includes(q.toLowerCase())),
   );
-  const pageSize = 12,
+  const pageSize = 10,
     pages = Math.ceil(filtered.length / pageSize),
     current = Math.min(page, Math.max(pages, 1));
   const href = (type?: string, n = 1) => {
