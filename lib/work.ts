@@ -433,7 +433,7 @@ const extra: WorkProject[] = [
     modifiedAt: "2026-10-03",
   },
 ];
-const rhyth = archival.find((p) => p.slug === "rhyth-jain")!;
+const rhyth = archival.find((p) => p.slug === "rhythm-jain")!;
 rhyth.description =
   "Brand record and the Sasta Hacker AI-assisted portrait outro concept.";
 rhyth.brief =
@@ -470,10 +470,9 @@ resonance.media.push(
 // Logo-only roster brands sit on the last page of the Work index.
 const lastPage = [
   "coastal-karnataka-sailing-club",
-  "jb-co",
   "precision-electrical-works",
   "blackfrog",
-  "rhyth-jain",
+  "rhythm-jain",
   "canterclub",
 ];
 const ordered = [...archival, ...extra];

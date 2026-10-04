@@ -68,10 +68,6 @@ export const clientLogos = [
     hasBg: true,
   },
   {
-    name: "JB & Co",
-    src: "https://meowcreativehaus.lovable.app/lovable-uploads/jb-co-logo.png",
-  },
-  {
     name: "Precision Electrical Works",
     src: "https://meowcreativehaus.lovable.app/lovable-uploads/precision-electrical-works.png",
   },
@@ -80,7 +76,7 @@ export const clientLogos = [
     src: "https://meowcreativehaus.lovable.app/lovable-uploads/blackfrog-logo.png",
   },
   {
-    name: "Rhyth Jain",
+    name: "Rhythm Jain",
     src: "https://meowcreativehaus.lovable.app/lovable-uploads/rhyth-jain-logo.png",
   },
   {

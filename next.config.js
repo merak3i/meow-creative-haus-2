@@ -4,7 +4,17 @@ const nextConfig = {
     return [
       {
         source: "/work/sasta-hacker",
-        destination: "/work/rhyth-jain",
+        destination: "/work/rhythm-jain",
+        permanent: true,
+      },
+      {
+        source: "/work/rhyth-jain",
+        destination: "/work/rhythm-jain",
+        permanent: true,
+      },
+      {
+        source: "/work/jb-co",
+        destination: "/work",
         permanent: true,
       },
     ];
