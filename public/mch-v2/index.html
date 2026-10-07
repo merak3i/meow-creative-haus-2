@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Meow Creative Haus</title>
+<meta name="description" content="Meow Creative Haus. Designing &amp; building software and media worth feeling. Websites, AI systems and visual stories for founders and businesses, with support after launch.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Instrument+Sans:wght@400;500;600&family=Martian+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/mch-v2/site.css">
+<style>.hcopy .sub{font-family:var(--display);font-size:clamp(20px,2vw,30px);line-height:1.1;font-weight:500;letter-spacing:-.015em;font-variation-settings:"wdth" 88;max-width:24ch;margin-top:-6px}
+.hcopy .sub b{font-weight:600;color:var(--violet)}
+.sites{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,1.8vw,22px);margin-top:clamp(48px,6vw,80px)}
+.site{display:flex;flex-direction:column;gap:12px;text-decoration:none;min-width:0}
+.site .win{border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--paper2);transition:border-color .3s,transform .5s var(--ease)}
+.site:hover .win{border-color:var(--violet);transform:translateY(-4px)}
+.site .bar{display:flex;align-items:center;gap:6px;padding:8px 10px;border-bottom:1px solid var(--line);background:var(--paper)}
+.site .bar i{width:7px;height:7px;border-radius:50%;background:var(--line)}
+.site .bar span{margin-left:6px;color:var(--ink2);font-size:9.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.site .media{aspect-ratio:16/10;border-radius:0}
+.site h3{font-size:20px;font-variation-settings:"wdth" 90}
+.site p{color:var(--ink2);font-size:14px}
+.sitehead{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:18px;margin-top:clamp(48px,6vw,80px)}
+.sitehead h3{font-size:clamp(22px,2.2vw,30px);font-variation-settings:"wdth" 86}
+@media (max-width:980px){.sites{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.sites{grid-template-columns:1fr}}
+/* HERO */
+#hero{height:360vh;position:relative}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+#scene{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hcopy{position:absolute;left:var(--gut);top:calc(108px + env(safe-area-inset-top,0px));bottom:48px;width:min(40%,520px);display:flex;flex-direction:column;justify-content:center;gap:26px;z-index:2}
+.hcopy .eyebrow{color:var(--violet)}
+.hcopy h1{font-size:clamp(46px,6.4vw,104px);line-height:.92;font-variation-settings:"wdth" 82;font-weight:700}
+.hcopy h1 em{font-style:normal;color:var(--violet)}
+.hcopy p.lead{font-size:clamp(16px,1.3vw,19px);color:var(--ink2);max-width:42ch}
+.ctas{display:flex;gap:10px;flex-wrap:wrap}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:8px;max-width:360px}
+.steps li{display:grid;grid-template-columns:28px 1fr auto;align-items:center;gap:10px;color:var(--ink2);font-size:14px;transition:color .3s}
+.steps li .mono{color:var(--graphite)}
+.steps li i{height:1px;width:0;background:var(--violet);transition:width .5s var(--ease)}
+.steps li.on{color:var(--ink)}
+.steps li.on .mono{color:var(--violet)}
+.steps li.on i{width:40px}
+.tagline{font-family:var(--display);font-size:15px;font-style:italic;color:var(--ink2)}
+.cue{position:absolute;right:var(--gut);bottom:22px;z-index:2;color:var(--graphite);display:flex;align-items:center;gap:10px}
+.cue i{width:40px;height:1px;background:var(--graphite);position:relative;overflow:hidden}
+.cue i::after{content:"";position:absolute;inset:0;background:var(--violet);transform:translateX(-100%);animation:cue 2s infinite var(--ease)}
+@keyframes cue{to{transform:translateX(100%)}}
+
+@media (max-width:760px){#hero{height:330vh}.hcopy{width:auto;right:var(--gut);top:calc(78px + env(safe-area-inset-top,0px));bottom:auto;gap:14px}.hcopy h1{font-size:clamp(40px,12vw,58px)}.hcopy .lead{font-size:15px}.hcopy .sub{font-size:20px}.steps,.tagline,.cue{display:none}}</style>
+</head>
+<body>
+<header class="nav" id="nav">
+  <div class="in">
+    <a class="logo" href="/" aria-label="Meow Creative Haus home"><b>MCH<i>.</i></b><span>Meow Creative Haus</span></a>
+    <ul id="menu"><li><a href="/work">Work</a></li><li><a href="/services">Services</a></li><li><a href="/lab">Lab</a></li><li><a href="/journal">Journal</a></li><li><a class="btn acc" href="/#contact">Start a project <span class="arr">↗</span></a></li></ul>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h18M3 16h18"/></svg></button>
+  </div>
+  <div class="ruler"><span class="mono">Frame <b id="frameName">Home</b> · 1440 × auto</span></div>
+</header>
+<div id="sel" aria-hidden="true"><i></i><i></i><i></i><i></i><span></span></div>
+<div id="you" aria-hidden="true">you</div>
+<main>
+<section id="hero" data-frame="Home">
+  <div class="stage">
+    <canvas id="scene" aria-hidden="true"></canvas>
+    <div class="hcopy">
+      <div class="mono eyebrow">Meow Creative Haus · Studio</div>
+      <h1>Digital products <em>&amp;</em> media.</h1>
+      <p class="sub">Designing &amp; building software/media <b>worth feeling.</b></p>
+      <p class="lead">Digital products &amp; media for founders and businesses. Websites, AI systems and visual stories, with support after launch.</p>
+      <div class="ctas">
+        <a class="btn" href="/work" data-sel="Button · View work">View work <span class="arr">↗</span></a>
+        <a class="btn acc" href="#contact" data-sel="Button · Start a project">Start a project <span class="arr">↗</span></a>
+      </div>
+      <ol class="steps" id="steps" aria-label="From sketch to launch">
+        <li class="on"><span class="mono">01</span>Sketch the idea<i></i></li>
+        <li><span class="mono">02</span>Set the structure<i></i></li>
+        <li><span class="mono">03</span>Build the interface<i></i></li>
+        <li><span class="mono">04</span>Carry it into media<i></i></li>
+      </ol>
+      <p class="tagline">From the first sketch to the working thing.</p>
+    </div>
+    <div class="cue mono">Scroll <i></i></div>
+  </div>
+</section>
+
+<section class="frame" data-frame="Detour" id="detour">
+  <div class="wrap detour">
+    <div class="txt">
+      <div class="ftag mono"><b>Frame</b> Detour</div>
+      <h3>From the first sketch to the working thing.</h3>
+      <p class="muted" style="max-width:44ch">Strategy, design, code and media stay in one studio, so the idea survives the trip from concept to launch.</p>
+      <a class="pill" href="/work/meow-wild" data-sel="Link · meow.wild"><span class="dots">◉ ◉</span> meow.wild · a little detour <span class="arr">↗</span></a>
+    </div>
+    <div>
+      <a href="/work/mch-art" data-sel="Image · Sopranos pool" style="text-decoration:none;display:block"><span class="media "><img src="/work-media/mch-art-09-sopranos-pool-portrait-purple.webp" alt="Purple film-inspired study of a man beside a pool with ducks" loading="lazy"><span class="fb"><b>Sopranos pool</b><span class="mono">Film-inspired study · MCH Art</span></span></span></a>
+      <div class="cap mono"><span>Sopranos pool · film-inspired study</span><span>↗</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="frame tight" data-frame="Work" id="work">
+  <div class="wrap">
+    <div class="ftag mono"><b>Frame</b> Work</div>
+    <div class="head"><h2>Different briefs. <em>Distinct identities.</em></h2><div class="side"><a class="link" href="/work">Explore all work <span class="arr">↗</span></a></div></div>
+    <div class="cases">
+      <a class="case" href="/work/tender-moments" data-sel="Case · Tender Moments"><span class="media "><img src="/work-media/tender-moments-2026-09-04-kids-101-015-cover.webp" alt="Tender Moments" loading="lazy"><span class="fb"><b>Tender Moments</b><span class="mono">Websites / Social / Motion</span></span></span><span class="meta"><h3>Tender Moments</h3><span class="mono count">18 items</span></span><span class="mono disc">Websites / Social / Motion</span><p>A preschool website, illustrated learning stories and social creative.</p></a>
+      <a class="case" href="/work/berglabs" data-sel="Case · BergLabs"><span class="media "><img src="/screenshots/berglabs-homepage-2026-07-26.webp" alt="BergLabs" loading="lazy"><span class="fb"><b>BergLabs</b><span class="mono">Websites / Editorial / Social</span></span></span><span class="meta"><h3>BergLabs</h3><span class="mono count">27 items</span></span><span class="mono disc">Websites / Editorial / Social</span><p>Identity and website, with an expanding editorial design system.</p></a>
+    </div>
+    <p class="note">Related formats, context and publication status sit together inside each case.</p>
+    <div class="sitehead"><h3>Live client websites</h3><a class="link" href="/work#websites">All websites <span class="arr">↗</span></a></div>
+    <div class="sites" style="margin-top:24px"><a class="site" href="https://hegde-bros.vercel.app/" data-sel="Live site · Hegde Bros"><span class="win"><span class="bar"><i></i><i></i><i></i><span class="mono">hegde-bros.vercel.app</span></span><span class="media "><img src="/mch-v2/assets/hegde-bros-site.webp" alt="Hegde Bros" loading="lazy"><span class="fb"><b>Hegde Bros</b><span class="mono">Live website</span></span></span></span><h3>Hegde Bros</h3><p>Bengaluru land and development firm, est. 2001</p></a><a class="site" href="https://eaash.vercel.app/" data-sel="Live site · EAASH"><span class="win"><span class="bar"><i></i><i></i><i></i><span class="mono">eaash.vercel.app</span></span><span class="media "><img src="/screenshots/eaash.webp" alt="EAASH" loading="lazy"><span class="fb"><b>EAASH</b><span class="mono">Live website</span></span></span></span><h3>EAASH</h3><p>Boutique coastal stay brand</p></a><a class="site" href="https://manipalaerosports.vercel.app/" data-sel="Live site · Manipal Aerosports"><span class="win"><span class="bar"><i></i><i></i><i></i><span class="mono">manipalaerosports.vercel.app</span></span><span class="media "><img src="/screenshots/manipal-aerosports.webp" alt="Manipal Aerosports" loading="lazy"><span class="fb"><b>Manipal Aerosports</b><span class="mono">Live website</span></span></span></span><h3>Manipal Aerosports</h3><p>Aviation training &amp; airshow brand</p></a><a class="site" href="https://suharehma.vercel.app/" data-sel="Live site · Suha Rehma"><span class="win"><span class="bar"><i></i><i></i><i></i><span class="mono">suharehma.vercel.app</span></span><span class="media "><img src="/screenshots/suha-rehma.webp" alt="Suha Rehma" loading="lazy"><span class="fb"><b>Suha Rehma</b><span class="mono">Live website</span></span></span></span><h3>Suha Rehma</h3><p>Psychology practice, digital presence</p></a></div>
+  </div>
+</section>
+
+<section class="frame tight" data-frame="Services" id="services">
+  <div class="wrap"><div class="slab">
+    <div class="ftag mono"><b>Frame</b> Services</div>
+    <div class="head"><h2>The idea, <em>made usable.</em></h2><div class="side"><a class="link" href="/services">Services in detail <span class="arr">↗</span></a></div></div>
+    <div class="svc"><a href="/services#product-web" data-sel="Service · Websites & products"><span class="mono n">01</span><h3>Websites &amp; products</h3><p>Clear structure, expressive interfaces and working builds. New websites, product screens or a thoughtful refresh that keeps your existing content and links.</p><span class="go">Read more <span class="arr">↗</span></span></a><a href="/services#digital-media" data-sel="Service · Media & visual stories"><span class="mono n">02</span><h3>Media &amp; visual stories</h3><p>Illustration, campaign artwork, editorial carousels and motion. A visual language that carries across the website, the feed and the next chapter.</p><span class="go">Read more <span class="arr">↗</span></span></a><a href="/services#ai-systems" data-sel="Service · AI & workflows"><span class="mono n">03</span><h3>AI &amp; workflows</h3><p>Assistants, automation and internal tools built around a real task. Human review stays part of the process, from factual checks to release decisions.</p><span class="go">Read more <span class="arr">↗</span></span></a><a href="/services#growth-systems" data-sel="Service · Experiences & growth"><span class="mono n">04</span><h3>Experiences &amp; growth</h3><p>Interactive storytelling, positioning and content workflows. We connect the presentation with the way people find, understand and use the work.</p><span class="go">Read more <span class="arr">↗</span></span></a></div>
+  </div></div>
+</section>
+
+<section class="frame" data-frame="Builds" id="builds">
+  <div class="wrap">
+    <div class="ftag mono"><b>Frame</b> Builds</div>
+    <div class="head"><h2>Builds. <em>Interfaces in progress.</em></h2><div class="side"><p>A closer look at purpose, workflow and the current state of each build.</p></div></div>
+    <div class="builds">
+      <a class="build" href="/work/patherle" data-sel="Build · Patherle"><div class="top"><span class="mono muted">Business OS</span><span class="chip">Beta</span></div><div class="screen"><canvas data-ui="chat"></canvas></div><h3>Patherle</h3><p>A business OS exploring conversational workflows and operational interfaces.</p><span class="go">Explore the screens &amp; build notes <span class="arr">↗</span></span></a>
+      <a class="build" href="/work/1clickwebsite-india" data-sel="Build · 1ClickWebsite India"><div class="top"><span class="mono muted">Site builder</span><span class="chip">Alpha</span></div><div class="screen"><canvas data-ui="builder"></canvas></div><h3>1ClickWebsite India</h3><p>An alpha build for websites, invitations and pitch decks.</p><span class="go">Explore the screens &amp; build notes <span class="arr">↗</span></span></a>
+      <a class="build" href="/work/meow-wild" data-sel="Build · meow.wild"><div class="top"><span class="mono muted">Scroll story</span><span class="chip">Interactive build</span></div><div class="screen"><canvas data-ui="story"></canvas></div><h3>meow.wild</h3><p>A playful scroll story exploring the world of cats.</p><span class="go">Explore the screens &amp; build notes <span class="arr">↗</span></span></a>
+    </div>
+  </div>
+</section>
+
+<section class="frame tight" data-frame="Lab" id="lab">
+  <div class="wrap"><div class="slab">
+    <div class="ftag mono"><b>Frame</b> Lab</div>
+    <div class="head"><h2>Still curious. <em>Experiments &amp; field notes.</em></h2><div class="side"><a class="link" href="/lab">Enter the Lab <span class="arr">↗</span></a></div></div>
+    <div class="labrow">
+      <a href="/work/dil-se-rave" data-sel="Lab · Motion studies"><span class="mono k">Motion studies · DSR / Dil Se Rave</span><h3>Dil Se Rave</h3><p>Silent backdrop loops: chrome, contour fields and layered motion.</p></a>
+      <a href="/work/mch-art" data-sel="Lab · Art collection"><span class="mono k">Art collection</span><h3>Colour, gesture, space</h3><p>Original abstract compositions and clearly labelled film-inspired studies.</p></a>
+      <a href="/work/meow-ops" data-sel="Lab · Meow Ops: Sanctum"><span class="mono k">Latest · 01 Oct 2026</span><h3>Meow Ops: Sanctum</h3><p>An original archive identity and a public record of the build.</p></a>
+    </div>
+    <div class="lablinks">
+      <a class="pill" href="/lab">Design &amp; build practice <span class="arr">↗</span></a>
+      <a class="pill" href="/updates">All releases &amp; updates <span class="arr">↗</span></a>
+      <a class="pill" href="/studio-notes">Studio Notes · all issues <span class="arr">↗</span></a>
+      <a class="pill" href="/journal">Writing &amp; zine archive <span class="arr">↗</span></a>
+    </div>
+  </div></div>
+</section>
+
+<section class="frame" data-frame="Studio" id="about">
+  <div class="wrap founder">
+    <div><div class="ftag mono"><b>Frame</b> Studio</div><figure class="portrait " data-sel="Image · Vismay Hegde"><img src="/mch-v2/assets/vismay-hegde.webp" alt="Vismay Hegde, founder of Meow Creative Haus, in a black suit against a black and white liquid backdrop with iridescent colour" width="900" height="1125" loading="lazy"><figcaption class="mono"><span>Vismay Hegde</span><span>Founder · MCH</span></figcaption></figure></div>
+    <div class="ftext">
+      <div class="badge" data-sel="Badge · Founder"><i>✦</i>Founder, backed by god 🐈‍⬛</div>
+      <p class="say">Meow Creative Haus is led by <b>Vismay Hegde</b>. Design, development and media stay close to the brief, with the work reviewed as it takes shape.</p>
+      <a class="link" href="https://www.linkedin.com/in/vismay-h-b9a89a81gde/">Meet the person behind the work <span class="arr">↗</span></a>
+    </div>
+  </div>
+</section>
+<section class="frame tight" data-frame="FAQ" id="faq">
+  <div class="wrap faq">
+    <div><div class="ftag mono"><b>Frame</b> FAQ</div><div class="head" style="display:block"><h2>Before we start. <em>A little clarity.</em></h2></div></div>
+    <div><details><summary>What does Meow Creative Haus design and build?<span class="pm">+</span></summary><div class="a"><p>Meow Creative Haus designs websites, product interfaces, AI workflows, illustrations, social creative and video. Work can connect the story, visual system and implementation; the portfolio shows each example&#x27;s status.</p><a class="link" href="/work">Explore the work <span class="arr">↗</span></a></div></details><details><summary>Can one project include a website and branded media?<span class="pm">+</span></summary><div class="a"><p>Yes. A website can share its visual direction with illustrations, social posts, campaign artwork and motion. Tender Moments brings several formats together. We agree the deliverables before starting.</p><a class="link" href="/work/tender-moments">See Tender Moments <span class="arr">↗</span></a></div></details><details><summary>What kinds of social content and video can you create?<span class="pm">+</span></summary><div class="a"><p>Examples include illustrated posts, editorial carousels, short videos, AI-assisted presenters, podcasts and motion studies. We choose formats around the message. Drafts and concepts stay distinct from verified published work.</p><a class="link" href="/work#social">Browse social work <span class="arr">↗</span></a></div></details><details><summary>Can you improve an existing website without losing its content?<span class="pm">+</span></summary><div class="a"><p>We inventory pages, media, links and history before changing the site. Copy, navigation and loading can improve while original files and older destinations remain accessible, with a backup and rollback plan.</p><a class="link" href="/services#product-web">Website services <span class="arr">↗</span></a></div></details><details><summary>How do you use AI, and what receives human review?<span class="pm">+</span></summary><div class="a"><p>AI can assist research, image exploration, editing, code and automation. Human review checks facts, attribution, visual choices and working behaviour before release. Illustrative and AI-generated work receives appropriate labels.</p><a class="link" href="/lab">Inside the Lab <span class="arr">↗</span></a></div></details><details><summary>Do you offer SEO, AEO and GEO services?<span class="pm">+</span></summary><div class="a"><p>Yes. We work on search visibility (SEO), answer engine optimisation (AEO) and generative engine optimisation (GEO): clear page structure, structured data, citeable answers and consistent brand details, so search engines and AI assistants can find and describe your business accurately. Nobody controls rankings or AI answers, so we agree checks we can measure instead of promising positions.</p><a class="link" href="/services#visibility">Search &amp; AI visibility <span class="arr">↗</span></a></div></details><details><summary>How do you approach backlinking and brand mentions?<span class="pm">+</span></summary><div class="a"><p>We earn links and mentions through useful publishing, relevant directory and partner listings, digital PR and credible profiles. We do not buy links or use link networks. You receive a record of what was earned, where it points and why it is relevant.</p><a class="link" href="/services#visibility">Visibility services <span class="arr">↗</span></a></div></details><details><summary>How are project scope, timelines and pricing agreed?<span class="pm">+</span></summary><div class="a"><p>We discuss your goal, existing material, deliverables and constraints, then agree a written scope, milestones and price. Timing depends on the work and review process; changes are discussed before proceeding.</p><a class="link" href="/services">Explore services <span class="arr">↗</span></a></div></details><details><summary>What support is available after launch?<span class="pm">+</span></summary><div class="a"><p>Support can include content updates, fixes, performance review and further design or development. We agree responsibilities and the support scope before launch, so you know what is included.</p><a class="link" href="/#contact">Discuss ongoing support <span class="arr">↗</span></a></div></details><details><summary>How do I start a project?<span class="pm">+</span></summary><div class="a"><p>Send a short note about what you need, who it is for and any existing material. Add a deadline or budget range if available. We&#x27;ll discuss scope and next steps.</p><a class="link" href="/#contact">Start a project <span class="arr">↗</span></a></div></details></div>
+  </div>
+</section>
+<section class="frame tight" data-frame="Contact" id="contact">
+  <div class="wrap"><div class="slab cta" data-sel="Slab · Contact">
+    <div><div class="mono eyebrow">Have something in mind?</div><h2>Let's make it <em>worth exploring.</em></h2></div>
+    <div><p>Tell us what you need, who it is for and what already exists. A few clear sentences are enough to begin.</p>
+      <div class="ctas"><a class="btn acc" href="https://wa.me/message/2A5FTZGCFJY6B1">Start a project <span class="arr">↗</span></a><a class="btn" href="mailto:mewdiaservice@gmail.com">Prefer email? <span class="arr">↗</span></a></div>
+      <div class="mail"><code id="mail-contact">mewdiaservice@gmail.com</code><button type="button" data-copy="mewdiaservice@gmail.com" data-target="mail-contact">Copy</button></div>
+    </div>
+  </div></div>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div><a class="logo" href="/"><b>MCH<i>.</i></b></a><p>Digital products &amp; media. Made with care. Kept in good company.</p></div>
+      <div><h4>Studio</h4><ul>
+        <li><a href="/work">All work</a></li><li><a href="/updates">Release archive</a></li>
+        <li><a href="/tech-misc-larp">Tech / Misc / Larp</a></li><li><a href="/studio-notes">Studio Notes</a></li>
+        <li><a href="/lab/skills">Skills library</a></li><li><a href="/privacy">Privacy</a></li></ul></div>
+      <div><h4>Elsewhere</h4><ul>
+        <li><a href="https://instagram.com/m3ow.ai/">Instagram ↗</a></li><li><a href="https://www.linkedin.com/in/vismay-h-b9a89a81gde/">LinkedIn ↗</a></li><li><a href="https://wa.me/message/2A5FTZGCFJY6B1">WhatsApp ↗</a></li></ul></div>
+    </div>
+    <div class="fbot mono"><span>© 2026 Meow Creative Haus · mewdiaservice@gmail.com</span><span>From the first sketch to the working thing.</span></div>
+  </div>
+</footer>
+<script src="/mch-v2/site.js"></script>
+<script>
+(()=>{
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const {clamp,ease,reduce}=MCH;let T=MCH.T;MCH.onTheme(()=>{T=MCH.T;});
+
+const cv=$('#scene'),g=cv.getContext('2d');let W=0,H=0;
+function size(){const d=Math.min(devicePixelRatio||1,2);const r=cv.getBoundingClientRect();W=r.width;H=r.height;cv.width=Math.round(W*d);cv.height=Math.round(H*d);g.setTransform(d,0,0,d,0,0);}
+size();addEventListener('resize',size);
+const nz=i=>{const x=Math.sin(i*127.1+311.7)*43758.5453;return (x-Math.floor(x))*2-1;};
+const EL=[
+ {k:'box',r:[.03,.04,.94,.075]},
+ {k:'text',r:[.06,.066,.075,.022],bold:1},
+ {k:'text',r:[.56,.07,.06,.014]},{k:'text',r:[.64,.07,.06,.014]},{k:'text',r:[.72,.07,.06,.014]},
+ {k:'btn',r:[.82,.056,.12,.042],acc:1},
+ {k:'text',r:[.06,.18,.44,.06],bold:1},{k:'text',r:[.06,.26,.33,.06],bold:1},
+ {k:'text',r:[.06,.355,.40,.015]},{k:'text',r:[.06,.38,.38,.015]},{k:'text',r:[.06,.405,.26,.015]},
+ {k:'btn',r:[.06,.465,.14,.058],acc:1,id:'b1'},{k:'btn',r:[.215,.465,.14,.058]},
+ {k:'img',r:[.56,.17,.38,.38],v:0},
+ {k:'card',r:[.06,.615,.27,.32],v:1},{k:'card',r:[.365,.615,.27,.32],v:2},{k:'card',r:[.67,.615,.27,.32],v:3},
+];
+let heroP=0,time=0;
+
+function rect(x,y,w,h){return {x,y,w,h};}
+function rectPts(x,y,w,h,seed,j){const pts=[],seg=5,c=[[x,y],[x+w,y],[x+w,y+h],[x,y+h],[x,y]];
+  for(let s=0;s<4;s++){const [ax,ay]=c[s],[bx,by]=c[s+1];for(let i=0;i<seg;i++){const t=i/seg;pts.push([ax+(bx-ax)*t+nz(seed+s*13+i)*j,ay+(by-ay)*t+nz(seed+s*13+i+71)*j]);}}
+  pts.push([x+nz(seed+4)*j,y+nz(seed+3)*j]);pts.push([x+w*.06+nz(seed+5)*j,y+nz(seed+6)*j*1.4]);return pts;}
+function partial(pts,a){if(a<=0)return;const L=a*(pts.length-1),n=Math.floor(L),f=L-n;g.beginPath();g.moveTo(pts[0][0],pts[0][1]);
+  for(let i=0;i<n&&i<pts.length-1;i++)g.lineTo(pts[i+1][0],pts[i+1][1]);
+  if(n<pts.length-1){const A=pts[n],B=pts[n+1];g.lineTo(A[0]+(B[0]-A[0])*f,A[1]+(B[1]-A[1])*f);}g.stroke();}
+function rr(x,y,w,h,r){g.beginPath();g.roundRect?g.roundRect(x,y,w,h,r):g.rect(x,y,w,h);}
+function art(x,y,w,h,v,a){if(a<=0)return;g.save();g.globalAlpha=a;rr(x,y,w,h,Math.min(w,h)*.04);g.clip();
+  const gr=g.createLinearGradient(x,y,x,y+h);gr.addColorStop(0,T.lilac);gr.addColorStop(1,T.violet2);g.fillStyle=gr;g.fillRect(x,y,w,h);
+  const sx=x+w*(.28+.18*((v*37)%3)/2),sy=y+h*(.32+.08*(v%2));g.fillStyle=T.paper;g.beginPath();g.arc(sx,sy,Math.min(w,h)*.16,0,Math.PI*2);g.fill();
+  g.fillStyle=T.violet;g.globalAlpha=a*.9;g.beginPath();g.moveTo(x,y+h*.72);
+  for(let i=0;i<=12;i++){const px=x+w*i/12;g.lineTo(px,y+h*(.68+.05*Math.sin(i*.9+v*1.7+time*.0006*(reduce?0:1))));}
+  g.lineTo(x+w,y+h);g.lineTo(x,y+h);g.closePath();g.fill();
+  g.globalAlpha=a;g.strokeStyle=T.paper;g.lineWidth=1;for(let k=0;k<3;k++){g.beginPath();for(let i=0;i<=20;i++){const px=x+w*i/20,py=y+h*(.8+k*.06)+Math.sin(i*1.3+k+v)*h*.01;i?g.lineTo(px,py):g.moveTo(px,py);}g.globalAlpha=a*.5;g.stroke();}
+  g.restore();}
+function scribble(x,y,w,h,j,a,seed,bold){if(a<=0)return;const n=Math.max(6,Math.round(w/8));const cy=y+h/2;g.beginPath();
+  for(let i=0;i<=n*a;i++){const t=i/n;const px=x+w*t,py=cy+Math.sin(t*n*1.7+seed)*h*.45*j+nz(seed+i)*h*.15*j;i?g.lineTo(px,py):g.moveTo(px,py);}
+  g.lineWidth=bold?2:1.1;g.stroke();if(bold&&j>.2){g.beginPath();for(let i=0;i<=n*a;i++){const t=i/n;const px=x+w*t,py=cy+h*.22+Math.sin(t*n*1.3+seed+2)*h*.4*j;i?g.lineTo(px,py):g.moveTo(px,py);}g.lineWidth=1;g.stroke();}}
+
+function stageRect(){const mob=W<760;if(mob){const top=H*.47,bot=H-28;return rect(16,top,W-32,bot-top);}
+  const x0=Math.max(W*.44,560),x1=W-Math.max(32,W*.03),y0=104,y1=H-64;return rect(x0,y0,x1-x0,y1-y0);}
+function fit(S,ar){let w=S.w,h=w/ar;if(h>S.h){h=S.h;w=h*ar;}return rect(S.x,S.y+(S.h-h)/2,w,h);}
+
+function drawHero(p){
+  g.clearRect(0,0,W,H);const S=stageRect();const mob=W<760;
+  const sk=clamp(.62+p/.2*.38), k=ease(clamp((p-.2)/.22)), f=ease(clamp((p-.44)/.22)), m=ease(clamp((p-.7)/.24));
+  const B0=fit(S,mob?1.25:1.5);
+  const bs=1-.36*m;const B=rect(B0.x,B0.y,B0.w*bs,B0.h*bs);
+  const j=(1-k)*B0.w*.011;
+  /* board */
+  g.save();
+  g.fillStyle=T.paper;g.globalAlpha=.55+.45*f;rr(B.x,B.y,B.w,B.h,6);g.fill();g.globalAlpha=1;
+  g.strokeStyle=T.graphite;g.lineWidth=1;g.globalAlpha=.35+.4*(1-f);partial(rectPts(B.x,B.y,B.w,B.h,3,j*1.2),clamp(sk*1.6));
+  g.globalAlpha=1;
+  g.font=`500 10px 'Martian Mono',monospace`;g.fillStyle=T.ink2;g.textAlign='left';
+  g.fillText(m>.5?'Website · 1440':'Frame · Home',B.x,B.y-10);
+  /* 12 col grid */
+  const ga=k*(1-f*.75);if(ga>0){const cols=12,gut=B.w*.012,cw=(B.w*.88-gut*(cols-1))/cols;
+    for(let c=0;c<cols;c++){const cx=B.x+B.w*.06+c*(cw+gut);const hh=B.h*.92*clamp(k*1.4-c*.03);
+      g.fillStyle=T.violet;g.globalAlpha=ga*.07;g.fillRect(cx,B.y+B.h*.04,cw,hh);
+      g.strokeStyle=T.violet;g.globalAlpha=ga*.28;g.strokeRect(cx+.5,B.y+B.h*.04+.5,cw-1,hh-1);}
+    g.globalAlpha=ga;g.fillStyle=T.violet;g.fillText('12 col · 24 gutter',B.x+B.w-140,B.y-10);g.globalAlpha=1;}
+  /* elements */
+  EL.forEach((e,i)=>{const [rx,ry,rw,rh]=e.r;const x=B.x+rx*B.w,y=B.y+ry*B.h,w=rw*B.w,h=rh*B.h;
+    const a=clamp((sk*1.3-i/EL.length*.8)/.3);if(a<=0)return;const seed=i*31+7;
+    g.strokeStyle=T.graphite;g.globalAlpha=(.9-.55*f);g.lineWidth=1.1;
+    if(e.k==='text'){
+      if(f<1){g.globalAlpha=(.85)*(1-f);scribble(x,y,w,h,1-k,a,seed,e.bold);}
+      if(f>0){g.globalAlpha=f;g.fillStyle=e.bold?T.ink:T.graphite;rr(x,y+(e.bold?0:h*.15),w*clamp(f*1.3-i*.01),e.bold?h*.82:h*.7,e.bold?3:h);g.fill();}
+    } else {
+      const pts=rectPts(x,y,w,h,seed,j);partial(pts,a);
+      if(j>0.3){g.globalAlpha=(1-k)*.4;partial(rectPts(x+1.5,y-1,w,h,seed+3,j*1.3),a*.92);}
+      if(e.k==='img'&&f<1){g.globalAlpha=(1-f)*.6*a;g.beginPath();g.moveTo(x+nz(seed)*j,y);g.lineTo(x+w*a,y+h*a);g.moveTo(x+w,y);g.lineTo(x+w-w*a,y+h*a);g.stroke();}
+      if(f>0){
+        if(e.k==='box'){g.globalAlpha=f;g.fillStyle=T.paper2;rr(x,y,w,h,4);g.fill();}
+        if(e.k==='btn'){
+          let press=0;if(e.id==='b1'){const c=(p-.52)/.2;press=c>.62&&c<.8?1:0;}
+          g.globalAlpha=f;if(e.acc){g.fillStyle=press?T.ink:T.violet;rr(x,y,w,h,h/2);g.fill();g.fillStyle=T.onaccent;}
+          else{g.strokeStyle=T.ink;g.lineWidth=1;rr(x+.5,y+.5,w-1,h-1,h/2);g.stroke();g.fillStyle=T.ink;}
+          rr(x+w*.2,y+h*.42,w*.6,h*.16,2);g.fill();}
+        if(e.k==='img')art(x,y,w,h,e.v,f);
+        if(e.k==='card'){g.globalAlpha=f;g.fillStyle=T.paper;rr(x,y,w,h,4);g.fill();g.strokeStyle=T.line;g.stroke();
+          art(x+w*.06,y+h*.07,w*.88,h*.55,e.v,f);g.globalAlpha=f;g.fillStyle=T.ink;rr(x+w*.06,y+h*.7,w*.6,h*.07,2);g.fill();
+          g.fillStyle=T.graphite;rr(x+w*.06,y+h*.82,w*.8,h*.045,2);g.fill();}
+      }
+    }
+    g.globalAlpha=1;
+  });
+  /* sketch annotations */
+  const an=(1-k)*clamp((sk-.55)/.3);if(an>0&&!mob){g.globalAlpha=an;g.fillStyle=T.graphite;g.strokeStyle=T.graphite;g.lineWidth=1;g.font=`400 10px 'Martian Mono',monospace`;
+    const ax=B.x+B.w*.52,ay=B.y+B.h*.24;g.fillText('big promise',ax-B.w*.02,ay-B.h*.06);g.beginPath();g.moveTo(ax,ay-B.h*.05);g.quadraticCurveTo(ax-B.w*.02,ay,ax-B.w*.05,ay+B.h*.005);g.stroke();
+    g.fillText('visual?',B.x+B.w*.72,B.y+B.h*.37);g.fillText('3 cases',B.x+B.w*.06,B.y+B.h*.975);g.globalAlpha=1;}
+  /* cursor click */
+  const c=(p-.52)/.2;if(c>0&&c<1.1&&m<.3){const b1=EL.find(e=>e.id==='b1').r,im=EL[13].r;
+    const tx=B.x+(b1[0]+b1[2]*.6)*B.w,ty=B.y+(b1[1]+b1[3]*.6)*B.h,fx=B.x+(im[0]+im[2]*.4)*B.w,fy=B.y+(im[1]+im[3]*.5)*B.h;
+    const t=ease(clamp(c/.6));const px=fx+(tx-fx)*t,py=fy+(ty-fy)*t-Math.sin(t*Math.PI)*B.h*.06;
+    if(c>.6&&c<1){const rp=(c-.6)/.4;g.strokeStyle=T.violet;g.globalAlpha=1-rp;g.lineWidth=1.5;g.beginPath();g.arc(tx,ty,6+rp*28,0,Math.PI*2);g.stroke();g.globalAlpha=1;}
+    g.globalAlpha=clamp((1.1-c)*4)*clamp(c*6);
+    g.fillStyle=T.ink;g.strokeStyle=T.paper;g.lineWidth=1.2;g.beginPath();g.moveTo(px,py);g.lineTo(px,py+17);g.lineTo(px+4.5,py+13);g.lineTo(px+8,py+20);g.lineTo(px+10.5,py+19);g.lineTo(px+7,py+12);g.lineTo(px+12.5,py+12);g.closePath();g.fill();g.stroke();
+    g.fillStyle=T.violet;rr(px+13,py+18,34,16,3);g.fill();g.fillStyle=T.onaccent;g.font=`500 9px 'Martian Mono',monospace`;g.fillText('MCH',px+18,py+29);g.globalAlpha=1;}
+  /* media: feed + motion */
+  if(m>0){const gap=B0.w*.03;
+    const phX=B.x+B.w+gap,phW=Math.min(B0.x+B0.w-phX,B0.h*.5),phH=Math.min(B0.h,phW*2),phY=B0.y+(B0.h-phH)/2+(1-m)*40;
+    g.globalAlpha=m;
+    if(phW>40){g.fillStyle=T.ink;rr(phX,phY,phW,phH,phW*.14);g.fill();const ix=phX+phW*.06,iy=phY+phW*.06,iw=phW*.88,ih=phH-phW*.12;
+      g.fillStyle=T.paper;rr(ix,iy,iw,ih,phW*.1);g.fill();
+      g.fillStyle=T.ink;rr(ix+iw*.35,iy+ih*.025,iw*.3,ih*.02,4);g.fill();
+      g.fillStyle=T.violet;g.beginPath();g.arc(ix+iw*.14,iy+ih*.1,iw*.06,0,Math.PI*2);g.fill();
+      g.fillStyle=T.ink;rr(ix+iw*.24,iy+ih*.085,iw*.4,ih*.02,2);g.fill();
+      const slide=Math.floor((time/1600)%3);art(ix,iy+ih*.16,iw,iw,slide+4,m);
+      g.globalAlpha=m;for(let d=0;d<3;d++){g.fillStyle=d===slide?T.violet:T.line;g.beginPath();g.arc(ix+iw/2+(d-1)*10,iy+ih*.16+iw+12,3,0,Math.PI*2);g.fill();}
+      g.fillStyle=T.ink;rr(ix+iw*.06,iy+ih*.16+iw+26,iw*.7,ih*.02,2);g.fill();g.fillStyle=T.graphite;rr(ix+iw*.06,iy+ih*.16+iw+40,iw*.85,ih*.015,2);g.fill();rr(ix+iw*.06,iy+ih*.16+iw+50,iw*.55,ih*.015,2);g.fill();
+      g.fillStyle=T.ink2;g.font=`500 10px 'Martian Mono',monospace`;g.fillText('Feed · carousel',phX,phY-10);}
+    const fy=B.y+B.h+gap*1.4+(1-m)*30,fh=B0.y+B0.h-fy,fw=B.w;
+    if(fh>30){g.globalAlpha=m;g.fillStyle=T.ink;rr(B.x,fy,fw,fh,4);g.fill();
+      const hole=fh*.1;g.fillStyle=T.paper;for(let h2=0;h2<Math.floor(fw/(hole*2.2));h2++){const hx=B.x+hole*.6+h2*hole*2.2-((reduce?0:time*.02)%(hole*2.2));if(hx<B.x||hx>B.x+fw-hole)continue;g.globalAlpha=m*.8;g.fillRect(hx,fy+hole*.4,hole,hole*.8);g.fillRect(hx,fy+fh-hole*1.2,hole,hole*.8);}
+      const fr=4,fwid=(fw-hole*2-(fr-1)*hole)/fr;for(let q=0;q<fr;q++){art(B.x+hole+q*(fwid+hole),fy+hole*1.6,fwid,fh-hole*3.2,q+7,m);}
+      g.globalAlpha=m;g.fillStyle=T.ink2;g.font=`500 10px 'Martian Mono',monospace`;g.fillText('Motion · 24 fps',B.x,fy-8);}
+    g.globalAlpha=1;}
+  g.restore();
+}
+const heroEl=$('#hero'),steps=$$('#steps li');
+function heroUpdate(){const r=heroEl.getBoundingClientRect();heroP=clamp(-r.top/(heroEl.offsetHeight-innerHeight));
+  const idx=heroP<.22?0:heroP<.44?1:heroP<.7?2:3;steps.forEach((s,i)=>s.classList.toggle('on',i===idx));}
+function loop(t){time=t;if(heroEl.getBoundingClientRect().bottom>0)drawHero(heroP);requestAnimationFrame(loop);}
+heroUpdate();requestAnimationFrame(loop);
+
+
+
+addEventListener('scroll',heroUpdate,{passive:true});
+})();
+</script>
+</body>
+</html>
