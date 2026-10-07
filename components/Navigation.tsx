@@ -16,13 +16,10 @@ function useNavLinks() {
   const pathname = usePathname();
   const prefix   = pathname === "/" ? "" : "/";
   return [
-    { label: "Work",     href: `${prefix}#offers`    },
-    { label: "Services", href: "/services"           },
-    { label: "About",    href: `${prefix}#authority` },
-    { label: "Lab",      href: "/lab"                },
-    { label: "Zine",     href: "/tech-misc-larp"     },
-    { label: "Playbook", href: `${prefix}#substack`  },
-    { label: "Contact",  href: siteConfig.whatsapp, external: true },
+    { label: "Work",     href: `${prefix}#client-sites` },
+    { label: "Services", href: "/services"             },
+    { label: "Lab",      href: "/lab"                  },
+    { label: "Journal",  href: "/studio-notes-september-2026" },
   ];
 }
 
@@ -62,60 +59,22 @@ export default function Navigation() {
 
         {/* Desktop Nav */}
         <div className="hidden lg:flex items-center gap-8">
-          {navLinks.map((link) =>
-            link.label === "Services" ? (
-              <div key={link.label} className="group relative">
-                <a
-                  href={link.href}
-                  aria-haspopup="true"
-                  className="text-label-sm uppercase text-text-muted hover:text-text transition-colors duration-300"
-                >
-                  {link.label}
-                </a>
-                <div className="invisible absolute left-1/2 top-full w-72 -translate-x-1/2 pt-5 opacity-0 transition-[opacity,visibility] duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-                  <div className="border border-surface-border bg-surface/95 p-5 shadow-2xl backdrop-blur-md">
-                    <p className="mb-3 text-[0.65rem] uppercase tracking-[0.2em] text-text-dim">
-                      What we build
-                    </p>
-                    <div className="flex flex-col gap-1">
-                      {servicePreview.map((service) => (
-                        <a
-                          key={service.href}
-                          href={service.href}
-                          className="px-3 py-2 text-sm text-text-muted transition-colors hover:bg-surface-elevated hover:text-text"
-                        >
-                          {service.label}
-                        </a>
-                      ))}
-                    </div>
-                    <a
-                      href="/services"
-                      className="mt-3 inline-block text-xs uppercase tracking-widest text-accent-teal hover:text-text"
-                    >
-                      View all services →
-                    </a>
-                  </div>
-                </div>
-              </div>
-            ) : (
-              <a
-                key={link.label}
-                href={link.href}
-                target={link.external ? "_blank" : undefined}
-                rel={link.external ? "noopener noreferrer" : undefined}
-                className="text-label-sm uppercase text-text-muted hover:text-text transition-colors duration-300"
-              >
-                {link.label}
-              </a>
-            ),
-          )}
+          {navLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              className="text-label-sm uppercase text-text-muted hover:text-text transition-colors duration-300"
+            >
+              {link.label}
+            </a>
+          ))}
           <a
             href={siteConfig.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-label-sm uppercase px-5 py-2.5 border border-text-dim text-text hover:bg-text hover:text-surface transition-all duration-300"
+            className="studio-nav-cta text-label-sm px-5 py-2.5 border border-text-dim text-text hover:bg-text hover:text-surface transition-all duration-300"
           >
-            Chat on WhatsApp
+            Start a project
           </a>
         </div>
 
@@ -163,8 +122,6 @@ export default function Navigation() {
               >
                 <a
                   href={link.href}
-                  target={link.external ? "_blank" : undefined}
-                  rel={link.external ? "noopener noreferrer" : undefined}
                   onClick={() => setMenuOpen(false)}
                   className="text-display-md text-text hover:text-accent-teal transition-colors"
                 >
@@ -195,7 +152,7 @@ export default function Navigation() {
               transition={{ delay: 0.4 }}
               className="mt-4 px-8 py-3 border border-accent-teal text-accent-teal text-label-sm uppercase tracking-widest"
             >
-              Chat on WhatsApp
+              Start a project
             </motion.a>
 
             <motion.div

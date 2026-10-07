@@ -3,6 +3,32 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    color-scheme: light;
+    --surface: 247 246 250;
+    --surface-elevated: 255 255 255;
+    --surface-border: 218 215 228;
+    --text: 24 22 33;
+    --text-muted: 87 83 103;
+    --text-dim: 112 107 128;
+    --accent: 91 55 225;
+    --accent-strong: 72 41 194;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      --surface: 16 15 21;
+      --surface-elevated: 27 25 35;
+      --surface-border: 60 56 72;
+      --text: 244 241 249;
+      --text-muted: 195 190 210;
+      --text-dim: 159 153 178;
+      --accent: 182 160 255;
+      --accent-strong: 203 190 255;
+    }
+  }
+
   * {
     margin: 0;
     padding: 0;
@@ -13,18 +39,18 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    background-color: #0a0a0a;
-    color: #f5f5f5;
+    background-color: rgb(var(--surface));
+    color: rgb(var(--text));
   }
 
   body {
-    background-color: #0a0a0a;
+    background-color: rgb(var(--surface));
     overflow-x: hidden;
   }
 
   ::selection {
-    background-color: #49c5b6;
-    color: #0a0a0a;
+    background-color: rgb(var(--accent));
+    color: rgb(var(--surface));
   }
 
   ::-webkit-scrollbar {

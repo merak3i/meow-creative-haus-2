@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { siteConfig } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -176,6 +177,33 @@ export default function ServicesPage() {
             with the operating problem and ends with something the team can use,
             inspect, and improve.
           </p>
+        </div>
+      </section>
+
+      <section className="services-founder-wrap border-t border-surface-border px-6 py-16 md:px-12 md:py-20">
+        <div className="services-founder-card mx-auto grid max-w-[1200px] items-center gap-8 p-7 md:grid-cols-[180px_1fr] md:gap-12 md:p-10">
+          <div className="services-founder-image">
+            <Image
+              src="/vismay-avatar.png"
+              alt="Vismay Hegde, founder of Meow Creative Haus"
+              width={360}
+              height={450}
+              sizes="(max-width: 768px) 40vw, 180px"
+            />
+          </div>
+          <div>
+            <p className="studio-founder-badge">Founder, backed by god 🐈</p>
+            <h2 className="mt-5 text-display-md">Everything here is a link you can open.</h2>
+            <p className="mt-4 max-w-[720px] text-body-md text-text-muted">
+              I am Vismay Hegde. I design and build the work, and stay with it
+              after launch. Explore the live projects, tools and notes, then
+              start a conversation when you are ready.
+            </p>
+            <div className="services-founder-stats mt-7 flex flex-wrap gap-x-10 gap-y-4">
+              <div><strong>16</strong><span>brands shipped</span></div>
+              <div><strong>Mangalore</strong><span>based in Karnataka, India</span></div>
+            </div>
+          </div>
         </div>
       </section>
 

@@ -9,15 +9,15 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        surface: "#101014",
-        "surface-elevated": "#1C1B24",
-        "surface-border": "#383443",
-        text: "#F3EFE8",
-        "text-muted": "#BDB7C9",
-        "text-dim": "#A49CAD",
+        surface: "rgb(var(--surface) / <alpha-value>)",
+        "surface-elevated": "rgb(var(--surface-elevated) / <alpha-value>)",
+        "surface-border": "rgb(var(--surface-border) / <alpha-value>)",
+        text: "rgb(var(--text) / <alpha-value>)",
+        "text-muted": "rgb(var(--text-muted) / <alpha-value>)",
+        "text-dim": "rgb(var(--text-dim) / <alpha-value>)",
         accent: {
-          teal: "#B6A0FF",
-          gold: "#CBBEFF",
+          teal: "rgb(var(--accent) / <alpha-value>)",
+          gold: "rgb(var(--accent-strong) / <alpha-value>)",
         },
       },
       fontFamily: {

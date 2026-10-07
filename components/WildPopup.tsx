@@ -60,8 +60,25 @@ export default function WildPopup() {
     } catch {
       /* ignore */
     }
-    const t = setTimeout(() => setShow(true), 12000);
-    return () => clearTimeout(t);
+    let delayElapsed = false;
+    const maybeShow = () => {
+      const websiteSection = document.querySelector("#client-sites");
+      if (!delayElapsed || !websiteSection) return;
+      const revealPoint =
+        websiteSection.getBoundingClientRect().bottom +
+        window.scrollY -
+        window.innerHeight * 0.1;
+      if (window.scrollY >= revealPoint) setShow(true);
+    };
+    const t = setTimeout(() => {
+      delayElapsed = true;
+      maybeShow();
+    }, 12000);
+    window.addEventListener("scroll", maybeShow, { passive: true });
+    return () => {
+      clearTimeout(t);
+      window.removeEventListener("scroll", maybeShow);
+    };
   }, []);
 
   const dismiss = () => {

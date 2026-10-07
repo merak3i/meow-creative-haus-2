@@ -1,31 +1,63 @@
+import Image from "next/image";
 import { siteConfig } from "@/lib/data";
-import RevenueDashboard from "@/components/RevenueDashboard";
 
 export default function Hero() {
   return (
-    <section id="hero" className="terminal-hero">
-      <div className="terminal-stars" aria-hidden="true"><span>✦</span><span>+</span><span>✧</span><span>+</span></div>
-      <div className="terminal-intro">
-        <p className="terminal-eyebrow">Product &amp; Experience Studio</p>
-        <h1>We design and build <br />software worth feeling.</h1>
-        <p className="terminal-description">
-          A product and experience studio in Mangalore, working with founders
-          and businesses across India and beyond. We build interfaces, AI
-          systems, and websites, then keep shipping after launch.
+    <section id="hero" className="studio-hero">
+      <div className="studio-hero-copy">
+        <p className="studio-eyebrow">Meow Creative Haus · Studio</p>
+        <h1>
+          Digital products
+          <br />
+          <span>&amp;</span> media.
+        </h1>
+        <p className="studio-deck">
+          Designing &amp; building software/media <strong>worth feeling.</strong>
         </p>
-        <div className="terminal-actions">
-          <a className="terminal-button terminal-primary" href={siteConfig.whatsapp} target="_blank" rel="noopener noreferrer">Start a Project <span aria-hidden="true">↗</span></a>
-          <a className="terminal-button" href="#client-sites">See the Work <span aria-hidden="true">↓</span></a>
-          <a className="terminal-button" href="/lab/skills">Explore the Skills <span aria-hidden="true">→</span></a>
+        <p className="studio-description">
+          Digital products &amp; media for founders and businesses. Websites, AI
+          systems and visual stories, with support after launch.
+        </p>
+        <div className="studio-actions">
+          <a className="studio-button studio-button-quiet" href="#client-sites">
+            View work
+          </a>
+          <a
+            className="studio-button studio-button-primary"
+            href={siteConfig.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Start a project
+          </a>
         </div>
+        <ol className="studio-steps" aria-label="Our process">
+          <li><span>01</span> Sketch the idea</li>
+          <li><span>02</span> Set the structure</li>
+          <li><span>03</span> Build the interface</li>
+          <li><span>04</span> Carry it into media</li>
+        </ol>
+        <p className="studio-signoff">From the first sketch to the working thing.</p>
       </div>
-      <div className="terminal-machine">
-        <div className="terminal-machine-label" aria-hidden="true"><span>MCH / CREATIVE SYSTEMS</span><span>EST. MANGALORE · SHIPPED EVERYWHERE</span></div>
-        <div className="terminal-screen"><RevenueDashboard /></div>
-        <div className="terminal-machine-footer" aria-hidden="true"><span>MEOW CREATIVE HAUS</span><span>▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪</span><span className="terminal-power">●</span></div>
-      </div>
-      <p className="terminal-caption">Every project on this page is live. Click any of them.</p>
-      <a href="#client-sites" className="terminal-scroll">Scroll ↓</a>
+
+      <figure className="studio-hero-visual">
+        <figcaption><span>Frame : Home</span><span>Selected work / 01</span></figcaption>
+        <div className="studio-work-frame">
+          <Image
+            src="/screenshots/manipal-aerosports.webp"
+            alt="The Manipal Aerosports website, designed and built by Meow Creative Haus"
+            fill
+            priority
+            sizes="(max-width: 900px) 100vw, 54vw"
+          />
+          <span className="studio-frame-index">01 / 04</span>
+        </div>
+        <div className="studio-visual-footer">
+          <span>Product, web &amp; experience</span>
+          <a href="#client-sites">Explore the work</a>
+        </div>
+      </figure>
+      <a href="#client-sites" className="studio-scroll">Scroll to explore</a>
     </section>
   );
 }

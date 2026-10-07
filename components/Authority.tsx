@@ -34,7 +34,7 @@ export default function Authority() {
         <div className="grid md:grid-cols-2 gap-12 md:gap-24 items-center">
           {/* Left: Avatar */}
           <motion.div variants={itemVariants} className="relative">
-            <div className="aspect-[4/5] bg-surface-elevated border border-surface-border relative overflow-hidden rounded-sm">
+            <div className="studio-founder-portrait aspect-[4/5] bg-surface-elevated border border-accent-teal/40 relative overflow-hidden rounded-sm">
               {/* Avatar image, cropped as headshot with the face centered */}
               <div className="absolute inset-0">
                 <Image
@@ -65,6 +65,10 @@ export default function Authority() {
                 }}
                 className="absolute -bottom-20 -right-20 w-64 h-64 border border-accent-teal/10 rounded-full pointer-events-none"
               />
+              <div className="studio-founder-caption">
+                <span>Vismay Hegde</span>
+                <span>Founder · MCH</span>
+              </div>
               <motion.div
                 animate={{ rotate: -360 }}
                 transition={{
@@ -85,6 +89,9 @@ export default function Authority() {
             >
               Who you work with
             </motion.p>
+            <motion.span variants={itemVariants} className="studio-founder-badge">
+              Founder, backed by god 🐈
+            </motion.span>
             <motion.h2
               variants={itemVariants}
               className="text-display-lg mb-8"

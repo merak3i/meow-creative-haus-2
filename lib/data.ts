@@ -446,6 +446,22 @@ export const clientWebsites = [
     logo: tenderMomentsLogo.src,
   },
   {
+    name: "EAASH",
+    tagline: "Boutique coastal stay brand",
+    url: "https://eaash.vercel.app/",
+    screenshot: "/screenshots/eaash.webp",
+    industry: "Hospitality",
+    logo: "",
+  },
+  {
+    name: "Hegde Bros",
+    tagline: "Bengaluru real estate, land and layouts",
+    url: "https://hegde-bros.vercel.app/",
+    screenshot: "/screenshots/hegde-bros.webp",
+    industry: "Real Estate",
+    logo: "",
+  },
+  {
     name: "Manipal Aerosports",
     tagline: "Aviation training & airshow brand",
     url: "https://manipalaerosports.vercel.app",
@@ -467,14 +483,6 @@ export const clientWebsites = [
     url: "https://suharehma.vercel.app/",
     screenshot: "/screenshots/suha-rehma.webp",
     industry: "Psychology",
-    logo: "",
-  },
-  {
-    name: "EAASH",
-    tagline: "Boutique coastal stay brand",
-    url: "https://eaash.vercel.app/",
-    screenshot: "/screenshots/eaash.webp",
-    industry: "Hospitality",
     logo: "",
   },
 ] as const;
