@@ -6,9 +6,11 @@
 <title>Meow Creative Haus</title>
 <meta name="description" content="Meow Creative Haus. Designing &amp; building software and media worth feeling. Websites, AI systems and visual stories for founders and businesses, with support after launch.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Instrument+Sans:wght@400;500;600&family=Martian+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Instrument+Sans:wght@400;500;600&family=Pixelify+Sans:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="/mch-v2/site.css">
-<style>.hcopy .sub{font-family:var(--display);font-size:clamp(20px,2vw,30px);line-height:1.1;font-weight:500;letter-spacing:-.015em;font-variation-settings:"wdth" 88;max-width:24ch;margin-top:-6px}
+<script>try{var t=localStorage.getItem('mch-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<style>.steps li{font-family:var(--pix);font-size:17px}.cue{font-size:13px}
+.hcopy .sub{font-family:var(--display);font-size:clamp(20px,2vw,30px);line-height:1.1;font-weight:500;letter-spacing:-.015em;font-variation-settings:"wdth" 88;max-width:24ch;margin-top:-6px}
 .hcopy .sub b{font-weight:600;color:var(--violet)}
 .sites{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,1.8vw,22px);margin-top:clamp(48px,6vw,80px)}
 .site{display:flex;flex-direction:column;gap:12px;text-decoration:none;min-width:0}
@@ -16,7 +18,7 @@
 .site:hover .win{border-color:var(--violet);transform:translateY(-4px)}
 .site .bar{display:flex;align-items:center;gap:6px;padding:8px 10px;border-bottom:1px solid var(--line);background:var(--paper)}
 .site .bar i{width:7px;height:7px;border-radius:50%;background:var(--line)}
-.site .bar span{margin-left:6px;color:var(--ink2);font-size:9.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.site .bar span{margin-left:6px;color:var(--ink2);font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .site .media{aspect-ratio:16/10;border-radius:0}
 .site h3{font-size:20px;font-variation-settings:"wdth" 90}
 .site p{color:var(--ink2);font-size:14px}
@@ -54,12 +56,14 @@
   <div class="in">
     <a class="logo" href="/" aria-label="Meow Creative Haus home"><b>MCH<i>.</i></b><span>Meow Creative Haus</span></a>
     <ul id="menu"><li><a href="/work">Work</a></li><li><a href="/services">Services</a></li><li><a href="/lab">Lab</a></li><li><a href="/journal">Journal</a></li><li><a class="btn acc" href="/#contact">Start a project <span class="arr">↗</span></a></li></ul>
+    <button class="theme mono" id="theme" type="button" aria-label="Switch colour theme"><i aria-hidden="true"></i><span>Theme</span></button>
     <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h18M3 16h18"/></svg></button>
   </div>
   <div class="ruler"><span class="mono">Frame <b id="frameName">Home</b> · 1440 × auto</span></div>
 </header>
 <div id="sel" aria-hidden="true"><i></i><i></i><i></i><i></i><span></span></div>
 <div id="you" aria-hidden="true">you</div>
+<aside id="zq" aria-hidden="true"><b class="mono"><span>Margin note</span><span id="zqn"></span></b><p></p><cite class="mono"></cite></aside>
 <main>
 <section id="hero" data-frame="Home">
   <div class="stage">
@@ -154,7 +158,7 @@
 
 <section class="frame" data-frame="Studio" id="about">
   <div class="wrap founder">
-    <div><div class="ftag mono"><b>Frame</b> Studio</div><figure class="portrait " data-sel="Image · Vismay Hegde"><img src="/mch-v2/assets/vismay-hegde.webp" alt="Vismay Hegde, founder of Meow Creative Haus, in a black suit against a black and white liquid backdrop with iridescent colour" width="900" height="1125" loading="lazy"><figcaption class="mono"><span>Vismay Hegde</span><span>Founder · MCH</span></figcaption></figure></div>
+    <div><div class="ftag mono"><b>Frame</b> Studio</div><figure class="portrait " data-sel="Image · Vismay Hegde"><img src="/mch-v2/assets/vismay-hegde.webp" alt="Vismay Hegde, founder of Meow Creative Haus, in a black knit sweater with embroidered eye and paisley motifs, against a black and white liquid backdrop with iridescent colour" width="900" height="1124" loading="lazy"><figcaption class="mono"><span>Vismay Hegde</span><span>Founder · MCH</span></figcaption></figure></div>
     <div class="ftext">
       <div class="badge" data-sel="Badge · Founder"><i>✦</i>Founder, backed by god 🐈‍⬛</div>
       <p class="say">Meow Creative Haus is led by <b>Vismay Hegde</b>. Design, development and media stay close to the brief, with the work reviewed as it takes shape.</p>
@@ -250,7 +254,7 @@ function drawHero(p){
   g.fillStyle=T.paper;g.globalAlpha=.55+.45*f;rr(B.x,B.y,B.w,B.h,6);g.fill();g.globalAlpha=1;
   g.strokeStyle=T.graphite;g.lineWidth=1;g.globalAlpha=.35+.4*(1-f);partial(rectPts(B.x,B.y,B.w,B.h,3,j*1.2),clamp(sk*1.6));
   g.globalAlpha=1;
-  g.font=`500 10px 'Martian Mono',monospace`;g.fillStyle=T.ink2;g.textAlign='left';
+  g.font=`500 13px 'Pixelify Sans',monospace`;g.fillStyle=T.ink2;g.textAlign='left';
   g.fillText(m>.5?'Website · 1440':'Frame · Home',B.x,B.y-10);
   /* 12 col grid */
   const ga=k*(1-f*.75);if(ga>0){const cols=12,gut=B.w*.012,cw=(B.w*.88-gut*(cols-1))/cols;
@@ -285,7 +289,7 @@ function drawHero(p){
     g.globalAlpha=1;
   });
   /* sketch annotations */
-  const an=(1-k)*clamp((sk-.55)/.3);if(an>0&&!mob){g.globalAlpha=an;g.fillStyle=T.graphite;g.strokeStyle=T.graphite;g.lineWidth=1;g.font=`400 10px 'Martian Mono',monospace`;
+  const an=(1-k)*clamp((sk-.55)/.3);if(an>0&&!mob){g.globalAlpha=an;g.fillStyle=T.graphite;g.strokeStyle=T.graphite;g.lineWidth=1;g.font=`400 13px 'Pixelify Sans',monospace`;
     const ax=B.x+B.w*.52,ay=B.y+B.h*.24;g.fillText('big promise',ax-B.w*.02,ay-B.h*.06);g.beginPath();g.moveTo(ax,ay-B.h*.05);g.quadraticCurveTo(ax-B.w*.02,ay,ax-B.w*.05,ay+B.h*.005);g.stroke();
     g.fillText('visual?',B.x+B.w*.72,B.y+B.h*.37);g.fillText('3 cases',B.x+B.w*.06,B.y+B.h*.975);g.globalAlpha=1;}
   /* cursor click */
@@ -295,7 +299,7 @@ function drawHero(p){
     if(c>.6&&c<1){const rp=(c-.6)/.4;g.strokeStyle=T.violet;g.globalAlpha=1-rp;g.lineWidth=1.5;g.beginPath();g.arc(tx,ty,6+rp*28,0,Math.PI*2);g.stroke();g.globalAlpha=1;}
     g.globalAlpha=clamp((1.1-c)*4)*clamp(c*6);
     g.fillStyle=T.ink;g.strokeStyle=T.paper;g.lineWidth=1.2;g.beginPath();g.moveTo(px,py);g.lineTo(px,py+17);g.lineTo(px+4.5,py+13);g.lineTo(px+8,py+20);g.lineTo(px+10.5,py+19);g.lineTo(px+7,py+12);g.lineTo(px+12.5,py+12);g.closePath();g.fill();g.stroke();
-    g.fillStyle=T.violet;rr(px+13,py+18,34,16,3);g.fill();g.fillStyle=T.onaccent;g.font=`500 9px 'Martian Mono',monospace`;g.fillText('MCH',px+18,py+29);g.globalAlpha=1;}
+    g.fillStyle=T.violet;rr(px+13,py+18,34,16,3);g.fill();g.fillStyle=T.onaccent;g.font=`500 12px 'Pixelify Sans',monospace`;g.fillText('MCH',px+18,py+29);g.globalAlpha=1;}
   /* media: feed + motion */
   if(m>0){const gap=B0.w*.03;
     const phX=B.x+B.w+gap,phW=Math.min(B0.x+B0.w-phX,B0.h*.5),phH=Math.min(B0.h,phW*2),phY=B0.y+(B0.h-phH)/2+(1-m)*40;
@@ -308,12 +312,12 @@ function drawHero(p){
       const slide=Math.floor((time/1600)%3);art(ix,iy+ih*.16,iw,iw,slide+4,m);
       g.globalAlpha=m;for(let d=0;d<3;d++){g.fillStyle=d===slide?T.violet:T.line;g.beginPath();g.arc(ix+iw/2+(d-1)*10,iy+ih*.16+iw+12,3,0,Math.PI*2);g.fill();}
       g.fillStyle=T.ink;rr(ix+iw*.06,iy+ih*.16+iw+26,iw*.7,ih*.02,2);g.fill();g.fillStyle=T.graphite;rr(ix+iw*.06,iy+ih*.16+iw+40,iw*.85,ih*.015,2);g.fill();rr(ix+iw*.06,iy+ih*.16+iw+50,iw*.55,ih*.015,2);g.fill();
-      g.fillStyle=T.ink2;g.font=`500 10px 'Martian Mono',monospace`;g.fillText('Feed · carousel',phX,phY-10);}
+      g.fillStyle=T.ink2;g.font=`500 13px 'Pixelify Sans',monospace`;g.fillText('Feed · carousel',phX,phY-10);}
     const fy=B.y+B.h+gap*1.4+(1-m)*30,fh=B0.y+B0.h-fy,fw=B.w;
     if(fh>30){g.globalAlpha=m;g.fillStyle=T.ink;rr(B.x,fy,fw,fh,4);g.fill();
       const hole=fh*.1;g.fillStyle=T.paper;for(let h2=0;h2<Math.floor(fw/(hole*2.2));h2++){const hx=B.x+hole*.6+h2*hole*2.2-((reduce?0:time*.02)%(hole*2.2));if(hx<B.x||hx>B.x+fw-hole)continue;g.globalAlpha=m*.8;g.fillRect(hx,fy+hole*.4,hole,hole*.8);g.fillRect(hx,fy+fh-hole*1.2,hole,hole*.8);}
       const fr=4,fwid=(fw-hole*2-(fr-1)*hole)/fr;for(let q=0;q<fr;q++){art(B.x+hole+q*(fwid+hole),fy+hole*1.6,fwid,fh-hole*3.2,q+7,m);}
-      g.globalAlpha=m;g.fillStyle=T.ink2;g.font=`500 10px 'Martian Mono',monospace`;g.fillText('Motion · 24 fps',B.x,fy-8);}
+      g.globalAlpha=m;g.fillStyle=T.ink2;g.font=`500 13px 'Pixelify Sans',monospace`;g.fillText('Motion · 24 fps',B.x,fy-8);}
     g.globalAlpha=1;}
   g.restore();
 }
