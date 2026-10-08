@@ -86,44 +86,30 @@ if(!reduce){
   addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(scrub);}},{passive:true});addEventListener('resize',scrub);scrub();
 }
 
-/* margin notes: Nietzsche, one per section, on hover */
-const zq=$('#zq');
-if(hover&&zq){
-  const Z='Thus Spoke Zarathustra',B='Beyond Good and Evil';
-  const Q=[
-   ["I tell you: one must still have chaos in one, to give birth to a dancing star. I tell you: ye have still chaos in you.",Z+', Prologue 5'],
-   ["What is great in man is that he is a bridge and not a goal: what is lovable in man is that he is an over-going and a down-going.",Z+', Prologue 4'],
-   ["He who fights with monsters should be careful lest he thereby become a monster. And if thou gaze long into an abyss, the abyss will also gaze into thee.",B+', §146'],
-   ["Of all that is written, I love only what a person hath written with his blood. Write with blood, and thou wilt find that blood is spirit.",Z+', Reading and Writing'],
-   ["What is done out of love always takes place beyond good and evil.",B+', §153'],
-   ["I teach you the Superman. Man is something that is to be surpassed. What have ye done to surpass man?",Z+', Prologue 3'],
-   ["Every profound spirit needs a mask.",B+', §40'],
-   ["And lost be the day to us in which a measure hath not been danced. And false be every truth which hath not had laughter along with it!",Z+', Old and New Tables 23'],
-   ["There is no such thing as moral phenomena, but only a moral interpretation of phenomena.",B+', §108'],
-   ["Ready must thou be to burn thyself in thine own flame; how couldst thou become new if thou have not first become ashes!",Z+', The Way of the Creating One'],
-   ["Ultimately, one loves one's desires, and not the thing desired.",B+', §175'],
-   ["Ye have made your way from the worm to man, and much within you is still worm.",Z+', Prologue 3'],
-   ["Talking much about oneself may also be a means of concealing oneself.",B+', §169'],
-   ["One no longer loves one's knowledge sufficiently after one has communicated it.",B+', §160'],
-   ["Insanity in individuals is something rare; but in groups, parties, nations and epochs it is the rule.",B+', §156']];
-  const secs=$$('main > section, main .slab, footer');
-  let off=0;for(const ch of location.pathname)off=(off*31+ch.charCodeAt(0))%Q.length;
-  const p=zq.querySelector('p'),ct=zq.querySelector('cite'),num=$('#zqn');
-  let cur=null,timer=0,mx=0,my=0,zx=0,zy=0,running=false;
-  function setQuote(sec){const i=(secs.indexOf(sec)+off)%Q.length,[t,src]=Q[i];clearTimeout(timer);
-    p.innerHTML=t.split(' ').map(w=>`<i>${w}</i>`).join(' ');ct.textContent=src+(src.startsWith(Z)?' · tr. Common':' · tr. Zimmern');
-    num.textContent=String(i+1).padStart(2,'0')+'/'+Q.length;zq.classList.toggle('dk',sec.classList.contains('slab'));
-    const ws=[...p.querySelectorAll('i')];let k=0;const step=()=>{if(k<ws.length){ws[k++].classList.add('v');timer=setTimeout(step,reduce?0:34);}};step();}
-  function place(){const w=zq.offsetWidth,h=zq.offsetHeight;let x=zx+18,y=zy+46;if(x+w>innerWidth-12)x=zx-w-18;if(y+h>innerHeight-12)y=zy-h-18;zq.style.transform=`translate(${Math.round(x)}px,${Math.round(y)}px)`;}
-  function loop(){zx+=(mx-zx)*(reduce?1:.14);zy+=(my-zy)*(reduce?1:.14);place();if(Math.abs(mx-zx)+Math.abs(my-zy)>.5)requestAnimationFrame(loop);else running=false;}
-  addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;
-    const t=e.target,busy=t.closest('a,button,summary,input,textarea,select,.nav,label');
-    const sec=t.closest('main .slab')||t.closest('main > section, footer');
-    if(!sec||busy){zq.classList.remove('on');if(!sec)cur=null;return;}
-    if(sec!==cur){if(!cur){zx=mx;zy=my;}cur=sec;setQuote(sec);}
-    zq.classList.add('on');if(!running){running=true;requestAnimationFrame(loop);}},{passive:true});
-  document.addEventListener('mouseleave',()=>{zq.classList.remove('on');cur=null;});
-  addEventListener('scroll',()=>{const el=document.elementFromPoint(mx,my);if(el&&cur&&!cur.contains(el)){zq.classList.remove('on');cur=null;}},{passive:true});
+/* margin notes: one unique line per box, on hover */
+const zq=$('#zq'),zd=$('#zqdata');
+if(hover&&zq&&zd){
+  let data=[];try{data=JSON.parse(zd.textContent);}catch(_){}
+  const UNION='main > section, main .slab, footer, footer .fgrid>*, .wcard, .card, .case, .rows>a, .skill, .svc, .site, .stats>*, .gallery>*, .faq details, .acc details, .meta3>*, .portrait';
+  const boxes=$$(UNION);
+  if(boxes.length===data.length){
+    const BUSY='.nav, input, textarea, select, button, .btn, .pill, .link, .go, .chip, .filters, #theme';
+    const p=zq.querySelector('p'),ct=zq.querySelector('cite'),num=$('#zqn');
+    let cur=null,timer=0,mx=0,my=0,zx=0,zy=0,running=false;
+    function setQuote(box){const [t,src,gid,tot]=data[boxes.indexOf(box)];clearTimeout(timer);
+      p.innerHTML=t.split(' ').map(w=>`<i>${w}</i>`).join(' ');ct.textContent=src||'Overheard at the studio';
+      num.textContent=String(gid).padStart(3,'0')+'/'+tot;zq.classList.toggle('dk',!!box.closest('.slab'));
+      const ws=[...p.querySelectorAll('i')];let k=0;const step=()=>{if(k<ws.length){ws[k++].classList.add('v');timer=setTimeout(step,reduce?0:30);}};step();}
+    function place(){const w=zq.offsetWidth,h=zq.offsetHeight;let x=zx+18,y=zy+46;if(x+w>innerWidth-12)x=zx-w-18;if(y+h>innerHeight-12)y=zy-h-18;zq.style.transform=`translate(${Math.round(x)}px,${Math.round(y)}px)`;}
+    function loop(){zx+=(mx-zx)*(reduce?1:.14);zy+=(my-zy)*(reduce?1:.14);place();if(Math.abs(mx-zx)+Math.abs(my-zy)>.5)requestAnimationFrame(loop);else running=false;}
+    function over(t){if(!t||!t.closest)return null;if(t.closest(BUSY))return null;return t.closest(UNION);}
+    addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;const box=over(e.target);
+      if(!box){zq.classList.remove('on');cur=null;return;}
+      if(box!==cur){if(!cur){zx=mx;zy=my;}cur=box;setQuote(box);}
+      zq.classList.add('on');if(!running){running=true;requestAnimationFrame(loop);}},{passive:true});
+    document.addEventListener('mouseleave',()=>{zq.classList.remove('on');cur=null;});
+    addEventListener('scroll',()=>{const b=over(document.elementFromPoint(mx,my));if(b!==cur){zq.classList.remove('on');cur=null;}},{passive:true});
+  }
 }
 
 /* ---------- shared sketch engine ---------- */
