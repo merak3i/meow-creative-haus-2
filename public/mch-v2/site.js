@@ -58,6 +58,74 @@ if(hover&&sel){
   const tick=()=>{yx+=(mx-yx)*(reduce?1:.25);yy+=(my-yy)*(reduce?1:.25);you.style.transform=`translate(${yx+14}px,${yy+16}px)`;requestAnimationFrame(tick);};tick();
 }
 
+/* theme toggle */
+const tb=$('#theme'),root=document.documentElement,mqDark=matchMedia('(prefers-color-scheme: dark)');
+const curTheme=()=>root.dataset.theme||(mqDark.matches?'dark':'light');
+function showTheme(){if(!tb)return;const c=curTheme();tb.querySelector('span').textContent=c==='dark'?'Dark':'Light';tb.setAttribute('aria-label',`Theme: ${c}. Switch to ${c==='dark'?'light':'dark'}`);}
+if(tb){showTheme();mqDark.addEventListener('change',showTheme);
+  tb.addEventListener('click',()=>{const n=curTheme()==='dark'?'light':'dark';root.classList.add('theming');root.setAttribute('data-theme',n);try{localStorage.setItem('mch-theme',n);}catch(_){}showTheme();setTimeout(()=>root.classList.remove('theming'),500);});}
+
+/* pinned page heroes */
+const pins=$$('.phero.pin');
+const pinOff=matchMedia('(max-width:900px),(max-height:620px)');
+function pinFit(){pins.forEach(s=>{s.classList.remove('nopin');const st=s.querySelector('.pstage');s.classList.toggle('nopin',pinOff.matches||reduce||st.scrollHeight>innerHeight+2);});pinUpdate();}
+MCH.pinP=s=>{if(!s||s.classList.contains('nopin'))return null;const r=s.getBoundingClientRect(),d=s.offsetHeight-innerHeight;return d>0?clamp(-r.top/d):0;};
+function pinUpdate(){pins.forEach(s=>{let p=MCH.pinP(s);if(p===null)p=clamp(scrollY/(innerHeight*.75));s.style.setProperty('--pp',p.toFixed(4));const i=p<.3?0:p<.62?1:2;s.querySelectorAll('.psteps span').forEach((e,k)=>e.classList.toggle('on',k<=i));});}
+if(pins.length){addEventListener('scroll',pinUpdate,{passive:true});addEventListener('resize',pinFit);addEventListener('load',pinFit);pinFit();}
+
+/* scroll-scrubbed sections */
+if(!reduce){
+  const sc=$$('main .frame .head h2, main .frame .ftag, .wcard, .card, .case, .rows>a, .skill, .svc>*, .site, .stats>*, .gallery>*, .faq details, .acc details, .meta3>*, .fgrid>*').filter(el=>!el.closest('#hero')&&!el.closest('.phero'));
+  const slabs=$$('main .slab').filter(el=>!el.closest('#hero'));
+  sc.forEach(el=>{el.classList.add('sc');const sib=el.parentElement?[...el.parentElement.children].indexOf(el):0;el._lag=(sib%4)*.06;});
+  slabs.forEach(el=>el.classList.add('scs'));
+  let ticking=false;
+  function scrub(){ticking=false;const vh=innerHeight,end=clamp(1-(document.documentElement.scrollHeight-scrollY-vh)/160);
+    sc.forEach(el=>{const r=el.getBoundingClientRect();if(r.top>vh*1.25||r.bottom<-200)return;el.style.setProperty('--s',Math.max(r.top<vh?end:0,clamp((vh-r.top)/(vh*.32)-el._lag*3)).toFixed(3));});
+    slabs.forEach(el=>{const r=el.getBoundingClientRect();if(r.top>vh*1.25||r.bottom<-200)return;el.style.setProperty('--s',Math.max(r.top<vh?end:0,clamp((vh-r.top)/(vh*.55))).toFixed(3));});}
+  addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(scrub);}},{passive:true});addEventListener('resize',scrub);scrub();
+}
+
+/* margin notes: Nietzsche, one per section, on hover */
+const zq=$('#zq');
+if(hover&&zq){
+  const Z='Thus Spoke Zarathustra',B='Beyond Good and Evil';
+  const Q=[
+   ["I tell you: one must still have chaos in one, to give birth to a dancing star. I tell you: ye have still chaos in you.",Z+', Prologue 5'],
+   ["What is great in man is that he is a bridge and not a goal: what is lovable in man is that he is an over-going and a down-going.",Z+', Prologue 4'],
+   ["He who fights with monsters should be careful lest he thereby become a monster. And if thou gaze long into an abyss, the abyss will also gaze into thee.",B+', §146'],
+   ["Of all that is written, I love only what a person hath written with his blood. Write with blood, and thou wilt find that blood is spirit.",Z+', Reading and Writing'],
+   ["What is done out of love always takes place beyond good and evil.",B+', §153'],
+   ["I teach you the Superman. Man is something that is to be surpassed. What have ye done to surpass man?",Z+', Prologue 3'],
+   ["Every profound spirit needs a mask.",B+', §40'],
+   ["And lost be the day to us in which a measure hath not been danced. And false be every truth which hath not had laughter along with it!",Z+', Old and New Tables 23'],
+   ["There is no such thing as moral phenomena, but only a moral interpretation of phenomena.",B+', §108'],
+   ["Ready must thou be to burn thyself in thine own flame; how couldst thou become new if thou have not first become ashes!",Z+', The Way of the Creating One'],
+   ["Ultimately, one loves one's desires, and not the thing desired.",B+', §175'],
+   ["Ye have made your way from the worm to man, and much within you is still worm.",Z+', Prologue 3'],
+   ["Talking much about oneself may also be a means of concealing oneself.",B+', §169'],
+   ["One no longer loves one's knowledge sufficiently after one has communicated it.",B+', §160'],
+   ["Insanity in individuals is something rare; but in groups, parties, nations and epochs it is the rule.",B+', §156']];
+  const secs=$$('main > section, main .slab, footer');
+  let off=0;for(const ch of location.pathname)off=(off*31+ch.charCodeAt(0))%Q.length;
+  const p=zq.querySelector('p'),ct=zq.querySelector('cite'),num=$('#zqn');
+  let cur=null,timer=0,mx=0,my=0,zx=0,zy=0,running=false;
+  function setQuote(sec){const i=(secs.indexOf(sec)+off)%Q.length,[t,src]=Q[i];clearTimeout(timer);
+    p.innerHTML=t.split(' ').map(w=>`<i>${w}</i>`).join(' ');ct.textContent=src+(src.startsWith(Z)?' · tr. Common':' · tr. Zimmern');
+    num.textContent=String(i+1).padStart(2,'0')+'/'+Q.length;zq.classList.toggle('dk',sec.classList.contains('slab'));
+    const ws=[...p.querySelectorAll('i')];let k=0;const step=()=>{if(k<ws.length){ws[k++].classList.add('v');timer=setTimeout(step,reduce?0:34);}};step();}
+  function place(){const w=zq.offsetWidth,h=zq.offsetHeight;let x=zx+18,y=zy+46;if(x+w>innerWidth-12)x=zx-w-18;if(y+h>innerHeight-12)y=zy-h-18;zq.style.transform=`translate(${Math.round(x)}px,${Math.round(y)}px)`;}
+  function loop(){zx+=(mx-zx)*(reduce?1:.14);zy+=(my-zy)*(reduce?1:.14);place();if(Math.abs(mx-zx)+Math.abs(my-zy)>.5)requestAnimationFrame(loop);else running=false;}
+  addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;
+    const t=e.target,busy=t.closest('a,button,summary,input,textarea,select,.nav,label');
+    const sec=t.closest('main .slab')||t.closest('main > section, footer');
+    if(!sec||busy){zq.classList.remove('on');if(!sec)cur=null;return;}
+    if(sec!==cur){if(!cur){zx=mx;zy=my;}cur=sec;setQuote(sec);}
+    zq.classList.add('on');if(!running){running=true;requestAnimationFrame(loop);}},{passive:true});
+  document.addEventListener('mouseleave',()=>{zq.classList.remove('on');cur=null;});
+  addEventListener('scroll',()=>{const el=document.elementFromPoint(mx,my);if(el&&cur&&!cur.contains(el)){zq.classList.remove('on');cur=null;}},{passive:true});
+}
+
 /* ---------- shared sketch engine ---------- */
 const nz=i=>{const x=Math.sin(i*127.1+311.7)*43758.5453;return (x-Math.floor(x))*2-1;};
 MCH.nz=nz;
@@ -101,7 +169,7 @@ function board(cv){const g=cv.getContext('2d');let W=0,H=0;const lay=L[cv.datase
   size();addEventListener('resize',size);
   function frame(now){time=now;const T=MCH.T;g.clearRect(0,0,W,H);
     const intro=reduce?1:ease(clamp((now-t0)/1400));
-    const p=clamp(scrollY/(innerHeight*.75));
+    const pp=MCH.pinP(cv.closest('.phero.pin'));const p=pp===null?clamp(scrollY/(innerHeight*.75)):clamp(pp/.92);
     const sk=clamp(.25+intro*.55+p*1.6), k=ease(clamp((p-.12)/.32)), f=ease(clamp((p-.36)/.4));
     const pad=2,B={x:pad,y:pad,w:W-pad*2,h:H-pad*2},j=(1-k)*B.w*.012;
     g.fillStyle=T.paper;g.globalAlpha=.4+.6*f;rr(g,B.x,B.y,B.w,B.h,6);g.fill();g.globalAlpha=1;
