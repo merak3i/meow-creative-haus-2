@@ -6,6 +6,29 @@ const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const hover=matchMedia('(hover:hover)').matches;
 const MCH=window.MCH={clamp,ease,reduce,T:{}};
 
+/* full-length ambient music, with a fallback when autoplay is blocked */
+const music=new Audio('/mch-v2/no-surprises.mp3');
+music.loop=true;music.volume=.18;music.preload='metadata';
+const musicButton=document.createElement('button');
+musicButton.type='button';musicButton.className='music-toggle';
+musicButton.title='No Surprises — Jeremiah Fraites & Gregory Alan Isakov';
+document.body.appendChild(musicButton);
+let musicOff=false,musicPosition=0;
+try{musicOff=sessionStorage.getItem('mch-music-off')==='true';musicPosition=Number(sessionStorage.getItem('mch-music-position'))||0;}catch(_){}
+function musicState(){const playing=!music.paused;musicButton.textContent=playing?'♫ Music on':'♫ Music off';musicButton.setAttribute('aria-pressed',String(playing));musicButton.setAttribute('aria-label',playing?'Pause background music':'Play background music');}
+function saveMusic(){try{sessionStorage.setItem('mch-music-off',String(musicOff));sessionStorage.setItem('mch-music-position',String(music.currentTime));}catch(_){} }
+music.addEventListener('loadedmetadata',()=>{if(Number.isFinite(music.duration)&&musicPosition>0)music.currentTime=musicPosition%music.duration;});
+music.addEventListener('play',musicState);music.addEventListener('pause',musicState);
+music.addEventListener('error',()=>{musicButton.textContent='♫ Music unavailable';musicButton.setAttribute('aria-label','Background music unavailable');musicButton.disabled=true;});
+musicButton.addEventListener('click',async()=>{
+  if(!music.paused){musicOff=true;music.pause();saveMusic();return;}
+  try{await music.play();musicOff=false;saveMusic();}catch(_){musicState();}
+});
+addEventListener('pagehide',saveMusic);
+music.addEventListener('timeupdate',saveMusic);
+musicState();
+if(!musicOff)music.play().catch(()=>musicState());
+
 /* theme tokens for canvases */
 const listeners=[];MCH.onTheme=f=>listeners.push(f);
 function readTokens(){const cs=getComputedStyle(document.documentElement);['paper','paper2','ink','ink2','line','violet','violet2','lilac','graphite','onaccent'].forEach(k=>MCH.T[k]=cs.getPropertyValue('--'+k).trim());listeners.forEach(f=>f());}

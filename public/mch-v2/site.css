@@ -405,3 +405,7 @@ html.theming,html.theming *,html.theming *::before,html.theming *::after{transit
 .card.tale{padding:14px 14px 24px}
 .card.tale .top,.card.tale h3,.card.tale p,.card.tale .go{margin-left:10px;margin-right:10px}
 .slab.feature .tart{max-width:420px;margin-bottom:22px}
+.music-toggle{position:fixed;right:max(18px,env(safe-area-inset-right));bottom:max(18px,env(safe-area-inset-bottom));z-index:100;padding:10px 16px;min-height:44px;border:1px solid var(--line);border-radius:999px;background:var(--paper);color:var(--ink);font-family:var(--pix);font-size:14px;cursor:pointer;box-shadow:0 3px 16px rgba(0,0,0,.08)}
+.music-toggle:hover{border-color:var(--violet)}
+.music-toggle:focus-visible{outline:2px solid var(--violet);outline-offset:4px}
+.music-toggle:disabled{cursor:default;opacity:.7}
