@@ -396,3 +396,12 @@ html.theming,html.theming *,html.theming *::before,html.theming *::after{transit
 #zq cite{display:block;margin-top:8px;font-size:11px;font-style:normal;color:var(--ink2);opacity:.8}
 #zq.dk{--paper:#15141b;--line:rgba(241,240,244,.16);--graphite:rgba(241,240,244,.62);--ink2:rgba(241,240,244,.7);--violet:#ab9eff}
 @media (hover:none),(max-width:760px){#zq{display:none}}
+
+/* tales of meow */
+.tart{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;aspect-ratio:4/3;border-radius:4px;background:#0b0f13;color:#f3efe8;text-align:center;padding:24px;overflow:hidden}
+.tart .sun{width:44px;height:44px;opacity:.9}
+.tart b{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:clamp(22px,2.4vw,34px);line-height:1.15;letter-spacing:.01em}
+.tart b i{font-style:normal;opacity:.7}
+.card.tale{padding:14px 14px 24px}
+.card.tale .top,.card.tale h3,.card.tale p,.card.tale .go{margin-left:10px;margin-right:10px}
+.slab.feature .tart{max-width:420px;margin-bottom:22px}
