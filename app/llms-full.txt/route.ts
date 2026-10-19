@@ -24,6 +24,8 @@ ${faqs.map((f) => `### ${f.question}\n${f.answer}\n${siteConfig.url}${f.href}\n`
 ## Reading and historical resources
 Zine archive: ${siteConfig.url}/tech-misc-larp
 Issue 01: ${siteConfig.url}/tech-misc-larp/issue-01
+Tales of Meow: ${siteConfig.url}/tales-of-meow
+50 Shades of Meow: ${siteConfig.url}/50-shades-of-meow
 September studio notes: ${siteConfig.url}/studio-notes-september-2026
 Studio Notes issue archive: ${siteConfig.url}/studio-notes
 Public skills: ${siteConfig.url}/lab/skills

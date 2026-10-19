@@ -11,7 +11,7 @@ const music=new Audio('/mch-v2/no-surprises.mp3');
 music.loop=true;music.volume=.18;music.preload='metadata';
 const musicButton=document.createElement('button');
 musicButton.type='button';musicButton.className='music-toggle';
-musicButton.title='No Surprises — Jeremiah Fraites & Gregory Alan Isakov';
+musicButton.title='No Surprises, Jeremiah Fraites & Gregory Alan Isakov';
 document.body.appendChild(musicButton);
 let musicOff=false,musicPosition=0;
 try{musicOff=sessionStorage.getItem('mch-music-off')==='true';musicPosition=Number(sessionStorage.getItem('mch-music-position'))||0;}catch(_){}
@@ -116,7 +116,7 @@ if(hover&&zq&&zd){
   const UNION='main > section, main .slab, footer, footer .fgrid>*, .wcard, .card, .case, .rows>a, .skill, .svc, .site, .stats>*, .gallery>*, .faq details, .acc details, .meta3>*, .portrait';
   const boxes=$$(UNION);
   if(boxes.length===data.length){
-    const BUSY='.nav, input, textarea, select, button, .btn, .pill, .link, .go, .chip, .filters, #theme';
+    const BUSY='.nav, input, textarea, select, button, .btn, .pill, .link, .go, .chip, .filters, #theme, .orb-void, .reel, .dump';
     const p=zq.querySelector('p'),ct=zq.querySelector('cite'),num=$('#zqn');
     let cur=null,timer=0,mx=0,my=0,zx=0,zy=0,running=false;
     function setQuote(box){const [t,src,gid,tot]=data[boxes.indexOf(box)];clearTimeout(timer);
@@ -226,4 +226,46 @@ function drawMinis(){const T=MCH.T;$$('canvas[data-ui]').forEach(c=>{const d=Mat
     R(0,h*.86,w,h*.14,0,T.ink);R(w*.05,h*.91,w*.18,h*.03,2,T.violet2);}
 });}
 drawMinis();addEventListener('load',drawMinis);addEventListener('resize',drawMinis);MCH.onTheme(drawMinis);
+
+/* ---------- reels: one player at a time, the reel box and photo dumps ---------- */
+let resumeMusic=false;
+document.addEventListener('play',e=>{const v=e.target;if(!(v instanceof HTMLVideoElement)||v.muted)return;
+  $$('video').forEach(o=>{if(o!==v&&!o.paused)o.pause();});
+  if(!music.paused){resumeMusic=true;music.pause();}},true);
+const settle=e=>{if(!(e.target instanceof HTMLVideoElement))return;
+  if(resumeMusic&&!musicOff&&$$('video').every(o=>o.paused||o.muted)){resumeMusic=false;music.play().catch(()=>musicState());}};
+document.addEventListener('pause',settle,true);document.addEventListener('ended',settle,true);
+
+const reelLinks=$$('a[data-reel]');
+if(reelLinks.length&&typeof HTMLDialogElement==='function'){
+  const box=document.createElement('dialog');box.className='reelbox';box.setAttribute('aria-label','Reel player');
+  box.innerHTML='<div class="rb-in"><div class="rb-card"><video controls playsinline preload="none"></video><div class="rb-meta"><b></b><span class="rb-s"></span><a class="rb-ig" target="_blank" rel="noopener">Also on Instagram ↗</a></div></div><button class="rb-x" type="button" aria-label="Close the reel">×</button></div>';
+  document.body.appendChild(box);
+  const bv=box.querySelector('video'),bt=box.querySelector('.rb-meta b'),bs=box.querySelector('.rb-s'),bi=box.querySelector('.rb-ig');
+  const close=()=>{bv.pause();box.close();};
+  box.querySelector('.rb-x').addEventListener('click',close);
+  box.addEventListener('click',e=>{if(e.target===box||e.target.classList.contains('rb-in'))close();});
+  box.addEventListener('close',()=>{bv.pause();bv.removeAttribute('src');bv.load();});
+  reelLinks.forEach(a=>a.addEventListener('click',e=>{if(e.metaKey||e.ctrlKey||e.shiftKey||e.button)return;e.preventDefault();
+    bv.poster=a.dataset.poster||'';bv.src=a.getAttribute('href');bt.textContent=a.dataset.title||'';bs.textContent=a.dataset.meta||'';
+    if(a.dataset.ig){bi.href=a.dataset.ig;bi.hidden=false;}else bi.hidden=true;
+    box.showModal();bv.play().catch(()=>{});}));
+}
+
+/* photo dumps: swipe, drag, arrow keys and a frame counter */
+$$('.dump').forEach(d=>{const tr=d.querySelector('.dump-track'),sl=[...d.querySelectorAll('.dump-slide')];if(!tr||!sl.length)return;
+  const cnt=d.querySelector('.dump-count b'),cap=d.querySelector('.dump-cap'),[pv,nx]=d.querySelectorAll('.dump-btn');
+  let cur=0;const pad=n=>String(n+1).padStart(2,'0');
+  const nearest=()=>{const c=tr.scrollLeft+tr.clientWidth/2;let b=0,bd=1e9;sl.forEach((s,i)=>{const dd=Math.abs(s.offsetLeft+s.offsetWidth/2-c);if(dd<bd){bd=dd;b=i;}});return b;};
+  const show=i=>{cur=i;if(cnt)cnt.textContent=pad(i);if(cap)cap.textContent=sl[i].dataset.cap||'';if(pv)pv.disabled=i===0;if(nx)nx.disabled=i===sl.length-1;};
+  const go=i=>{i=clamp(i,0,sl.length-1);const s=sl[i];tr.scrollTo({left:s.offsetLeft-(tr.clientWidth-s.offsetWidth)/2,behavior:reduce?'auto':'smooth'});show(i);};
+  let tk=false;tr.addEventListener('scroll',()=>{if(tk)return;tk=true;requestAnimationFrame(()=>{tk=false;show(nearest());});},{passive:true});
+  if(pv)pv.addEventListener('click',()=>go(cur-1));if(nx)nx.addEventListener('click',()=>go(cur+1));
+  tr.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();go(cur+1);}else if(e.key==='ArrowLeft'){e.preventDefault();go(cur-1);}});
+  let dx=null,sx=0;
+  tr.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse'||e.button)return;dx=e.clientX;sx=tr.scrollLeft;tr.classList.add('drag');tr.setPointerCapture(e.pointerId);});
+  tr.addEventListener('pointermove',e=>{if(dx===null)return;tr.scrollLeft=sx-(e.clientX-dx);});
+  const up=()=>{if(dx===null)return;dx=null;tr.classList.remove('drag');go(nearest());};
+  tr.addEventListener('pointerup',up);tr.addEventListener('pointercancel',up);
+  show(0);});
 })();

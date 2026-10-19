@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-10-19
+
+- Homepage section two is now "Tools we use to create digital magic": 130 tools on four orbits (think, make, build, run) around the studio, drawn in the void style with a particle star, comet trails and white logo glyphs. Hovering, focusing or tapping a logo stops the orbit and draws vector lines to what the studio uses it for; a full list sits under the stage. Data comes from a scan of the studio's machines, builds, client work and chats; logos are Simple Icons 16.35.0, monograms elsewhere. The loop sleeps while the section is off screen and holds still under reduced motion.
+- Added `/50-shades-of-meow`, the series page for 50 Shades of Meow: part 01 as a twenty-frame swipe carousel (drag, arrows, keys, frame counter) and part 02, the data cut reel, playing on the page with its in-house score. Linked from the Journal publications, the footer on every page, the sitemap and the LLM reference files.
+- Tales of Meow now plays on the site: the latest tale has an inline player and every card opens the reel in an on-page player, with Instagram kept as a secondary link.
+- `site.js`: one video plays at a time, and the ambient site music pauses while a reel with sound plays, then resumes if it was on.
+- Margin notes: 15 new lines (809 in total), box and note counts re-checked on all 39 pages.
+
 ## 2026-09-12
 
 - Turned `/tech-misc-larp` into a permanent zine archive, moved the first reader to `/tech-misc-larp/issue-01`, and added a reserved shelf for future issues.

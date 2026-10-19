@@ -31,6 +31,7 @@ const nextConfig = {
         { source: "/studio-notes", destination: "/mch-v2/studio-notes.html" },
         { source: "/tech-misc-larp", destination: "/mch-v2/tech-misc-larp.html" },
         { source: "/tales-of-meow", destination: "/mch-v2/tales-of-meow.html" },
+        { source: "/50-shades-of-meow", destination: "/mch-v2/50-shades-of-meow.html" },
         { source: "/updates", destination: "/mch-v2/updates.html" },
         { source: "/work", destination: "/mch-v2/work.html" },
         { source: "/work/1clickwebsite-india", destination: "/mch-v2/work/1clickwebsite-india.html" },

@@ -17,6 +17,8 @@ Canonical: ${siteConfig.url}/
 - [meow.wild build](${siteConfig.url}/work/meow-wild): interactive cat scroll story
 - [Journal](${siteConfig.url}/journal): writing and permanent archive links
 - [Zine](${siteConfig.url}/tech-misc-larp): Tech / Misc / Larp archive and Issue 01
+- [Tales of Meow](${siteConfig.url}/tales-of-meow): philosophical dialogue reels, watchable on the page
+- [50 Shades of Meow](${siteConfig.url}/50-shades-of-meow): monthly series, a carousel and a data-sculpture reel with an original score
 - [Studio notes](${siteConfig.url}/studio-notes-september-2026): September 2026
 - [Studio Notes archive](${siteConfig.url}/studio-notes): permanent links to each issue
 - [Updates](${siteConfig.url}/updates): complete dated release records

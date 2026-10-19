@@ -23,6 +23,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...[
       { route: "/lab/skills", date: "2026-09-15" },
       { route: "/studio-notes-september-2026", date: "2026-09-15" },
+      { route: "/50-shades-of-meow", date: "2026-10-19" },
+      { route: "/tales-of-meow", date: "2026-10-19" },
       { route: "/tech-misc-larp", date: "2026-09-12" },
       { route: "/tech-misc-larp/issue-01", date: "2026-09-12" },
       {
