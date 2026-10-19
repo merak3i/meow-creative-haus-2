@@ -6,7 +6,8 @@
 - Added `/50-shades-of-meow`, the series page for 50 Shades of Meow: part 01 as a twenty-frame swipe carousel (drag, arrows, keys, frame counter) and part 02, the data cut reel, playing on the page with its in-house score. Linked from the Journal publications, the footer on every page, the sitemap and the LLM reference files.
 - Tales of Meow now plays on the site: the latest tale has an inline player and every card opens the reel in an on-page player, with Instagram kept as a secondary link.
 - `site.js`: one video plays at a time, and the ambient site music pauses while a reel with sound plays, then resumes if it was on.
-- Margin notes: 15 new lines (809 in total), box and note counts re-checked on all 39 pages.
+- Tales of Meow: the two July tales, "Simplicity & gracefulness" (the first tale) and "True North", join the shelf with their own cards and on-page player. They play silent on the site because their soundtracks come from the Instagram music library; the cards and the player say so and link to Instagram for sound.
+- Margin notes: 17 new lines (811 in total), box and note counts re-checked on all 39 pages.
 
 ## 2026-09-12
 
