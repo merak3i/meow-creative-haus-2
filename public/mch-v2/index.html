@@ -230,7 +230,7 @@
   const btn=document.getElementById('inkbtn'),cap=document.getElementById('inkcap'),voice=document.getElementById('inkvoice');
   const [ink]=MCHCats.mount(cv.parentElement,{
     theme:()=>({ink:MCH.T.ink||'#ddd2ee',paper:MCH.T.paper||'#0f0e14'}),
-    place:()=>{const B=MCH.heroBox;if(!B)return{x0:0,x1:1,y:-999,scale:.5};const sc=Math.max(.5,Math.min(.78,B.h/700));return{x0:B.x+B.w*.58,x1:B.x+B.w*.9,y:B.y+13,scale:sc};}
+    place:()=>{const B=MCH.heroBox;if(!B)return{x0:0,x1:1,y:-999,scale:.5};const sc=Math.max(.5,Math.min(.78,B.h/700));const room=B.y-200*sc>84;return{x0:B.x+B.w*.58,x1:B.x+B.w*.9,y:room?B.y+13:B.y+B.h-6,scale:sc};}
   });
   ink.x=.85;
   // visible only while the hero frame is on screen
