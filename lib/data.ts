@@ -96,12 +96,6 @@ export const clientLogos = [
     isText: true,
     noInvert: true,
   },
-  {
-    name: "Coastal Edge AI",
-    src: "/coastal-edge-logo.svg",
-    scale: 1.45,
-    preserveColor: true,
-  },
 ] as const;
 
 export const offers = [
@@ -190,7 +184,6 @@ const LOGOS = {
   mantleWorks:       "https://meowcreativehaus.lovable.app/lovable-uploads/1af13004-dd8f-444c-a10b-c5a2573ab542.png",
   manipalAerosports: "https://meowcreativehaus.lovable.app/lovable-uploads/2ab5b161-6bee-476d-87ba-767c24bb9168.png",
   merak3i:           "https://substackcdn.com/image/fetch/$s_!AOTz!,w_256,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2d55abfa-bb35-4bc5-b16c-a69fc36c83e2_1320x1318.png",
-  coastalEdge:       "/coastal-edge-logo.svg",
 };
 
 // ─── Featured Articles ────────────────────────────────────────────────────────
@@ -437,7 +430,7 @@ export const clientWebsites = [
     name: "Tender Moments",
     tagline: "Preschool & early learning",
     url: "https://tendermomentshebbal.in/",
-    screenshot: "/screenshots/tender-moments-live-hero-2026-07-28.webp",
+    screenshot: "/screenshots/tender-moments-live-hero-2026-10-23.webp",
     industry: "Early Education",
     logo: tenderMomentsLogo.src,
   },
@@ -448,14 +441,6 @@ export const clientWebsites = [
     screenshot: "/screenshots/manipal-aerosports.webp",
     industry: "Aviation",
     logo: LOGOS.manipalAerosports,
-  },
-  {
-    name: "Coastal Edge AI",
-    tagline: "Predictive social media marketing",
-    url: "https://coastaledge.vercel.app/",
-    screenshot: "/screenshots/coastal-edge-ai.webp",
-    industry: "AI Marketing",
-    logo: LOGOS.coastalEdge,
   },
   {
     name: "Suha Rehma",

@@ -492,7 +492,7 @@ export const projectCover = (project: WorkProject) =>
 // Card-only crops: same artwork, framed to the card's landscape window so
 // small screens do not download pixels the cover crop never shows.
 const cardCovers: Record<string, string> = {
-  "tender-moments": "/work-media/tender-moments-2026-09-04-kids-101-015-cover.webp",
+  "tender-moments": "/screenshots/tender-moments-live-hero-2026-10-23.webp",
 };
 export const projectCardCover = (project: WorkProject) =>
   cardCovers[project.slug] ?? projectCover(project);

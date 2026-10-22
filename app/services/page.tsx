@@ -54,7 +54,7 @@ const services = [
       "Positioning, organic content workflows, outreach operations and pipeline infrastructure connected to the website or product. We agree the scope and review process before setting up recurring work.",
     deliverables:
       "Positioning / Organic content workflows / Outreach operations / Pipeline infrastructure",
-    work: "coastal-edge-ai",
+    work: "berglabs",
   },
   {
     slug: "visibility",

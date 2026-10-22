@@ -89,7 +89,6 @@ export default function RevenueDashboard() {
               { n: "meow.wild", s: "Live", c: "text-accent-teal" },
               { n: "Patherle", s: "Beta", c: "text-accent-teal" },
               { n: "EAASH Homestay", s: "Live", c: "text-accent-teal" },
-              { n: "Coastal Edge AI", s: "Live", c: "text-accent-teal" },
             ].map((r) => (
               <li key={r.n} className="flex items-center justify-between">
                 <span className="flex items-center gap-2 text-[13px] text-text-muted">

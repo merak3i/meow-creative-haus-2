@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-10-23
+
+- Homepage hero: Ink, the studio cat, sits on the top edge of the sketched frame. Drawn live in one restless line (`/mch-v2/mch-cats.js`, an anatomical rig with a lateral-sequence walk), it breathes, blinks, follows the cursor, paces the frame now and then, and on a tap says its line in an ElevenLabs voice with the mouth moving to the sound. Themes with the site, hides on phones and holds still under reduced motion.
+- Tender Moments: the cover on the homepage, the Work index and the case page is now the live site's current hero.
+- Covers for every work item that had none: three Tender Moments Instagram posts, the meow.wild opening screen, the skills library, the Patherle teaser, the Meow Ops dashboard and the Resonance Security LinkedIn and Instagram pages.
+- Coastal Edge AI removed from the site: work card, case page, client logo, services link, Mangalore page block and dashboard row. `/work/coastal-edge-ai` redirects to `/work`. Manipal Aerosports now links on to Suha Rehma. Work filters read 22 projects, 9 websites.
+- Manipal Aerosports card count corrected to 11 linked items.
+
 ## 2026-10-22
 
 - `/work/dil-se-rave` now leads with six concept films: each song from the duo's set told start to finish as a story, locked to the beat, with 26 jellyfish and letter loops cut in on bar lines. They open in the on-page player and play silent, because the soundtracks are the duo's edits of commercial songs. 720p30 H.264 without audio, 9 to 32 MB each (137 MB in total), with a 1280 x 720 WebP poster per film. The page cover is now film 01.

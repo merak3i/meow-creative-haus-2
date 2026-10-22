@@ -139,12 +139,6 @@ const proof = [
     href: "https://berglabs.ai/",
   },
   {
-    label: "AI-backed marketing narrative",
-    title: "Coastal Edge AI",
-    body: "A predictive social media marketing experience organized around intent signals, dynamic creative, conversation AI, and a continuous learning loop.",
-    href: "https://coastaledge.vercel.app/",
-  },
-  {
     label: "Experience engineering",
     title: "Websites across sectors",
     body: "Public website work spans aviation, early education, hospitality, professional services, AI, and founder-led businesses, with the system adapted to each audience.",

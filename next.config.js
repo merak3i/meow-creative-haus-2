@@ -13,6 +13,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/work/coastal-edge-ai",
+        destination: "/work",
+        permanent: true,
+      },
+      {
         source: "/work/jb-co",
         destination: "/work",
         permanent: true,
@@ -40,7 +45,6 @@ const nextConfig = {
         { source: "/work/berglabs", destination: "/mch-v2/work/berglabs.html" },
         { source: "/work/blackfrog", destination: "/mch-v2/work/blackfrog.html" },
         { source: "/work/canterclub", destination: "/mch-v2/work/canterclub.html" },
-        { source: "/work/coastal-edge-ai", destination: "/mch-v2/work/coastal-edge-ai.html" },
         { source: "/work/coastal-karnataka-sailing-club", destination: "/mch-v2/work/coastal-karnataka-sailing-club.html" },
         { source: "/work/dil-se-rave", destination: "/mch-v2/work/dil-se-rave.html" },
         { source: "/work/eaash", destination: "/mch-v2/work/eaash.html" },

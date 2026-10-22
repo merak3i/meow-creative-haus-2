@@ -1,8 +1,0 @@
-<svg width="360" height="72" viewBox="0 0 360 72" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title">
-  <title id="title">Coastal Edge AI</title>
-  <circle cx="35.5" cy="36" r="17" stroke="#F26C50" stroke-width="2.5"/>
-  <path d="M20.5 38.5C24.7 38.5 27.2 35.5 30.5 32.6C34.3 29.3 38.1 28.8 42.5 31.4C45.4 33.1 48.1 33.2 50.5 31.4" stroke="#F26C50" stroke-width="2.5" stroke-linecap="round"/>
-  <circle cx="48.6" cy="25.8" r="2.4" fill="#F26C50"/>
-  <text x="72" y="46" fill="#FFF8F1" font-family="Georgia, 'Times New Roman', serif" font-size="34" font-weight="700" letter-spacing="-0.9">Coastal Edge</text>
-  <text x="300" y="46" fill="#F26C50" font-family="Georgia, 'Times New Roman', serif" font-size="28" font-style="italic" font-weight="700" letter-spacing="-0.6">AI</text>
-</svg>
