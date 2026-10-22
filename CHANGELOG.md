@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-22
+
+- `/work/dil-se-rave` now leads with six concept films: each song from the duo's set told start to finish as a story, locked to the beat, with 26 jellyfish and letter loops cut in on bar lines. They open in the on-page player and play silent, because the soundtracks are the duo's edits of commercial songs. 720p30 H.264 without audio, 9 to 32 MB each (137 MB in total), with a 1280 x 720 WebP poster per film. The page cover is now film 01.
+- `site.js`: reel links can ask for a wide (16:9) player with `data-wide` and play muted with `data-silent`, which leaves the ambient site music running. `site.css`: wide gallery cards (`.gallery.wide`) and the wide player size.
+- DSR counts and copy updated on the Work index, the Lab page and the homepage (18 items). The work data (`lib/work.ts`, `lib/work-media.json`) carries the six films.
+- Margin notes: 7 new lines (818 in total), box and note counts re-checked on all 39 pages.
+
 ## 2026-10-19
 
 - Homepage section two is now "Tools we use to create digital magic": 130 tools on four orbits (think, make, build, run) around the studio, drawn in the void style with a particle star, comet trails and white logo glyphs. Hovering, focusing or tapping a logo stops the orbit and draws vector lines to what the studio uses it for; a full list sits under the stage. Data comes from a scan of the studio's machines, builds, client work and chats; logos are Simple Icons 16.35.0, monograms elsewhere. The loop sleeps while the section is off screen and holds still under reduced motion.

@@ -366,15 +366,15 @@ const extra: WorkProject[] = [
   {
     slug: "dil-se-rave",
     name: "DSR / Dil Se Rave",
-    description: "Chrome forms, contour fields and silent motion backdrops.",
-    brief: "Explore a visual language for performance backdrops.",
+    description: "Six concept films and twelve silent backdrop loops.",
+    brief: "Explore a visual language for performance backdrops, then tell the set's songs as stories.",
     contribution:
-      "Five recovered directions and seven layered adaptations, presented as twelve silent loop studies.",
-    status: "Motion studies",
+      "Six concept films: each song as a duo story, locked to the beat, with 26 jellyfish and letter loops cut in on bar lines. Before them, five recovered directions and seven layered adaptations, presented as twelve silent loop studies.",
+    status: "Concept films and motion studies",
     disciplines: ["Motion", "Concepts"],
     media: newMedia("dil-se-rave"),
-    note: "These are silent motion studies. Venue deployment remains unverified.",
-    modifiedAt: "2026-10-03",
+    note: "Concept films shown silent, because the soundtracks are the duo's edits of commercial songs. Venue deployment remains unverified.",
+    modifiedAt: "2026-10-22",
   },
   {
     slug: "mch-art",

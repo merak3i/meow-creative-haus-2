@@ -249,6 +249,7 @@ if(reelLinks.length&&typeof HTMLDialogElement==='function'){
   reelLinks.forEach(a=>a.addEventListener('click',e=>{if(e.metaKey||e.ctrlKey||e.shiftKey||e.button)return;e.preventDefault();
     bv.poster=a.dataset.poster||'';bv.src=a.getAttribute('href');bt.textContent=a.dataset.title||'';bs.textContent=a.dataset.meta||'';
     if(a.dataset.ig){bi.href=a.dataset.ig;bi.hidden=false;}else bi.hidden=true;
+    box.classList.toggle('wide','wide' in a.dataset);bv.muted='silent' in a.dataset;
     box.showModal();bv.play().catch(()=>{});}));
 }
 
