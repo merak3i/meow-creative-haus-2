@@ -231,6 +231,9 @@ berg.contribution =
   "Identity exploration, website design and implementation, and labelled editorial carousel drafts.";
 berg.note =
   "The citation fingerprint draft comments on Foundation × AirOps and PromptWatch research, with original attribution retained in the artwork. Robotics pre-annotation is a composite illustrative scenario, not a client result or measured outcome. Neither carousel is claimed as published.";
+const manipal = archival.find((p) => p.slug === "manipal-aerosports")!;
+manipal.note =
+  "Historical portfolio archive. The social artwork is credited to Manipal Aerosports and links to its Facebook page. This entry does not describe a current client relationship.";
 const extra: WorkProject[] = [
   {
     slug: "meow-wild",
