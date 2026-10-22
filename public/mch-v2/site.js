@@ -270,3 +270,13 @@ $$('.dump').forEach(d=>{const tr=d.querySelector('.dump-track'),sl=[...d.querySe
   tr.addEventListener('pointerup',up);tr.addEventListener('pointercancel',up);
   show(0);});
 })();
+
+/* One studio cat per page (Ink has the homepage; the rest roam the bottom edge, see mch-roam.js) */
+(()=>{
+  const p=location.pathname.replace(/\/mch-v2/,'').replace(/(index)?(\.html)?$/,'').replace(/\/$/,'');
+  if(!p||window.__mchRoam)return;
+  const add=(src,cb)=>{const s=document.createElement('script');s.src=src;s.onload=cb;document.body.appendChild(s);};
+  const go=()=>add('/mch-v2/mch-roam.js?v=1');
+  const start=()=>window.MCHCats?go():add('/mch-v2/mch-cats.js?v=2.1',go);
+  document.readyState==='loading'?addEventListener('DOMContentLoaded',start):start();
+})();

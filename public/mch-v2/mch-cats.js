@@ -1,4 +1,6 @@
-/* MCH cats v2: one anatomical rig, four skins (Noir, Pixel, Mochi, Ink).
+/* MCH cats v2.1: one anatomical rig, five skins (Noir, Pixel, Mochi, Ink, Mishri).
+   v2.1 adds Mishri (white, long-haired, odd eyes) and poses for the roaming cats:
+   loaf (nap), crouch (pre-pounce wiggle), run (pounce speed) and edge paws (peek).
    Sit: breathing, blinks, cursor-tracking eyes with slit pupils, ear flicks,
    tail wrapped round the paws with a twitching tip, head tilt, tap reaction.
    Walk: lateral-sequence gait (hind, fore, hind, fore), three-segment legs on
@@ -42,6 +44,16 @@
       sit: { w: 44, h: 118, head: 44, ear: 1.05 },
       body: { len: 1.05, depth: 0.95, leg: 1.04, head: 0.98, tail: 1.08 },
       tail: { n: 22, seg: 6.2, w: 2 },
+    },
+    mishri: {
+      name: 'Mishri', mode: 'fill', fur: 2.2,
+      coat: ['#ffffff', '#efebe6', '#d9d1c8'], belly: '#c4baae', rim: 'rgba(118,104,96,.62)',
+      furHi: 'rgba(255,255,255,.3)', furLo: 'rgba(150,128,116,.13)',
+      inner: '#eaa3b2', innerFade: 'rgba(214,140,152,.55)', nose: '#e392a3', whisker: 'rgba(132,118,110,.7)',
+      iris: ['#d6f1ff', '#6db3ea', '#2a5d99'], irisL: ['#d6f1ff', '#6db3ea', '#2a5d99'], irisR: ['#fff1b4', '#ebb53c', '#8a5a10'],
+      sit: { w: 48, h: 108, head: 47, ear: 0.92 },
+      body: { len: 1.0, depth: 1.08, leg: 0.96, head: 1.02, tail: 1.05 },
+      tail: { n: 20, seg: 6.2, w: 13 },
     },
     pixel: {
       name: 'Pixel', mode: 'fill', px: 5, fur: 0,
@@ -120,6 +132,7 @@
       this.earL = 0; this.earR = 0; this.earAt = this.t + 2 + Math.random() * 4;
       this.tap = 0; this.bubble = 0; this.mouth = 0; this.mouthT = 0; this.talking = false;
       this.seed = 1 + Math.floor(Math.random() * 1e6); this.boil = 0;
+      this.loaf = 0; this.crouch = 0; this.run = 1; this.edgeY = null; this.squint = 0;
       this.tails = {};
       if (this.k.px) { this.low = document.createElement('canvas'); this.lctx = this.low.getContext('2d'); }
       this.resize();
@@ -139,7 +152,7 @@
       this.lookT.x = clamp((px - hx) / 280, -1, 1); this.lookT.y = clamp((py - hy) / 280, -1, 1);
     }
     poke() { this.tap = 1; this.bubble = 1.6; this.earL = 1; this.earR = 1; this.cv.dispatchEvent(new CustomEvent('cat:meow', { bubbles: true, detail: this.skin })); }
-    walkTo(x) { this.goal = clamp(x, 0.16, 0.84); this.pose = 'walk'; }
+    walkTo(x) { const r = this.opts.range || [0.16, 0.84]; this.goal = clamp(x, r[0], r[1]); this.pose = 'walk'; }
     wander() { this.walkTo(this.x < 0.5 ? 0.76 + Math.random() * 0.06 : 0.18 + Math.random() * 0.06); }
 
     step(dt) {
@@ -162,10 +175,10 @@
       this.speedK = lerp(this.speedK, target, 1 - Math.exp(-dt * 3));
       if (this.goal != null && this.pose === 'walk') {
         const d = this.goal - this.x; this.dir = Math.sign(d) || this.dir;
-        const v = ((stride * s) / (D * cycle)) * this.speedK;
+        const v = ((stride * s) / (D * cycle)) * this.speedK * this.run;
         const move = Math.min(Math.abs(d), (v * dt) / this.span());
         this.x += this.dir * move;
-        this.ph = (this.ph + (dt / cycle) * this.speedK) % 1;
+        this.ph = (this.ph + (dt / cycle) * this.speedK * this.run) % 1;
         if (Math.abs(this.goal - this.x) < 0.004) { this.goal = null; this.pose = 'sit'; }
       }
       this.boil += dt;
@@ -186,7 +199,7 @@
       const sw = lerp(k.sit.w * 1.5, 70 * k.body.len, this.blend);
       const g = ctx.createRadialGradient(0, 14, 2, 0, 14, sw);
       g.addColorStop(0, 'rgba(0,0,0,.5)'); g.addColorStop(1, 'rgba(0,0,0,0)');
-      if (!this.opts.place) { ctx.save(); ctx.scale(1, 0.14); ctx.fillStyle = g; ctx.beginPath(); ctx.arc(0, 14, sw, 0, TAU); ctx.fill(); ctx.restore(); }
+      if (!this.opts.place || this.opts.shadow) { ctx.save(); ctx.scale(1, 0.14); ctx.fillStyle = g; ctx.beginPath(); ctx.arc(0, 14, sw, 0, TAU); ctx.fill(); ctx.restore(); }
       if (this.blend < 1) { ctx.save(); ctx.globalAlpha = 1 - ease(this.blend); this.drawSit(ctx); ctx.restore(); }
       if (this.blend > 0) { ctx.save(); ctx.globalAlpha = ease(this.blend); if (this.dir < 0) ctx.scale(-1, 1); this.drawWalk(ctx); ctx.restore(); }
       if (this.bubble > 0) this.drawBubble(ctx);
@@ -286,9 +299,10 @@
 
     // ---------- seated ----------
     drawSit(ctx) {
-      const k = this.k, S = k.sit, W = S.w;
-      const br = Math.sin(this.t * 2.0) * 0.012, sq = this.tap * 0.05;
-      const H = S.h * (1 + br - sq);
+      const k = this.k, S = k.sit, L = this.loaf, C = this.crouch, W = S.w * (1 + 0.16 * L + 0.1 * C);
+      const br = Math.sin(this.t * (2.0 - L * 0.9)) * (0.012 + L * 0.03), sq = this.tap * 0.05;
+      const H = S.h * (1 + br - sq) * (1 - 0.36 * L - 0.16 * C);
+      if (C > 0.01) { ctx.translate(Math.sin(this.t * 22) * 2.2 * C, 0); ctx.rotate(Math.sin(this.t * 22) * 0.02 * C); }
       this.G = this.grad(ctx, -H - 20, 0);
       const n = k.tail.n, rest = [];
       for (let i = 0; i < n; i++) { const f = i / n; rest.push(f < 0.5 ? 0.012 : f < 0.8 ? 0.14 : 0.24); }
@@ -314,12 +328,14 @@
         g.addColorStop(0, k.coat[0]); g.addColorStop(1, 'rgba(0,0,0,0)'); ctx.globalAlpha *= 0.55; ctx.fillStyle = g; ctx.fillRect(-200, -300, 400, 400); ctx.restore();
       }
       this.drawTail(ctx, tp);
-      for (const sx of [-1, 1]) {
+      if (L < 0.98) for (const sx of [-1, 1]) {
+        if (L > 0) { ctx.save(); ctx.globalAlpha *= 1 - L; }
         const x0 = sx * W * 0.2, x1 = sx * W * 0.22;
         this.fill(ctx, capsule([x0, -H * 0.66], [x1, -9], W * 0.17, W * 0.13), { fuzz: false, rimA: 0.06, rim: k.mode === 'line' });
         this.fill(ctx, ellipsePts(x1 + sx * 1, -5, W * 0.17, 5.6, 0, 18), { fuzzK: 0.5, rimA: 0.5 });
         ctx.save(); ctx.strokeStyle = k.mode === 'line' ? k.ink : 'rgba(0,0,0,.55)'; ctx.lineWidth = 0.8;
         ctx.beginPath(); for (const d of [-0.33, 0, 0.33]) { ctx.moveTo(x1 + d * W * 0.17, -1.5); ctx.lineTo(x1 + d * W * 0.15, -5); } ctx.stroke(); ctx.restore();
+        if (L > 0) ctx.restore();
       }
       if (k.mode === 'fill') { ctx.save(); ctx.strokeStyle = 'rgba(0,0,0,.45)'; ctx.lineWidth = 1.4; ctx.beginPath(); ctx.moveTo(0, -H * 0.6); ctx.quadraticCurveTo(1, -H * 0.3, 0, -10); ctx.stroke(); ctx.restore(); }
       if (k.collar) {
@@ -327,12 +343,18 @@
         ctx.beginPath(); ctx.moveTo(-W * 0.4, -H * 0.95); ctx.quadraticCurveTo(0, -H * 0.86, W * 0.4, -H * 0.95); ctx.stroke();
         this.star(ctx, 0, -H * 0.84, 6, k.tag); ctx.restore();
       }
-      const tilt = this.look.x * 0.18 + Math.sin(this.t * 0.6) * 0.035 - this.tap * 0.06 + (this.talking ? Math.sin(this.t * 3.1) * 0.04 : 0);
+      const tilt = (this.look.x * 0.18 + Math.sin(this.t * 0.6) * 0.035) * (1 - L) + L * 0.2 - this.tap * 0.06 + (this.talking ? Math.sin(this.t * 3.1) * 0.04 : 0);
       ctx.save();
-      ctx.translate(this.look.x * 5, -H - S.head * 0.32 + this.look.y * 3 + this.tap * 4 + br * 40);
+      ctx.translate(this.look.x * 5 * (1 - L) + L * W * 0.06, -H - S.head * 0.32 + this.look.y * 3 + this.tap * 4 + br * 40 + L * S.head * 0.1 + C * 6);
       ctx.rotate(tilt);
-      this.drawFace(ctx, S.head, S.ear);
+      this.drawFace(ctx, S.head, S.ear * (1 - 0.18 * C));
       ctx.restore();
+      if (this.edgeY != null) for (const sx of [-1, 1]) { // front paws hooked over an edge
+        const px = sx * W * 0.4 + this.look.x * 3, py = this.edgeY;
+        this.fill(ctx, ellipsePts(px, py - 4, W * 0.2, 7, 0, 18), { fuzzK: 0.5, rimA: 0.7 });
+        ctx.save(); ctx.strokeStyle = k.mode === 'line' ? k.ink : 'rgba(0,0,0,.45)'; ctx.lineWidth = 0.8; ctx.beginPath();
+        for (const d of [-0.3, 0, 0.3]) { ctx.moveTo(px + d * W * 0.2, py + 2); ctx.lineTo(px + d * W * 0.17, py - 3); } ctx.stroke(); ctx.restore();
+      }
     }
 
     star(ctx, x, y, r, c) {
@@ -351,7 +373,7 @@
       this.fill(ctx, outer, { fuzzK: 0.7 });
       const inner = spline([[-w * 0.33, h * 0.12], [-w * 0.2, -h * 0.4], [-w * 0.01, -h * 0.78], [w * 0.22, -h * 0.35], [w * 0.32, h * 0.12]], false, 5);
       if (k.mode === 'fill') {
-        this.poly(ctx, inner); const g = ctx.createLinearGradient(0, -h, 0, h * 0.2); g.addColorStop(0, k.inner); g.addColorStop(1, 'rgba(0,0,0,.6)');
+        this.poly(ctx, inner); const g = ctx.createLinearGradient(0, -h, 0, h * 0.2); g.addColorStop(0, k.inner); g.addColorStop(1, k.innerFade || 'rgba(0,0,0,.6)');
         ctx.fillStyle = g; ctx.globalAlpha *= 0.85; ctx.fill();
         ctx.strokeStyle = 'rgba(235,225,245,.45)'; ctx.lineWidth = 0.6; ctx.beginPath();
         for (let i = 0; i < 4; i++) { ctx.moveTo(-w * 0.15 + i * w * 0.1, h * 0.1); ctx.lineTo(-w * 0.25 + i * w * 0.14, -h * 0.25); } ctx.stroke();
@@ -378,13 +400,13 @@
         ctx.fillStyle = g; ctx.fillRect(-r, -r, 2 * r, 2 * r); ctx.restore();
       }
       const ex = r * 0.33, ey = -r * 0.04, ew = r * (k.round ? 0.2 : 0.19), eh = r * (k.round ? 0.17 : 0.125);
-      const open = clamp(1 - Math.sin(clamp(this.blink, 0, 1) * Math.PI) * 0.97 - this.tap * 0.45, 0.04, 1);
+      const open = clamp((1 - Math.sin(clamp(this.blink, 0, 1) * Math.PI) * 0.97 - this.tap * 0.45) * (1 - this.loaf * 0.96) * (1 - this.squint * 0.85), 0.04, 1);
       for (const sx of [-1, 1]) {
         ctx.save(); ctx.translate(sx * ex, ey); ctx.rotate(sx * -0.16);
         const almond = spline([[-ew, 0], [-ew * 0.35, -eh], [ew * 0.45, -eh * 0.95], [ew, -eh * 0.1], [ew * 0.35, eh * 0.85], [-ew * 0.4, eh * 0.8]], true, 6).map(p => [p[0] * sx, p[1]]);
         ctx.save(); ctx.scale(1, open);
         this.poly(ctx, almond);
-        const g = ctx.createRadialGradient(0, 0, 0, 0, 0, ew); g.addColorStop(0, k.iris[0]); g.addColorStop(0.55, k.iris[1]); g.addColorStop(1, k.iris[2]);
+        const ir = (sx < 0 ? k.irisL : k.irisR) || k.iris; const g = ctx.createRadialGradient(0, 0, 0, 0, 0, ew); g.addColorStop(0, ir[0]); g.addColorStop(0.55, ir[1]); g.addColorStop(1, ir[2]);
         ctx.fillStyle = g; ctx.fill(); ctx.save(); ctx.clip();
         const px = this.look.x * ew * 0.35, py = this.look.y * eh * 0.3;
         ctx.fillStyle = '#060508'; ctx.beginPath();
@@ -566,9 +588,9 @@
     drawBubble(ctx) {
       const a = clamp(this.bubble, 0, 1);
       ctx.save(); ctx.globalAlpha = a;
-      const y = -this.k.sit.h - this.k.sit.head * 1.9 - (1.6 - this.bubble) * 14;
+      const y = -this.k.sit.h * (1 - 0.36 * this.loaf) - this.k.sit.head * 1.9 - (1.6 - this.bubble) * 14;
       ctx.font = this.k.px ? '700 20px monospace' : '600 16px ui-sans-serif, system-ui'; ctx.textAlign = 'center';
-      const word = { noir: 'mrrp?', mochi: 'mew!', ink: 'meow', pixel: 'MEOW' }[this.skin];
+      const word = this.word || { noir: 'mrrp?', mochi: 'mew!', ink: 'meow', pixel: 'MEOW', mishri: 'mrrow' }[this.skin];
       const w = ctx.measureText(word).width + 22, bx = 54;
       ctx.fillStyle = this.k.mode === 'line' ? '#15131c' : 'rgba(30,24,44,.92)';
       ctx.strokeStyle = this.k.mode === 'line' ? this.k.ink : 'rgba(176,150,206,.6)'; ctx.lineWidth = 1;
