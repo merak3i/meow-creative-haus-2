@@ -2,6 +2,8 @@
 
 ## 2026-10-23
 
+- Lab: new "Agents, on call" section. Five fictional AI presenters (Heer for Meow Creative Haus, with a heavy Indian accent; Oja for 1ClickWebsite India; Nila for meow.wild; Aanya for Tales of Meow; Ved for Meow Ops). Faces and performances made in Google Flow with Veo 3.1; each voice swapped for an ElevenLabs voice that keeps the original timing, so lips stay in sync. The Veo mark is cropped out, every clip fades in and out, one plays at a time with sound and a caption. Below them, the cat desk: Noir, Pixel and Mochi drawn live, each talking in its own ElevenLabs voice with a mouth that follows the sound.
+- Meow Ops rewritten for the open-source v1.2.0: MIT, self-hosted, five surfaces (Today, Review, Ledger, Sanctum, Learn), focus timer chip, no account or telemetry. New screens from the v1.2.0 README on the case page, the Lab feature and the homepage Lab row; the case page links to GitHub instead of the password-gated demo.
 - Homepage hero: Ink, the studio cat, sits on the top edge of the sketched frame. Drawn live in one restless line (`/mch-v2/mch-cats.js`, an anatomical rig with a lateral-sequence walk), it breathes, blinks, follows the cursor, paces the frame now and then, and on a tap says its line in an ElevenLabs voice with the mouth moving to the sound. Themes with the site, hides on phones and holds still under reduced motion.
 - Tender Moments: the cover on the homepage, the Work index and the case page is now the live site's current hero.
 - Covers for every work item that had none: three Tender Moments Instagram posts, the meow.wild opening screen, the skills library, the Patherle teaser, the Meow Ops dashboard and the Resonance Security LinkedIn and Instagram pages.

@@ -9,6 +9,35 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Instrument+Sans:wght@400;500;600&family=Pixelify+Sans:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="/mch-v2/site.css">
 <script>try{var t=localStorage.getItem('mch-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<style>
+.agents{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 2px 18px;margin-top:26px;scrollbar-width:thin}
+.agent{flex:0 0 clamp(210px,22vw,270px);margin:0;scroll-snap-align:start}
+.aphone{position:relative;aspect-ratio:9/16;border-radius:26px;overflow:hidden;background:var(--slab);border:1px solid var(--line);box-shadow:0 18px 40px -24px rgba(0,0,0,.6);transition:transform .4s var(--ease)}
+.agent:hover .aphone{transform:translateY(-4px)}
+.aphone video{width:100%;height:100%;object-fit:cover;display:block}
+.aplay{position:absolute;inset:0;border:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.55));cursor:pointer;display:flex;align-items:center;justify-content:center;transition:opacity .3s}
+.aplay span{width:58px;height:58px;border-radius:50%;background:rgba(255,255,255,.18);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.4);position:relative}
+.aplay span:after{content:"";position:absolute;left:23px;top:18px;border-left:16px solid #fff;border-top:11px solid transparent;border-bottom:11px solid transparent}
+.agent.on .aplay{opacity:0}
+.aline{position:absolute;left:12px;right:12px;bottom:14px;margin:0;color:#fff;font:500 14px/1.35 var(--body);text-shadow:0 1px 8px rgba(0,0,0,.7);opacity:0;transform:translateY(8px);transition:opacity .4s,transform .4s;pointer-events:none}
+.agent.on .aline{opacity:1;transform:none}
+.aring{position:absolute;top:12px;right:12px;width:12px;height:12px;border-radius:50%;background:var(--violet);opacity:0;box-shadow:0 0 0 0 var(--violet)}
+.agent.on .aring{opacity:1;animation:aring 1.2s infinite}
+@keyframes aring{0%{box-shadow:0 0 0 0 rgba(167,150,255,.7)}100%{box-shadow:0 0 0 14px rgba(167,150,255,0)}}
+.agent figcaption{display:flex;flex-direction:column;gap:3px;padding:12px 4px 0}
+.agent figcaption b{font:600 19px var(--display)}
+.agent figcaption .mono{font-size:12px;color:var(--ink2)}
+.agent .acred{opacity:.7;margin-top:6px;line-height:1.5}
+.catrow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:18px}
+@media (max-width:760px){.catrow{grid-template-columns:1fr}}
+.catdesk{border:1px solid var(--line);border-radius:20px;background:var(--paper2,var(--paper));padding:12px 14px 16px;position:relative}
+.catdesk canvas{width:100%;height:240px;display:block}
+.cmeta{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.cmeta b{font:600 18px var(--display)}
+.cline{margin:10px 0 0;min-height:2.8em;font-size:14px;color:var(--ink2);opacity:0;transition:opacity .3s}
+.catdesk.on .cline{opacity:1}
+@media (prefers-reduced-motion:reduce){.aring{animation:none!important}}
+</style>
 </head>
 <body>
 <header class="nav" id="nav">
@@ -34,10 +63,18 @@
   </div>
 </section>
 <section class="frame tight" data-frame="Featured" id="featured"><div class="wrap"><div class="slab feature">
-  <div><div class="ftag mono"><b>Frame</b> Featured build</div><span class="chip">Public build</span><h2 style="margin-top:18px">Meow <em>Ops.</em></h2><p>A local-first inbox and review surfaces for AI coding work.</p>
-    <div class="acts"><a class="btn acc" href="/work/meow-ops">Open the build <span class="arr">↗</span></a><a class="btn" href="/updates">Release notes <span class="arr">↗</span></a></div></div>
-  <a href="/work/meow-ops" style="text-decoration:none;display:block" data-sel="Capture · Meow Ops"><span class="media "><img src="/screenshots/meow-ops/meow-ops-01-summary.webp" alt="Meow Ops" loading="lazy"><span class="fb"><b>Meow Ops</b><span class="mono">Public build</span></span></span></a>
+  <div><div class="ftag mono"><b>Frame</b> Featured build</div><span class="chip">Open source · MIT · v1.2.0</span><h2 style="margin-top:18px">Meow <em>Ops.</em></h2><p>Open source, MIT. A local inbox for AI coding work: what happened, what it cost, and what to decide next.</p><p class="muted" style="margin-top:10px">Five surfaces, Today, Review, Ledger, Sanctum and Learn, read your local Claude Code, Codex, Cursor, Aider, Hermes and Antigravity sessions. A focus timer sits on every screen. Nothing applies until you approve it. No account, no telemetry.</p>
+    <div class="acts"><a class="btn acc" href="https://github.com/merak3i/meow-ops">View on GitHub <span class="arr">↗</span></a><a class="btn" href="/work/meow-ops">See the five surfaces <span class="arr">↗</span></a></div></div>
+  <a href="/work/meow-ops" style="text-decoration:none;display:block" data-sel="Capture · Meow Ops"><span class="media "><img src="/screenshots/meow-ops/v1-2/meow-ops-today.webp" alt="Meow Ops" loading="lazy"><span class="fb"><b>Meow Ops · Today</b><span class="mono">v1.2.0</span></span></span></a>
 </div></div></section>
+<section class="frame tight" data-frame="Agents" id="agents"><div class="wrap">
+  <div class="ftag mono"><b>Frame</b> Agents</div>
+  <div class="head"><h2>Agents, <em>on call.</em></h2><div class="side"><p>Five AI presenters and three studio cats, each with a product to pitch. The faces and performances are generated in Google Flow; every voice is then swapped for an ElevenLabs voice that keeps the original timing, so the lips stay in sync. Tap a face to hear it. None of these people exist.</p></div></div>
+  <div class="agents" role="list"><figure class="agent" data-agent="heer" data-sel="Agent · Heer"><div class="aphone"><video src="/work-media/agents/heer.mp4" poster="/work-media/agents/heer-poster.webp" playsinline preload="none" aria-label="Heer, an AI presenter for Meow Creative Haus"></video><button type="button" class="aplay" aria-label="Play Heer"><span></span></button><p class="aline">Hello ji! Your business needs a website, no? Meow Creative Haus will make it so beautiful, your competitors will cry.</p><span class="aring" aria-hidden="true"></span></div><figcaption><b>Heer</b><span class="mono">for Meow Creative Haus</span><span class="mono acred">Face · Veo 3.1 in Google Flow<br>Voice · ElevenLabs, Sia, The Commercial Ad Voice</span></figcaption></figure><figure class="agent" data-agent="oja" data-sel="Agent · Oja"><div class="aphone"><video src="/work-media/agents/oja.mp4" poster="/work-media/agents/oja-poster.webp" playsinline preload="none" aria-label="Oja, an AI presenter for 1ClickWebsite India"></video><button type="button" class="aplay" aria-label="Play Oja"><span></span></button><p class="aline">I'm Oja. One click, and your local business has a real website. Done before your chai cools.</p><span class="aring" aria-hidden="true"></span></div><figcaption><b>Oja</b><span class="mono">for 1ClickWebsite India</span><span class="mono acred">Face · Veo 3.1 in Google Flow<br>Voice · ElevenLabs, Vanishree, Best Casual Indian English</span></figcaption></figure><figure class="agent" data-agent="nila" data-sel="Agent · Nila"><div class="aphone"><video src="/work-media/agents/nila.mp4" poster="/work-media/agents/nila-poster.webp" playsinline preload="none" aria-label="Nila, an AI presenter for meow.wild"></video><button type="button" class="aplay" aria-label="Play Nila"><span></span></button><p class="aline">There's a website that walks you down a mountain, past eighteen wild cats. It's called meow.wild. Start at the snow.</p><span class="aring" aria-hidden="true"></span></div><figcaption><b>Nila</b><span class="mono">for meow.wild</span><span class="mono acred">Face · Veo 3.1 in Google Flow<br>Voice · ElevenLabs, Tara, Conversational and Expressive</span></figcaption></figure><figure class="agent" data-agent="aanya" data-sel="Agent · Aanya"><div class="aphone"><video src="/work-media/agents/aanya.mp4" poster="/work-media/agents/aanya-poster.webp" playsinline preload="none" aria-label="Aanya, an AI presenter for Tales of Meow"></video><button type="button" class="aplay" aria-label="Play Aanya"><span></span></button><p class="aline">One big question, one minute of film. That's Tales of Meow. Watch one tonight.</p><span class="aring" aria-hidden="true"></span></div><figcaption><b>Aanya</b><span class="mono">for Tales of Meow</span><span class="mono acred">Face · Veo 3.1 in Google Flow<br>Voice · ElevenLabs, Sreeja, Natural, Calm and Conversational</span></figcaption></figure><figure class="agent" data-agent="ved" data-sel="Agent · Ved"><div class="aphone"><video src="/work-media/agents/ved.mp4" poster="/work-media/agents/ved-poster.webp" playsinline preload="none" aria-label="Ved, an AI presenter for Meow Ops"></video><button type="button" class="aplay" aria-label="Play Ved"><span></span></button><p class="aline">My AI agents work the night shift. Meow Ops keeps the receipts. Every run, every cost, one calm inbox.</p><span class="aring" aria-hidden="true"></span></div><figcaption><b>Ved</b><span class="mono">for Meow Ops</span><span class="mono acred">Face · Veo 3.1 in Google Flow<br>Voice · ElevenLabs, Eric, Laid back, young, casual</span></figcaption></figure></div>
+  <div class="ghead" style="margin-top:46px"><h2>The cat desk</h2><span class="mono muted">3 talking cats · drawn live</span></div>
+  <div class="catrow"><div class="catdesk" data-catline="I'm Noir. I don't chase things. I wait until they come to me... and they always do."><canvas data-cat="noir" aria-hidden="true"></canvas><div class="cmeta"><b>Noir</b><button type="button" class="btn ctalk" data-cat-talk="noir">Talk <span class="arr">↗</span></button></div><p class="cline"></p><audio src="/mch-v2/assets/cat-noir.mp3" preload="none"></audio></div><div class="catdesk" data-catline="Pixel here. Eight bits, nine lives, zero bugs. Well... maybe one bug. I ate it."><canvas data-cat="pixel" aria-hidden="true"></canvas><div class="cmeta"><b>Pixel</b><button type="button" class="btn ctalk" data-cat-talk="pixel">Talk <span class="arr">↗</span></button></div><p class="cline"></p><audio src="/mch-v2/assets/cat-pixel.mp3" preload="none"></audio></div><div class="catdesk" data-catline="Hi! I'm Mochi. I'm round on purpose. More of me to love, and more of me to sit on your keyboard."><canvas data-cat="mochi" aria-hidden="true"></canvas><div class="cmeta"><b>Mochi</b><button type="button" class="btn ctalk" data-cat-talk="mochi">Talk <span class="arr">↗</span></button></div><p class="cline"></p><audio src="/mch-v2/assets/cat-mochi.mp3" preload="none"></audio></div></div>
+  <p class="note">Ink, the fourth cat, lives on the homepage. Presenters are fictional and clearly AI made; cats are original characters drawn in code.</p>
+</div></section>
 <section class="frame tight" data-frame="Experiments" id="experiments"><div class="wrap">
   <div class="ftag mono"><b>Frame</b> Experiments</div>
   <div class="head"><h2>Still curious. <em>Experiments &amp; field notes.</em></h2></div>
@@ -70,5 +107,33 @@
 </footer>
 <script type="application/json" id="zqdata">[["Now am I light, now do I fly; now do I see myself under myself. Now there danceth a God in me.", "Nietzsche, Thus Spoke Zarathustra", 66, 818], ["Even if the door were open, why should I enter immediately?", "Nietzsche, Beyond Good and Evil", 67, 818], ["Public build, private coffee. The commit history shows the real schedule.", null, 68, 818], ["Experiments, field notes and the occasional result that surprised everyone, including the notes.", null, 69, 818], ["Lift up your hearts, ye good dancers, high! higher! And do not forget the good laughter!", "Nietzsche, Thus Spoke Zarathustra", 70, 818], ["Forty concept pieces, none of which were requested and all of which were needed.", null, 71, 818], ["It is not sufficient to use the same words in order to understand one another: we must also employ the same words for the same kind of internal experiences, we must in the end have experiences IN common.", "Nietzsche, Beyond Good and Evil", 72, 818], ["Two items in, one click away, and already suspicious of the other buttons.", null, 73, 818], ["Better, however, to be foolish with happiness than foolish with misfortune, better to dance awkwardly than walk lamely.", "Nietzsche, Thus Spoke Zarathustra", 74, 818], ["Lab results may be shipped, filed or politely retired. The contact form stays open.", null, 75, 818], ["Tell us what you are curious about. Curiosity, unlike scope, costs nothing.", null, 76, 818], ["The bottom of the lab page. The experiments continue without you.", null, 77, 818], ["Made with care is why the footer takes its time.", null, 78, 818], ["Release archive: a long list of things that eventually stopped changing.", null, 79, 818], ["Elsewhere has links, links have destinations, destinations have cookie banners.", null, 80, 818]]</script>
 <script src="/mch-v2/site.js"></script>
+<script src="/mch-v2/mch-cats.js"></script>
+<script>
+(()=>{
+  // presenters: one at a time, with sound, caption while it plays
+  const figs=[...document.querySelectorAll('.agent')];
+  figs.forEach(f=>{const v=f.querySelector('video'),b=f.querySelector('.aplay');
+    const stop=()=>{f.classList.remove('on');};
+    b.addEventListener('click',()=>{figs.forEach(o=>{if(o!==f){const ov=o.querySelector('video');ov.pause();o.classList.remove('on');}});v.muted=false;v.currentTime=0;v.play().then(()=>f.classList.add('on')).catch(()=>{});});
+    v.addEventListener('click',()=>{if(!v.paused){v.pause();}});
+    v.addEventListener('pause',stop);v.addEventListener('ended',()=>{stop();v.currentTime=0;v.load();});
+  });
+  // the cat desk: three talking cats with a mouth that follows the voice
+  if(!window.MCHCats)return;
+  const desks=[...document.querySelectorAll('.catdesk')];
+  const cats=MCHCats.mount(document.querySelector('.catrow'),{theme:()=>({ink:MCH.T.ink,paper:MCH.T.paper2||MCH.T.paper})});
+  let actx;
+  desks.forEach((d,i)=>{const btn=d.querySelector('[data-cat-talk]'),au=d.querySelector('audio'),cat=cats[i],cap=d.querySelector('.cline');let an,data,on=false;
+    const tick=()=>{if(!on)return;an.getFloatTimeDomainData(data);let q=0;for(const x of data)q+=x*x;cat.mouthT=Math.min(1,Math.max(0,(Math.sqrt(q/data.length)-.012)*9));requestAnimationFrame(tick);};
+    btn.addEventListener('click',async()=>{if(on)return;desks.forEach(o=>{const a=o.querySelector('audio');if(a!==au)a.pause();});
+      try{actx=actx||new AudioContext();if(!an){const src=actx.createMediaElementSource(au);an=actx.createAnalyser();an.fftSize=1024;an.smoothingTimeConstant=.2;src.connect(an);an.connect(actx.destination);data=new Float32Array(an.fftSize);}await actx.resume();}catch(e){}
+      cap.textContent=d.dataset.catline;d.classList.add('on');cat.talking=true;cat.tap=.6;au.currentTime=0;
+      try{await au.play();on=true;tick();}catch(e){}
+      au.onended=au.onpause=()=>{on=false;cat.talking=false;cat.mouthT=0;setTimeout(()=>d.classList.remove('on'),1500);};});
+  });
+  setInterval(()=>{const c=cats[Math.floor(Math.random()*cats.length)];if(c&&c.pose==='sit'&&!c.talking&&Math.random()<.4)c.wander();},6500);
+})();
+</script>
+
 </body>
 </html>
