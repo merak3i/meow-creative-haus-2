@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="/mch-v2/site.css">
 <script>try{var t=localStorage.getItem('mch-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 <style>#inkcat{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2}
-#inkbtn{position:absolute;left:0;top:0;width:96px;height:150px;background:none;border:0;padding:0;cursor:pointer;z-index:3;border-radius:40px}
+#inkbtn{position:absolute;display:block;left:0;top:0;width:96px;height:150px;background:none;border:0;padding:0;cursor:pointer;z-index:3;border-radius:40px}
 #inkbtn:focus-visible{outline:2px solid var(--violet);outline-offset:4px}
 #inkcap{position:absolute;z-index:3;max-width:260px;margin:0;padding:10px 14px;border:1px solid var(--line);border-radius:14px;background:var(--paper);color:var(--ink);font:500 14px/1.4 var(--body);opacity:0;transform:translateY(6px);transition:opacity .35s,transform .35s;pointer-events:none}
 #inkcap.on{opacity:1;transform:none}
@@ -76,9 +76,8 @@
   <div class="stage">
     <canvas id="scene" aria-hidden="true"></canvas>
     <canvas id="inkcat" aria-hidden="true"></canvas>
-    <button type="button" id="inkbtn" aria-label="Ink, the studio cat. Tap to hear Ink."></button>
+    <a id="inkbtn" href="https://meow-wild.vercel.app/" target="_blank" rel="noopener" aria-label="Ink, the studio cat. Opens meow.wild, a walk down a mountain past eighteen wild cats, in a new tab"></a>
     <p id="inkcap" aria-live="polite"></p>
-    <audio id="inkvoice" src="/mch-v2/assets/ink-hero.mp3" preload="none"></audio>
     <div class="hcopy">
       <div class="mono eyebrow">Meow Creative Haus · Studio</div>
       <h1>Digital products <em>&amp;</em> media.</h1>
@@ -226,8 +225,7 @@
 (()=>{
   const cv=document.getElementById('inkcat');if(!cv||!window.MCHCats||innerWidth<760)return;
   cv.dataset.cat='ink';
-  const LINE='Become who you are, they said. So I became a scribble with opinions. Scroll on. I\u2019ll be here, redrawing myself.';
-  const btn=document.getElementById('inkbtn'),cap=document.getElementById('inkcap'),voice=document.getElementById('inkvoice');
+    const btn=document.getElementById('inkbtn'),cap=document.getElementById('inkcap');
   const [ink]=MCHCats.mount(cv.parentElement,{
     theme:()=>({ink:MCH.T.ink||'#ddd2ee',paper:MCH.T.paper||'#0f0e14'}),
     place:()=>{const B=MCH.heroBox;if(!B)return{x0:0,x1:1,y:-999,scale:.5};const sc=Math.max(.5,Math.min(.78,B.h/700));const room=B.y-200*sc>84;return{x0:B.x+B.w*.58,x1:B.x+B.w*.9,y:room?B.y+13:B.y+B.h-6,scale:sc};}
@@ -238,20 +236,15 @@
   const place=()=>{const s=ink.scale(),a=ink.anchor;btn.style.transform=`translate(${a.x-48}px,${a.y-150*s/.55}px)`;btn.style.height=(150*s/.55)+'px';
     cap.style.left=Math.max(12,a.x-280)+'px';cap.style.top=Math.max(80,a.y-(ink.k.sit.h+ink.k.sit.head*2.2)*s-40)+'px';show();requestAnimationFrame(place);};
   requestAnimationFrame(place);
-  let actx,an,data,talking=false;
-  function mouth(){if(!talking)return;an.getFloatTimeDomainData(data);let q=0;for(const v of data)q+=v*v;ink.mouthT=Math.min(1,Math.max(0,(Math.sqrt(q/data.length)-.012)*9));requestAnimationFrame(mouth);}
-  async function speak(){
-    if(talking)return;ink.poke();
-    try{actx=actx||new AudioContext();if(!an){const src=actx.createMediaElementSource(voice);an=actx.createAnalyser();an.fftSize=1024;an.smoothingTimeConstant=.2;src.connect(an);an.connect(actx.destination);data=new Float32Array(an.fftSize);}await actx.resume();}catch(e){}
-    const bg=[...document.querySelectorAll('audio')].find(a=>a!==voice&&!a.paused);const vol=bg?bg.volume:1;if(bg)bg.volume=vol*.3;
-    cap.innerHTML='<b>Ink</b>'+LINE;cap.classList.add('on');talking=true;ink.talking=true;
-    voice.currentTime=0;try{await voice.play();mouth();}catch(e){talking=false;}
-    const done=()=>{talking=false;ink.talking=false;ink.mouthT=0;if(bg)bg.volume=vol;setTimeout(()=>cap.classList.remove('on'),1800);};
-    voice.onended=done;if(!talking)done();
-  }
-  btn.addEventListener('click',speak);
+  // Ink is the way into meow.wild: hover for the invitation, click to follow him down the mountain
+  const LINE='Follow me down. Eighteen wild cats, from 5,500 m to the sea. meow.wild \u2197';
+  const hi=()=>{cap.innerHTML='<b>Ink</b>'+LINE;cap.classList.add('on');ink.earL=ink.earR=1;ink.lookT.y=-.4;};
+  const bye=()=>cap.classList.remove('on');
+  btn.addEventListener('pointerenter',hi);btn.addEventListener('focus',hi);
+  btn.addEventListener('pointerleave',bye);btn.addEventListener('blur',bye);
+  btn.addEventListener('click',()=>{ink.poke();ink.walkTo(ink.x>.5?.15:.85);setTimeout(bye,1200);});
   // every so often Ink gets up and paces the frame
-  setInterval(()=>{if(!talking&&ink.pose==='sit'&&!document.hidden&&Math.random()<.45)ink.walkTo(ink.x>.5?.15+Math.random()*.2:.7+Math.random()*.25);},7000);
+  setInterval(()=>{if(ink.pose==='sit'&&!document.hidden&&Math.random()<.45)ink.walkTo(ink.x>.5?.15+Math.random()*.2:.7+Math.random()*.25);},7000);
 })();
 </script>
 <script>

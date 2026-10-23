@@ -2,6 +2,7 @@
 
 ## 2026-10-23
 
+- Homepage: Ink is now the way into meow.wild. Hover (or focus) shows his invitation, a click opens meow-wild.vercel.app in a new tab. His spoken line on tap is retired.
 - Lab agents are now talking cats: Heer (Bengal, Meow Creative Haus), Oja (calico, 1ClickWebsite India), Nila (Norwegian Forest cat, meow.wild), Aanya (Siamese, Tales of Meow) and Ved (Maine Coon, Meow Ops). Filmed whole in Google Flow with Veo 3.1, then voiced with the same ElevenLabs voices as before (Sia, Vanishree, Tara, Sreeja, Eric) through the voice changer, so timing and lip sync hold. Lines checked word by word with Whisper; Veo mark cropped; each clip ends on a blink or a turn and fades out after the last word.
 - One studio cat per page. The cat desk left the Lab; Ink keeps the homepage, and every other page (37) gets one cat along the bottom edge, loaded by `site.js` from `/mch-v2/mch-roam.js`, each with its own habit: Noir patrols end to end and stops to stare when you come close (Work and others), Pixel stalks the cursor, crouches, wiggles and pounces (Lab and others), Mochi naps in a loaf, yawns awake when you get near and dozes off again (Services and others), Mishri hides under the edge, peeks up when you stop scrolling and ducks when you move (Journal and others). Tap any cat to hear it, lip-synced; a caption shows the line.
 - New cat: Mishri, white and long-haired with one blue eye and one amber, voiced by ElevenLabs Lily. The rig (`mch-cats.js` v2.1) adds a loaf pose, a pre-pounce crouch, a run speed and paws hooked over an edge.
