@@ -499,3 +499,10 @@ html.theming,html.theming *,html.theming *::before,html.theming *::after{transit
 #tools .orb-list li span{color:var(--ink2);font-size:13px}
 @media (max-width:980px){#tools .orb-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:640px){#tools .orb-stage{height:auto;aspect-ratio:3/4.15}#tools .orb-list{grid-template-columns:1fr}#tools .orb-name b{font-size:16px}}
+.brand-pair{display:flex;align-items:center;gap:32px;flex-wrap:wrap;margin:24px 0}
+.brand-pair a{display:flex;align-items:center;justify-content:center;background:#fff;border-radius:12px;width:190px;height:130px;padding:16px}
+.brand-pair img{width:100%;height:100%;object-fit:contain}
+.sauce-films figure{margin:0;min-width:0}
+.sauce-films video{display:block;width:100%;height:360px;object-fit:contain;background:#0f0e14;border:1px solid var(--line);border-radius:4px}
+.sauce-films h3{margin-top:14px}
+.frame.tight.showcase-top{padding-top:clamp(120px,12vw,180px)}

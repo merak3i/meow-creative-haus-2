@@ -5,7 +5,7 @@
      Pixel   stalks your cursor, wiggles, pounces
      Mochi   naps in a loaf, wakes with a yawn when you get near, dozes off again
      Mishri  hides below the edge, peeks up when you stop scrolling, ducks when you move
-   Tap a cat to hear it talk (lip-synced). Needs mch-cats.js. */
+   Follow a cat to meow.wild. Needs mch-cats.js. */
 (function () {
   'use strict';
   if (!window.MCHCats || window.__mchRoam) return;
@@ -40,10 +40,9 @@
 @media print{#roamcat,#roambtn,#roamcap,#roamzz{display:none}}`;
   document.head.appendChild(css);
   const cv = document.createElement('canvas'); cv.id = 'roamcat'; cv.setAttribute('aria-hidden', 'true');
-  const btn = document.createElement('button'); btn.id = 'roambtn'; btn.type = 'button'; btn.setAttribute('aria-label', `${who.name}, the studio cat. Tap to hear ${who.name} talk`);
+  const btn = document.createElement('a'); btn.id = 'roambtn'; btn.href = 'https://meow-wild.vercel.app/'; btn.target = '_blank'; btn.rel = 'noopener'; btn.setAttribute('aria-label', `${who.name}, the studio cat. Visit meow.wild in a new tab`);
   const cap = document.createElement('p'); cap.id = 'roamcap'; cap.setAttribute('aria-live', 'polite');
   const zz = document.createElement('span'); zz.id = 'roamzz'; zz.textContent = 'z z z';
-  const au = new Audio(); au.preload = 'none'; au.src = who.audio;
   document.body.append(cv, btn, cap, zz);
 
   const phone = () => innerWidth < 700;
@@ -64,22 +63,12 @@
   const cat = new MCHCats.Cat(cv, id, { place, shadow: who.habit !== 'peek', range: [0.02, 0.98] });
   const reduced = cat.reduced;
 
-  // ---- talking, lip-synced
-  let actx, an, data, talking = false;
-  function mouth() { if (!talking) return; an.getFloatTimeDomainData(data); let q = 0; for (const v of data) q += v * v; cat.mouthT = Math.min(1, Math.max(0, (Math.sqrt(q / data.length) - 0.012) * 9)); requestAnimationFrame(mouth); }
-  async function talk() {
-    if (talking) { au.pause(); done(); return; }
-    wake(); cat.poke(); cat.bubble = 0;
-    try { actx = actx || new AudioContext(); if (!an) { const src = actx.createMediaElementSource(au); an = actx.createAnalyser(); an.fftSize = 1024; an.smoothingTimeConstant = 0.2; src.connect(an); an.connect(actx.destination); data = new Float32Array(an.fftSize); } await actx.resume(); } catch (e) { /* plays without lip sync */ }
-    const bg = [...document.querySelectorAll('audio')].find((a) => !a.paused); bgVol = bg ? bg.volume : 1; bgEl = bg; if (bg) bg.volume = bgVol * 0.3;
-    cap.innerHTML = `<b>${who.name}</b>${who.line}`; cap.classList.add('on');
-    talking = true; cat.talking = true; au.currentTime = 0;
-    try { await au.play(); if (an) mouth(); } catch (e) { setTimeout(done, 3500); }
-  }
-  let bgVol = 1, bgEl = null;
-  function done() { talking = false; cat.talking = false; cat.mouthT = 0; if (bgEl) bgEl.volume = bgVol; bgEl = null; setTimeout(() => { if (!talking) cap.classList.remove('on'); }, 1600); }
-  au.addEventListener('ended', done);
-  btn.addEventListener('click', talk);
+  const showInvite = () => { cap.textContent = `Follow ${who.name} to meow.wild ↗`; cap.classList.add('on'); };
+  const hideInvite = () => cap.classList.remove('on');
+  btn.addEventListener('pointerenter', showInvite);
+  btn.addEventListener('pointerleave', hideInvite);
+  btn.addEventListener('focus', showInvite);
+  btn.addEventListener('blur', hideInvite);
 
   // ---- what the page is doing
   let mx = -1e4, my = -1e4, lastMove = 0, lastScroll = 0, scrollV = 0, lastY = scrollY;
@@ -91,10 +80,8 @@
 
   // ---- habits
   let mode = 'idle', until = 0, sleepAt = 0, caught = -1;
-  function wake() { if (who.habit === 'nap' && cat.loaf > 0.5) { mode = 'yawn'; until = performance.now() + 1100; } if (who.habit === 'peek') { mode = 'up'; until = performance.now() + 6000; } }
   const H = {
     patrol(now) { // end to end, a stop to stare whenever you come close
-      if (talking) { cat.pose = 'sit'; cat.goal = null; return; }
       if (near(170) && mode !== 'stare') { mode = 'stare'; cat.goal = null; cat.pose = 'sit'; until = now + 2600; cat.earL = cat.earR = 1; }
       if (mode === 'stare') { if (now > until && !near(170)) mode = 'idle'; return; }
       if (cat.pose === 'sit' && now > until) {
@@ -104,7 +91,6 @@
       if (scrollV > 60 && cat.pose === 'walk') { cat.goal = null; cat.pose = 'sit'; until = now + 1800; scrollV = 0; } // a big scroll startles him into sitting
     },
     stalk(now) { // tracks the cursor along the edge, crouches, wiggles, pounces
-      if (talking) { cat.crouch = Math.max(0, cat.crouch - 0.05); cat.pose = 'sit'; cat.goal = null; return; }
       const fx = xFrac(mx), active = now - lastMove < 9000 && mx > -1e3;
       if (mode === 'crouch') {
         cat.crouch = Math.min(1, cat.crouch + 0.06);
@@ -122,10 +108,10 @@
       const target = mode === 'sleep' ? 1 : 0;
       cat.loaf += (target - cat.loaf) * 0.04;
       if (mode === 'idle') { mode = 'sleep'; cat.x = 0.04; }
-      if (mode === 'sleep') { if (near(150) || talking) { mode = 'yawn'; until = now + 1100; } }
-      else if (mode === 'yawn') { cat.mouthT = talking ? cat.mouthT : 0.85; cat.squint = 1; if (now > until) { cat.mouthT = 0; cat.squint = 0; mode = 'awake'; sleepAt = now + 6000; } }
+      if (mode === 'sleep') { if (near(150)) { mode = 'yawn'; until = now + 1100; } }
+      else if (mode === 'yawn') { cat.mouthT = 0.85; cat.squint = 1; if (now > until) { cat.mouthT = 0; cat.squint = 0; mode = 'awake'; sleepAt = now + 6000; } }
       else if (mode === 'awake') {
-        if (near(150) || talking) sleepAt = now + 6000;
+        if (near(150)) sleepAt = now + 6000;
         if (now > sleepAt && cat.pose === 'sit') {
           if (Math.random() < 0.4) { cat.walkTo(Math.random() * 0.9); mode = 'wander'; } else mode = 'sleep';
         }
@@ -137,8 +123,8 @@
       const still = now - lastScroll > 1400;
       if (mode === 'idle' && still && now > until) { mode = 'up'; cat.x = 0.12 + Math.random() * 0.76; until = now + 7000 + Math.random() * 6000; }
       if (mode === 'up') {
-        if (!still && !talking) { mode = 'idle'; until = now + 900; }
-        else if (now > until && !talking && !near(160)) { mode = 'idle'; until = now + 5000 + Math.random() * 6000; }
+        if (!still) { mode = 'idle'; until = now + 900; }
+        else if (now > until && !near(160)) { mode = 'idle'; until = now + 5000 + Math.random() * 6000; }
       }
       const want = mode === 'up' ? 1 : 0;
       peekY += (want - peekY) * (want ? 0.06 : 0.22);
