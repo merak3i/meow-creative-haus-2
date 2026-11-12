@@ -53,6 +53,7 @@ $$('[data-copy]').forEach(b=>b.addEventListener('click',()=>{const t=b.dataset.c
 /* work filters */
 const fbar=$('#filters');
 if(fbar){const cards=$$('.wcard[data-disc]'),cnt=$('#wcount');
+  $$('#filters button').forEach(b=>{const count=b.querySelector('span');if(count)count.textContent=cards.filter(c=>b.dataset.f==='all'||c.dataset.disc.split('|').includes(b.dataset.f)).length;});
   const apply=d=>{let n=0;cards.forEach(c=>{const on=d==='all'||c.dataset.disc.split('|').includes(d);c.hidden=!on;if(on)n++;});
     $$('#filters button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.f===d));if(cnt)cnt.textContent=n+(n===1?' project':' projects');};
   fbar.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;apply(b.dataset.f);});
