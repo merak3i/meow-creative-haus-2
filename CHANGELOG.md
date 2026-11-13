@@ -76,6 +76,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- `public/mch-v2/assets/vismay-gq-portrait.webp` and `public/mch-v2/index.html`: replaced the live homepage founder photo with an upscaled editorial retouch while preserving the page's existing caption and layout.
 - `components/LabPage.tsx`: Meow Ops 1.2.0 inbox cut: Today, Review, Ledger, Sanctum, Learn, focus timer chip, local article on sales loops that wait for a human.
 - `components/ShipLog.tsx`: public v1.2.0 ship note for the inbox cut (2026-08-31).
 - `public/screenshots/loom/*`: replaced with live 1.2.0 captures of the five surfaces.
